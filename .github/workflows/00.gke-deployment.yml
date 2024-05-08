@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -39,20 +39,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Prepare dotenv
         run: rm -rf .env && mv $DOT_ENV_FILE_NAME .env
-      - name: Install Yarn
-        run: npm install yarn -g
-      - name: Install Packages
-        run: yarn
-      - name: Build page
-        run: yarn build
-      - name: Grant execute permission for nginx
-        run: chmod +x ./deploy/*
-      - name: Create nginx folder
-        run: mkdir ./nginx && mkdir ./nginx/conf.d
-      - name: Generate default nginx configuration file setting
-        run: ./deploy/nginx.default.conf.sh "$INGRESS_IP" > ./nginx/conf.d/default.conf
-      - name: Generate nginx configuration file setting
-        run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
+      # - name: Install Yarn
+      #   run: npm install yarn -g
+      # - name: Install Packages
+      #   run: yarn
+      # - name: Build page
+      #   run: yarn build
+      # - name: Grant execute permission for nginx
+      #   run: chmod +x ./deploy/*
+      # - name: Create nginx folder
+      #   run: mkdir ./nginx && mkdir ./nginx/conf.d
+      # - name: Generate default nginx configuration file setting
+      #   run: ./deploy/nginx.default.conf.sh "$INGRESS_IP" > ./nginx/conf.d/default.conf
+      # - name: Generate nginx configuration file setting
+      #   run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
 
       # Build 
       - name: Build image
