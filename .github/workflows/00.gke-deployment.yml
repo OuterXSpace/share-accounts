@@ -1,0 +1,67 @@
+name: 00.gke-deployment
+on:
+  workflow_call:
+    inputs:
+      DEPLOYMENT_NAME:
+        required: true
+        type: string
+      IMAGE:
+        required: true
+        type: string
+      INGRESS_IP:
+        required: true
+        type: string
+      DOT_ENV_FILE_NAME:
+        required: true
+        type: string
+env:
+  DEPLOYMENT_NAME: ${{ inputs.DEPLOYMENT_NAME }}
+  IMAGE: ${{ inputs.IMAGE }}
+  INGRESS_IP: ${{ inputs.INGRESS_IP }}
+  DOT_ENV_FILE_NAME: ${{ inputs.DOT_ENV_FILE_NAME }}
+  EMAIL_DOCKER_HUB: lgold141@gmail.com
+  PASSWORD_DOCKER_HUB: BWKk9q9B@Cm7!$M
+  USERNAME_DOCKER_HUB: warjamma
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Prepare dotenv
+        run: rm -rf .env && mv $DOT_ENV_FILE_NAME .env
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Packages
+        run: yarn
+      - name: Build page
+        run: yarn build
+      - name: Grant execute permission for nginx
+        run: chmod +x ./deploy/*
+      - name: Create nginx folder
+        run: mkdir ./nginx && mkdir ./nginx/conf.d
+      - name: Generate default nginx configuration file setting
+        run: ./deploy/nginx.default.conf.sh "$INGRESS_IP" > ./nginx/conf.d/default.conf
+      - name: Generate nginx configuration file setting
+        run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
+
+      # Build 
+      - name: Build image
+        run: |-
+          docker build -t "$IMAGE" .
+      - name: Login docker
+        run: docker login -u" $EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
+      - name: Publish to Docker
+        run: |-
+          docker tag $IMAGE:latest $USERNAME_DOCKER_HUB/$IMAGE:latest
+          docker push $USERNAME_DOCKER_HUB/$IMAGE:latest  
+      

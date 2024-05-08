@@ -1,0 +1,32 @@
+name: 01.deploy-develop
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmDeployment:
+        description: 'Confirm Deployment'
+        required: true
+env:
+  SERVER_IP: "20.39.199.15:3000"
+  SERVER_USER: "ubuntu"
+  IMAGE: client-app-dev
+  USERNAME_DOCKER_HUB: warjamma
+
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      - name: Deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
+            sudo docker kill \"$IMAGE\"
+            sudo docker rm \"$IMAGE\"
+            sudo docker pull $USERNAME_DOCKER_HUB/$IMAGE:latest
+            sudo docker run -d -p 4000:80 --name \"$IMAGE\" $USERNAME_DOCKER_HUB/$IMAGE:latest
+          "

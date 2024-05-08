@@ -1,0 +1,33 @@
+name: 01.build-develop
+on:
+  workflow_dispatch:
+    inputs:
+      confirmDeployment:
+        description: 'Confirm Deployment'
+        required: true
+env:
+  DEPLOYMENT_NAME: client-app
+  IMAGE: client-app-dev
+  INGRESS_IP: 20.39.199.15:3000
+  DOT_ENV_FILE_NAME: .env.develop
+jobs:
+  variables:
+    name: setup variable
+    runs-on: ubuntu-latest
+    outputs:
+      DEPLOYMENT_NAME: ${{ env.DEPLOYMENT_NAME }}
+      IMAGE: ${{ env.IMAGE }}
+      INGRESS_IP: ${{ env.INGRESS_IP }}
+      DOT_ENV_FILE_NAME: ${{ env.DOT_ENV_FILE_NAME }}
+    steps:
+      - name: Echo
+        run: echo prepare variable
+  client-app:
+    needs: variables
+    name: deploy client-app
+    uses: ./.github/workflows/00.gke-deployment.yml
+    with:
+      DEPLOYMENT_NAME: ${{ needs.variables.outputs.DEPLOYMENT_NAME }}
+      IMAGE: ${{ needs.variables.outputs.IMAGE }}
+      INGRESS_IP: ${{ needs.variables.outputs.INGRESS_IP }}
+      DOT_ENV_FILE_NAME: ${{ needs.variables.outputs.DOT_ENV_FILE_NAME }}
