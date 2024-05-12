@@ -1,2 +1,2 @@
-export * from './pagination-trip-footer.type';
-export * from './pagination-trip-footer.component';
+export * from './pagination-trip-footer-v1.type';
+export * from './pagination-trip-footer-v1.component';

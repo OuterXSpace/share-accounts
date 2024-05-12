@@ -3,11 +3,13 @@ import i18next, { i18n, StringMap, TOptions } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from '../local-storage';
-import { LanguageModel } from './lang.type';
-
-export const LOCAL_LANG_KEY = 'language';
+import { ILangResource } from './language.type';
 
 export type Language = 'vi' | 'en' | 'zh' | 'zh-tw' | 'th' | 'id' | 'khm' | 'prt' | 'ko' | 'jp';
+
+export type LanguageModel = {
+  [x in Language]: string;
+};
 
 export const Languages: LanguageModel = {
   vi: 'Tiếng Việt',
@@ -22,9 +24,7 @@ export const Languages: LanguageModel = {
   jp: '日本',
 };
 
-export interface ILangResource {
-  [x: string]: any;
-}
+export const LOCAL_LANG_KEY = 'language';
 
 // TODO: Task-01: implement cache
 

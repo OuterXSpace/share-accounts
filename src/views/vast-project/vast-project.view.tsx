@@ -1,5 +1,4 @@
-import { ArrowRight } from "@/svg/arrow-right.svg";
-import React from "react";
+import React from 'react';
 
 export const VastProject: React.FC = () => {
   return (
@@ -14,14 +13,12 @@ export const VastProject: React.FC = () => {
             <img src="/assets/last_project_1.jpg" alt="Project11" />
           </div>
           <div className="w-full md:w-8/12 flex justify-between items-end pb-2 border-b-[1px] border-[#D6D6D6]">
-            <h6 className="text-base uppercase text-[#979898] font-semibold">
-              Design
-            </h6>
+            <h6 className="text-base uppercase text-[#979898] font-semibold">Design</h6>
             <p className="text-base font-bold">2022</p>
           </div>
           <div className="flex gap-4 items-center">
             <h5 className="text-[26px] leading-none">Zenta House</h5>
-            <ArrowRight />
+            {/* <ArrowRight /> */}
           </div>
         </div>
 
@@ -30,14 +27,12 @@ export const VastProject: React.FC = () => {
             <img src="/assets/last_project_2.jpg" alt="Project11" />
           </div>
           <div className="w-full md:w-8/12 flex justify-between items-end pb-2 border-b-[1px] border-[#D6D6D6]">
-            <h6 className="text-base uppercase text-[#979898] font-semibold">
-              Design
-            </h6>
+            <h6 className="text-base uppercase text-[#979898] font-semibold">Design</h6>
             <p className="text-base font-bold">2023</p>
           </div>
           <div className="flex gap-4 items-center">
             <h5 className="text-[26px] leading-none">Zenta Villa</h5>
-            <ArrowRight />
+            {/* <ArrowRight /> */}
           </div>
         </div>
 
@@ -46,14 +41,12 @@ export const VastProject: React.FC = () => {
             <img src="/assets/last_project_2.jpg" alt="Project11" />
           </div>
           <div className="w-full md:w-8/12 flex justify-between items-end pb-2 border-b-[1px] border-[#D6D6D6]">
-            <h6 className="text-base uppercase text-[#979898] font-semibold">
-              Design
-            </h6>
+            <h6 className="text-base uppercase text-[#979898] font-semibold">Design</h6>
             <p className="text-base font-bold">2023</p>
           </div>
           <div className="flex gap-4 items-center">
             <h5 className="text-[26px] leading-none">Zenta Villa</h5>
-            <ArrowRight />
+            {/* <ArrowRight /> */}
           </div>
         </div>
 
@@ -62,14 +55,12 @@ export const VastProject: React.FC = () => {
             <img src="/assets/last_project_2.jpg" alt="Project11" />
           </div>
           <div className="w-full md:w-8/12 flex justify-between items-end pb-2 border-b-[1px] border-[#D6D6D6]">
-            <h6 className="text-base uppercase text-[#979898] font-semibold">
-              Design
-            </h6>
+            <h6 className="text-base uppercase text-[#979898] font-semibold">Design</h6>
             <p className="text-base font-bold">2023</p>
           </div>
           <div className="flex gap-4 items-center">
             <h5 className="text-[26px] leading-none">Zenta Villa</h5>
-            <ArrowRight />
+            {/* <ArrowRight /> */}
           </div>
         </div>
       </div>

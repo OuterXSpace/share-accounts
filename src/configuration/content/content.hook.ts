@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { API } from '../../api';
+import { API_UI_CONFIG_BASE_URL } from '../../constants/configuration.constant';
 import { Language, useCurrentLanguage } from '../language';
-import { API_UI_CONFIG_BASE_URL } from '@/constants/configuration.constant';
 
 /** @deprecated use **useUiContent** instead */
 export const useContentConfig = <T = any>(lang: Language | undefined | null, uiConfigId: string) => {
@@ -17,7 +17,7 @@ export const useContentConfig = <T = any>(lang: Language | undefined | null, uiC
     }
     loading.current = true;
 
-    API.get(`${API_UI_CONFIG_BASE_URL}/${language}/${uiConfigId}`)
+    API.get(`${API_UI_CONFIG_BASE_URL}/${language}?section=${uiConfigId}`)
       .then((response) => {
         if (response.data) {
           setContentData(response.data);

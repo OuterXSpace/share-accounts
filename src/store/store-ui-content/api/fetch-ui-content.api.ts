@@ -1,8 +1,8 @@
-import { API_UI_CONFIG_BASE_URL } from '@/constants/configuration.constant';
 import { API } from '../../../api';
 import { Language } from '../../../configuration/language';
 import { LocalStorageService } from '../../../configuration/local-storage';
 import { CONFIGURATION } from '../../../constants';
+import { API_UI_CONFIG_BASE_URL } from '../../../constants/configuration.constant';
 
 type TLocalUIContentVersion = {
   [key: string]: number;
@@ -16,7 +16,7 @@ export function fetchUiContentApi<T>(params: { language?: Language; contentId: s
       LocalStorageService.getItem(CONFIGURATION.UI_CONTENT_VERSIONS_LS_KEY, false) || undefined;
 
     const uiContentCurrentVersion = localVersion?.[contentId] || 0;
-    API.get<T>(`${API_UI_CONFIG_BASE_URL}/${language}/${contentId}`, {
+    API.get<T>(`${API_UI_CONFIG_BASE_URL}/${language}?section=${contentId}`, {
       headers: {
         version: uiContentCurrentVersion.toString(),
       },

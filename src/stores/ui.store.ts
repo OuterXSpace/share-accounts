@@ -1,4 +1,4 @@
-import { observable, action, makeObservable } from "mobx";
+import { observable, action, makeObservable } from 'mobx';
 
 class UIStore {
   isOpenNavbar: boolean = false;

@@ -1,2 +1,2 @@
-export * from "./pop-up-footer-statement.type";
-export * from "./pop-up-footer-statement.view";
+export * from './pop-up-footer-statement.type';
+export * from './pop-up-footer-statement.view';

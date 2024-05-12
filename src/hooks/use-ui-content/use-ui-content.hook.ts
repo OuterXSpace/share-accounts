@@ -1,7 +1,7 @@
 import { useObserver } from 'mobx-react';
 import { useEffect } from 'react';
-import { Language, useCurrentLanguage } from '../../configuration/language';
 import { UIContentStore, CoreLoadingStore } from '../../store';
+import { Language, useCurrentLanguage } from '../../configuration/language';
 
 export const useUIContent = <T>(
   contentId: string | undefined,

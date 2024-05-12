@@ -1,6 +1,6 @@
 import { observable } from 'mobx';
-import { createStore } from 'satcheljs';
 import { ICommonMessageStore } from './common-message.type';
+import { createStore } from '../../create-store';
 
 const initStore: ICommonMessageStore = {
   error: observable.box(undefined),

@@ -1,4 +1,4 @@
-import { createStore } from 'satcheljs';
+import { createStore } from '../../create-store';
 import { ILoadingStore } from './loading.type';
 import { observable } from 'mobx';
 

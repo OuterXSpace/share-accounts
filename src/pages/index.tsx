@@ -1,100 +1,66 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Fragment, useEffect, useRef } from "react";
-import Head from "next/head";
-import { DrawerNav } from "@/components/drawer-nav/drawer-nav.component";
-import { BriefIntro } from "@/components/brief-intro/brief-intro.component";
-import { NavBar } from "@/components/nav-bar/nav-bar.component";
-import { CarouselHeader } from "@/components/carousel-header/carousel-header.component";
-import { ServiceHome } from "@/views/service-home/service-home.view";
-import { SelectedProject } from "@/views/selected-project/selected-project.view";
-import { Testimonial } from "@/views/testimonial/testimonial.view";
-import { BreakLine } from "@/components/break-line/break-line.component";
-import { ContactForm } from "@/views/contact-form/contact-form.view";
-import { Footer } from "@/views";
-import { useWindowDimensions } from "@/hooks/use-window-dimention";
-import { VastProject } from "@/views/vast-project/vast-project.view";
-import ButtonExploreAll from "@/components/button-explore-all/button-explore-all.component";
-import { OurClients } from "@/views/our-clients/our-clients.view";
+import React, { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import { observer } from 'mobx-react';
+import { DrawerNavV1, NavBarV1, BriefIntroV1, CarouselHeaderV1, BreakLineV1, ButtonExploreAllV1 } from '../components';
+import { useWindowDimensions } from '../hooks';
+import { ContactForm } from '../views/contact-form/contact-form.view';
+import { OurClients } from '../views/our-clients/our-clients.view';
+import { SelectedProject } from '../views/selected-project/selected-project.view';
+import { ServiceHome } from '../views/service-home/service-home.view';
+import { Testimonial } from '../views/testimonial/testimonial.view';
+import { VastProject } from '../views/vast-project/vast-project.view';
 
-export default function Home() {
+const Home = observer((props: { systemConfig: Record<string, any> }) => {
+  const { systemConfig } = props;
+
   const { width: widthScreen } = useWindowDimensions();
-  const initialWidthRef = useRef("100%"); // Default value for initialWidth
-  const initialPaddingRightRef = useRef("5%"); // Default value for initialPaddingRight
+
+  const initialWidthRef = useRef('100%');
+
+  const initialPaddingRightRef = useRef('5%');
 
   useEffect(() => {
-    // Update initialWidth and initialPaddingRight based on actual scroll position
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      initialWidthRef.current =
-        widthScreen > 768 && scrollY <= 792 ? "41.6666666667%" : "100%";
-      initialPaddingRightRef.current =
-        scrollY > 792 && widthScreen > 768 ? "8%" : "5%";
+      const { scrollY } = window;
+      initialWidthRef.current = widthScreen > 768 && scrollY <= 792 ? '41.6666666667%' : '100%';
+      initialPaddingRightRef.current = scrollY > 792 && widthScreen > 768 ? '8%' : '5%';
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [widthScreen]);
 
   return (
-    <Fragment>
+    <>
       <Head>
-        <meta
-          property="og:title"
-          content="DQH Architectures - Ngôi nhà ước mơ"
-        />
-
+        <meta property="og:title" content="DQH Architectures - Ngôi nhà ước mơ" />
         <meta property="og:url" content="https://dqharchitects.vn/" />
         <meta property="og:image" />
         <title>DQH Architectures</title>
       </Head>
       <section className="w-full flex flex-wrap">
-        <DrawerNav />
-
+        <DrawerNavV1 navItems={systemConfig?.rootLayout?.menu} />
         <div className="w-full md:w-5/12">
-          <NavBar
-            initialWidth={initialWidthRef}
-            initialPaddingRight={initialPaddingRightRef}
-          />
-          {/* Pass props to NavBar */}
-          <BriefIntro />
+          <NavBarV1 initialWidth={initialWidthRef} initialPaddingRight={initialPaddingRightRef} />
+          <BriefIntroV1 />
         </div>
-
-        {/* 
-
-        <FormattedMessage id="page.home.title"
-          values={{ b: (info) => <b>{info}</b> }}
-        />
-
-        <br />
-
-        <FormattedMessage id="page.home.description" /> */}
-
         <div className="w-full md:w-7/12 bg-white h-auto md:h-full">
-          <CarouselHeader />
+          <CarouselHeaderV1 />
         </div>
       </section>
-
       <ServiceHome />
-
       <OurClients />
-
       <SelectedProject />
-
       <VastProject />
-
-      <ButtonExploreAll />
-
+      <ButtonExploreAllV1 />
       <Testimonial />
-
-      <BreakLine />
-
+      <BreakLineV1 />
       <ContactForm />
-
-      <BreakLine />
-
-      <Footer />
-    </Fragment>
+      <BreakLineV1 />
+    </>
   );
-}
+});
+
+export default Home;

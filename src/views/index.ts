@@ -1,3 +1,3 @@
-export * from "./footer";
-export * from "./pop-up-footer-statement";
+export * from './footer';
+export * from './pop-up-footer-statement';
 // EXPORTS

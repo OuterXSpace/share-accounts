@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { ApiError } from '.';
 import { PUBLIC_API_ENDPOINT } from '../constants/platform';
+import { ApiError } from './Api.type';
 
 const API = axios.create({
   baseURL: `${PUBLIC_API_ENDPOINT}`,
@@ -65,7 +65,7 @@ API.interceptors.request.use(
       }
     } catch (error) {
       // no handle
-      console.error('Axios request error:', error);
+      // console.error('Axios request error:', error);
     }
 
     return serializerConfig;

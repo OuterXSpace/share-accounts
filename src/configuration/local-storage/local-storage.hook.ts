@@ -1,4 +1,4 @@
-import { LocalStorageService } from '.';
+import { LocalStorageService } from './local-storage.service';
 
 export const useLocalStorage = (): {
   getLocalStorageItem: (key: string) => any;

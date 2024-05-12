@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -29,7 +29,6 @@
   font-size: 1rem;
 }
 
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +45,6 @@ code {
   align-items: center;
   padding: 1rem;
   background: rgba(227, 227, 227, 0.7);
-
 }
 
 .loading__overlay {
@@ -112,7 +110,6 @@ code {
   }
 }
 
-
 /* Override selected slider */
 .carousel-selected-project .carousel.carousel-slider {
   overflow: visible !important;
@@ -144,7 +141,6 @@ code {
 }
 
 @media only screen and (max-width: 767px) {
-
   .carousel-selected-project .carousel .control-dots,
   .carousel-selected-project .carousel .carousel-status {
     display: none !important;

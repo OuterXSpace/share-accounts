@@ -4,8 +4,8 @@ import { versionSelector } from '../selectors';
 import { updateErrorAction } from '../mutator-actions';
 import { CoreLoadingStore } from '../../store-loading';
 import { API } from '../../../api';
+import { API_UI_CONFIG_BASE_URL } from '../../../constants/configuration.constant';
 import { LangService } from '../../../configuration/language';
-import { API_UI_CONFIG_BASE_URL } from '@/constants/configuration.constant';
 
 const isFetchedSet = new Set();
 
@@ -20,7 +20,7 @@ orchestrator(fetchContentAction, async ({ contentId, language, force }) => {
     let _language = language;
     if (!_language) _language = LangService.instance().getLangFromLocalStorage() ?? LangService.instance().defaultLang;
     const version = force ? '0' : versionSelector(contentId).toString();
-    const response = await API.get(`${API_UI_CONFIG_BASE_URL}/${_language}/${contentId}`, {
+    const response = await API.get(`${API_UI_CONFIG_BASE_URL}/${_language}?section=${contentId}`, {
       headers: {
         version,
       },

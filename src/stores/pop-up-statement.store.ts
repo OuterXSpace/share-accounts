@@ -1,5 +1,5 @@
-import { observable, action, makeObservable } from "mobx";
-import Cookies from "js-cookie";
+import { observable, action, makeObservable } from 'mobx';
+import Cookies from 'js-cookie';
 
 class PopUpStatementStore {
   closePopup: boolean = false;
@@ -19,15 +19,15 @@ class PopUpStatementStore {
 
     // Save the closePopup value to the cookie
     if (!isCancelOnly) {
-      Cookies.set("closePopup", "yes", { expires: 30 });
+      Cookies.set('closePopup', 'yes', { expires: 30 });
     }
   };
 
   loadClosePopupFromCookie() {
     // Load closePopup value from the cookie
-    const closePopupValue = Cookies.get("closePopup");
+    const closePopupValue = Cookies.get('closePopup');
 
-    if (closePopupValue === "yes") {
+    if (closePopupValue === 'yes') {
       this.closePopup = true;
     }
   }
