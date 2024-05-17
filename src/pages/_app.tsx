@@ -1,21 +1,25 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { observer, Provider } from 'mobx-react';
 import type { AppProps } from 'next/app';
-import { useUIContent } from '../hooks';
 import { uIStore } from '../stores';
-import { Footer } from '../views';
 import '../styles/globals.css';
 
-const App = observer(({ Component, pageProps }: AppProps) => {
+const animationProps = {
+  initial: { opacity: 0, x: -150 },
+  animate: { opacity: 1, x: 0 },
+  transition: { type: 'ease', duration: 1 },
+};
+
+const App: React.FC<AppProps> = observer((props) => {
+  const { Component, pageProps } = props;
+
   const router = useRouter();
 
   const [, setLoading] = useState(false);
 
   const [isMobile, setIsMobile] = useState(false);
-
-  const { content: systemConfig } = useUIContent<Record<string, any>>('ui-config');
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -41,22 +45,15 @@ const App = observer(({ Component, pageProps }: AppProps) => {
     };
   }, [router]);
 
-  const animationProps = {
-    initial: { opacity: 0, x: -150 },
-    animate: { opacity: 1, x: 0 },
-    transition: { type: 'ease', duration: 1 },
-  };
-
   return (
     <Provider store={uIStore}>
       {!isMobile ? (
         <motion.div key={router.route} {...animationProps}>
-          <Component {...pageProps} systemConfig={systemConfig} />
+          <Component {...pageProps} />
         </motion.div>
       ) : (
-        <Component {...pageProps} systemConfig={systemConfig} />
+        <Component {...pageProps} />
       )}
-      <Footer />
     </Provider>
   );
 });
