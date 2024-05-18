@@ -1,1 +1,1 @@
-export interface IMenuMobileProps { }
+export interface IMenuMobileProps {}

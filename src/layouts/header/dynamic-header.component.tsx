@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useWindowDimensions } from '../../hooks';
 import { HeaderTheme02 } from '../../next-core-ui/share-account/src/layouts/header/header.layout';
-import React from 'react';
 
 export interface DynamicHeaderProps {
   item: Record<string, any>;
