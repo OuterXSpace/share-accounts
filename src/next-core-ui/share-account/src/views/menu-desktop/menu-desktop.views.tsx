@@ -4,7 +4,9 @@ import { AiFillAccountBook } from 'react-icons/ai';
 import { RxAvatar } from 'react-icons/rx';
 import { BsCart4 } from 'react-icons/bs';
 
-export const MenuDesktop: React.FC<IMenuDesktopProps> = () => {
+export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
+  const { isCategoryToggle, onClickCategoryToggle } = props;
+
   return (
     <div className="flex flex-col">
       <div className="gap-4 flex flex-col sm:flex-row w-full items-center justify-between p-6 md:px-24 border-b">
@@ -26,12 +28,16 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = () => {
             </a>
           </li>
           {/* Danh mục */}
-          <li className="flex gap-2 items-center relative">
+          <li className="flex gap-2 items-center relative" onClick={onClickCategoryToggle}>
             <AiFillAccountBook />
             <a href="#" className="uppercase">
               danh mục
             </a>
-            <ul className="w-[60rem] top-10 left-[-19rem] right-0 absolute shadow-lg rounded-xl grid-cols-4 p-4 gap-4 border text-gray-400 font-normal bg-white z-10">
+            <ul
+              className={`w-[60rem] top-10 left-[-19rem] right-0 absolute shadow-lg rounded-xl grid-cols-4 p-4 gap-4 border text-gray-400 font-normal bg-white z-10  ${
+                isCategoryToggle ? 'block' : 'hidden'
+              }`}
+            >
               <div className="flex gap-5">
                 <li className="w-full">
                   <h3 className="border-b py-2 mb-4 text-gray-900 font-semibold">Danh mục</h3>
