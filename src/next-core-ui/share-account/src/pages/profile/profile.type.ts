@@ -1,1 +1,3 @@
-export interface ProfilePageProps {}
+export interface ProfilePageProps {
+  routerId?: string;
+}
