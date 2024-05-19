@@ -112,13 +112,13 @@ export const rootLayoutConfig = {
           name: 'login',
           contentPage: {
             header: {
-              type: 'HEADER_THEME_01',
+              type: 'HEADER_NONE',
             },
             body: {
               type: 'BODY_THEME_01',
             },
             footer: {
-              type: 'FOOTER_THEME_01',
+              type: 'FOOTER_NONE',
             },
           },
         },
@@ -127,13 +127,13 @@ export const rootLayoutConfig = {
           name: 'register',
           contentPage: {
             header: {
-              type: 'HEADER_THEME_01',
+              type: 'HEADER_NONE',
             },
             body: {
               type: 'BODY_THEME_01',
             },
             footer: {
-              type: 'FOOTER_THEME_01',
+              type: 'FOOTER_NONE',
             },
           },
         },
