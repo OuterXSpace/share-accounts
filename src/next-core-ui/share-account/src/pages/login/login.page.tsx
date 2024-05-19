@@ -10,7 +10,7 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
   const { handleLogin } = useLogin();
 
   const loginSchema = yup.object().shape({
-    email: yup.string().required('Email không được để trống'),
+    username: yup.string().required('username không được để trống'),
     password: yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
   });
 
@@ -68,26 +68,24 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
             </div>
             <form className="mb-4" onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-4">
-                <label className="block font-medium text-sm mb-2 " htmlFor="email">
-                  Email
-                </label>
+                <label className="block font-medium text-sm mb-2 ">Username</label>
                 <input
                   className={`rounded-md block w-full bg-zinc-100 text-sm px-4 py-2 ${
-                    errors.email ? 'border-solid border-2 border-red-400' : ''
+                    errors.username ? 'border-solid border-2 border-red-400' : ''
                   }`}
-                  id="email"
+                  id="username"
                   type="text"
-                  {...register('email')}
-                  placeholder="email@gmail.com"
+                  {...register('username')}
+                  placeholder="username"
                   onChange={(e) => {
                     if (!e.target.value) {
-                      clearErrors('email');
+                      clearErrors('username');
                     }
                   }}
                 />
-                {errors.email && (
-                  <label className="block font-medium text-sm mb-2 mt-3 text-red-600" htmlFor="email">
-                    {errors.email?.message && errors.email?.message}
+                {errors.username && (
+                  <label className="block font-medium text-sm mb-2 mt-3 text-red-600" htmlFor="username">
+                    {errors.username?.message && errors.username?.message}
                   </label>
                 )}
               </div>
