@@ -1,6 +1,6 @@
 export interface ILoginPageProps {}
 
 export interface ILoginFormModel {
-  email?: string;
+  username?: string;
   password?: string;
 }

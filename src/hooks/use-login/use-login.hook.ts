@@ -4,7 +4,7 @@ import { CoreAuthenticationStore } from '../../store';
 
 export const useLogin = () => {
   const handleLogin = useCallback((data: ILoginFormData) => {
-    CoreAuthenticationStore.loginAction(data?.email, data?.password);
+    CoreAuthenticationStore.loginAction(data?.username, data?.password);
   }, []);
 
   // * prevent user login-ed access login page
