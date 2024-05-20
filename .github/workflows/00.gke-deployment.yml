@@ -34,7 +34,7 @@ env:
   DOT_ENV_FILE_NAME: ${{ inputs.DOT_ENV_FILE_NAME }}
   EMAIL_DOCKER_HUB: lgold141@gmail.com 
   PASSWORD_DOCKER_HUB: BWKk9q9B@Cm7!$M
-  USERNAME_DOCKER_HUB: warjamma
+  DOCKER_HUB_USERNAME: warjamma
 
 jobs:
   setup-build-publish-deploy:
@@ -73,7 +73,7 @@ jobs:
         run: docker build -t $IMAGE .
 
       - name: Log in to Docker Hub
-        run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+        run: docker login -u" $EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
 
       - name: Push Docker image
         run: |
