@@ -7,7 +7,7 @@ on:
         description: 'Confirm Deployment'
         required: true
 env:
-  SERVER_IP: "20.39.199.15:3000"
+  SERVER_IP: "20.39.199.15"
   SERVER_USER: "ubuntu"
   IMAGE: share-account-dev
   DOCKER_HUB_USERNAME: warjamma
