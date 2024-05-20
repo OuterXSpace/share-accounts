@@ -9,7 +9,7 @@ export interface BodyTheme02Props {
 }
 
 export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
-  const { slug } = props;
+  const { slug, item, systemConfig } = props;
 
   const router = useRouter();
 
