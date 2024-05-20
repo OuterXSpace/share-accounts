@@ -80,17 +80,17 @@ jobs:
           docker tag $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
           docker push $DOCKER_HUB_USERNAME/$IMAGE:latest
 
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-      - name: Deploy
-        run: |
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
-            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
-            sudo docker stop $IMAGE || true
-            sudo docker rm $IMAGE || true
-            sudo docker run -d -p 5000:80 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
-          "
+      # - name: Configure SSH
+      #   run: |
+      #     mkdir -p ~/.ssh
+      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+      #     chmod 600 ~/.ssh/id_rsa
+      #     echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      # - name: Deploy
+      #   run: |
+      #     ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
+      #       sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
+      #       sudo docker stop $IMAGE || true
+      #       sudo docker rm $IMAGE || true
+      #       sudo docker run -d -p 5000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+      #     "
