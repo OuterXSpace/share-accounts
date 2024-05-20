@@ -1,7 +1,7 @@
 import { ProductCard } from '../product-card';
 import { IProductListProps } from './product-list.type';
 
-export const ProductList: React.FC<IProductListProps> = (props) => {
+export const ProductList: React.FC<IProductListProps> = () => {
   return (
     <div className="bg-white flex flex-col items-center mt-[30px] p-6 bg-[50% 50%]">
       <h2 className="uppercase text-[30px]">

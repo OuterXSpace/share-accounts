@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { IFooterTheme02Props } from './footer.type';
-import IonIcon from '@reacticons/ionicons';
 
 export const FooterTheme02: React.FC<IFooterTheme02Props> = () => {
   return (

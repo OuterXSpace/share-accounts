@@ -1,8 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { IMenuMobileProps } from './menu-mobile.type';
-import { MENU_NAV } from '../mocks/menu.mock';
 import Link from 'next/link';
-import { TIonIconName } from '../../../../../models';
 
 export const MenuMobile: React.FC<IMenuMobileProps> = () => {
   return (
