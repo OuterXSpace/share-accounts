@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const MenuDesktop: React.FC<IMenuDesktopProps> = () => {
   return (
-    <nav className="w-full fixed top-0 z-50 bg-white">
+    <nav className="menu-desktop w-full fixed top-0 z-50 bg-white">
       <div className="w-screen flex flex-col items-center border-b border-slate-200 border-solid">
         <div className="gap-[100px] flex flex-col sm:flex-row w-full items-center   xl:px-[300px] lg:px-[170px]">
           <h1 className="font-semibold text-4xl text-red-600 uppercase">Netflix</h1>

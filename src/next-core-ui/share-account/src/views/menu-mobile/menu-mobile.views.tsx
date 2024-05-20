@@ -6,7 +6,7 @@ export const MenuMobile: React.FC<IMenuMobileProps> = () => {
   return (
     <nav
       style={{ boxShadow: '0 0 0.3rem lightgray' }}
-      className="z-10 bg-red-900 w-full lg:hidden flex justify-around items-center p-4 fixed bottom-0 left-1/2 -translate-x-1/2 text-lg text-white"
+      className="menu-mobile z-10 bg-red-900 w-full lg:hidden flex justify-around items-center p-4 fixed bottom-0 left-1/2 -translate-x-1/2 text-lg text-white"
     >
       <Link href="/">
         <div className="flex flex-col items-center">

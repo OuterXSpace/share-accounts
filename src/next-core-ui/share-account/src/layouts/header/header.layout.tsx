@@ -4,7 +4,7 @@ import { MenuDesktop, MenuMobile } from '../../views';
 import { useMediaQuery } from '../../../../../hooks';
 
 export const HeaderTheme02: React.FC<IHeaderTheme02Props> = () => {
-  const isMobile = useMediaQuery('(min-width: 768px)');
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
-  return <header>{isMobile ? <MenuMobile /> : <MenuDesktop />}</header>;
+  return <header>{!isDesktop ? <MenuMobile /> : <MenuDesktop />}</header>;
 };
