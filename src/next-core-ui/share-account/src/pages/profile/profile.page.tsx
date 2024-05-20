@@ -20,7 +20,6 @@ export const ProfilePage: React.FC<ProfilePageProps> = (props) => {
 
   return (
     <main>
-      {/* ? Products and categories  */}
       <section className="w-full min-h-auto px-8 lg:px-0 lg:w-5/6 mx-auto mt-16 flex gap-8">
         <aside className="sticky top-0 hidden lg:flex flex-col lg:w-1/4 max-h-screen">
           <div className="aside_section overflow-y-auto">
