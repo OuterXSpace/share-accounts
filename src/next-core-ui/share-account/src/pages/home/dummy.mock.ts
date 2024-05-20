@@ -1,23 +1,16 @@
 export const swiperData = [
   {
-    avatar: 'https://azureapis.blob.core.windows.net/share-account/assets/images/banner-1.jpg',
+    avatar: 'https://gamikey.com/wp-content/uploads/2024/05/Capcut-banner-1.jpg',
     title: 'Trending Item',
     info: "WOMEN'S LATEST FASHION SALE",
     price: 'starting at $ 20.00',
     button: 'SHOP NOW',
   },
   {
-    avatar: 'https://azureapis.blob.core.windows.net/share-account/assets/images/banner-2.jpg',
+    avatar: 'https://gamikey.com/wp-content/uploads/2024/05/Banner-2.jpg',
     title: 'Trending Accessories',
     info: 'MODERN SUNGLASSES',
     price: 'starting at $ 15.00',
-    button: 'SHOP NOW',
-  },
-  {
-    avatar: 'https://azureapis.blob.core.windows.net/share-account/assets/images/banner-3.jpg',
-    title: 'Sale Offer',
-    info: 'NEW FASHION SUMMER SALE',
-    price: 'starting at $ 29.99',
     button: 'SHOP NOW',
   },
 ];

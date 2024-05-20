@@ -6,7 +6,7 @@ const Document = () => {
       <Head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
-      <body>
+      <body className="overflow-x-hidden">
         <Main />
         <NextScript />
       </body>

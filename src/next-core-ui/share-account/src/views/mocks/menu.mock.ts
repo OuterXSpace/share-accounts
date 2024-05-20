@@ -1,28 +1,23 @@
 export const MENU_NAV = [
   {
-    id: 'HOME',
+    id: 'home',
     icon: 'home-outline',
     href: '/',
   },
   {
     id: 'PAYMENT',
-    icon: 'bag-handle-outline',
+    icon: 'person-outline',
     href: '/payment',
   },
   {
-    id: 'CART',
+    id: 'profile',
+    icon: 'person-outline',
+    href: '/profile',
+  },
+  {
+    id: 'cart',
     icon: 'bag-handle-outline',
     href: '/cart',
     number: true,
-  },
-  {
-    id: 'PROMOTION',
-    icon: 'heart-outline',
-    href: '/promotion',
-  },
-  {
-    id: 'PROFILE',
-    icon: 'grid-outline',
-    href: '/profile',
   },
 ];
