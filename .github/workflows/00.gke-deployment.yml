@@ -1,4 +1,5 @@
-name: 00.gke-deployment
+name: Deploy to Azure
+
 on:
   workflow_call:
     inputs:
@@ -11,12 +12,24 @@ on:
       INGRESS_IP:
         required: true
         type: string
+      PERSONAL_TOTO_CDN:
+        required: true
+        type: string
+      COMMON_TOTO_CDN:
+        required: true
+        type: string
+      PUBLIC_CDN:
+        required: true
+        type: string
       DOT_ENV_FILE_NAME:
         required: true
         type: string
 env:
   DEPLOYMENT_NAME: ${{ inputs.DEPLOYMENT_NAME }}
   IMAGE: ${{ inputs.IMAGE }}
+  PERSONAL_TOTO_CDN: ${{ inputs.PERSONAL_TOTO_CDN
+  COMMON_TOTO_CDN: ${{ inputs.COMMON_TOTO_CDN
+  PUBLIC_CDN: ${{ inputs.PUBLIC_CDN
   INGRESS_IP: ${{ inputs.INGRESS_IP }}
   DOT_ENV_FILE_NAME: ${{ inputs.DOT_ENV_FILE_NAME }}
   EMAIL_DOCKER_HUB: lgold141@gmail.com
@@ -25,43 +38,60 @@ env:
 
 jobs:
   setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Prepare dotenv
         run: rm -rf .env && mv $DOT_ENV_FILE_NAME .env
-      # - name: Install Yarn
-      #   run: npm install yarn -g
-      # - name: Install Packages
-      #   run: yarn
-      # - name: Build page
-      #   run: yarn build
-      # - name: Grant execute permission for nginx
-      #   run: chmod +x ./deploy/*
-      # - name: Create nginx folder
-      #   run: mkdir ./nginx && mkdir ./nginx/conf.d
-      # - name: Generate default nginx configuration file setting
-      #   run: ./deploy/nginx.default.conf.sh "$INGRESS_IP" > ./nginx/conf.d/default.conf
-      # - name: Generate nginx configuration file setting
-      #   run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
 
-      # Build 
-      - name: Build image
-        run: |-
-          docker build -t "$IMAGE" .
-      - name: Login docker
-        run: docker login -u" $EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
-      - name: Publish to Docker
-        run: |-
-          docker tag $IMAGE:latest $USERNAME_DOCKER_HUB/$IMAGE:latest
-          docker push $USERNAME_DOCKER_HUB/$IMAGE:latest  
-      
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build the application
+        run: yarn build
+
+      - name: Create nginx folders
+        run: mkdir -p ./nginx/conf.d
+
+      - name: Generate nginx configuration files
+        run: |
+          ./deploy/nginx.default.conf.sh "$INGRESS_IP" "$PERSONAL_TOTO_CDN" "$COMMON_TOTO_CDN" "$PUBLIC_CDN" > ./nginx/conf.d/default.conf
+          ./deploy/nginx.conf.sh > ./nginx/nginx.conf
+
+      - name: Build Docker image
+        run: docker build -t $IMAGE .
+
+      - name: Log in to Docker Hub
+        run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+
+      - name: Push Docker image
+        run: |
+          docker tag $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+          docker push $DOCKER_HUB_USERNAME/$IMAGE:latest
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Deploy application
+        run: |
+          ssh $SERVER_USER@$SERVER_IP << 'EOF'
+            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
+            sudo docker stop $IMAGE || true
+            sudo docker rm $IMAGE || true
+            sudo docker run -d -p 5000:80 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+          EOF
