@@ -6,9 +6,12 @@ on:
         description: 'Confirm Deployment'
         required: true
 env:
-  DEPLOYMENT_NAME: client-app
-  IMAGE: client-app-dev
+  DEPLOYMENT_NAME: share-account
+  IMAGE: share-account-dev
   INGRESS_IP: 20.39.199.15:3000
+  PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/share-account/'
+  COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
+  PUBLIC_CDN: 'https://azureapis.blob.core.windows.net/public/'
   DOT_ENV_FILE_NAME: .env.develop
 jobs:
   variables:
@@ -18,16 +21,22 @@ jobs:
       DEPLOYMENT_NAME: ${{ env.DEPLOYMENT_NAME }}
       IMAGE: ${{ env.IMAGE }}
       INGRESS_IP: ${{ env.INGRESS_IP }}
+      PERSONAL_TOTO_CDN: ${{ env.PERSONAL_TOTO_CDN }}
+      COMMON_TOTO_CDN: ${{ env.COMMON_TOTO_CDN }}
+      PUBLIC_CDN: ${{ env.PUBLIC_CDN }}
       DOT_ENV_FILE_NAME: ${{ env.DOT_ENV_FILE_NAME }}
     steps:
       - name: Echo
         run: echo prepare variable
-  client-app:
+  share-account:
     needs: variables
-    name: deploy client-app
+    name: deploy share-account
     uses: ./.github/workflows/00.gke-deployment.yml
     with:
       DEPLOYMENT_NAME: ${{ needs.variables.outputs.DEPLOYMENT_NAME }}
       IMAGE: ${{ needs.variables.outputs.IMAGE }}
       INGRESS_IP: ${{ needs.variables.outputs.INGRESS_IP }}
+      PERSONAL_TOTO_CDN: ${{ needs.variables.outputs.PERSONAL_TOTO_CDN }}
+      COMMON_TOTO_CDN: ${{ needs.variables.outputs.COMMON_TOTO_CDN }}
+      PUBLIC_CDN: ${{ needs.variables.outputs.PUBLIC_CDN }}
       DOT_ENV_FILE_NAME: ${{ needs.variables.outputs.DOT_ENV_FILE_NAME }}
