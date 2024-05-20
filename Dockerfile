@@ -1,3 +1,10 @@
+# # # nginx
+# FROM nginx:latest
+# WORKDIR /app
+
+# COPY nginx/ /etc/nginx/
+
+# Build
 FROM node:20-alpine
 WORKDIR /app
 
