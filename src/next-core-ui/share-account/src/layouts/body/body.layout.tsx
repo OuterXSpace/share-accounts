@@ -29,12 +29,12 @@ export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
       return <ProfilePage routerId={id} />;
     case 'PROJECTS':
       return <PaymentPage />;
+    case 'CART':
+      return <CartPage />;
     case 'LOGIN':
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
-    case 'CONTACT':
-      return <CartPage />;
     default:
       return <HomePage />;
   }

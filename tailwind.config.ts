@@ -5,6 +5,9 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
     extend: {
+      boxShadow: {
+        custom: '-41px 61px 84px 0 rgba(67, 86, 100, 0.14), 0 0 23px 0 rgba(67, 86, 100, 0.14)',
+      },
       backgroundColor: {
         primary: {
           DEFAULT: '#1BA1E4',
