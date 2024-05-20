@@ -27,12 +27,12 @@ on:
 env:
   DEPLOYMENT_NAME: ${{ inputs.DEPLOYMENT_NAME }}
   IMAGE: ${{ inputs.IMAGE }}
-  PERSONAL_TOTO_CDN: ${{ inputs.PERSONAL_TOTO_CDN
-  COMMON_TOTO_CDN: ${{ inputs.COMMON_TOTO_CDN
-  PUBLIC_CDN: ${{ inputs.PUBLIC_CDN
+  PERSONAL_TOTO_CDN: ${{ inputs.PERSONAL_TOTO_CDN }}
+  COMMON_TOTO_CDN: ${{ inputs.COMMON_TOTO_CDN }}
+  PUBLIC_CDN: ${{ inputs.PUBLIC_CDN }}
   INGRESS_IP: ${{ inputs.INGRESS_IP }}
   DOT_ENV_FILE_NAME: ${{ inputs.DOT_ENV_FILE_NAME }}
-  EMAIL_DOCKER_HUB: lgold141@gmail.com
+  EMAIL_DOCKER_HUB: lgold141@gmail.com 
   PASSWORD_DOCKER_HUB: BWKk9q9B@Cm7!$M
   USERNAME_DOCKER_HUB: warjamma
 
