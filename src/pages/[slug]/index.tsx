@@ -12,7 +12,6 @@ import { DynamicBody } from '../../layouts/body/dynamic-body.component';
 export interface IDynamicPageProps {
   systemConfig: Record<string, any>;
   appShell: Record<string, any>;
-  slug?: string;
 }
 
 const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {

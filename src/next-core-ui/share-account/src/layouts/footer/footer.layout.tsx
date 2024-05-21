@@ -1,119 +1,42 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { IFooterTheme02Props } from './footer.type';
 
 export const FooterTheme02: React.FC<IFooterTheme02Props> = () => {
   return (
-    <>
-      {/* footer */}
-      <footer className="bg-white pt-16 pb-12 border-t border-gray-100">
-        <div className="container grid grid-cols-3">
-          <div className="col-span-1 space-y-8 mr-2">
-            <img src="../assets/images/logo.svg" alt="logo" className="w-30" />
-            <div className="mr-2">
-              <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?</p>
-            </div>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-facebook-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-instagram-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-twitter-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-github-square" />
-              </a>
-            </div>
-          </div>
-          <div className="col-span-2 grid grid-cols-2 gap-8">
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Marketing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Analitycs
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Commerce
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Insights
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Documentation
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Guides
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    API Status
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Marketing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Analitycs
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Commerce
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Insights
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Documentation
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Guides
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    API Status
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <footer className="mb-[77px] lg:mb-0">
+      {/* footer tile */}
+      <div className="lg:h-[110px] bg-[#a2060e] flex p-6 lg:px-6 lg:justify-between items-center flex-col lg:flex-row gap-4 lg:gap-0">
+        <div className="flex items-center gap-2 text-white">
+          <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="phone" />
+          Hotline
         </div>
-      </footer>
-      {/* ./footer */}
-      {/* copyright */}
-      <div className="bg-gray-800 py-4">
-        <div className="container flex items-center justify-between">
-          <p className="text-white">© TailCommerce - All Right Reserved</p>
-          <div>
-            <img src="../assets/images/methods.png" alt="methods" className="h-5" />
-          </div>
+        <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
+        <div className="flex items-center gap-2 text-white">
+          <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="mail" />
+          miso88@gmail.com
+        </div>
+        <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
+        <div className="flex items-center gap-2 text-white">
+          <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="phone" />
+          Hotline
+        </div>
+        <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
+        <div className="flex items-center gap-2 text-white">
+          <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="phone" />
+          Chăm sóc khách hàng
         </div>
       </div>
-      {/* ./copyright */}
-    </>
+      {/* icon payment */}
+      <div className="mx-auto flex items-center justify-center flex-col gap-4 py-10 lg:pb-10 bg-[#520100]">
+        <img src="https://miso88.com/assets/images/background/partner-logos.png" alt="payment" className="w-4/5" />
+      </div>
+      {/* copyright */}
+      <div className="flex justify-center p-[8px] bg-[#390100]">
+        <h4 className="text-gray-500 text-md lg:text-lg font-semibold uppercase">
+          Copyright © Netflix All Rights Reserved.
+        </h4>
+      </div>
+    </footer>
   );
 };

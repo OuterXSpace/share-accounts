@@ -62,9 +62,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        SERVICES: {
-          id: 'servicers',
-          name: 'Servicers',
+        PROFILE: {
+          id: 'profile',
+          name: 'profile',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -77,9 +77,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        INTRODUCTION: {
-          id: 'introduction',
-          name: 'Introduction',
+        CART: {
+          id: 'cart',
+          name: 'cart',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -92,9 +92,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        VIDEO: {
-          id: 'video',
-          name: 'Video',
+        PROMOTION: {
+          id: 'promotion',
+          name: 'promotion',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -107,39 +107,39 @@ export const rootLayoutConfig = {
             },
           },
         },
-        CONTACT: {
-          id: 'contact',
-          name: 'Contact',
+        LOGIN: {
+          id: 'login',
+          name: 'login',
           contentPage: {
             header: {
-              type: 'HEADER_THEME_01',
+              type: 'HEADER_NONE',
             },
             body: {
               type: 'BODY_THEME_01',
             },
             footer: {
-              type: 'FOOTER_THEME_01',
+              type: 'FOOTER_NONE',
             },
           },
         },
-        NEWS: {
-          id: 'news',
-          name: 'News',
+        REGISTER: {
+          id: 'register',
+          name: 'register',
           contentPage: {
             header: {
-              type: 'HEADER_THEME_01',
+              type: 'HEADER_NONE',
             },
             body: {
               type: 'BODY_THEME_01',
             },
             footer: {
-              type: 'FOOTER_THEME_01',
+              type: 'FOOTER_NONE',
             },
           },
         },
-        PROJECTS: {
-          id: 'project',
-          name: 'Project',
+        LOBBY: {
+          id: 'lobby',
+          name: 'lobby',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',

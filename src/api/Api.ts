@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { PUBLIC_API_ENDPOINT } from '../constants/platform';
 import { ApiError } from './Api.type';
+import { PUBLIC_API_ENDPOINT } from '../constants/platform';
 
 const API = axios.create({
   baseURL: `${PUBLIC_API_ENDPOINT}`,
@@ -65,7 +65,6 @@ API.interceptors.request.use(
       }
     } catch (error) {
       // no handle
-      // console.error('Axios request error:', error);
     }
 
     return serializerConfig;
@@ -89,4 +88,9 @@ const ThrowApiError = (error: ApiError) => {
   throw error;
 };
 
-export { API, ThrowApiError };
+const setApiAccessToken = (accessToken: string | undefined) => {
+  if (accessToken) API.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  else delete API.defaults.headers.common.Authorization;
+};
+
+export { API, ThrowApiError, setApiAccessToken };

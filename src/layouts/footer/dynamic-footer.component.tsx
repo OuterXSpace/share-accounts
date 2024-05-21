@@ -13,6 +13,8 @@ export const DynamicFooter: React.FC<DynamicFooterProps> = (props) => {
   switch (item?.type) {
     case 'FOOTER_THEME_01':
       return <FooterTheme02 />;
+    case 'FOOTER_NONE':
+      return <div className="hidden" />;
     default:
       return <>Footer</>;
   }
