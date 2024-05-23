@@ -1,3 +1,4 @@
+import { NextRouter } from 'next/router';
 import { action } from 'satcheljs';
 
 /**
@@ -8,5 +9,5 @@ import { action } from 'satcheljs';
  */
 export const checkAuthenticatedNavigateAction = action(
   'checkAuthenticatedNavigateAction',
-  (isRedirectLogin?: boolean, redirectUrl?: string) => ({ redirectUrl, isRedirectLogin }),
+  (isRedirectLogin?: boolean, redirectUrl?: string, router?: NextRouter) => ({ redirectUrl, isRedirectLogin, router }),
 );
