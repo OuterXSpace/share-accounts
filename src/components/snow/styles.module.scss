@@ -1,0 +1,90 @@
+$secondary-light: #FFF;
+
+@function multiple-box-shadow($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #{$secondary-light}';
+
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #{$secondary-light}';
+  }
+
+  @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(800);
+$shadows-medium: multiple-box-shadow(300);
+$shadows-big: multiple-box-shadow(200);
+
+.toto_snow_stars1,
+.toto_snow_stars2,
+.toto_snow_stars3 {
+  background: transparent;
+  border-radius: 50%;
+  z-index: 5;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 2000px;
+    background: transparent;
+  }
+}
+
+.toto_snow_stars1 {
+  width: 2px;
+  height: 2px;
+  box-shadow: $shadows-small;
+  animation: animStar 30s linear infinite;
+
+  &:after {
+    width: 2px;
+    height: 2px;
+    box-shadow: $shadows-small;
+  }
+}
+
+.toto_snow_stars2 {
+  width: 3px;
+  height: 3px;
+  box-shadow: $shadows-medium;
+  animation: animStar 60s linear infinite;
+
+  &:after {
+    width: 3px;
+    height: 3px;
+    box-shadow: $shadows-medium;
+  }
+}
+
+.toto_snow_stars3 {
+  width: 4px;
+  height: 4px;
+  box-shadow: $shadows-big;
+  animation: animStar 100s linear infinite;
+
+  &:after {
+    width: 4px;
+    height: 4px;
+    box-shadow: $shadows-big;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+
+  to {
+    stroke-dashoffset: 113px;
+  }
+}

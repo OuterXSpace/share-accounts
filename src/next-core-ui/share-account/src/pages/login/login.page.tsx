@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useLogin } from '../../../../../hooks/use-login';
+import { SnowComponent } from '../../../../../components';
 
 export const LoginPage: React.FC<ILoginPageProps> = () => {
   const { handleLogin } = useLogin();
@@ -27,13 +28,10 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
   });
 
   return (
-    <div className="toto-login">
-      <div
-        className="w-screen min-h-screen bg-center bg-cover flex justify-center items-center p-2"
-        style={{ backgroundImage: 'url("https://picsum.photos/1600/900")' }}
-      >
-        <div className="w-full max-w-[1300px] px-2 lg:px-0 mx-auto">
-          <div className="rounded-2xl bg-white lg:w-[500px] mx-auto p-8">
+    <SnowComponent className="toto-register">
+      <div className="w-screen min-h-screen justify-center p-2 absolute inset-0 flex flex-col items-center bg-cover bg-center bg-no-repeat">
+        <div className="w-full max-w-[450px] px-2 lg:px-0 mx-auto">
+          <div className="rounded-2xl bg-gray-5 lg:w-[500px] mx-auto p-8">
             <div className="flex justify-end" data-svelte-h="svelte-w8q1sk">
               <Link href="/" className="transition duration-200 hover:text-primary-6">
                 <svg
@@ -48,7 +46,7 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
                 </svg>
               </Link>
             </div>
-            <div className="text-3xl font-bold mb-8 text-center">Đăng nhập</div>
+            <div className="text-3xl font-bold mb-8 text-center text-dark-3">Đăng nhập</div>
             <div className="flex justify-center items-center space-x-4 mb-8" data-svelte-h="svelte-tkh4w5">
               <button className="rounded-2xl border border-zinc-400 flex justify-center items-center w-10 h-10 bg-zinc-50 p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="fill-black w-4 h-4">
@@ -62,15 +60,15 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
               </button>
             </div>
             <div className="flex justify-between items-center space-x-2 mb-8" data-svelte-h="svelte-1sasxhj">
-              <div className="flex-1 h-px bg-zinc-100" />
-              <p className="flex-1 text-zinc-500 text-center text-xs">nếu bạn đã có tài khoản</p>
-              <div className="flex-1 h-px bg-zinc-100" />
+              <div className="flex-1 h-px bg-[#ffffff66]" />
+              <p className="flex-1 text-zinc-500 text-center text-xs text-dark-3">nếu bạn đã có tài khoản</p>
+              <div className="flex-1 h-px bg-[#ffffff66]" />
             </div>
             <form className="mb-4" onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-4">
-                <label className="block font-medium text-sm mb-2 ">Username</label>
+                <label className="block font-medium text-sm mb-2 text-dark-3">Username</label>
                 <input
-                  className={`rounded-md block w-full bg-zinc-100 text-sm px-4 py-2 ${
+                  className={`rounded-md block w-full border border-gray-4 bg-[#ffffff66] text-sm px-4 py-2 ${
                     errors.username ? 'border-solid border-2 border-red-400' : ''
                   }`}
                   id="username"
@@ -90,11 +88,11 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
                 )}
               </div>
               <div className="mb-4">
-                <label className="block font-medium text-sm mb-2 " htmlFor="password">
+                <label className="block font-medium text-sm mb-2 text-dark-3" htmlFor="password">
                   Mật khẩu
                 </label>
                 <input
-                  className={`rounded-md block w-full bg-zinc-100 text-sm px-4 py-2 ${
+                  className={`rounded-md block w-full border border-gray-4 bg-[#ffffff66] text-sm px-4 py-2 ${
                     errors.password ? 'border-solid border-2 border-red-400' : ''
                   }`}
                   id="password"
@@ -115,7 +113,7 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
               </div>
               <div className="flex justify-end mb-4" data-svelte-h="svelte-sotu5m">
                 <Link
-                  className="inline-block text-sm font-semibold text-primary-6 transition duration-200 hover:underline"
+                  className="inline-block text-sm font-semibold text-primary-6 transition duration-200 hover:underline text-dark-3"
                   href="/forgot"
                 >
                   Quên mật khẩu
@@ -123,7 +121,7 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
               </div>
               <button
                 type="submit"
-                className="rounded-md flex justify-center items-center gap-2 h-10 text-sm px-4 py-2 bg-primary-4 text-white hover:bg-primary-5 break-words transition duration-200 w-full"
+                className="rounded-md flex justify-center items-center gap-2 h-10 text-sm px-4 py-2 bg-primary text-white hover:bg-primary-lighter break-words transition duration-200 w-full"
               >
                 <div className="line-clamp-1">Đăng nhập</div>
               </button>
@@ -132,17 +130,14 @@ export const LoginPage: React.FC<ILoginPageProps> = () => {
               <Link
                 href="/register"
                 target="_self"
-                className="rounded-md flex justify-center items-center gap-2 h-10 text-sm px-4 py-2 bg-primary-4 text-white hover:bg-primary-5 break-words transition duration-200 w-full"
+                className="rounded-md flex justify-center items-center gap-2 h-10 text-sm px-4 py-2 bg-light-1 text-dark hover:bg-gray-4 break-words transition duration-200 w-full"
               >
                 <div className="line-clamp-1">Đăng kí</div>
               </Link>
             </div>
-            <p className="text-xs text-center text-zinc-500" data-svelte-h="svelte-sgs55j">
-              ©2024 share-account.vn
-            </p>
           </div>
         </div>
       </div>
-    </div>
+    </SnowComponent>
   );
 };

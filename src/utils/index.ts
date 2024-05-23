@@ -6,3 +6,4 @@ export * from './phone.util';
 export * from './is-mobile-browser.util';
 export * from './on-image-error.util';
 export * from './title-cas.until';
+export * from './generate-box-shadow.util';

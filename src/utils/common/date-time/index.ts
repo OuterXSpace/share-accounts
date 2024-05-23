@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import dayjs from 'dayjs';
 
 export function newDayjs(data: dayjs.Dayjs | string | (() => string)): dayjs.Dayjs {

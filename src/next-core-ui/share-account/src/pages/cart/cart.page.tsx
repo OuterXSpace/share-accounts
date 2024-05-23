@@ -2,7 +2,7 @@ import { CartPageProps } from './cart.type';
 
 export const CartPage: React.FC<CartPageProps> = () => {
   return (
-    <div className="cart-page w-full min-h-auto px-8 pb-8 lg:px-0 lg:w-5/6 mx-auto mt-16 flex gap-8">
+    <div className="pt-[120px] cart-page w-full min-h-auto px-8 pb-8 lg:px-0 lg:w-5/6 mx-auto mt-16 flex gap-8">
       <section className="w-full rounded-[10px] mb-[50px] shadow-custom">
         {/* Cart data */}
         <h1 className="pl-3 pt-3 mb-4 font-semibold text-xl">Cart</h1>

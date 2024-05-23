@@ -1,6 +1,6 @@
+import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { ProfilePage, PaymentPage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
-import { useMemo } from 'react';
 
 export interface BodyTheme02Props {
   item: Record<string, any>;
@@ -9,7 +9,7 @@ export interface BodyTheme02Props {
 }
 
 export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
-  const { item, systemConfig, slug } = props;
+  const { slug, item, systemConfig } = props;
 
   const router = useRouter();
 
