@@ -1,3 +1,4 @@
+import { NextRouter } from 'next/router';
 import { action } from 'satcheljs';
 
 /**

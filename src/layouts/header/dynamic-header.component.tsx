@@ -33,7 +33,7 @@ export const DynamicHeader: React.FC<DynamicHeaderProps> = (props) => {
 
   switch (item?.type) {
     case 'HEADER_THEME_01':
-      return <HeaderTheme02 wuiHeaderContent={wuiHeaderContent}/>;
+      return <HeaderTheme02 wuiHeaderContent={wuiHeaderContent} />;
     case 'HEADER_NONE':
       return <div className="hidden" />;
     default:

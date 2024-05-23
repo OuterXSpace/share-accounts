@@ -11,10 +11,11 @@ import { fetchUiContentApi } from '../../../store/store-ui-content/api';
 export interface IDynamicPageChildProps {
   systemConfig: Record<string, any>;
   appShell: Record<string, any>;
+  wuiHeaderContent: Record<string, any>;
 }
 
 const DynamicPageChild: React.FC<IDynamicPageChildProps> = observer((props) => {
-  const { systemConfig, appShell } = props;
+  const { systemConfig, appShell, wuiHeaderContent } = props;
 
   const router = useRouter();
 
@@ -45,7 +46,12 @@ const DynamicPageChild: React.FC<IDynamicPageChildProps> = observer((props) => {
         <title>{seoHomePage?.title || 'DQH Architectures - Liên hệ'}</title>
       </Head>
 
-      <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
+      <DynamicHeader
+        item={contentPage?.header}
+        systemConfig={systemConfig}
+        slug={slug}
+        wuiHeaderContent={wuiHeaderContent}
+      />
       <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
       <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
     </>
@@ -59,10 +65,13 @@ export const getServerSideProps = (async () => {
 
   const appShell = (await fetchUiContentApi({ contentId: 'app-shell-config' })) || {};
 
+  const wuiHeaderContent = (await fetchUiContentApi({ contentId: 'wui-header-content' })) || {};
+
   return {
     props: {
       systemConfig,
       appShell,
+      wuiHeaderContent,
     },
   };
 }) satisfies GetServerSideProps<IDynamicPageProps>;
