@@ -6,10 +6,13 @@ import { loginUrlSelector, isLoginSelector } from '../../../../../store/store-au
 import { Dropdown, DropdownItem } from 'flowbite-react';
 import { logOutAction } from '../../../../../store/store-authentication/action';
 import { useRouter } from 'next/router';
+import { MenuItem } from './components';
 
 const classNamePrefix = 'tt-header';
 
-export const MenuDesktop: React.FC<IMenuDesktopProps> = () => {
+export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
+  const { wuiHeaderContent } = props;
+
   const loginUrl = loginUrlSelector();
 
   const isLogin = isLoginSelector();
@@ -77,57 +80,10 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = () => {
             <div
               className={`${classNamePrefix}-bar__container  px-4 flex justify-between items-center gap-8 mx-auto max-w-screen-xl w-full`}
             >
-              <Link
-                href="/"
-                className="toto-popup-link header-menu-item header-menu-bar__menu-item relative flex items-center min-h-[48px] h-full"
-              >
-                <span
-                  className={`${classNamePrefix}-item__label min-w-max text-sm text-white text-opacity-90 uppercase font-semibold`}
-                >
-                  Trang chủ
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="toto-popup-link header-menu-item header-menu-bar__menu-item relative flex items-center min-h-[48px] h-full"
-              >
-                <span
-                  className={`${classNamePrefix}-item__label min-w-max text-sm text-white text-opacity-90 uppercase font-semibold`}
-                >
-                  Phim ảnh
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="toto-popup-link header-menu-item header-menu-bar__menu-item relative flex items-center min-h-[48px] h-full"
-              >
-                <span
-                  className={`${classNamePrefix}-item__label min-w-max text-sm text-white text-opacity-90 uppercase font-semibold`}
-                >
-                  Âm nhạc
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="toto-popup-link header-menu-item header-menu-bar__menu-item relative flex items-center min-h-[48px] h-full"
-              >
-                <span
-                  className={`${classNamePrefix}-item__label min-w-max text-sm text-white text-opacity-90 uppercase font-semibold`}
-                >
-                  Gải trí
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="toto-popup-link header-menu-item header-menu-bar__menu-item relative flex items-center min-h-[48px] h-full"
-              >
-                <IonIcon className="pr-1 text-base text-white" name="gift-outline" />
-                <span
-                  className={`${classNamePrefix}-item__label min-w-max text-sm text-white text-opacity-90 uppercase font-semibold`}
-                >
-                  Khuyến mãi
-                </span>
-              </Link>
+              {wuiHeaderContent?.mainMenus?.map((item, index) => {
+                const { id = index } = item;
+                return <MenuItem key={id} {...item} />;
+              })}
             </div>
           </div>
         </div>

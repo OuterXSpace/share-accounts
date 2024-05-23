@@ -1,1 +1,3 @@
-export interface IHeaderTheme02Props {}
+export interface IHeaderTheme02Props {
+  wuiHeaderContent?: Record<string, any>;
+}

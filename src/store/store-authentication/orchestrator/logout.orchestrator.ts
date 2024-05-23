@@ -27,7 +27,7 @@ orchestrator(logOutAction, ({ redirectUrl = '/', router }) => {
 
   setTimeout(() => {
     CoreLoadingStore.updateLoadingAction(false);
-    router.push(redirectUrl);
+    router?.push(redirectUrl);
     isLogout = false;
   }, 500);
 });

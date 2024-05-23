@@ -5,11 +5,12 @@ import { HeaderTheme02 } from '../../next-core-ui/share-account/src/layouts/head
 export interface DynamicHeaderProps {
   item: Record<string, any>;
   systemConfig: Record<string, any>;
+  wuiHeaderContent: Record<string, any>;
   slug?: string;
 }
 
 export const DynamicHeader: React.FC<DynamicHeaderProps> = (props) => {
-  const { item, systemConfig, slug } = props;
+  const { item, systemConfig, slug, wuiHeaderContent } = props;
 
   const initialWidthRef = useRef('100%');
 
@@ -32,7 +33,7 @@ export const DynamicHeader: React.FC<DynamicHeaderProps> = (props) => {
 
   switch (item?.type) {
     case 'HEADER_THEME_01':
-      return <HeaderTheme02 />;
+      return <HeaderTheme02 wuiHeaderContent={wuiHeaderContent}/>;
     case 'HEADER_NONE':
       return <div className="hidden" />;
     default:
