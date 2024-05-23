@@ -1,6 +1,6 @@
 import { ProfileInfoProp } from './profile-info.type';
 
-export const ProfileInfo: React.FC<ProfileInfoProp> = (props) => {
+export const ProfileInfo: React.FC<ProfileInfoProp> = () => {
   return (
     <div className="profile-info">
       <div className="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5">
