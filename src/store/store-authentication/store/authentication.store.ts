@@ -8,7 +8,7 @@ import { createStore } from '../../create-store';
 const initStore: IAuthenticationStore = {
   idToken: LocalStorageService.getItem(CONFIGURATION.ID_TOKEN_LS_KEY) || undefined,
   accessToken: LocalStorageService.getItem(CONFIGURATION.ACCESS_TOKEN_LS_KEY) || undefined,
-  loginUrl: LocalStorageService.getItem(CONFIGURATION.LOGIN_URL_LS_KEY) || '/account/signin',
+  loginUrl: LocalStorageService.getItem(CONFIGURATION.LOGIN_URL_LS_KEY) || '/login',
   registerUrl: LocalStorageService.getItem(CONFIGURATION.REGISTER_URL_LS_KEY) || '/account/signup',
   phoneNumber: LocalStorageService.getItem(CONFIGURATION.PHONE_NUMBER_LS_KEY) || undefined,
   isMustVerifyPhone: LocalStorageService.getItem<boolean>(CONFIGURATION.IS_MUST_VERIFY_PHONE_LS_KEY, false) === true,

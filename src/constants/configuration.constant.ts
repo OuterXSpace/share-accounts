@@ -1,7 +1,7 @@
 import { Language } from '../configuration/language';
 
-export const LOGIN_ROUTE_PATH = '/account/signin';
-export const VERIFY_PHONE_ROUTE_PATH = '/account/signin/verify-phone';
+export const LOGIN_ROUTE_PATH = '/login';
+export const VERIFY_PHONE_ROUTE_PATH = '/login/verify-phone';
 export const API_UI_CONFIG_BASE_URL = '/common/ui-config';
 
 export const DEFAULT_PHONE_MUST_VERIFY = '+84';

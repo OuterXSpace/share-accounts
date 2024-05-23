@@ -17,7 +17,7 @@ export const backToRedirectUrl = (delay?: number) => {
 
   if (isMobile) {
     setTimeout(() => {
-      AppHistory().push(redirectUrl ?? '/');
+      AppHistory()?.push(redirectUrl ?? '/');
     }, Math.max(delay || 0, 0));
   } else {
     setTimeout(() => {

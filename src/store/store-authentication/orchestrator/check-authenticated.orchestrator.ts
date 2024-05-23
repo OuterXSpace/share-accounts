@@ -6,11 +6,11 @@ import { goToVerifyPhone } from '../util';
 /**
  * @deprecated
  */
-orchestrator(checkAuthenticatedAction, ({ redirectUrl }) => {
+orchestrator(checkAuthenticatedAction, ({ redirectUrl, router }) => {
   const isLogin = isLoginSelector();
   if (!isLogin) {
     const loginUrl = loginUrlSelector();
-    logOutAction(loginUrl ? `${loginUrl}${redirectUrl ? `?redirectUrl=${redirectUrl}` : ''}` : undefined);
+    logOutAction(loginUrl ? `${loginUrl}${redirectUrl ? `?redirectUrl=${redirectUrl}` : ''}` : undefined, router);
     return;
   }
 

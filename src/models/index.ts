@@ -6,3 +6,5 @@ export * from './login-page-content.model';
 export * from './register-response.model';
 export * from './login-response.model';
 export * from './user-profile.model';
+export * from './router-next.model';
+export * from './toto-link.model';

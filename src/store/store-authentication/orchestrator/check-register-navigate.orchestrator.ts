@@ -3,10 +3,10 @@ import { checkRegisterNavigateAction, logOutAction } from '../action';
 import { isLoginSelector, isMustVerifyPhoneSelector, registerUrlSelector } from '../selector';
 import { goToVerifyPhone } from '../util';
 
-orchestrator(checkRegisterNavigateAction, () => {
+orchestrator(checkRegisterNavigateAction, ({ router }) => {
   const isLogin = isLoginSelector();
   if (!isLogin) {
-    logOutAction(registerUrlSelector());
+    logOutAction(registerUrlSelector(), router);
     return;
   }
 

@@ -1,6 +1,5 @@
 import { orchestrator } from 'satcheljs';
 import { CoreLoadingStore } from '../../store-loading';
-import { AppHistory } from '../../store-router-manager';
 import { CoreUserProfileStore } from '../../store-user-profile';
 import {
   logOutAction,
@@ -12,7 +11,7 @@ import {
 
 let isLogout = false;
 
-orchestrator(logOutAction, ({ redirectUrl = '/' }) => {
+orchestrator(logOutAction, ({ redirectUrl = '/', router }) => {
   if (isLogout) return;
   isLogout = true;
 
@@ -28,7 +27,7 @@ orchestrator(logOutAction, ({ redirectUrl = '/' }) => {
 
   setTimeout(() => {
     CoreLoadingStore.updateLoadingAction(false);
-    AppHistory().push(redirectUrl);
+    router?.push(redirectUrl);
     isLogout = false;
   }, 500);
 });
