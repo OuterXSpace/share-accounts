@@ -14,12 +14,12 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   const router = useRouter();
 
   const id = useMemo(() => {
-    const str = router?.query?.id;
+    const str = router?.query?.slug;
 
     if (!str) return 'HOME';
 
-    return str[0].toLocaleUpperCase();
-  }, [router?.query?.id]);
+    return (str[1] ?? str[0])?.toLocaleUpperCase();
+  }, [router?.query?.slug]);
 
   switch (slug) {
     case 'PROFILE':
