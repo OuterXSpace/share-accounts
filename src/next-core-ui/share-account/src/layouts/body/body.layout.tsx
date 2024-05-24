@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { ProfilePage, PaymentPage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
 
-export interface BodyTheme02Props {
+export interface BodyTheme01Props {
   item: Record<string, any>;
   systemConfig: Record<string, any>;
   slug?: string;
 }
 
-export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
+export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   const { slug, item, systemConfig } = props;
 
   const router = useRouter();
@@ -16,11 +16,8 @@ export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
   const id = useMemo(() => {
     const str = router?.query?.id;
 
-    if (!str) return '';
+    if (!str) return 'HOME';
 
-    if (typeof str === 'string') {
-      return str.toLocaleUpperCase();
-    }
     return str[0].toLocaleUpperCase();
   }, [router?.query?.id]);
 
@@ -35,6 +32,8 @@ export const BodyTheme02: React.FC<BodyTheme02Props> = (props) => {
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
+    case 'HOME':
+      return <HomePage />;
     default:
       return <HomePage />;
   }
