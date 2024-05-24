@@ -1,1 +1,1 @@
-export interface IFooterTheme02Props {}
+export interface IFooterTheme01Props {}

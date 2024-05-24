@@ -1,1 +1,2 @@
-export * from './dynamic-body.component';
+export * from './body.layout';
+export * from './header.type';

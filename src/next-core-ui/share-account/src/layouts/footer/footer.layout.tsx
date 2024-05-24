@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { IFooterTheme02Props } from './footer.type';
+import { IFooterTheme01Props } from './footer.type';
 
-export const FooterTheme02: React.FC<IFooterTheme02Props> = () => {
+export const FooterTheme01: React.FC<IFooterTheme01Props> = () => {
   return (
     <footer className="mb-[77px] lg:mb-0">
       {/* footer tile */}
