@@ -64,7 +64,7 @@ export const ProfileInfo: React.FC<ProfileInfoProp> = () => {
                     </div>
                   </div>
                 </form>
-                <h3 className="mb-4 text-xl font-semibold">Thông tin bảo mật</h3>
+                <h3 className="mb-4 text-xl font-semibold pt-5">Thông tin bảo mật</h3>
                 <form action="#">
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
