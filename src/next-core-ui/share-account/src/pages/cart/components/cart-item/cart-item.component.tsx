@@ -5,7 +5,7 @@ export const CartItem: React.FC<CartItemPageProps> = () => {
     <div className="rounded-lg bg-white cart-item w-full min-h-auto px-8 pb-8 lg:px-0 lg:w-5/6 mx-auto flex gap-8">
       <section className="w-full rounded-[10px] mb-[50px] shadow-custom">
         {/* Cart data */}
-        <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between lg:mt-1.5">
+        <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between ">
           <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl  ">Giỏ hàng</h1>
         </div>
         <div className="flex flex-col">

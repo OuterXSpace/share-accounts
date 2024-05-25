@@ -3,7 +3,7 @@ import { ProfileInfoProp } from './profile-info.type';
 export const ProfileInfo: React.FC<ProfileInfoProp> = () => {
   return (
     <div className="profile">
-      <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between lg:mt-1.5">
+      <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between">
         <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl  ">Lịch sử giao dịch</h1>
       </div>
       <div className="flex flex-col">
