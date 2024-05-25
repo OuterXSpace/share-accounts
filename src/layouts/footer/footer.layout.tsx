@@ -11,6 +11,6 @@ export const DynamicFooter: React.FC<DynamicFooterProps> = (props) => {
     case 'FOOTER_NONE':
       return <div className="hidden" />;
     default:
-      return <>Footer</>;
+      return <div />;
   }
 };
