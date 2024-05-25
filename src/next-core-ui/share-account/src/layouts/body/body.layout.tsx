@@ -1,12 +1,7 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { ProfilePage, PaymentPage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
-
-export interface BodyTheme01Props {
-  item: Record<string, any>;
-  systemConfig: Record<string, any>;
-  slug?: string;
-}
+import { BodyTheme01Props } from './body.type';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   const { slug, item, systemConfig, wuiWelcomePopup } = props;
