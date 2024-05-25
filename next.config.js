@@ -7,21 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'azureapis.blob.core.windows.net',
-        port: '',
-        pathname: '/share-account/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'azureapis.blob.core.windows.net',
-        port: '',
-        pathname: '/common/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'azureapis.blob.core.windows.net',
-        port: '',
-        pathname: '/public/**',
+        hostname: '**',
       },
     ],
   },

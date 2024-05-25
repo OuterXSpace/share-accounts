@@ -13,10 +13,11 @@ export interface IDynamicPageProps {
   systemConfig?: Record<string, any>;
   appShell?: Record<string, any>;
   wuiHeaderContent?: Record<string, any>;
+  wuiWelcomePopup?: Record<string, any>;
 }
 
 const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
-  const { systemConfig, appShell, wuiHeaderContent } = props;
+  const { systemConfig, appShell, wuiHeaderContent, wuiWelcomePopup } = props;
 
   const router = useRouter();
 
@@ -49,7 +50,7 @@ const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
         slug={slug}
         wuiHeaderContent={wuiHeaderContent}
       />
-      <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
+      <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} wuiWelcomePopup={wuiWelcomePopup} />
       <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
     </>
   );
@@ -64,11 +65,14 @@ export const getServerSideProps = (async () => {
 
   const wuiHeaderContent = (await fetchUiContentApi({ contentId: 'wui-header-content' })) || {};
 
+  const wuiWelcomePopup = (await fetchUiContentApi({ contentId: 'wui-welcome-popup' })) || {};
+
   return {
     props: {
       systemConfig,
       appShell,
       wuiHeaderContent,
+      wuiWelcomePopup,
     },
   };
 }) satisfies GetServerSideProps<IDynamicPageProps>;

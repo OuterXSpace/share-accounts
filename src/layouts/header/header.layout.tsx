@@ -10,6 +10,6 @@ export const DynamicHeader: React.FC<DynamicHeaderProps> = (props) => {
     case 'HEADER_NONE':
       return <div className="hidden" />;
     default:
-      return <section className="w-full flex flex-wrap">Header</section>;
+      return <div />;
   }
 };

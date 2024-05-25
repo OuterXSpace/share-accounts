@@ -9,7 +9,7 @@ export interface BodyTheme01Props {
 }
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
-  const { slug, item, systemConfig } = props;
+  const { slug, item, systemConfig, wuiWelcomePopup } = props;
 
   const router = useRouter();
 
@@ -33,8 +33,8 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
     case 'REGISTER':
       return <RegisterPage />;
     case 'HOME':
-      return <HomePage />;
+      return <HomePage wuiWelcomePopup={wuiWelcomePopup} />;
     default:
-      return <HomePage />;
+      return <div />;
   }
 };
