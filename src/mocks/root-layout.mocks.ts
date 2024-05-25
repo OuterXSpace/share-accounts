@@ -137,7 +137,7 @@ export const rootLayoutConfig = {
             },
           },
         },
-        LOBBY: {
+        PRODUCTS: {
           id: 'lobby',
           name: 'lobby',
           contentPage: {

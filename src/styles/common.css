@@ -5,10 +5,10 @@ body {
   background-color: #282828;
   font-size: 14px;
 
-  background-image: url('https://miso88.com/assets/images/background/home-bg.jpeg?ignoreCache=1');
+  /* background-image: url('https://miso88.com/assets/images/background/home-bg.jpeg?ignoreCache=1');
   background-size: cover;
   background-position: bottom;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 * {

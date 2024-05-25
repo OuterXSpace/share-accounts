@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ProfilePage, PaymentPage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
+import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
 import { BodyTheme01Props } from './body.type';
+import { ProductDetailPage } from '../../pages/product-detail';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   const { slug, item, systemConfig, wuiWelcomePopup } = props;
@@ -17,18 +18,19 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   }, [router?.query?.slug]);
 
   switch (slug) {
+    case 'HOME':
+      return <HomePage wuiWelcomePopup={wuiWelcomePopup} />;
+    case 'PRODUCTS':
+      return <ProductDetailPage routerId={id} />;
     case 'PROFILE':
       return <ProfilePage routerId={id} />;
-    case 'PROJECTS':
-      return <PaymentPage />;
     case 'CART':
       return <CartPage />;
     case 'LOGIN':
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
-    case 'HOME':
-      return <HomePage wuiWelcomePopup={wuiWelcomePopup} />;
+
     default:
       return <div />;
   }
