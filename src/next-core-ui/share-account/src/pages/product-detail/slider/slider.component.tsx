@@ -40,7 +40,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
       />
       <div className="w-[540px] relative">
         <div
-          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-[900] transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[504px]"
+          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[504px]"
           onClick={handlePrev}
         >
           <IonIcon className="text-[20px]" name="arrow-back-outline" />
@@ -77,7 +77,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
           })}
         </Swiper>
         <div
-          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-[900] transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[4px]"
+          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[4px]"
           onClick={handleNext}
         >
           <IonIcon className="text-[20px]" name="arrow-forward-outline" />

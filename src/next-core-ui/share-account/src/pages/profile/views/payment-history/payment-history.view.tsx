@@ -2,8 +2,8 @@ import { PaymentHistoryProp } from './payment-history.type';
 
 export const PaymentHistory: React.FC<PaymentHistoryProp> = () => {
   return (
-    <div className="payment-history">
-      <div className="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5">
+    <div className="payment-history pb-5">
+      <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5">
         <div className="w-full mb-1">
           <div className="mb-4">
             <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl  ">Lịch sử giao dịch</h1>
@@ -143,7 +143,7 @@ export const PaymentHistory: React.FC<PaymentHistoryProp> = () => {
 
       {/* Pagination */}
 
-      <div className="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between">
+      <div className="rounded-b-lg sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between">
         <div className="flex items-center mb-4 sm:mb-0">
           <a
             href="#"

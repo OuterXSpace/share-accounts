@@ -55,7 +55,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
             <Slider data={data} />
           </div>
           <div className="col-sm-6">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 container">
               <div className="section font-sans text-[32px] font-semibold leading-snug text-accent">
                 Mua Tài khoản Youtube Premium chính chủ
               </div>
