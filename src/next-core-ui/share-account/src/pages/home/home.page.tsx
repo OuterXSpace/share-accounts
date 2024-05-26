@@ -25,7 +25,16 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
         <Modal show={openModal} size="2xl" onClose={() => setOpenModal(false)} popup>
           <Modal.Header />
           <Modal.Body>
-            <AnnouncementComponent wuiWelcomePopup={wuiWelcomePopup?.data?.V2?.config?.bodyContent} />
+            {wuiWelcomePopup?.enableType === 'V2' && (
+              <AnnouncementComponent wuiWelcomePopup={wuiWelcomePopup?.data?.V2?.config?.bodyContent} />
+            )}
+            {wuiWelcomePopup?.enableType === 'V1' && (
+              <img
+                src={wuiWelcomePopup?.data?.V1?.config?.image}
+                className="w-full h-full object-contain object-center"
+                alt="well come"
+              />
+            )}
           </Modal.Body>
         </Modal>
       </Flowbite>
