@@ -1,10 +1,25 @@
 import IonIcon from '@reacticons/ionicons';
 import { IProductCardProps } from './product-card.type';
+import Link from 'next/link';
+import { FormattedCurrency } from '../../../../../components';
 
 export const ProductCard: React.FC<IProductCardProps> = (props) => {
-  const { img, alt, title, price, quantity, category } = props;
+  const {
+    img = '',
+    alt = '',
+    title = '',
+    price = 0,
+    quantity = 0,
+    category = '',
+    linkUrl = '',
+    currency = 'VNĐ',
+  } = props;
+
   return (
-    <div className="flex gap-2 bg-white flex-col rounded-b-xl rounded-t-xl xl:flex-row  xl:rounded-r-xl h-[140px]">
+    <Link
+      href={linkUrl}
+      className="flex gap-2 bg-white flex-col rounded-b-xl rounded-t-xl xl:flex-row  xl:rounded-r-xl h-[140px]"
+    >
       <img src={img} alt={alt} className="xl:w-[140px] xl:h-auto rounded-t-xl xl:rounded-l-xl  xl:rounded-tr-none" />
       <div className="py-4 px-4 flex gap-2 flex-col">
         <span className="font-bold text-xs">{title}</span>
@@ -16,7 +31,9 @@ export const ProductCard: React.FC<IProductCardProps> = (props) => {
           </div>
         </div>
         <div className="flex justify-between items-center pt-1 text-sm ">
-          <span className="font-bold text-xs">{price},000đ</span>
+          <span className="font-bold text-xs">
+            <FormattedCurrency value={price} isColored={false} /> {currency}
+          </span>
           <div
             className="w-[20px] rounded-full flex items-center justify-center cursor-pointer"
             style={{
@@ -29,6 +46,6 @@ export const ProductCard: React.FC<IProductCardProps> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

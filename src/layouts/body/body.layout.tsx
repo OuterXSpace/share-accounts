@@ -3,7 +3,7 @@ import { DynamicBodyProps } from './header.type';
 import { BodyTheme01 } from '../../next-core-ui';
 
 export const DynamicBody: React.FC<DynamicBodyProps> = (props) => {
-  const { item, systemConfig, slug, wuiWelcomePopup, staticPage, promotion } = props;
+  const { item, systemConfig, slug, wuiWelcomePopup, staticPage, promotion, productData, homeContent } = props;
 
   switch (item?.type) {
     case 'BODY_THEME_01':
@@ -15,6 +15,8 @@ export const DynamicBody: React.FC<DynamicBodyProps> = (props) => {
           wuiWelcomePopup={wuiWelcomePopup}
           staticPage={staticPage}
           promotion={promotion}
+          productData={productData}
+          homeContent={homeContent}
         />
       );
     default:

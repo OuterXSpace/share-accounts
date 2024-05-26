@@ -6,7 +6,7 @@ import { ProductDetailPage } from '../../pages/product-detail';
 import { StaticPage } from '../../pages/static';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
-  const { slug, item, systemConfig, wuiWelcomePopup, staticPage, promotion } = props;
+  const { slug, item, systemConfig, wuiWelcomePopup, staticPage, promotion, productData, homeContent } = props;
 
   const router = useRouter();
 
@@ -20,13 +20,13 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
 
   switch (slug) {
     case 'HOME':
-      return <HomePage wuiWelcomePopup={wuiWelcomePopup} />;
-    case 'PRODUCTS':
-      return <ProductDetailPage routerId={id} />;
+      return <HomePage wuiWelcomePopup={wuiWelcomePopup} productData={productData} homeContent={homeContent} />;
+    case 'PRODUCT':
+      return <ProductDetailPage routerId={id} productData={productData} />;
     case 'PROFILE':
       return <ProfilePage routerId={id} />;
     case 'CART':
-      return <CartPage />;
+      return <CartPage productData={productData} />;
     case 'PAGES':
       return <StaticPage routerId={id} staticPage={staticPage} />;
     case 'PROMOTION':
