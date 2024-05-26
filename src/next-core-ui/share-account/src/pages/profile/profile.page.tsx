@@ -21,7 +21,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = (props) => {
   return (
     <main className="container pt-[120px] w-full mt-10">
       <section className="row">
-        <aside className="col-sm-4 pr-5">
+        <aside className="col-sm-3 pr-5">
           <div className="overflow-y-auto w-full rounded-xl p-4 bg-white border shadow-lg">
             <h1 className="text-xl font-semibold mb-4">Thông tin cá nhân</h1>
             <ul className="space-y-2 font-medium text-gray-600">
@@ -39,7 +39,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = (props) => {
             </ul>
           </div>
         </aside>
-        <div className="col-sm-8">{renderPageBody}</div>
+        <div className="col-sm-9">{renderPageBody}</div>
       </section>
     </main>
   );

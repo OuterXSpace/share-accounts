@@ -138,8 +138,23 @@ export const rootLayoutConfig = {
           },
         },
         PRODUCTS: {
-          id: 'lobby',
-          name: 'lobby',
+          id: 'product',
+          name: 'product',
+          contentPage: {
+            header: {
+              type: 'HEADER_THEME_01',
+            },
+            body: {
+              type: 'BODY_THEME_01',
+            },
+            footer: {
+              type: 'FOOTER_THEME_01',
+            },
+          },
+        },
+        PAGES: {
+          id: 'pages',
+          name: 'pages',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',

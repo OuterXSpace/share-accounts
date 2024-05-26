@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
+import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage, PromotionPage } from '../../pages';
 import { BodyTheme01Props } from './body.type';
 import { ProductDetailPage } from '../../pages/product-detail';
+import { StaticPage } from '../../pages/static';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
-  const { slug, item, systemConfig, wuiWelcomePopup } = props;
+  const { slug, item, systemConfig, wuiWelcomePopup, staticPage, promotion } = props;
 
   const router = useRouter();
 
@@ -26,11 +27,14 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
       return <ProfilePage routerId={id} />;
     case 'CART':
       return <CartPage />;
+    case 'PAGES':
+      return <StaticPage routerId={id} staticPage={staticPage} />;
+    case 'PROMOTION':
+      return <PromotionPage promotion={promotion} />;
     case 'LOGIN':
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
-
     default:
       return <div />;
   }
