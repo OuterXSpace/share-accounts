@@ -1,1 +1,3 @@
-export interface CartPageProps {}
+export interface CartPageProps {
+  productData?: Record<string, any>;
+}

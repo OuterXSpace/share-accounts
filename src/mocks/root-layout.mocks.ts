@@ -62,9 +62,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        SERVICES: {
-          id: 'servicers',
-          name: 'Servicers',
+        PROFILE: {
+          id: 'profile',
+          name: 'profile',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -77,9 +77,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        INTRODUCTION: {
-          id: 'introduction',
-          name: 'Introduction',
+        CART: {
+          id: 'cart',
+          name: 'cart',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -92,9 +92,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        VIDEO: {
-          id: 'video',
-          name: 'Video',
+        PROMOTION: {
+          id: 'promotion',
+          name: 'promotion',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -107,9 +107,39 @@ export const rootLayoutConfig = {
             },
           },
         },
-        CONTACT: {
-          id: 'contact',
-          name: 'Contact',
+        LOGIN: {
+          id: 'login',
+          name: 'login',
+          contentPage: {
+            header: {
+              type: 'HEADER_NONE',
+            },
+            body: {
+              type: 'BODY_THEME_01',
+            },
+            footer: {
+              type: 'FOOTER_NONE',
+            },
+          },
+        },
+        REGISTER: {
+          id: 'register',
+          name: 'register',
+          contentPage: {
+            header: {
+              type: 'HEADER_NONE',
+            },
+            body: {
+              type: 'BODY_THEME_01',
+            },
+            footer: {
+              type: 'FOOTER_NONE',
+            },
+          },
+        },
+        PRODUCT: {
+          id: 'product',
+          name: 'product',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -122,9 +152,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        NEWS: {
-          id: 'news',
-          name: 'News',
+        PAGES: {
+          id: 'pages',
+          name: 'pages',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -137,18 +167,24 @@ export const rootLayoutConfig = {
             },
           },
         },
-        PROJECTS: {
-          id: 'project',
-          name: 'Project',
+      },
+    },
+    THEME_02: {
+      id: 'THEME_01',
+      title: 'Theme 01',
+      contentTheme: {
+        HOME: {
+          id: 'home',
+          name: 'Home',
           contentPage: {
             header: {
-              type: 'HEADER_THEME_01',
+              type: 'HEADER_NONE',
             },
             body: {
-              type: 'BODY_THEME_01',
+              type: 'BODY_THEME_02',
             },
             footer: {
-              type: 'FOOTER_THEME_01',
+              type: 'FOOTER_NONE',
             },
           },
         },

@@ -1,6 +1,19 @@
 import React from 'react';
-import { IHeaderTheme02Props } from './header.type';
+import { MenuDesktop, MenuMobile } from '../../views';
+import { useDeviceSizes } from '../../../../../hooks';
+import { IHeaderTheme01Props } from './header.type';
 
-export const HeaderTheme02: React.FC<IHeaderTheme02Props> = () => {
-  return <>Header</>;
+export const HeaderTheme01: React.FC<IHeaderTheme01Props> = (props) => {
+  const { wuiHeaderContent } = props;
+
+  const isDevice = useDeviceSizes();
+  return (
+    <header>
+      {isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
+        <MenuDesktop wuiHeaderContent={wuiHeaderContent} />
+      ) : (
+        <MenuMobile />
+      )}
+    </header>
+  );
 };

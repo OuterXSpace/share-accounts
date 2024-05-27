@@ -1,119 +1,54 @@
-import React from 'react';
-import { IFooterTheme02Props } from './footer.type';
+import React, { Fragment } from 'react';
+import { IFooterTheme01Props } from './footer.type';
+import Link from 'next/link';
 
-export const FooterTheme02: React.FC<IFooterTheme02Props> = () => {
+export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
+  const { footerContent } = props;
+
   return (
-    <>
-      {/* footer */}
-      <footer className="bg-white pt-16 pb-12 border-t border-gray-100">
-        <div className="container grid grid-cols-3">
-          <div className="col-span-1 space-y-8 mr-2">
-            <img src="../assets/images/logo.svg" alt="logo" className="w-30" />
-            <div className="mr-2">
-              <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?</p>
-            </div>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-facebook-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-instagram-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-twitter-square" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                <i className="fa-brands fa-github-square" />
-              </a>
-            </div>
-          </div>
-          <div className="col-span-2 grid grid-cols-2 gap-8">
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Marketing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Analitycs
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Commerce
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Insights
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Documentation
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Guides
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    API Status
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Marketing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Analitycs
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Commerce
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Insights
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
-                <div className="mt-4 space-y-4">
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Documentation
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    Guides
-                  </a>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900 block">
-                    API Status
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <footer className="mb-[77px] lg:mb-0">
+      {/* footer tile */}
+      <div className="bg-primary-dark">
+        <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between lg:items-center flex-col lg:flex-row gap-4 lg:gap-0">
+          {footerContent?.topContent?.map((item, index) => {
+            const { hrefLink = '/', id = '', iconUrl = '', title = '' } = item;
+            return (
+              <Fragment key={id}>
+                <Link href={hrefLink} className="flex items-center gap-2 text-white">
+                  <img src={iconUrl} alt="" />
+                  {title}
+                </Link>
+                {index < Number(footerContent?.topContent?.length ?? 0) - 1 && (
+                  <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
+                )}
+              </Fragment>
+            );
+          })}
         </div>
-      </footer>
-      {/* ./footer */}
+      </div>
+      {/* icon payment */}
+      <div className="bg-primary-darker">
+        <div className="container flex items-center justify-center py-10 lg:pb-10 ">
+          {footerContent?.midContent?.map((item) => {
+            const { imageUrl = '', imageAlt = '', id = '', hrefLink = '/' } = item;
+            return (
+              <Link key={id} href={hrefLink} className="w-1/12 pr-2">
+                <img src={imageUrl} alt={imageAlt} className="w-full" />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
       {/* copyright */}
-      <div className="bg-gray-800 py-4">
-        <div className="container flex items-center justify-between">
-          <p className="text-white">© TailCommerce - All Right Reserved</p>
-          <div>
-            <img src="../assets/images/methods.png" alt="methods" className="h-5" />
+      <div className="bg-primary-dark">
+        <div className="container flex justify-center">
+          <div className="row">
+            <div className="flex items-center justify-center p-2 uppercase text-sm text-white text-opacity-70">
+              {footerContent?.botContent?.title}
+            </div>
           </div>
         </div>
       </div>
-      {/* ./copyright */}
-    </>
+    </footer>
   );
 };

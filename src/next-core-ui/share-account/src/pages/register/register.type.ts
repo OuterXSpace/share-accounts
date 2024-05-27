@@ -1,1 +1,1 @@
-export interface RegisterPageProps {}
+export interface IRegisterPageProps {}

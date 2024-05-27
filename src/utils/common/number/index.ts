@@ -6,8 +6,8 @@ export function isNumber(number: string | undefined) {
   return !!number?.match(/^-?\d+\.?\d*$/);
 }
 
-export function parseNumber(value: string | undefined): number {
-  value = currencyToNumber(value);
+export function parseNumber(txt: string | undefined): number {
+  const value = currencyToNumber(txt);
   if (!isNumber(value)) return NaN;
   return Number(value);
 }

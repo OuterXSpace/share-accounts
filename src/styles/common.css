@@ -1,0 +1,40 @@
+body {
+  background-image: repeating-conic-gradient(#252525 0% 25%, #282828 0% 50%);
+  background-position: 0 0, 30px 30px;
+  background-size: 60px 60px;
+  background-color: #282828;
+  font-size: 14px;
+
+  /* background-image: url('https://miso88.com/assets/images/background/home-bg.jpeg?ignoreCache=1');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat; */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  position: absolute;
+  width: 6px;
+  -ms-overflow-style: 6px; /* IE and Edge */
+  scrollbar-width: 6px; /* Firefox */
+  height: 6px;
+  bottom: 2px;
+  top: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  height: 59px;
+  display: block;
+  border-radius: inherit;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

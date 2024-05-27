@@ -1,1 +1,2 @@
-export * from './dynamic-footer.component';
+export * from './footer.layout';
+export * from './footer.type';
