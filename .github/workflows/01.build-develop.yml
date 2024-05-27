@@ -7,7 +7,7 @@ on:
         required: true
 env:
   DEPLOYMENT_NAME: share-account
-  IMAGE: share-account-dev
+  IMAGE: share-account
   INGRESS_IP: 20.39.199.15:3000
   PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/share-account/'
   COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
