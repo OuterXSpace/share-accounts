@@ -14,7 +14,6 @@ export interface IMenuItemModel extends IPopupLinkProps {
   link?: string;
   icon?: string;
   activeIcon?: string;
-  hotIcon?: string;
 }
 
 export interface ISubMenuModel {

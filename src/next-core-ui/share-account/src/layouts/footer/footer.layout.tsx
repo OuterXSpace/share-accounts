@@ -1,60 +1,50 @@
-/* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { Fragment } from 'react';
 import { IFooterTheme01Props } from './footer.type';
+import Link from 'next/link';
 
-export const FooterTheme01: React.FC<IFooterTheme01Props> = () => {
+export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
+  const { footerContent } = props;
+
   return (
     <footer className="mb-[77px] lg:mb-0">
       {/* footer tile */}
-      <div className="bg-[#a2060e]">
-        <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between items-center flex-col lg:flex-row gap-4 lg:gap-0">
-          <div className="flex items-center gap-2 text-white">
-            <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="phone" />
-            Hotline
-          </div>
-          <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
-          <div className="flex items-center gap-2 text-white">
-            <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="mail" />
-            shareaccount@gmail.com
-          </div>
-          <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
-          <div className="flex items-center gap-2 text-white">
-            <img src="https://miso88.com/assets/images/icons/wui-footer/icon-footerWork.png" alt="phone" />
-            Hướng dẫn
-          </div>
-          <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
-          <div className="flex items-center gap-2 text-white">
-            <img src="https://miso88.com/assets/images/icons/wui-footer/icon-phone.png" alt="phone" />
-            Chăm sóc khách hàng
-          </div>
+      <div className="bg-primary-dark">
+        <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between lg:items-center flex-col lg:flex-row gap-4 lg:gap-0">
+          {footerContent?.topContent?.map((item, index) => {
+            const { hrefLink = '/', id = '', iconUrl = '', title = '' } = item;
+            return (
+              <Fragment key={id}>
+                <Link href={hrefLink} className="flex items-center gap-2 text-white">
+                  <img src={iconUrl} alt="" />
+                  {title}
+                </Link>
+                {index < Number(footerContent?.topContent?.length ?? 0) - 1 && (
+                  <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
+                )}
+              </Fragment>
+            );
+          })}
         </div>
       </div>
       {/* icon payment */}
-      <div className="bg-[#520100]">
+      <div className="bg-primary-darker">
         <div className="container flex items-center justify-center py-10 lg:pb-10 ">
-          <img
-            src="https://gamikey.com/wp-content/uploads/2023/09/Zalo-PNG-3-300x90.png.webp"
-            alt="payment"
-            className="w-1/12 pr-2"
-          />
-          <img
-            src="https://gamikey.com/wp-content/uploads/2023/09/Fanpage-PNG.png.webp"
-            alt="payment"
-            className="w-1/12 pr-2"
-          />
-          <img
-            src="https://gamikey.com/wp-content/uploads/2023/09/Telegram-PNG.png.webp"
-            alt="payment"
-            className="w-1/12 pr-2"
-          />
+          {footerContent?.midContent?.map((item) => {
+            const { imageUrl = '', imageAlt = '', id = '', hrefLink = '/' } = item;
+            return (
+              <Link key={id} href={hrefLink} className="w-1/12 pr-2">
+                <img src={imageUrl} alt={imageAlt} className="w-full" />
+              </Link>
+            );
+          })}
         </div>
       </div>
       {/* copyright */}
-      <div className="bg-[#390100]">
+      <div className="bg-primary-dark">
         <div className="container flex justify-center">
           <div className="row">
             <div className="flex items-center justify-center p-2 uppercase text-sm text-white text-opacity-70">
-              Copyright © shareaccount All Rights Reserved.
+              {footerContent?.botContent?.title}
             </div>
           </div>
         </div>

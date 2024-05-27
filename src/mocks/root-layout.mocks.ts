@@ -137,9 +137,9 @@ export const rootLayoutConfig = {
             },
           },
         },
-        LOBBY: {
-          id: 'lobby',
-          name: 'lobby',
+        PRODUCT: {
+          id: 'product',
+          name: 'product',
           contentPage: {
             header: {
               type: 'HEADER_THEME_01',
@@ -149,6 +149,42 @@ export const rootLayoutConfig = {
             },
             footer: {
               type: 'FOOTER_THEME_01',
+            },
+          },
+        },
+        PAGES: {
+          id: 'pages',
+          name: 'pages',
+          contentPage: {
+            header: {
+              type: 'HEADER_THEME_01',
+            },
+            body: {
+              type: 'BODY_THEME_01',
+            },
+            footer: {
+              type: 'FOOTER_THEME_01',
+            },
+          },
+        },
+      },
+    },
+    THEME_02: {
+      id: 'THEME_01',
+      title: 'Theme 01',
+      contentTheme: {
+        HOME: {
+          id: 'home',
+          name: 'Home',
+          contentPage: {
+            header: {
+              type: 'HEADER_NONE',
+            },
+            body: {
+              type: 'BODY_THEME_02',
+            },
+            footer: {
+              type: 'FOOTER_NONE',
             },
           },
         },

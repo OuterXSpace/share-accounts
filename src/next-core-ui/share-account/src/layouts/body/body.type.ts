@@ -1,6 +1,10 @@
 export interface BodyTheme01Props {
+  slug?: string;
   item: Record<string, any>;
   systemConfig: Record<string, any>;
   wuiWelcomePopup?: Record<string, any>;
-  slug?: string;
+  staticPage?: Record<string, any>;
+  promotion?: Record<string, any>;
+  productData?: Record<string, any>;
+  homeContent?: Record<string, any>;
 }

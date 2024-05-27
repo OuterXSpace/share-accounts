@@ -73,8 +73,9 @@ export const PopupLink: React.FC<IPopupLinkProps> = (props) => {
 
   return (
     <Link
-      href={popupLink}
-      onClick={handleOpenLink}
+      href={link}
+      // href={popupLink}
+      // onClick={handleOpenLink}
       className={`toto-popup-link ${className} ${
         disabled ? 'disabled cursor-not-allowed filter grayscale-100 opacity-70' : ''
       }`}

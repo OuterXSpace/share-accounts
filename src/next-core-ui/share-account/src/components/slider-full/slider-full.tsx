@@ -2,13 +2,14 @@ import { ISliderFullProps } from './slider-full.type';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link';
-import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import 'swiper/css';
 
 export const SliderFull: React.FC<ISliderFullProps> = (props) => {
   const { data, extraClassContainer, extraClassSlider } = props;
+
   return (
     <div className={`w-full lg:h-[40vh] xl:h-[60vh] flex items-center justify-center ${extraClassContainer}`}>
       <Swiper
@@ -24,14 +25,14 @@ export const SliderFull: React.FC<ISliderFullProps> = (props) => {
         effect="fade"
       >
         {data.map((item) => {
-          const { title, avatar, info, button } = item;
+          const { id, imageUrl, linkUrl } = item;
           return (
             <SwiperSlide
-              key={title}
+              key={id}
               className={`cursor-pointer w-full h-full flex items-center bg-cover ${extraClassSlider}`}
-              style={{ backgroundImage: `url('${avatar}')` }}
+              style={{ backgroundImage: `url('${imageUrl}')` }}
             >
-              <Link href="/" className="hidden" />
+              <Link href={linkUrl} className="hidden" />
             </SwiperSlide>
           );
         })}

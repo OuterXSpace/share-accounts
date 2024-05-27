@@ -5,8 +5,7 @@ export interface ISliderFullProps {
 }
 
 interface ISliderFullData {
-  avatar: string;
-  title: string;
-  info: string;
-  button: string;
+  id?: string;
+  imageUrl?: string;
+  linkUrl?: string;
 }

@@ -1,1 +1,3 @@
-export interface IFooterTheme01Props {}
+export interface IFooterTheme01Props {
+  footerContent?: Record<string, any>;
+}

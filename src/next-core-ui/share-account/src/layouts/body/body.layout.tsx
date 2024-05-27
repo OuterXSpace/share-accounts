@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ProfilePage, PaymentPage, LoginPage, RegisterPage, CartPage, HomePage } from '../../pages';
+import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage, PromotionPage } from '../../pages';
 import { BodyTheme01Props } from './body.type';
+import { ProductDetailPage } from '../../pages/product-detail';
+import { StaticPage } from '../../pages/static';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
-  const { slug, item, systemConfig, wuiWelcomePopup } = props;
+  const { slug, item, systemConfig, wuiWelcomePopup, staticPage, promotion, productData, homeContent } = props;
 
   const router = useRouter();
 
@@ -17,18 +19,22 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   }, [router?.query?.slug]);
 
   switch (slug) {
+    case 'HOME':
+      return <HomePage wuiWelcomePopup={wuiWelcomePopup} productData={productData} homeContent={homeContent} />;
+    case 'PRODUCT':
+      return <ProductDetailPage routerId={id} productData={productData} />;
     case 'PROFILE':
       return <ProfilePage routerId={id} />;
-    case 'PROJECTS':
-      return <PaymentPage />;
     case 'CART':
-      return <CartPage />;
+      return <CartPage productData={productData} />;
+    case 'PAGES':
+      return <StaticPage routerId={id} staticPage={staticPage} />;
+    case 'PROMOTION':
+      return <PromotionPage promotion={promotion} />;
     case 'LOGIN':
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
-    case 'HOME':
-      return <HomePage wuiWelcomePopup={wuiWelcomePopup} />;
     default:
       return <div />;
   }
