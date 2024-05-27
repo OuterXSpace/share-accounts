@@ -8,6 +8,7 @@ import { GetServerSideProps } from 'next';
 import { rootLayoutConfig } from '../../mocks';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { DynamicBody } from '../../layouts/body/body.layout';
+import { THEME } from '../../constants/platform';
 
 export interface IDynamicPageProps {
   systemConfig?: Record<string, any>;
@@ -47,7 +48,7 @@ const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
   const seoHomePage = useMemo(() => systemConfig?.homeContent?.seoHomePage, [systemConfig?.homeContent?.seoHomePage]);
 
   const contentPage = useMemo(
-    () => rootLayoutConfig?.rootLayout[appShell?.appShellConfig?.theme]?.contentTheme?.[slug]?.contentPage,
+    () => rootLayoutConfig?.rootLayout[THEME ?? appShell?.appShellConfig?.theme]?.contentTheme?.[slug]?.contentPage,
     [appShell?.appShellConfig?.theme, slug],
   );
 

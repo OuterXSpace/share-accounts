@@ -1,4 +1,4 @@
-name: 01.deploy-develop
+name: 02.deploy-nicholaf
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
 env:
   SERVER_IP: "20.39.199.15"
   SERVER_USER: "outerspace"
-  IMAGE: share-account-dev
+  IMAGE: nicholaf
   DOCKER_HUB_USERNAME: warjamma
 
 jobs: 
@@ -28,5 +28,5 @@ jobs:
             sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
             sudo docker stop $IMAGE || true
             sudo docker rm $IMAGE || true
-            sudo docker run -d -p 6000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+            sudo docker run -d -p 5000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
           "
