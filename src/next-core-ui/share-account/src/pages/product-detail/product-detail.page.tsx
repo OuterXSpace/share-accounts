@@ -6,11 +6,12 @@ import { ProductCard } from '../../components/product-card';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { FormattedCurrency } from '../../../../../components';
+import { useRouter } from 'next/router';
+import { notFound } from 'next/navigation';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
-import { useRouter } from 'next/router';
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
   const { routerId, wuiWelcomePopup, productData } = props;
@@ -21,8 +22,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
     if (router?.query?.id) {
       return productData?.products?.data?.filter((item) => `${item?.id}` === `${router?.query?.id}`)[0];
     }
-    return productData?.products?.data?.[0] ?? [];
+    return productData?.products?.data?.[0];
   }, [productData?.products, router?.query?.id]);
+
+  if (!productDetail) {
+    return notFound();
+  }
 
   return (
     <>
