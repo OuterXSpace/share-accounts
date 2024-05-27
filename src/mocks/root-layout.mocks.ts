@@ -169,5 +169,26 @@ export const rootLayoutConfig = {
         },
       },
     },
+    THEME_02: {
+      id: 'THEME_01',
+      title: 'Theme 01',
+      contentTheme: {
+        HOME: {
+          id: 'home',
+          name: 'Home',
+          contentPage: {
+            header: {
+              type: 'HEADER_NONE',
+            },
+            body: {
+              type: 'BODY_THEME_02',
+            },
+            footer: {
+              type: 'FOOTER_NONE',
+            },
+          },
+        },
+      },
+    },
   },
 };
