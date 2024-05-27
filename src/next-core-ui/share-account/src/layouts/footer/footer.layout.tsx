@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { IFooterTheme01Props } from './footer.type';
 import Link from 'next/link';
@@ -14,15 +13,15 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
           {footerContent?.topContent?.map((item, index) => {
             const { hrefLink = '/', id = '', iconUrl = '', title = '' } = item;
             return (
-              <>
-                <Link key={id} href={hrefLink} className="flex items-center gap-2 text-white">
+              <div key={id}>
+                <Link href={hrefLink} className="flex items-center gap-2 text-white">
                   <img src={iconUrl} alt="" />
                   {title}
                 </Link>
                 {index < Number(footerContent?.topContent?.length ?? 0) - 1 && (
                   <span className="h-[48px] w-[1.5px] bg-[#ff9500] hidden lg:block" />
                 )}
-              </>
+              </div>
             );
           })}
         </div>
