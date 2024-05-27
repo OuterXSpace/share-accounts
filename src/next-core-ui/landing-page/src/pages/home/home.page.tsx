@@ -218,7 +218,7 @@ export const HomePage02: React.FC<HomePage02Props> = (props) => {
               <form className="grid grid-cols-1 gap-4">
                 <input type="text" placeholder="Name" className="p-2 bg-gray-800 text-white" />
                 <input type="email" placeholder="Email" className="p-2 bg-gray-800 text-white" />
-                <textarea placeholder="Message" className="p-2 bg-gray-800 text-white" rows="4" />
+                <textarea placeholder="Message" className="p-2 bg-gray-800 text-white" rows={4} />
                 <button type="submit" className="bg-gray-400 text-black py-2 px-4">
                   <i className="fa fa-paper-plane" /> Send
                 </button>
