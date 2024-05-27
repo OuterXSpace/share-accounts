@@ -22,7 +22,7 @@ export const MenuItem: React.FC<IMenuItemProps> = (props) => {
       {submenu ? (
         <Popover
           trigger="hover"
-          className={`${classNamePrefix}__submenu-switch-select left-1/2 transform translate-x-1/2 border-solid border-t-primary border-t py-0 px-4 bg-[#3b0201e6] absolute top-full w-full h-max font-normal z-10`}
+          className={`${classNamePrefix}__submenu-switch-select left-1/2 transform translate-x-1/2 border-solid border-t-primary border-t py-0 px-4 bg-primary-transparent absolute top-full w-full h-max font-normal z-10`}
           content={
             <div
               className={`${classNamePrefix}__submenu-container ${submenu?.layout}-grid relative flex items-stretch whitespace-nowrap overflow-auto p-0 max-w-[1280px] w-full`}

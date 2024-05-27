@@ -9,7 +9,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
   return (
     <footer className="mb-[77px] lg:mb-0">
       {/* footer tile */}
-      <div className="bg-[#a2060e]">
+      <div className="bg-primary-dark">
         <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between lg:items-center flex-col lg:flex-row gap-4 lg:gap-0">
           {footerContent?.topContent?.map((item, index) => {
             const { hrefLink = '/', id = '', iconUrl = '', title = '' } = item;
@@ -28,7 +28,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
         </div>
       </div>
       {/* icon payment */}
-      <div className="bg-[#520100]">
+      <div className="bg-primary-darker">
         <div className="container flex items-center justify-center py-10 lg:pb-10 ">
           {footerContent?.midContent?.map((item) => {
             const { imageUrl = '', imageAlt = '', id = '', hrefLink = '/' } = item;
@@ -41,7 +41,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
         </div>
       </div>
       {/* copyright */}
-      <div className="bg-[#390100]">
+      <div className="bg-primary-dark">
         <div className="container flex justify-center">
           <div className="row">
             <div className="flex items-center justify-center p-2 uppercase text-sm text-white text-opacity-70">
