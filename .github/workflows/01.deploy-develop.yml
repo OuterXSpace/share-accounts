@@ -9,7 +9,7 @@ on:
 env:
   SERVER_IP: "20.39.199.15"
   SERVER_USER: "outerspace"
-  IMAGE: share-account-dev
+  IMAGE: share-account
   DOCKER_HUB_USERNAME: warjamma
 
 jobs: 
