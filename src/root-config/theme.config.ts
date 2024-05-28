@@ -9,3 +9,5 @@ const THEME_COLOR_CONFIG = {
 };
 
 module.exports = THEME_COLOR_CONFIG[process.env.NEXT_PUBLIC_THEME_COLOR];
+
+export {};

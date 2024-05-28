@@ -1,4 +1,3 @@
-export {};
 const flowbite = require('flowbite-react/tailwind');
 const THEME_CONFIG = require('./src/root-config/theme.config');
 
@@ -10,3 +9,5 @@ module.exports = {
   },
   plugins: [flowbite.plugin()],
 };
+
+export {};

@@ -132,8 +132,8 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
               <h3 className="text-2xl my-4">My Price</h3>
               <div className="md:flex -mx-4">
                 <div className="md:w-1/2 px-4 mb-4 md:mb-0">
-                  <ul className="bg-white text-center opacity-75 hover:opacity-100">
-                    <li className="bg-gray-800 text-xl py-8">Photo</li>
+                  <ul className="bg-white text-center opacity-75 hover:opacity-100 text-dark-1">
+                    <li className="bg-gray-800 text-xl py-8 text-white">Photo</li>
                     <li className="py-4">Photography</li>
                     <li className="py-4">Edit</li>
                     <li className="py-4">Edit as feedback</li>
@@ -147,8 +147,8 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
                   </ul>
                 </div>
                 <div className="md:w-1/2 px-4">
-                  <ul className="bg-white text-center opacity-75 hover:opacity-100">
-                    <li className="bg-gray-800 text-xl py-8">Video</li>
+                  <ul className="bg-white text-center opacity-75 hover:opacity-100 text-dark-1">
+                    <li className="bg-gray-800 text-xl py-8 text-white">Video</li>
                     <li className="py-4">Videographer</li>
                     <li className="py-4">Edit</li>
                     <li className="py-4">Edit as feedback</li>
@@ -172,29 +172,26 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
                 <iframe
                   width="100%"
                   height="315"
-                  src="https://www.youtube.com/embed/i1cAG_H1YtU"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  src="https://www.youtube.com/embed/ZtjH22qJXSA?si=LqXVIwAjblWemD8n"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  title="Video 1"
                 />
                 <iframe
                   width="100%"
                   height="315"
-                  src="https://www.youtube.com/embed/UKSzOrA2QNY"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  src="https://www.youtube.com/embed/W4oXEdZz3Z0?si=IN5tXgscRYpyC0g5"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  title="Video 2"
                 />
                 <iframe
                   width="100%"
                   height="315"
-                  src="https://www.youtube.com/embed/eQaTtr1-Tv8"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  src="https://www.youtube.com/embed/zHKRk4huTzg?si=nC4_XXN4INwW7lH5"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  title="Video 3"
                 />
               </div>
             </section>
