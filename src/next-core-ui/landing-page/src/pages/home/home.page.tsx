@@ -14,7 +14,11 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
         <div className="bg-black text-white font-sans">
           {/* Sidebar */}
           <nav className="fixed top-0 left-0 w-24 bg-gray-900 hidden md:block text-center">
-            <img src="/images/Img cua toi.png" className="w-full" alt="Avatar" />
+            <img
+              src="https://azureapis.blob.core.windows.net/nicholaf/assets/images/Img cua toi.png"
+              className="w-full"
+              alt="Avatar"
+            />
             <a href="#" className="block py-4 bg-black text-white">
               <i className="fa fa-home text-2xl" />
               <p>HOME</p>
@@ -64,7 +68,11 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
             <header className="text-center">
               <h1 className="text-5xl md:text-6xl">I'M TRONG NHAN.</h1>
               <p>Video editor and videographer.</p>
-              <img src="/images/Img cua toi.png" alt="Portrait" className="mx-auto" />
+              <img
+                src="https://azureapis.blob.core.windows.net/nicholaf/assets/images/Img cua toi.png"
+                alt="Portrait"
+                className="mx-auto"
+              />
             </header>
 
             {/* About Section */}
@@ -196,12 +204,9 @@ export const HomePage02: React.FC<HomePage02Props> = () => {
               <h2 className="text-3xl">My Photo</h2>
               <hr className="w-32 opacity-50 my-4" />
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <img src="/images/1.jpg" alt="1" />
-                <img src="/images/2.jpg" alt="2" />
-                <img src="/images/3.jpg" alt="3" />
-                <img src="/images/4.jpg" alt="4" />
-                <img src="/images/5.jpg" alt="5" />
-                <img src="/images/6.jpg" alt="6" />
+                <img src="https://azureapis.blob.core.windows.net/nicholaf/assets/images/photo1.png" alt="1" />
+                <img src="https://azureapis.blob.core.windows.net/nicholaf/assets/images/photo2.png" alt="2" />
+                <img src="https://azureapis.blob.core.windows.net/nicholaf/assets/images/photo3.png" alt="3" />
               </div>
             </section>
 
