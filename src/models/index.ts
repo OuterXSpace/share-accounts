@@ -8,3 +8,4 @@ export * from './login-response.model';
 export * from './user-profile.model';
 export * from './router-next.model';
 export * from './toto-link.model';
+export * from './ui-config-server-side.model';

@@ -1,4 +1,4 @@
-export const rootLayoutConfig = {
+export const ROOT_LAYOUT_CONFIG = {
   rootLayout: {
     THEME_01: {
       id: 'THEME_01',

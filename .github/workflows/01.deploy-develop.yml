@@ -29,4 +29,5 @@ jobs:
             sudo docker stop $IMAGE || true
             sudo docker rm $IMAGE || true
             sudo docker run -d -p 6000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+            sudo docker image prune -f
           "

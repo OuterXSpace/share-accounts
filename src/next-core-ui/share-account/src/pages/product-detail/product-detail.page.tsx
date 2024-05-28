@@ -32,10 +32,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
   return (
     <>
       <Head>
-        <meta property="og:title" content={productDetail?.imagesUrls} />
+        <meta property="og:title" content={productDetail?.title} />
         <meta property="og:url" content={productDetail?.linkUrl} />
         <meta property="og:image" />
-        <title>{productDetail?.imagesUrls}</title>
+        <title>{productDetail?.title}</title>
       </Head>
       <main className="pt-[120px]">
         <div className="container p-12">

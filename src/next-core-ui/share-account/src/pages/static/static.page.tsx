@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState, useCallback, useEffect } from 'react';
 import { IStaticPageProps } from './static.type';
 import { Tab, TabPane } from './components';
+import Head from 'next/head';
 
 export const StaticPage: React.FC<IStaticPageProps> = (props) => {
   const { routerId, staticPage } = props;
@@ -26,25 +27,33 @@ export const StaticPage: React.FC<IStaticPageProps> = (props) => {
   }, [router?.query?.slug, routerId, staticPage?.data]);
 
   return (
-    <div className="pt-[120px]">
-      <section className="container py-[3rem] pb-[2rem]">
-        <div className="row">
-          <div className="col-sm-1" />
-          <div className="col-sm-10">
-            <Tab defaultTab={defaultSectionId} onSelect={(id) => changeUrl(id)}>
-              {staticPage?.data?.map((item) => {
-                return (
-                  <TabPane name={item.title} key={item.id}>
-                    <div className="border-2 border-primary rounded-[10px] p-[25px]">
-                      <div dangerouslySetInnerHTML={{ __html: item?.content }} />
-                    </div>
-                  </TabPane>
-                );
-              })}
-            </Tab>
+    <>
+      <Head>
+        <meta property="og:title" content="Đăng ký" />
+        <meta property="og:url" content="/register" />
+        <meta property="og:image" />
+        <title>Đăng ký</title>
+      </Head>
+      <main className="pt-[120px]">
+        <section className="container py-[3rem] pb-[2rem]">
+          <div className="row">
+            <div className="col-sm-1" />
+            <div className="col-sm-10">
+              <Tab defaultTab={defaultSectionId} onSelect={(id) => changeUrl(id)}>
+                {staticPage?.data?.map((item) => {
+                  return (
+                    <TabPane name={item.title} key={item.id}>
+                      <div className="border-2 border-primary rounded-[10px] p-[25px]">
+                        <div dangerouslySetInnerHTML={{ __html: item?.content }} />
+                      </div>
+                    </TabPane>
+                  );
+                })}
+              </Tab>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </main>
+    </>
   );
 };

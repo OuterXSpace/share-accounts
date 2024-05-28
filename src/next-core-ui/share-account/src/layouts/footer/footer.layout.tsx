@@ -6,7 +6,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
   const { footerContent } = props;
 
   return (
-    <footer className="mb-[77px] lg:mb-0">
+    <footer>
       {/* footer tile */}
       <div className="bg-primary-dark">
         <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between lg:items-center flex-col lg:flex-row gap-4 lg:gap-0">
@@ -32,7 +32,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
           {footerContent?.midContent?.map((item) => {
             const { imageUrl = '', imageAlt = '', id = '', hrefLink = '/' } = item;
             return (
-              <Link key={id} href={hrefLink} className="w-1/12 pr-2">
+              <Link key={id} href={hrefLink} className="w-[100px]">
                 <img src={imageUrl} alt={imageAlt} className="w-full" />
               </Link>
             );

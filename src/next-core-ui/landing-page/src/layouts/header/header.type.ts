@@ -1,3 +1,5 @@
+import { IUiConfigServerSide } from '../../../../../models';
+
 export interface IHeaderTheme02Props {
-  wuiHeaderContent?: Record<string, any>;
+  systemConfig?: IUiConfigServerSide;
 }

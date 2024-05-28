@@ -18,7 +18,7 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 pt-9">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-9">
               {productData?.products?.data?.map((product) => {
                 const {
                   imageUrl = '',
@@ -49,11 +49,9 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
       case 'V2':
         return (
           <div className="col" key={id}>
-            <div className="flex flex-col items-center gap-4 pt-9">
-              <h4 className="tt-home-page__section-heading m-0 pd-0 text-[44px] font-bold text-accent">{title}</h4>
-              <div className="max-w-[40%] text-lg text-center font-extralight leading-[1.25em] text-white">
-                {description}
-              </div>
+            <div className="flex flex-col items-center gap-4">
+              <h4 className="text-[44px] font-bold text-accent">{title}</h4>
+              <div className="text-lg text-center font-extralight leading-[1.25em] text-white">{description}</div>
             </div>
 
             <div className="section-body">
