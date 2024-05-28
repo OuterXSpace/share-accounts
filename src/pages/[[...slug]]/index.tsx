@@ -4,11 +4,11 @@ import { DynamicHeader } from '../../layouts/header/header.layout';
 import { DynamicFooter } from '../../layouts/footer/footer.layout';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { rootLayoutConfig } from '../../mocks';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { DynamicBody } from '../../layouts/body/body.layout';
 import { THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
+import { ROOT_LAYOUT_CONFIG } from '../../root-config';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -27,7 +27,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
     return str[0].toLocaleUpperCase();
   }, [router?.query?.slug]);
 
-  const contentPage = useMemo(() => rootLayoutConfig?.rootLayout[THEME]?.contentTheme?.[slug]?.contentPage, [slug]);
+  const contentPage = useMemo(() => ROOT_LAYOUT_CONFIG?.rootLayout[THEME]?.contentTheme?.[slug]?.contentPage, [slug]);
 
   return (
     <>
