@@ -1,1 +1,3 @@
-export interface IMenuMobileProps {}
+export interface IMenuMobileProps {
+  wuiHeaderContent?: Record<string, any>;
+}

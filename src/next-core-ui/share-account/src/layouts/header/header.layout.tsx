@@ -12,7 +12,7 @@ export const HeaderTheme01: React.FC<IHeaderTheme01Props> = (props) => {
       {isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
         <MenuDesktop wuiHeaderContent={systemConfig?.wuiHeaderContent} />
       ) : (
-        <MenuMobile />
+        <MenuMobile wuiHeaderContent={systemConfig?.wuiHeaderContent} />
       )}
     </header>
   );
