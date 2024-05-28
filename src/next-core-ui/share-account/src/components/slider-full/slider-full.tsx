@@ -7,10 +7,10 @@ import 'swiper/css/effect-fade';
 import 'swiper/css';
 
 export const SliderFull: React.FC<ISliderFullProps> = (props) => {
-  const { children, extraClassContainer } = props;
+  const { children, extraClassContainer, className } = props;
 
   return (
-    <div className={`w-full h-[40vh] xl:h-[60vh] flex items-center justify-center ${extraClassContainer}`}>
+    <div className={`${extraClassContainer}`}>
       <Swiper
         navigation={{
           nextEl: '.swiper-button-next',
@@ -20,7 +20,7 @@ export const SliderFull: React.FC<ISliderFullProps> = (props) => {
         autoplay
         slidesPerView={1}
         modules={[Autoplay, Navigation, Pagination, EffectFade]}
-        className="w-full relative h-full"
+        className={`relative ${className} `}
         effect="fade"
       >
         {children}

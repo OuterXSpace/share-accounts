@@ -26,13 +26,13 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
         <title>Home page</title>
       </Head>
       <main className="pt-[80px] md:pt-[90px] lg:pt-[120px]">
-        <SliderFull extraClassContainer="home-slide-container">
+        <SliderFull extraClassContainer="home-slide-container" className="h-full sm:h-[300px] lg:h-full">
           {homeContent?.sliderHomeBanner.map((item) => {
             const { id, imageUrl, linkUrl } = item;
 
             return (
-              <SwiperSlide key={id} className="w-full h-full  flex items-center home-slide">
-                <Link href={linkUrl} className="w-full h-full">
+              <SwiperSlide key={id} className="w-full h-full flex items-center home-slide">
+                <Link href={linkUrl} className="w-full ">
                   <img src={imageUrl} alt={linkUrl} className="h-full w-full" />
                 </Link>
               </SwiperSlide>
