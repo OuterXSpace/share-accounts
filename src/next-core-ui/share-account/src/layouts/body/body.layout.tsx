@@ -6,7 +6,9 @@ import { ProductDetailPage } from '../../pages/product-detail';
 import { StaticPage } from '../../pages/static';
 
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
-  const { slug, item, systemConfig, wuiWelcomePopup, staticPage, promotion, productData, homeContent } = props;
+  const { slug, systemConfig } = props;
+
+  const { wuiWelcomePopup, staticPage, promotion, productData, homeContent } = systemConfig;
 
   const router = useRouter();
 

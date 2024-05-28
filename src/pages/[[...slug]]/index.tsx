@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import Head from 'next/head';
 import { observer } from 'mobx-react';
 import { DynamicHeader } from '../../layouts/header/header.layout';
 import { DynamicFooter } from '../../layouts/footer/footer.layout';
@@ -9,31 +8,14 @@ import { rootLayoutConfig } from '../../mocks';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { DynamicBody } from '../../layouts/body/body.layout';
 import { THEME } from '../../constants/platform';
+import { IUiConfigServerSide } from '../../models';
 
-export interface IDynamicPageProps {
-  systemConfig?: Record<string, any>;
-  appShell?: Record<string, any>;
-  wuiHeaderContent?: Record<string, any>;
-  wuiWelcomePopup?: Record<string, any>;
-  staticPage?: Record<string, any>;
-  promotion?: Record<string, any>;
-  productData?: Record<string, any>;
-  homeContent?: Record<string, any>;
-  footerContent?: Record<string, any>;
+export interface IServerSideProps {
+  systemConfig: IUiConfigServerSide;
 }
 
-const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
-  const {
-    systemConfig,
-    appShell,
-    wuiHeaderContent,
-    wuiWelcomePopup,
-    staticPage,
-    promotion,
-    productData,
-    homeContent,
-    footerContent,
-  } = props;
+const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
+  const { systemConfig } = props;
 
   const router = useRouter();
 
@@ -45,38 +27,13 @@ const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
     return str[0].toLocaleUpperCase();
   }, [router?.query?.slug]);
 
-  const seoHomePage = useMemo(() => systemConfig?.homeContent?.seoHomePage, [systemConfig?.homeContent?.seoHomePage]);
-
-  const contentPage = useMemo(
-    () => rootLayoutConfig?.rootLayout[THEME ?? appShell?.appShellConfig?.theme]?.contentTheme?.[slug]?.contentPage,
-    [appShell?.appShellConfig?.theme, slug],
-  );
+  const contentPage = useMemo(() => rootLayoutConfig?.rootLayout[THEME]?.contentTheme?.[slug]?.contentPage, [slug]);
 
   return (
     <>
-      <Head>
-        <meta property="og:title" content={seoHomePage?.metaSeo} />
-        <meta property="og:url" content={seoHomePage?.metaUrl} />
-        <meta property="og:image" />
-        <title>{seoHomePage?.title}</title>
-      </Head>
-      <DynamicHeader
-        item={contentPage?.header}
-        systemConfig={systemConfig}
-        slug={slug}
-        wuiHeaderContent={wuiHeaderContent}
-      />
-      <DynamicBody
-        item={contentPage?.body}
-        systemConfig={systemConfig}
-        slug={slug}
-        wuiWelcomePopup={wuiWelcomePopup}
-        staticPage={staticPage}
-        promotion={promotion}
-        productData={productData}
-        homeContent={homeContent}
-      />
-      <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} footerContent={footerContent} />
+      <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
+      <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
+      <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
     </>
   );
 });
@@ -84,27 +41,19 @@ const DynamicPage: React.FC<IDynamicPageProps> = observer((props) => {
 export default DynamicPage;
 
 export const getServerSideProps = (async () => {
-  const systemConfig: Record<string, any> = (await fetchUiContentApi({ contentId: 'ui-config' })) || {};
+  let systemConfig: IUiConfigServerSide = {};
 
-  const appShell = (await fetchUiContentApi({ contentId: 'app-shell-config' })) || {};
+  if (THEME === 'THEME_01') {
+    const appShell = (await fetchUiContentApi({ contentId: 'app-shell-config' })) || {};
+    const wuiHeaderContent = (await fetchUiContentApi({ contentId: 'wui-header-content' })) || {};
+    const wuiWelcomePopup = (await fetchUiContentApi({ contentId: 'wui-welcome-popup' })) || {};
+    const staticPage = (await fetchUiContentApi({ contentId: 'static-pages-content' })) || {};
+    const promotion = (await fetchUiContentApi({ contentId: 'promotion-content' })) || {};
+    const productData = (await fetchUiContentApi({ contentId: 'products-data' })) || {};
+    const homeContent = (await fetchUiContentApi({ contentId: 'home-page-content' })) || {};
+    const footerContent = (await fetchUiContentApi({ contentId: 'footer-content' })) || {};
 
-  const wuiHeaderContent = (await fetchUiContentApi({ contentId: 'wui-header-content' })) || {};
-
-  const wuiWelcomePopup = (await fetchUiContentApi({ contentId: 'wui-welcome-popup' })) || {};
-
-  const staticPage: Record<string, any> = (await fetchUiContentApi({ contentId: 'static-pages-content' })) || {};
-
-  const promotion: Record<string, any> = (await fetchUiContentApi({ contentId: 'promotion-content' })) || {};
-
-  const productData: Record<string, any> = (await fetchUiContentApi({ contentId: 'products-data' })) || {};
-
-  const homeContent: Record<string, any> = (await fetchUiContentApi({ contentId: 'home-page-content' })) || {};
-
-  const footerContent: Record<string, any> = (await fetchUiContentApi({ contentId: 'footer-content' })) || {};
-
-  return {
-    props: {
-      systemConfig,
+    systemConfig = {
       appShell,
       wuiHeaderContent,
       wuiWelcomePopup,
@@ -113,6 +62,12 @@ export const getServerSideProps = (async () => {
       productData,
       homeContent,
       footerContent,
+    };
+  }
+
+  return {
+    props: {
+      systemConfig,
     },
   };
-}) satisfies GetServerSideProps<IDynamicPageProps>;
+}) satisfies GetServerSideProps<IServerSideProps>;
