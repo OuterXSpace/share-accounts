@@ -6,7 +6,7 @@ import { isLoginSelector, loginUrlSelector } from '../../../../../../store/store
 import { logOutAction } from '../../../../../../store/store-authentication/action';
 
 export const MenuItemMobile01: React.FC<IMenuItemMobile01Props> = (props) => {
-  const { item, closeToggle } = props;
+  const { item, closeToggle, handleOpenCart } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
 
@@ -28,6 +28,12 @@ export const MenuItemMobile01: React.FC<IMenuItemMobile01Props> = (props) => {
 
       closeToggle();
 
+      // open cart modal
+      if (item?.id === 'CART') {
+        handleOpenCart();
+        return;
+      }
+
       if (item?.authenRequired && !isLogin) {
         router.push('/login');
       }
@@ -35,9 +41,10 @@ export const MenuItemMobile01: React.FC<IMenuItemMobile01Props> = (props) => {
       if (item?.id === 'OUT') {
         logOutAction(loginUrl, router);
       }
+
       router.push(item?.link);
     },
-    [closeToggle, isLogin, item?.authenRequired, item?.id, item?.link, loginUrl, router],
+    [closeToggle, handleOpenCart, isLogin, item?.authenRequired, item?.id, item?.link, loginUrl, router],
   );
 
   return (

@@ -1,6 +1,7 @@
 export interface IMenuItemMobile01Props {
   item?: IMenuItemMobile01Model;
   closeToggle?: () => void;
+  handleOpenCart?: () => void;
 }
 
 export interface IMenuItemMobile01Model {

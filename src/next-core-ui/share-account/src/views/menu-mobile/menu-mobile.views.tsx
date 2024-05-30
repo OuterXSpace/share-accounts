@@ -1,10 +1,11 @@
 import IonIcon from '@reacticons/ionicons';
 import { IMenuMobileProps } from './menu-mobile.type';
 import { useState } from 'react';
+import { Drawer } from 'flowbite-react';
 import { MenuItemMobile01 } from './menu-item';
 
 export const MenuMobile: React.FC<IMenuMobileProps> = (props) => {
-  const { wuiHeaderContent } = props;
+  const { wuiHeaderContent, handleOpenCart } = props;
 
   const [isToggleMenu, setIsToggleMenu] = useState(false);
 
@@ -12,34 +13,43 @@ export const MenuMobile: React.FC<IMenuMobileProps> = (props) => {
     setIsToggleMenu(!isToggleMenu);
   };
 
+  const handleCloseMenu = () => setIsToggleMenu(false);
+
   return (
-    <main>
-      <nav className="menu-mobile z-10 bg-gradient-to-top-primary w-full lg:hidden py-[10px] md:py-[15px] px-[10px] md:px-[40px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
-        <button className="absolute t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
-          {isToggleMenu ? (
-            <IonIcon className="text-[55px]" name="close-outline" />
-          ) : (
-            <IonIcon className="text-[55px]" name="reorder-three-outline" />
-          )}
-        </button>
-        <div className="col-sm-12 h-[64px] flex justify-center items-center">
-          <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
+    <>
+      {/* nav z-31 because backdrop drawer z-30 */}
+      <nav className="bg-gradient-to-top-primary fixed top-0 lg:hidden menu-mobile w-full py-[10px] md:py-[15px] px-[10px] md:px-[40px] z-[31]">
+        <div className="flex justify-between items-center">
+          <button className="t-[15px] flex justify-center text-gray-3 z-11" onClick={handleToggleMenu}>
+            {isToggleMenu ? (
+              <IonIcon className="text-[55px]" name="close-outline" />
+            ) : (
+              <IonIcon className="text-[55px]" name="reorder-three-outline" />
+            )}
+          </button>
+          <div className="col-sm-12 h-[64px] flex justify-center items-center">
+            <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
+          </div>
         </div>
       </nav>
+      <Drawer
+        onClose={handleCloseMenu}
+        open={isToggleMenu}
+        position="left"
+        className="bg-primary-darker lg:hidden fixed top-0 text-lg mt-[83px] md:mt-[94px] p-0"
+      >
+        <Drawer.Items className="menu-list">
+          <ul>
+            {wuiHeaderContent?.mobileMenus?.map((item, index) => {
+              const { id = index } = item;
 
-      <div className="menu-list">
-        <ul
-          className={`fixed bg-primary-darker h-full w-4/5 z-10 mt-[80px] transition-all ${
-            isToggleMenu ? 'translate-x-0' : '-translate-x-full'
-          }`}
-        >
-          {wuiHeaderContent?.mobileMenus?.map((item, index) => {
-            const { id = index } = item;
-
-            return <MenuItemMobile01 key={id} item={item} closeToggle={handleToggleMenu} />;
-          })}
-        </ul>
-      </div>
-    </main>
+              return (
+                <MenuItemMobile01 key={id} item={item} closeToggle={handleToggleMenu} handleOpenCart={handleOpenCart} />
+              );
+            })}
+          </ul>
+        </Drawer.Items>
+      </Drawer>
+    </>
   );
 };
