@@ -20,16 +20,19 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
           <div className="my-[15px] flex flex-col gap-[30px] items-center">
             <IonIcon className="text-gray-200 text-[80px]" name="cart-outline" />
             <span className="text-center block">Chưa có sản phẩm trong giỏ hàng.</span>
-            <div className="mt-[8px] p-[10px] w-full bg-red-500 text-white uppercase text-center">
+            <div className="mt-[8px] p-[10px] w-fit bg-red-500 text-white uppercase text-center">
               <Link href="/cart">Quay trở lại cửa hàng</Link>
             </div>
           </div>
           <Drawer.Items />
         </div>
         {/* <div>
-          <div className="flex justify-between ">
-            <strong>Tổng số phụ:</strong>
-            <span className="font-bold">699,000,000 VNĐ</span>
+          <div className="flex justify-between flex-col">
+            <div className="flex justify-between py-[10px]">
+              <strong>Tổng số phụ:</strong>
+              <span className="font-bold">699,000,000 VNĐ</span>
+            </div>
+            <span className="border h-[3px] w-full bg-gray-200" />
           </div>
           <div className="mt-[8px] p-[10px] w-full bg-red-500 text-white uppercase text-center">
             <Link href="/cart">Thanh toán</Link>

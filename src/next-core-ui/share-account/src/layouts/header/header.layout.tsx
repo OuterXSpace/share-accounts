@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MenuDesktop, MenuMobile } from '../../views';
 import { useDeviceSizes } from '../../../../../hooks';
 import { IHeaderTheme01Props } from './header.type';
-import { DrawerCart } from '../../components/drawer-cart';
+import { DrawerCart } from '../../pages/cart/components/drawer-cart';
 
 export const HeaderTheme01: React.FC<IHeaderTheme01Props> = (props) => {
   const { systemConfig } = props;
