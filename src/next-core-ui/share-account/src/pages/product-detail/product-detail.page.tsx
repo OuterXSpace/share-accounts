@@ -38,9 +38,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
         <title>{productDetail?.title}</title>
       </Head>
       <main className="pt-[120px]">
-        <div className="container p-12">
-          <div className="row">
-            <div className="col-sm-6">
+        <div className="container py-[16px]">
+          <div className="row flex flex-nowrap flex-col md:flex-row">
+            <div className="col-sm-6 px-[16px] w-auto">
+              {/* slider product detail */}
               <Slider data={productDetail?.imagesUrls} />
             </div>
             <div className="col-sm-6">
