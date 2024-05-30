@@ -14,16 +14,16 @@ import 'swiper/css/effect-fade';
 import 'swiper/css';
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
-  const { routerId, wuiWelcomePopup, productData } = props;
+  const { sacProductData } = props;
 
   const router = useRouter();
 
   const productDetail = useMemo(() => {
     if (router?.query?.id) {
-      return productData?.products?.data?.filter((item) => `${item?.id}` === `${router?.query?.id}`)[0];
+      return sacProductData?.products?.data?.filter((item) => `${item?.id}` === `${router?.query?.id}`)[0];
     }
-    return productData?.products?.data?.[0];
-  }, [productData?.products, router?.query?.id]);
+    return sacProductData?.products?.data?.[0];
+  }, [sacProductData?.products, router?.query?.id]);
 
   if (!productDetail) {
     return notFound();
@@ -140,7 +140,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
             <div className="col">
               <div className="font-sans text-[20px] font-semibold leading-snug text-gray-1">SẢN PHẨM TƯƠNG TỰ</div>
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 pt-9">
-                {productData?.products?.data?.map((product) => {
+                {sacProductData?.products?.data?.map((product) => {
                   const { imageUrl, imageAlt, title, price, totalOrderNumber, categoryName, linkUrl, currency } =
                     product;
                   return (

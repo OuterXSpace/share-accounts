@@ -16,7 +16,7 @@ export const ProductCard: React.FC<IProductCardProps> = (props) => {
   } = props;
 
   return (
-    <Link href={linkUrl} className="flex bg-white flex-col rounded-b-xl rounded-t-xl xl:flex-row xl:rounded-r-xl">
+    <Link href={linkUrl ?? ''} className="flex bg-white flex-col rounded-b-xl rounded-t-xl xl:flex-row xl:rounded-r-xl">
       <img src={img} alt={alt} className="xl:w-[140px] xl:h-auto rounded-t-xl xl:rounded-l-xl xl:rounded-tr-none" />
       <div className="p-2 flex gap-2 flex-col">
         <span className="font-bold text-xs">{title}</span>

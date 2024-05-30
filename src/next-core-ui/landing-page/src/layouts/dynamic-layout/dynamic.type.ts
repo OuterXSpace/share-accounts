@@ -1,7 +1,6 @@
 import { IUiConfigServerSide } from '../../../../../models';
 
-export interface BodyTheme02Props {
+export interface DynamicTheme01Props {
   slug?: string;
-  item: Record<string, any>;
   systemConfig: IUiConfigServerSide;
 }

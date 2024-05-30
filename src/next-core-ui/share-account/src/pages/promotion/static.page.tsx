@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { PromotionPageProps } from './static.type';
 
 export const PromotionPage: React.FC<PromotionPageProps> = (props) => {
-  const { promotion } = props;
+  const { sacPromotion } = props;
 
   return (
     <>
@@ -16,7 +16,7 @@ export const PromotionPage: React.FC<PromotionPageProps> = (props) => {
         <section className="container py-[3rem] pb-[2rem]">
           <div className="row">
             <div className="col-sm-12" />
-            <div dangerouslySetInnerHTML={{ __html: promotion?.content }} />
+            <div dangerouslySetInnerHTML={{ __html: sacPromotion?.content }} />
           </div>
         </section>
       </main>

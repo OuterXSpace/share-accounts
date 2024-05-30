@@ -8,7 +8,7 @@ import { StaticPage } from '../../pages/static';
 export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
   const { slug, systemConfig } = props;
 
-  const { wuiWelcomePopup, staticPage, promotion, productData, homeContent } = systemConfig;
+  const { sacWelcomePopup, sacStaticPage, sacPromotion, sacHomeContent, sacProductData } = systemConfig;
 
   const router = useRouter();
 
@@ -22,17 +22,19 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
 
   switch (slug) {
     case 'HOME':
-      return <HomePage wuiWelcomePopup={wuiWelcomePopup} productData={productData} homeContent={homeContent} />;
+      return (
+        <HomePage sacWelcomePopup={sacWelcomePopup} sacProductData={sacProductData} sacHomeContent={sacHomeContent} />
+      );
     case 'PRODUCT':
-      return <ProductDetailPage routerId={id} productData={productData} />;
+      return <ProductDetailPage routerId={id} sacProductData={sacProductData} />;
     case 'PROFILE':
       return <ProfilePage routerId={id} />;
     case 'CART':
-      return <CartPage productData={productData} />;
+      return <CartPage sacProductData={sacProductData} />;
     case 'PAGES':
-      return <StaticPage routerId={id} staticPage={staticPage} />;
+      return <StaticPage routerId={id} sacStaticPage={sacStaticPage} />;
     case 'PROMOTION':
-      return <PromotionPage promotion={promotion} />;
+      return <PromotionPage sacPromotion={sacPromotion} />;
     case 'LOGIN':
       return <LoginPage />;
     case 'REGISTER':

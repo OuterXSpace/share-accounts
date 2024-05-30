@@ -3,7 +3,7 @@ import { ProductCard } from '../../components/product-card';
 import { CartPageProps } from './cart.type';
 
 export const CartPage: React.FC<CartPageProps> = (props) => {
-  const { productData } = props;
+  const { sacProductData } = props;
 
   return (
     <>
@@ -137,7 +137,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
             <div className="col">
               <div className="font-sans text-[20px] font-semibold leading-snug text-gray-1">SẢN PHẨM TƯƠNG TỰ</div>
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 pt-9">
-                {productData?.products?.data?.map((product) => {
+                {sacProductData?.products?.data?.map((product) => {
                   const {
                     id = '',
                     imageUrl = '',

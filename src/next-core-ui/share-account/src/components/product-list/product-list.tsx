@@ -2,7 +2,7 @@ import { ProductCard } from '../product-card';
 import { IProductListProps } from './product-list.type';
 
 export const ProductList: React.FC<IProductListProps> = (props) => {
-  const { productData, homeContent } = props;
+  const { sacProductData: productData, sacHomeContent } = props;
 
   const renderContent = (item: Record<string, any>) => {
     const { type = 'V1', id = '', title = '', description = '' } = item;
@@ -61,7 +61,7 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
                   <div className="text-lg font-light leading-[1.7em] text-white">{item?.content?.description}</div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <img className="w-full p-10" src={item?.content?.imageUrl} alt={item?.content?.description} />
+                  <img className="w-full p-10" src={item?.content?.imageUrl} alt={item?.content?.title} />
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
   return (
     <div className="container flex flex-col items-center mt-[30px] p-6 bg-[50% 50%]">
       <div className="row">
-        {homeContent?.contentBody?.map((item) => {
+        {sacHomeContent?.contentBody?.map((item) => {
           return renderContent(item);
         })}
       </div>

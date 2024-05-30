@@ -11,11 +11,11 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
       <div className="bg-primary-dark">
         <div className="container lg:h-[110px] flex p-6 lg:px-6 lg:justify-between lg:items-center flex-col lg:flex-row gap-4 lg:gap-0">
           {footerContent?.topContent?.map((item, index) => {
-            const { hrefLink = '/', id = '', iconUrl = '', title = '' } = item;
+            const { link = '/', id = '', icon = '', title = '' } = item;
             return (
               <Fragment key={id}>
-                <Link href={hrefLink} className="flex items-center gap-2 text-white">
-                  <img src={iconUrl} alt="" />
+                <Link href={link} className="flex items-center gap-2 text-white">
+                  <img src={icon} alt={title} />
                   {title}
                 </Link>
                 {index < Number(footerContent?.topContent?.length ?? 0) - 1 && (
@@ -30,9 +30,9 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
       <div className="bg-primary-darker">
         <div className="container flex items-center justify-center py-10 lg:pb-10 ">
           {footerContent?.midContent?.map((item) => {
-            const { imageUrl = '', imageAlt = '', id = '', hrefLink = '/' } = item;
+            const { imageUrl = '', imageAlt = '', id = '', link = '/' } = item;
             return (
-              <Link key={id} href={hrefLink} className="w-[100px]">
+              <Link key={id} href={link} className="w-[100px]">
                 <img src={imageUrl} alt={imageAlt} className="w-full" />
               </Link>
             );
@@ -44,7 +44,7 @@ export const FooterTheme01: React.FC<IFooterTheme01Props> = (props) => {
         <div className="container flex justify-center">
           <div className="row">
             <div className="flex items-center justify-center p-2 uppercase text-sm text-white text-opacity-70">
-              {footerContent?.botContent?.title}
+              {footerContent?.bottomText}
             </div>
           </div>
         </div>

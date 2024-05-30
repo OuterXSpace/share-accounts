@@ -7,7 +7,7 @@ export const DynamicFooter: React.FC<DynamicFooterProps> = (props) => {
 
   switch (item?.type) {
     case 'FOOTER_THEME_01':
-      return <FooterTheme01 footerContent={systemConfig?.footerContent} />;
+      return <FooterTheme01 footerContent={systemConfig?.sacFooterContent} />;
     case 'FOOTER_NONE':
       return <div className="hidden" />;
     default:

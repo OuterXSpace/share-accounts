@@ -1,5 +1,5 @@
 export interface HomePageProps {
-  wuiWelcomePopup?: Record<string, any>;
-  productData?: Record<string, any>;
-  homeContent?: Record<string, any>;
+  sacWelcomePopup?: Record<string, any>;
+  sacProductData?: Record<string, any>;
+  sacHomeContent?: Record<string, any>;
 }
