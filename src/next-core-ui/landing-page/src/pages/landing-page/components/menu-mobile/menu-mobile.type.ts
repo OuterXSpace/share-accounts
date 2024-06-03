@@ -1,3 +1,4 @@
 export interface IMenuMobile02Props {
-  systemConfigLandingPage?: Record<string, any>;
+  data?: Record<string, any>;
+  className?: string;
 }

@@ -10,7 +10,7 @@ import { THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { ROOT_LAYOUT_CONFIG } from '../../root-config';
 import { DynamicLayout } from '../../layouts';
-import { CartProvider } from '../../next-core-ui';
+import { CartProvider, LANDING_PAGE_MOCK } from '../../next-core-ui';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -72,7 +72,7 @@ export const getServerSideProps = (async () => {
   }
 
   if (THEME === 'DYNAMIC_URL_THEME_01') {
-    const ldpSystemConfigPage = (await fetchUiContentApi({ contentId: 'ldp-system-config-page' })) || {};
+    const ldpSystemConfigPage = (await fetchUiContentApi({ contentId: 'ldp-system-config-page' })) || LANDING_PAGE_MOCK;
 
     systemConfig = {
       ldpSystemConfigPage,

@@ -1,8 +1,10 @@
 import { AloneVideoProp } from './alone-video.type';
 
-export const AloneVideo: React.FC<AloneVideoProp> = () => {
+export const AloneVideo: React.FC<AloneVideoProp> = (props) => {
+  const { data, className } = props;
+
   return (
-    <section className="section-01 mb-[150px]">
+    <section className={`section-01 ${className}`}>
       <div className="container">
         <div className="row">
           <div className="col-sm-2" />
@@ -10,7 +12,7 @@ export const AloneVideo: React.FC<AloneVideoProp> = () => {
             <div className="video">
               <video
                 className="elementor-video"
-                src="https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Pexels-Cottonbro-8208008-compress.mp4"
+                src={data?.object?.video}
                 autoPlay
                 playsInline
                 controlsList="nodownload"

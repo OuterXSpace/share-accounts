@@ -1,8 +1,10 @@
 import { ContactProps } from './contact.type';
 
-export const Contact: React.FC<ContactProps> = () => {
+export const Contact: React.FC<ContactProps> = (props) => {
+  const { data, className } = props;
+
   return (
-    <section className="section-01 md:py-[100px] lg:py-[150px]">
+    <section className={`section-01 md:py-[100px] lg:py-[150px] ${className}`}>
       <div className="container">
         <div className="row">
           <div className="col-sm-6">

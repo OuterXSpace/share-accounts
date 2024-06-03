@@ -1,8 +1,10 @@
 import { FooterProps } from './footer.type';
 
-export const Footer: React.FC<FooterProps> = () => {
+export const Footer: React.FC<FooterProps> = (props) => {
+  const { data, className } = props;
+
   return (
-    <section className="section-01">
+    <section className={`section ${className}`}>
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
@@ -10,9 +12,7 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
           <div className="col-sm-12">
             <div className="flex justify-between items-center h-[60px]">
-              <div className="text-[#ffffffbf] text-[16px] leading-1.6">
-                Copyright © 2024 Video Editor | Powered by Video Editor
-              </div>
+              <div className="text-[#ffffffbf] text-[16px] leading-1.6">{data?.object?.text}</div>
               <div className="text-[#ffffffbf] text-[16px] leading-1.6">icon</div>
             </div>
           </div>
