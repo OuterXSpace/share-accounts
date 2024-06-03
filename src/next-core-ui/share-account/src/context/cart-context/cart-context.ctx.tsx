@@ -31,8 +31,8 @@ const CartProvider: React.FC<CartContextProviderProps> = (props) => {
     totalQuantity: 0,
     totalPrice: 0,
   });
-  const handleAddItemToCart = (item: CartItem) => { };
-  const handleRemoveItemToCart = (id: number) => { };
+  const handleAddItemToCart = (item: CartItem) => {};
+  const handleRemoveItemToCart = (id: number) => {};
   return <CartContext.Provider value={initialState}>{children}</CartContext.Provider>;
 };
 

@@ -1,8 +1,8 @@
 export interface CartItemPageProps {
-  item: CartItem;
+  item: ICartItem;
 }
 
-export interface CartItem {
+export interface ICartItem {
   price: number;
   quantity: number;
   imageUrl: string;

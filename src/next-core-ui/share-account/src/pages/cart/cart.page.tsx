@@ -114,7 +114,6 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
             </div>
             <hr className="h-[1px] border-0" style={{ backgroundColor: '#d7e1ea' }} />
             <div className="sticky bottom-0 right-0 items-center w-full p-4 border-t border-gray-200 sm:flex sm:justify-between">
-
               <div className="flex items-center space-x-3">
                 <div className="cart-total-wrapper text-right text-[12px] leading-[1.5] text-[var(--ui-2-greys-grey-2)]">
                   <div className="flex items-center">
