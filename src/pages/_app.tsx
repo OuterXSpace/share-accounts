@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import { uIStore } from '../stores';
 import { initFlowbite } from 'flowbite';
 import '../styles/globals.css';
-import CartProvider from '../next-core-ui/share-account/src/context/cart-context/cart-context.ctx';
 
 const App: React.FC<AppProps> = observer((props) => {
   const { Component, pageProps } = props;
@@ -15,9 +14,7 @@ const App: React.FC<AppProps> = observer((props) => {
 
   return (
     <Provider store={uIStore}>
-      <CartProvider>
-        <Component {...pageProps} />
-      </CartProvider>
+      <Component {...pageProps} />
     </Provider>
   );
 });

@@ -10,6 +10,7 @@ import { THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { ROOT_LAYOUT_CONFIG } from '../../root-config';
 import { DynamicLayout } from '../../layouts';
+import { CartProvider } from '../../next-core-ui';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -36,11 +37,11 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
     default:
       return (
-        <>
+        <CartProvider>
           <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
           <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
           <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
-        </>
+        </CartProvider>
       );
   }
 });

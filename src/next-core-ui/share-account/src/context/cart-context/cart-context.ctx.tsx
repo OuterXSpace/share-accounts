@@ -1,10 +1,11 @@
 import { createContext, useState } from 'react';
-import { CartContextProviderProps, CartContextType, CartItem } from './cart-context.type';
+import { CartContextProviderProps, CartContextType, ICartItem1 } from './cart-context.type';
 
 export const CartContext = createContext<CartContextType | null>(null);
 
-const CartProvider: React.FC<CartContextProviderProps> = (props) => {
+export const CartProvider: React.FC<CartContextProviderProps> = (props) => {
   const { children } = props;
+
   const [initialState, setInitialState] = useState<CartContextType>({
     cartItems: [
       {
@@ -31,9 +32,10 @@ const CartProvider: React.FC<CartContextProviderProps> = (props) => {
     totalQuantity: 0,
     totalPrice: 0,
   });
-  const handleAddItemToCart = (item: CartItem) => {};
+
+  const handleAddItemToCart = (item: ICartItem1) => {};
+
   const handleRemoveItemToCart = (id: number) => {};
+
   return <CartContext.Provider value={initialState}>{children}</CartContext.Provider>;
 };
-
-export default CartProvider;

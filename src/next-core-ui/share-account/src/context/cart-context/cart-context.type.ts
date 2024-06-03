@@ -1,10 +1,10 @@
 export interface CartContextType {
-  cartItems: CartItem[];
+  cartItems: ICartItem1[];
   totalQuantity: number;
   totalPrice: number;
 }
 
-export interface CartItem {
+export interface ICartItem1 {
   price: number;
   quantity: number;
   id: string;
