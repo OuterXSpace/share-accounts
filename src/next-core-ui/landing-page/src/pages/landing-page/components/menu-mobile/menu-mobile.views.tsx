@@ -14,7 +14,7 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
   };
   return (
     <div className={className}>
-      <nav className="menu-mobile z-20 bg-transparent w-full lg:hidden py-[10px] md:py-[15px] px-[10px] md:px-[40px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
+      <nav className="menu-mobile z-20 bg-transparent w-full lg:hidden py-[10px] md:py-[15px] px-[20px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
         <button className="absolute z-20 t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
           {isToggleMenu ? (
             <IonIcon className="text-[55px]" name="close-outline" />
