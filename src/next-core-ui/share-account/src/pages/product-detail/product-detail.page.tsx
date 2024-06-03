@@ -94,7 +94,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
                   </div>
                 </div>
 
-                <div className="section">
+                {/* upgrade account */}
+                {/* <div className="section">
                   <div className="font-sans text-[15px] font-semibold leading-snug text-gray-1 pb-2">Email</div>
                   <input
                     className="rounded-md block w-full border border-gray-4 bg-white text-sm px-4 py-2"
@@ -102,7 +103,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
                     type="email"
                     placeholder="Nhập email cần nâng cấp của bạn"
                   />
-                </div>
+                </div> */}
 
                 <div className="section">
                   <div className="button-group flex flex-wrap gap-[15px] pt-2">

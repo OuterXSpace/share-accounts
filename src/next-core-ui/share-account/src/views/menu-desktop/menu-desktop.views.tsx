@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useContext } from 'react';
 import { IMenuDesktopProps } from './menu-desktop.type';
 import Link from 'next/link';
 import IonIcon from '@reacticons/ionicons';
@@ -8,11 +7,13 @@ import { Dropdown, DropdownItem } from 'flowbite-react';
 import { logOutAction } from '../../../../../store/store-authentication/action';
 import { useRouter } from 'next/router';
 import { MenuItem } from './components';
+import { CartContext } from '../../context/cart-context';
 
 const classNamePrefix = 'tt-header';
 
 export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
   const { wuiHeaderContent, handleOpenCart } = props;
+  const { totalQuantity } = useContext(CartContext);
 
   const loginUrl = loginUrlSelector();
 
@@ -29,10 +30,17 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
           </Link>
           <div className="flex items-center gap-3">
             <button
-              className="inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
+              className="inline-flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
               onClick={handleOpenCart}
             >
-              <IonIcon className="pr-1 text-base" name="cart-outline" />
+              <div className="relative">
+                <IonIcon className="pr-1 text-base" name="cart-outline" />
+                <div className="absolute top-[-8px] left-[-15px]">
+                  <div className="min-h-[20px] min-w-[20px] bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                    <span>{totalQuantity}</span>
+                  </div>
+                </div>
+              </div>
               Giỏ hàng
             </button>
             {!isLogin ? (
