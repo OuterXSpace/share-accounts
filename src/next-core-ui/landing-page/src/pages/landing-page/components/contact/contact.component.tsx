@@ -2,12 +2,12 @@ import { ContactProps } from './contact.type';
 
 export const Contact: React.FC<ContactProps> = () => {
   return (
-    <section className="section-01 mb-[150px]">
+    <section className="section-01 md:py-[100px] lg:py-[150px]">
       <div className="container">
         <div className="row">
           <div className="col-sm-6">
-            <div className="pt-[50px]">
-              <h3 className="text-[#f9fdfe] text-[3.25rem] font-bold font-montserrat leading-1.3">
+            <div>
+              <h3 className="text-[#f9fdfe] text-[2.125rem] lg:text-[3.25rem] font-bold font-montserrat leading-1.3">
                 I’m Mark, a professional video editor & film maker
               </h3>
               <p className="pt-[50px] text-[#ffffffbf] text-[16px] leading-1.6">
@@ -19,7 +19,7 @@ export const Contact: React.FC<ContactProps> = () => {
             </div>
           </div>
           <div className="col-sm-6">
-            <div className="mb-[20px] pt-[50px] pl-[50px]">
+            <div className="mb-[20px] pt-[50px] lg:pl-[50px] px-1">
               <p className="mb-[0.5rem] text-[#ffffffbf] text-[16px] leading-1.6">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.
                 Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae

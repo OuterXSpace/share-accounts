@@ -3,8 +3,8 @@ import { DeepVideoBannerProps } from './deep-video-banner.type';
 /* eslint-disable jsx-a11y/media-has-caption */
 export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = () => {
   return (
-    <section className=" mb-[150px] transition-[background,border,border-radius,box-shadow] duration-300 py-[250px] pb-[150px] relative">
-      <div className="w-full h-[100vh] transition-opacity duration-1000 pointer-events-none top-0 left-0 absolute overflow-hidden z-0 direction-ltr">
+    <section className="transition-[background,border,border-radius,box-shadow] duration-300 relative pt-[250px] pb-[150px]">
+      <div className="w-full transition-opacity duration-1000 pointer-events-none overflow-hidden z-0 direction-ltr">
         <video
           autoPlay
           src="https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Pexels-Ron-Lach-8100336-compress.mp4"

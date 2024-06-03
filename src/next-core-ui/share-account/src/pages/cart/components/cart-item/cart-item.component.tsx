@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { CartItemPageProps } from './cart-item.type';
 import Link from 'next/link';
 import IonIcon from '@reacticons/ionicons';
 import { FormattedCurrency } from '../../../../../../../components';
+import { ICartItemPageProps } from './cart-item.type';
 
-export const CartItem: React.FC<CartItemPageProps> = (props) => {
+export const CartItem: React.FC<ICartItemPageProps> = (props) => {
   const { item } = props;
-  const { price, quantity, imageUrl, title, imageAlt, linkUrl, timeExpired } = item;
+  const { price, quantity, imageUrl, title, imageAlt, linkUrl, durationLabel } = item;
   const currency = 'VNĐ';
   return (
     <div className="flex flex-row gap-2 [&:not(:first-child)]:border-t py-2">
@@ -16,7 +16,7 @@ export const CartItem: React.FC<CartItemPageProps> = (props) => {
       <div className="flex flex-row">
         <div className="flex flex-col">
           <Link href={linkUrl} className="text-red-500 font-bold text-[16px]">
-            {title} - {timeExpired}
+            {title} - {durationLabel}
           </Link>
           <span className="text-[13px] text-gray-500">
             {quantity} x{' '}

@@ -37,9 +37,8 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
             ) : (
               <div>
                 {/* not empty Cart */}
-                {cartItems.map((item) => {
-                  const { id } = item;
-                  return <CartItem key={id} item={item} />;
+                {cartItems.map((item, index) => {
+                  return <CartItem key={index} item={item} />;
                 })}
               </div>
             )}

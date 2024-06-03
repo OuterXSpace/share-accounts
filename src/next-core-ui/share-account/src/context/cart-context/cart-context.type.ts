@@ -1,20 +1,20 @@
-export interface CartContextType {
-  cartItems: ICartItem1[];
+export interface ICartContextType {
+  cartItems: ICartItemCtx[];
   totalQuantity: number;
   totalPrice: number;
 }
 
-export interface ICartItem1 {
+export interface ICartItemCtx {
   price: number;
   quantity: number;
-  id: string;
   imageUrl: string;
   imageAlt: string;
   title: string;
   linkUrl: string;
-  timeExpired: string;
+  durationLabel: string;
+  totalPrice: number;
 }
 
-export interface CartContextProviderProps {
+export interface ICartContextProviderProps {
   children: React.ReactNode;
 }

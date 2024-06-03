@@ -2,10 +2,10 @@ import { NewCartTextAndImageProps } from './news-cart-text-and-image.type';
 
 export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = () => {
   return (
-    <section className="section-01 mb-[50px]">
+    <section className="section-01">
       <div className="container">
-        <div className="row">
-          <div className="col-sm-6">
+        <div className="row flex flex-col xl:flex-row px-[20px] md:px-[40px]">
+          <div className="xl:col-sm-6">
             <div className="pt-[50px]">
               <img
                 decoding="async"
@@ -13,14 +13,13 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = () => {
                 height={650}
                 src="https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/2-opt.png"
                 srcSet="https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/2-opt.png 676w, https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/2-opt-300x288.png 300w, https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/2-opt-600x577.png 600w, https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/2-opt-400x385.png 400w"
-                sizes="(max-width: 676px) 100vw, 676px"
-                className="attachment-full size-full wp-image-130"
+                className="w-full md:max-w-[676px]"
                 alt=""
               />
             </div>
           </div>
-          <div className="col-sm-6 pt-[50px]">
-            <div className="mb-[70px]  pl-[50px]">
+          <div className="xl:col-sm-6 pt-[50px]">
+            <div className="mb-[70px]">
               <div className="text-[#f9fdfe] text-1.125 leading-1.25 font-bold font-montserrat uppercase">
                 <h6 className="pb-[10px]">Efficient</h6>
               </div>
@@ -31,7 +30,7 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = () => {
                 eu.
               </p>
             </div>
-            <div className="mb-[70px]  pl-[50px]">
+            <div className="mb-[70px]">
               <div className="text-[#f9fdfe] text-1.125 leading-1.25 font-bold font-montserrat uppercase">
                 <h6 className="pb-[10px]">PROFESSIONAL</h6>
               </div>
@@ -40,7 +39,7 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = () => {
                 rem aperiam, eaque ipsa quae ab illo inventore
               </p>
             </div>
-            <div className="mb-[70px]  pl-[50px]">
+            <div className="mb-[70px]">
               <div className="text-[#f9fdfe] text-1.125 leading-1.25 font-bold font-montserrat uppercase">
                 <h6 className="pb-[10px]">EXPERIENCED</h6>
               </div>

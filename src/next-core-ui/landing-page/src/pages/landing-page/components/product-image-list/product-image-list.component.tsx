@@ -5,9 +5,9 @@ export const ProductImageList: React.FC<ProductImageListProps> = () => {
     <section className="section-01 mb-[50px]">
       <div className="container">
         <div className="row">
-          <div className="col-sm-12">
+          <div className="col-sm-12 w-full">
             <div className="pb-[80px] flex aligns-center justify-center">
-              <h2 className="leading-1.3 text-[#f9fdfe] text-[3.75rem] font-bold font-montserrat">
+              <h2 className="leading-1.3 text-[#f9fdfe] text-[32px] lg:text-[3.75rem] font-bold font-montserrat">
                 I can help you with
               </h2>
             </div>

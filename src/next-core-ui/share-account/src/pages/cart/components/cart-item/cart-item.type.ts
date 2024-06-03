@@ -1,4 +1,4 @@
-export interface CartItemPageProps {
+export interface ICartItemPageProps {
   item: ICartItem;
 }
 
@@ -9,5 +9,5 @@ export interface ICartItem {
   imageAlt: string;
   title: string;
   linkUrl: string;
-  timeExpired: string;
+  durationLabel: string;
 }
