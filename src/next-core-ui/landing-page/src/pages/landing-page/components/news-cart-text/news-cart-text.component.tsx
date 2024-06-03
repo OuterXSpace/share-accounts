@@ -4,18 +4,18 @@ export const NewCartText: React.FC<NewCartTextProps> = (props) => {
   const { data, className } = props;
 
   return (
-    <section className={`section-01 ${className} pt-[84px] md:pt-[94px] lg:pt-[100px]`}>
+    <section className={`section-01 ${className} px-[20px] pt-[84px] md:pt-[94px] lg:pt-[100px]`}>
       <div className="container">
         <div className="row">
           <div className="col-sm-6">
             <div>
-              <h3 className="text-[#f9fdfe] text-[2.125rem] lg:text-[3.25rem] font-bold font-montserrat leading-1.3 px-4">
+              <h3 className="text-[#f9fdfe] text-[2.125rem] lg:text-[3.25rem] font-bold font-montserrat leading-1.3">
                 {data?.object?.title}
               </h3>
             </div>
           </div>
           <div className="col-sm-6">
-            <div className="mb-[20px] px-4">
+            <div className="mb-[20px]">
               <p className="mb-[0.5rem] text-[#ffffffbf] text-[16px] leading-1.6">{data?.object?.description}</p>
             </div>
             <div className="px-4 transition-[background,border,border-radius,box-shadow,transform] duration-300">

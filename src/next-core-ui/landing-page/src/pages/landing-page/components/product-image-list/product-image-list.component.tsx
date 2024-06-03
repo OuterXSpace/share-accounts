@@ -14,7 +14,7 @@ export const ProductImageList: React.FC<ProductImageListProps> = (props) => {
               </h2>
             </div>
           </div>
-          <div className="col-sm-12 container px-[40px]">
+          <div className="col-sm-12 container px-[20px]">
             <div className="row">
               {data?.object?.array?.map((item) => {
                 const { id, title, description, imageUrl } = item;

@@ -4,7 +4,7 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) =
   const { data, className } = props;
 
   return (
-    <section className={`section ${className}`}>
+    <section className={`section ${className} px-[20px]`}>
       <div className="container">
         <div className="row flex flex-col xl:flex-row px-[20px] md:px-0 pt-[84px] md:pt-[94px] lg:pt-[100px]">
           <div className="xl:col-sm-6">
