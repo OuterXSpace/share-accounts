@@ -20,7 +20,7 @@ export const MenuDesktop02: React.FC<IMenuDesktop02Props> = (props) => {
           </Link>
           <div className="flex flex-wrap justify-end">
             <ul className="list-none m-0 pl-0 relative self-center flex flex-wrap">
-              {data?.object?.array?.menuList?.map((item) => {
+              {data?.object?.array?.map((item) => {
                 const { id, label, link } = item;
 
                 return (

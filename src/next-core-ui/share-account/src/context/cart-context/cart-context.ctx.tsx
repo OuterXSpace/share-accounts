@@ -33,13 +33,13 @@ export const CartProvider: React.FC<ICartContextProviderProps> = (props) => {
     totalPrice: 0,
   });
 
-  const handleAddItemToCart = (item: ICartItemCtx) => { };
+  const handleAddItemToCart = (item: ICartItemCtx) => {};
 
-  const handleRemoveItemToCart = (id: number) => { };
+  const handleRemoveItemToCart = (id: number) => {};
 
-  const handleIncreaseItemQuantity = (id: number) => { };
+  const handleIncreaseItemQuantity = (id: number) => {};
 
-  const handleDecreaseItemQuantity = (id: number) => { };
+  const handleDecreaseItemQuantity = (id: number) => {};
 
   return <CartContext.Provider value={initialState}>{children}</CartContext.Provider>;
 };
