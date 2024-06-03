@@ -1,5 +1,5 @@
 import { IUiConfigServerSide } from '../../../../../models';
 
-export interface HomePage02Props {
+export interface LandingPageProps {
   systemConfig?: IUiConfigServerSide;
 }

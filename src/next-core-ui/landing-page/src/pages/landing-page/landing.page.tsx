@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import Head from 'next/head';
-import { HomePage02Props } from './home.type';
+import { LandingPageProps } from './landing-page.type';
 import {
   DeepVideoBanner,
   NewCartText,
@@ -17,7 +17,7 @@ import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-export const HomePage02: React.FC<HomePage02Props> = (props) => {
+export const LandingPageV1: React.FC<LandingPageProps> = (props) => {
   const { systemConfig } = props;
 
   const router = useRouter();
