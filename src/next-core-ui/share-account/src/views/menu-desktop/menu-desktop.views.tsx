@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { IMenuDesktopProps } from './menu-desktop.type';
 import Link from 'next/link';
