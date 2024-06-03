@@ -5,21 +5,21 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
 
   return (
     <section className={`section-01 ${className}`}>
-      <div className="container">
+      <div className="container pt-[100px] py-[20px]">
         <div className="row">
-          <div className="col-sm-12">
-            <div className="pb-[80px] flex aligns-center justify-center">
-              <h2 className="leading-1.3 text-[#f9fdfe] text-[3.75rem] font-bold font-montserrat">
+          <div className="col-sm-12 w-full">
+            <div className="pb-[80px] flex items-center justify-center w-full">
+              <h2 className="leading-1.3 text-[#f9fdfe] text-[32px] md:text-[44px] lg:text-[3.75rem] font-bold font-montserrat">
                 {data?.object?.title}
               </h2>
             </div>
           </div>
           <div className="container">
-            <div className="row">
+            <div className="row justify-center ">
               {data?.object?.array?.map((item) => {
                 const { id, video, title, link } = item;
                 return (
-                  <div key={id} className="col-sm-4 sm:col-sm-12 md:col-sm-12 lg:col-sm-4">
+                  <div key={id} className="col-sm-4 sm:col-sm-12 md:col-sm-4 md:p-[10px] lg:p-[20px]">
                     <div className="video mb-[20px]">
                       <iframe
                         width="100%"

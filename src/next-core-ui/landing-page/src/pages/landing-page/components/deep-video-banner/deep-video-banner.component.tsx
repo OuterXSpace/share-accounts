@@ -5,7 +5,9 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
   const { data, className } = props;
 
   return (
-    <section className={`transition-[background,border,border-radius,box-shadow] duration-300 relative ${className}`}>
+    <section
+      className={`transition-[background,border,border-radius,box-shadow] duration-300 relative ${className} pt-[250px] pb-[150px]`}
+    >
       <div className="w-full transition-opacity duration-1000 pointer-events-none overflow-hidden z-0 direction-ltr">
         <video
           autoPlay
@@ -16,7 +18,7 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
       </div>
       <div className="container">
         <div className="flex mx-auto relative">
-          <div className="relative w-full flex-wrap align-content-start">
+          <div className="relative w-full flex-wrap content-start">
             <div className="mt-[50px] pb-[50px]">
               <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
                 <h1 className="text-[#f9fdfe] leading-[1.4] lg:text-[5.125rem] text-[2.125rem] font-bold font-montserrat">

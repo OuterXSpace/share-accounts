@@ -6,10 +6,16 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) =
   return (
     <section className={`section ${className}`}>
       <div className="container">
-        <div className="row flex flex-col xl:flex-row px-[20px] md:px-[40px]">
+        <div className="row flex flex-col xl:flex-row px-[20px] md:px-0 pt-[84px] md:pt-[94px] lg:pt-[100px]">
           <div className="xl:col-sm-6">
             <div className="pt-[50px]">
-              <img width={676} height={650} src={data?.object?.imageUrl} className="w-full md:max-w-[676px]" alt="" />
+              <img
+                width={676}
+                height={650}
+                src={data?.object?.imageUrl}
+                className="w-full md:max-w-[676px] lg:max-w-[550px]"
+                alt="marker"
+              />
             </div>
           </div>
           <div className="xl:col-sm-6 pt-[50px]">
