@@ -1,11 +1,15 @@
 import { ContactProps } from './contact.type';
 
-export const Contact: React.FC<ContactProps> = () => {
+export const Contact: React.FC<ContactProps> = (props) => {
+  const { data, className } = props;
+
   return (
-    <section className="section-01 md:py-[100px] lg:py-[150px]">
+    <section
+      className={`section-01 py-[20px] md:py-[100px] lg:py-[150px] ${className} pt-[84px] md:pt-[94px] lg:pt-[100px] px-[20px]`}
+    >
       <div className="container">
         <div className="row">
-          <div className="col-sm-6">
+          <div className="col-sm-6 md:pr-[30px]">
             <div>
               <h3 className="text-[#f9fdfe] text-[2.125rem] lg:text-[3.25rem] font-bold font-montserrat leading-1.3">
                 I’m Mark, a professional video editor & film maker
@@ -27,7 +31,7 @@ export const Contact: React.FC<ContactProps> = () => {
                 eu.
               </p>
             </div>
-            <div className="pl-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
+            <div className="lg:pl-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
               <a
                 href=""
                 className="border-[0] pt-[15px] pr-[30px] pb-[15px] pl-[30px] text-1 font-montserrat font-bold leading-1 border-[#97c584] bg-[#97c584] border-solid border-t-2 border-r-2 border-l-2 border-b-2 font-montserrat font-bold text-16 text-1 leading-1 inline-block text-center transition-all duration-300 fill-[#fff]"

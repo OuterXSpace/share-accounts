@@ -5,7 +5,7 @@ import { MenuItemMobile02 } from './menu-item';
 import Link from 'next/link';
 
 export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
-  const { systemConfigLandingPage } = props;
+  const { data, className } = props;
 
   const [isToggleMenu, setIsToggleMenu] = useState(false);
 
@@ -13,8 +13,8 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
     setIsToggleMenu(!isToggleMenu);
   };
   return (
-    <div>
-      <nav className="menu-mobile z-20 bg-transparent w-full lg:hidden py-[10px] md:py-[15px] px-[10px] md:px-[40px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
+    <div className={className}>
+      <nav className="menu-mobile z-20 bg-transparent w-full lg:hidden py-[10px] md:py-[15px] px-[20px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
         <button className="absolute z-20 t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
           {isToggleMenu ? (
             <IonIcon className="text-[55px]" name="close-outline" />
@@ -27,7 +27,7 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
             <img
               width="97"
               height="17"
-              src="https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg"
+              src={data?.object?.logo}
               className="custom-logo astra-logo-svg"
               alt="Video Editor"
             />
@@ -41,7 +41,7 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
             isToggleMenu ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          {systemConfigLandingPage?.menuList?.map((item) => {
+          {data?.object?.array?.map((item) => {
             const { id } = item;
 
             return <MenuItemMobile02 key={id} item={item} closeToggle={handleToggleMenu} />;

@@ -33,35 +33,40 @@ export const LandingPageV1: React.FC<LandingPageProps> = (props) => {
   const isDevice = useDeviceSizes();
 
   const renderPage = useMemo(() => {
-    return systemConfig?.ldpSystemConfigPage?.systemConfig?.[slug]?.map((item) => {
+    const uiConfig = systemConfig?.ldpSystemConfigPage?.systemConfig?.[slug];
+
+    return uiConfig?.map((item) => {
+      const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.[item?.type]?.[item?.data];
+
       const renderItem = () => {
         switch (item?.type) {
           case 'MENU':
             return isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
-              <MenuDesktop02 systemConfigLandingPage={systemConfig?.ldpSystemConfigPage} />
+              <MenuDesktop02 key={item?.id} data={data} className={item?.className} />
             ) : (
-              <MenuMobile02 systemConfigLandingPage={systemConfig?.ldpSystemConfigPage} />
+              <MenuMobile02 key={item?.id} data={data} className={item?.className} />
             );
           case 'DEEP_VIDEO_BANNER':
-            return <DeepVideoBanner />;
+            return <DeepVideoBanner key={item?.id} data={data} className={item?.className} />;
           case 'NEW_CART_TEXT':
-            return <NewCartText />;
+            return <NewCartText key={item?.id} data={data} className={item?.className} />;
           case 'NEW_CART_TEXT_AND_IMAGE':
-            return <NewCartTextAndImage />;
+            return <NewCartTextAndImage key={item?.id} data={data} className={item?.className} />;
           case 'PRODUCT_IMAGE_LIST':
-            return <ProductImageList />;
+            return <ProductImageList key={item?.id} data={data} className={item?.className} />;
           case 'PRODUCT_VIDEO_LIST':
-            return <ProductVideoList />;
+            return <ProductVideoList key={item?.id} data={data} className={item?.className} />;
           case 'ALONE_VIDEO':
-            return <AloneVideo />;
+            return <AloneVideo key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':
-            return <Contact />;
+            return <Contact key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
-            return <Footer />;
+            return <Footer key={item?.id} data={data} className={item?.className} />;
           default:
             return <div />;
         }
       };
+
       return renderItem();
     });
   }, [isDevice?.isLargeDesktop, isDevice?.isSmallDesktop, slug, systemConfig?.ldpSystemConfigPage]);
