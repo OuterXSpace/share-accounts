@@ -3,7 +3,7 @@ import { ProductCard } from '../../components/product-card';
 import { CartPageProps } from './cart.type';
 
 export const CartPage: React.FC<CartPageProps> = (props) => {
-  const { productData } = props;
+  const { sacProductData } = props;
 
   return (
     <>
@@ -14,10 +14,10 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
         <title>Cart page</title>
       </Head>
       <main className="pt-[120px]">
-        <section className="cart-page w-full min-h-auto px-8 pb-8 lg:px-0 lg:w-5/6 mx-auto mt-10 flex gap-8">
-          <section className="w-full rounded-[10px] mb-[50px] shadow-custom">
-            <div className="rounded-t-lg p-4 bg-white block sm:flex items-center justify-between ">
-              <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl  ">Giỏ hàng</h1>
+        <section className="cart-page w-full min-h-auto lg:px-0 lg:w-5/6 mx-auto mt-10 flex gap-8">
+          <section className="w-full mb-[50px] shadow-custom bg-white pb-8">
+            <div className="p-4 bg-white block sm:flex items-center justify-between ">
+              <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl uppercase">Thông tin Giỏ hàng</h1>
             </div>
             <div className="flex flex-col">
               <div className="overflow-x-auto">
@@ -32,7 +32,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                                 id="checkbox-all"
                                 aria-describedby="checkbox-1"
                                 type="checkbox"
-                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
                               />
                               <label htmlFor="checkbox-all" className="sr-only">
                                 checkbox
@@ -62,7 +62,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                                 id="checkbox-1"
                                 aria-describedby="checkbox-1"
                                 type="checkbox"
-                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
                               />
                               <label htmlFor="checkbox-1" className="sr-only">
                                 checkbox
@@ -113,12 +113,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
               </div>
             </div>
             <hr className="h-[1px] border-0" style={{ backgroundColor: '#d7e1ea' }} />
-            <div className="rounded-b-lg sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between">
-              <div className="flex items-center mb-4 sm:mb-0">
-                <button className="inline-flex items-center justify-center flex-1 px-3 py-3 font-semibold text-xs text-white bg-red-400 rounded-xl">
-                  Thanh toán ngay
-                </button>
-              </div>
+            <div className="sticky bottom-0 right-0 items-center w-full p-4 border-t border-gray-200 sm:flex sm:justify-between">
               <div className="flex items-center space-x-3">
                 <div className="cart-total-wrapper text-right text-[12px] leading-[1.5] text-[var(--ui-2-greys-grey-2)]">
                   <div className="flex items-center">
@@ -127,8 +122,19 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                       200,000,000đ
                     </div>
                   </div>
+                  <div className="flex items-center">
+                    <div className="">Tổng</div>
+                    <div className="cart-total text-[18px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)] ml-[6px]">
+                      200,000,000đ
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div className="flex items-center mx-[16px]">
+              <button className="flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-400 uppercase">
+                Đặt hàng
+              </button>
             </div>
           </section>
         </section>
@@ -137,7 +143,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
             <div className="col">
               <div className="font-sans text-[20px] font-semibold leading-snug text-gray-1">SẢN PHẨM TƯƠNG TỰ</div>
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 pt-9">
-                {productData?.products?.data?.map((product) => {
+                {sacProductData?.products?.data?.map((product) => {
                   const {
                     id = '',
                     imageUrl = '',

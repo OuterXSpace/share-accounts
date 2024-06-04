@@ -10,8 +10,8 @@ function getWindowDimensions() {
   }
   // Default values for server-side rendering
   return {
-    width: 0,
-    height: 0,
+    width: undefined,
+    height: undefined,
   };
 }
 

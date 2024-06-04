@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { SwiperSlide } from 'swiper/react';
 
 export const HomePage: React.FC<HomePageProps> = (props) => {
-  const { wuiWelcomePopup, productData, homeContent } = props;
+  const { sacWelcomePopup, sacProductData, sacHomeContent } = props;
 
   const [openModal, setOpenModal] = useState(true);
 
@@ -26,14 +26,14 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
         <title>Home page</title>
       </Head>
       <main className="pt-[80px] md:pt-[90px] lg:pt-[120px]">
-        <SliderFull extraClassContainer="home-slide-container">
-          {homeContent?.sliderHomeBanner.map((item) => {
-            const { id, imageUrl, linkUrl } = item;
+        <SliderFull extraClassContainer="home-slide-container" className="h-full sm:h-[300px] lg:h-full">
+          {sacHomeContent?.sliderHomeBanner.map((item) => {
+            const { id, imageUrl, link, title } = item;
 
             return (
-              <SwiperSlide key={id} className="w-full h-full  flex items-center home-slide">
-                <Link href={linkUrl} className="w-full h-full">
-                  <img src={imageUrl} alt={linkUrl} className="h-full w-full" />
+              <SwiperSlide key={id} className="w-full h-full flex items-center home-slide">
+                <Link href={link} className="w-full ">
+                  <img src={imageUrl} alt={title} className="h-full w-full" />
                 </Link>
               </SwiperSlide>
             );
@@ -43,12 +43,12 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
           <Modal show={openModal} size="2xl" onClose={() => setOpenModal(false)} popup>
             <Modal.Header />
             <Modal.Body>
-              {wuiWelcomePopup?.enableType === 'V2' && (
-                <AnnouncementComponent wuiWelcomePopup={wuiWelcomePopup?.data?.V2?.config?.bodyContent} />
+              {sacWelcomePopup?.enableType === 'V2' && (
+                <AnnouncementComponent wuiWelcomePopup={sacWelcomePopup?.data?.V2?.config?.bodyContent} />
               )}
-              {wuiWelcomePopup?.enableType === 'V1' && (
+              {sacWelcomePopup?.enableType === 'V1' && (
                 <img
-                  src={wuiWelcomePopup?.data?.V1?.config?.image}
+                  src={sacWelcomePopup?.data?.V1?.config?.image}
                   className="w-full h-full object-contain object-center"
                   alt="well come"
                 />
@@ -56,7 +56,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
             </Modal.Body>
           </Modal>
         </Flowbite>
-        <ProductList productData={productData} homeContent={homeContent} />
+        <ProductList sacProductData={sacProductData} sacHomeContent={sacHomeContent} />
       </main>
     </>
   );

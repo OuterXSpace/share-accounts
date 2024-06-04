@@ -9,6 +9,8 @@ import { DynamicBody } from '../../layouts/body/body.layout';
 import { THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { ROOT_LAYOUT_CONFIG } from '../../root-config';
+import { DynamicLayout } from '../../layouts';
+import { CartProvider, LANDING_PAGE_MOCK } from '../../next-core-ui';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -29,13 +31,19 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
   const contentPage = useMemo(() => ROOT_LAYOUT_CONFIG?.rootLayout[THEME]?.contentTheme?.[slug]?.contentPage, [slug]);
 
-  return (
-    <>
-      <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
-      <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
-      <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
-    </>
-  );
+  switch (THEME) {
+    case 'DYNAMIC_URL_THEME_01':
+      return <DynamicLayout systemConfig={systemConfig} slug={slug} />;
+
+    default:
+      return (
+        <CartProvider>
+          <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
+          <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
+          <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
+        </CartProvider>
+      );
+  }
 });
 
 export default DynamicPage;
@@ -44,24 +52,30 @@ export const getServerSideProps = (async () => {
   let systemConfig: IUiConfigServerSide = {};
 
   if (THEME === 'THEME_01') {
-    const appShell = (await fetchUiContentApi({ contentId: 'app-shell-config' })) || {};
-    const wuiHeaderContent = (await fetchUiContentApi({ contentId: 'wui-header-content' })) || {};
-    const wuiWelcomePopup = (await fetchUiContentApi({ contentId: 'wui-welcome-popup' })) || {};
-    const staticPage = (await fetchUiContentApi({ contentId: 'static-pages-content' })) || {};
-    const promotion = (await fetchUiContentApi({ contentId: 'promotion-content' })) || {};
-    const productData = (await fetchUiContentApi({ contentId: 'products-data' })) || {};
-    const homeContent = (await fetchUiContentApi({ contentId: 'home-page-content' })) || {};
-    const footerContent = (await fetchUiContentApi({ contentId: 'footer-content' })) || {};
+    const sacHeaderContent = (await fetchUiContentApi({ contentId: 'sac-header-content' })) || {};
+    const sacWelcomePopup = (await fetchUiContentApi({ contentId: 'sac-welcome-popup' })) || {};
+    const sacStaticPage = (await fetchUiContentApi({ contentId: 'sac-static-pages-content' })) || {};
+    const sacPromotion = (await fetchUiContentApi({ contentId: 'sac-promotion-content' })) || {};
+    const sacProductData = (await fetchUiContentApi({ contentId: 'sac-products-data' })) || {};
+    const sacHomeContent = (await fetchUiContentApi({ contentId: 'sac-home-page-content' })) || {};
+    const sacFooterContent = (await fetchUiContentApi({ contentId: 'sac-footer-content' })) || {};
 
     systemConfig = {
-      appShell,
-      wuiHeaderContent,
-      wuiWelcomePopup,
-      staticPage,
-      promotion,
-      productData,
-      homeContent,
-      footerContent,
+      sacHeaderContent,
+      sacWelcomePopup,
+      sacStaticPage,
+      sacPromotion,
+      sacProductData,
+      sacHomeContent,
+      sacFooterContent,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_URL_THEME_01') {
+    const ldpSystemConfigPage = (await fetchUiContentApi({ contentId: 'ldp-system-config-page' })) || LANDING_PAGE_MOCK;
+
+    systemConfig = {
+      ldpSystemConfigPage,
     };
   }
 

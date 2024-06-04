@@ -1,3 +1,3 @@
 export interface CartPageProps {
-  productData?: Record<string, any>;
+  sacProductData?: Record<string, any>;
 }

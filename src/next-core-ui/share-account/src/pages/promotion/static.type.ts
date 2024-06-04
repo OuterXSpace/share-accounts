@@ -1,3 +1,3 @@
 export interface PromotionPageProps {
-  promotion?: Record<string, any>;
+  sacPromotion?: Record<string, any>;
 }

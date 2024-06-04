@@ -30,58 +30,64 @@ export const Slider: React.FC<SliderProps> = (props) => {
   }, [data]);
 
   return (
-    <div className="slider-container">
+    <div className="flex flex-col items-start">
       <img
-        className="rounded-lg bg-white cursor-pointer object-contain mb-5 h-[360px]"
-        alt=""
+        className="rounded-lg bg-white cursor-pointer object-cover mb-5 w-full h-[275px] md:w-[275px]"
+        alt="product"
         src={isItemSelected?.imageUrl}
-        width="540px"
-        height="360px"
       />
-      <div className="w-[540px] relative">
-        <div
-          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[504px]"
-          onClick={handlePrev}
-        >
-          <IonIcon className="text-[20px]" name="arrow-back-outline" />
-        </div>
+      <div className="w-full">
         <Swiper
           ref={sliderRef}
-          slidesPerView={5}
+          breakpoints={{
+            320: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+          }}
           modules={[Virtual, Pagination]}
-          className="flex slider-item"
+          className="relative md:w-[275px] m-auto"
           effect="fade"
           spaceBetween={10}
           virtual
         >
+          <div
+            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 w-9 h-9 bg-white border-none outline-none p-0 top-1/2 left-0 transform -translate-y-1/2"
+            onClick={handlePrev}
+          >
+            <IonIcon className="text-[20px]" name="arrow-back-outline" />
+          </div>
           {data?.map((item) => {
             const { imageUrl, id } = item;
             return (
               <SwiperSlide
                 key={id}
                 virtualIndex={id}
-                className="cursor-pointer"
+                className="cursor-pointer h-[52px] w-[52px]"
+                onClick={() => setItemSelected(item)}
                 onMouseMove={() => setItemSelected(item)}
               >
-                <div className="rounded-lg bg-white object-cove w-[96px] h-[64px]">
+                <div className="rounded-lg">
                   <img
-                    className={`rounded-lg object-cover w-[96px] h-[64px] ${
+                    className={`rounded-lg object-cover ${
                       isItemSelected?.id === id ? 'border-[3px] border-solid border-white' : ''
                     }`}
-                    alt=""
+                    alt="product"
                     src={imageUrl}
                   />
                 </div>
               </SwiperSlide>
             );
           })}
+          <div
+            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10  w-9 h-9 bg-white border-none outline-none p-0 top-1/2 right-0 transform -translate-y-1/2"
+            onClick={handleNext}
+          >
+            <IonIcon className="text-[20px]" name="arrow-forward-outline" />
+          </div>
         </Swiper>
-        <div
-          className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 transform-none w-9 h-9 bg-white border-none outline-none p-0 top-[15px] right-[4px]"
-          onClick={handleNext}
-        >
-          <IonIcon className="text-[20px]" name="arrow-forward-outline" />
-        </div>
       </div>
     </div>
   );

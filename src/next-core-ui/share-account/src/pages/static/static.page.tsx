@@ -5,7 +5,7 @@ import { Tab, TabPane } from './components';
 import Head from 'next/head';
 
 export const StaticPage: React.FC<IStaticPageProps> = (props) => {
-  const { routerId, staticPage } = props;
+  const { routerId, sacStaticPage } = props;
 
   const router = useRouter();
 
@@ -22,9 +22,9 @@ export const StaticPage: React.FC<IStaticPageProps> = (props) => {
     if (router?.query?.slug?.[1]) {
       setDefaultSectionId(router?.query?.slug?.[1]);
     } else {
-      setDefaultSectionId(staticPage?.data[0]?.id || '');
+      setDefaultSectionId(sacStaticPage?.data[0]?.id || '');
     }
-  }, [router?.query?.slug, routerId, staticPage?.data]);
+  }, [router?.query?.slug, routerId, sacStaticPage?.data]);
 
   return (
     <>
@@ -40,7 +40,7 @@ export const StaticPage: React.FC<IStaticPageProps> = (props) => {
             <div className="col-sm-1" />
             <div className="col-sm-10">
               <Tab defaultTab={defaultSectionId} onSelect={(id) => changeUrl(id)}>
-                {staticPage?.data?.map((item) => {
+                {sacStaticPage?.data?.map((item) => {
                   return (
                     <TabPane name={item.title} key={item.id}>
                       <div className="border-2 border-primary rounded-[10px] p-[25px]">

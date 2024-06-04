@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IMenuDesktopProps } from './menu-desktop.type';
 import Link from 'next/link';
 import IonIcon from '@reacticons/ionicons';
 import { loginUrlSelector, isLoginSelector } from '../../../../../store/store-authentication/selector';
-import { Dropdown, DropdownItem, Popover } from 'flowbite-react';
+import { Dropdown, DropdownItem } from 'flowbite-react';
 import { logOutAction } from '../../../../../store/store-authentication/action';
 import { useRouter } from 'next/router';
 import { MenuItem } from './components';
-import { CartItem } from '../../pages';
+import { CartContext } from '../../context/cart-context';
 
 const classNamePrefix = 'tt-header';
 
 export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
-  const { wuiHeaderContent } = props;
+  const { wuiHeaderContent, handleOpenCart } = props;
+  const { totalQuantity } = useContext(CartContext);
 
   const loginUrl = loginUrlSelector();
 
@@ -21,23 +22,27 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
   const router = useRouter();
 
   return (
-    <nav className={`${classNamePrefix} w-full fixed top-0 z-50 bg-white`}>
+    <nav className={`${classNamePrefix} w-full fixed top-0 z-[39] bg-white`}>
       <div className={`${classNamePrefix}__top-nav border-b border-primary bg-gradient-to-top-primary h-[72px]`}>
         <div className="container flex items-center justify-between h-[72px]">
           <Link href="/" className="h-[72px] cursor-pointer">
             <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
           </Link>
-          <div className="flex items-center space-x-3">
-            <Popover trigger="hover" className="py-0 px-4" content={<CartItem />}>
-              <Link
-                href="/cart"
-                className="inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
-              >
+          <div className="flex items-center gap-3">
+            <button
+              className="inline-flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
+              onClick={handleOpenCart}
+            >
+              <div className="relative">
                 <IonIcon className="pr-1 text-base" name="cart-outline" />
-                Giỏ hàng
-              </Link>
-            </Popover>
-
+                <div className="absolute top-[-8px] left-[-15px]">
+                  <div className="min-h-[20px] min-w-[20px] bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                    <span>{totalQuantity}</span>
+                  </div>
+                </div>
+              </div>
+              Giỏ hàng
+            </button>
             {!isLogin ? (
               <Link
                 href="/login"
