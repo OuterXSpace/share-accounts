@@ -1,4 +1,4 @@
-export const LANDING_PAGE_MOCK = {
+export const LANDING_PAGE_MOCK: Record<string, any> = {
   systemConfig: {
     HOME: [
       {
