@@ -60,7 +60,7 @@ export const Contact: React.FC<ContactProps> = (props) => {
                     style={{
                       boxShadow: 'none',
                     }}
-                    className="outline-none shadow-none placeholder:indent-[10px] placeholder:text-[16px] text-[#666] placeholder-pl-2 box-border w-full bg-[#fafafa00] h-[120px] rounded-0 border-[#f9fdfe] border-b-2 border-t-0 border-l-0 border-r-0 focus:border-b-2 focus:border-[#96c583] focus:placeholder-[#96c583]"
+                    className="outline-none shadow-none placeholder:indent-[10px] indent-[10px] placeholder:text-[16px] text-[#666] placeholder-pl-2 box-border w-full bg-[#fafafa00] h-[120px] rounded-0 border-[#f9fdfe] border-b-2 border-t-0 border-l-0 border-r-0 focus:border-b-2 focus:border-[#96c583] focus:placeholder-[#96c583]"
                     placeholder="Message"
                     defaultValue=""
                   />
