@@ -5,17 +5,15 @@ export const Contact: React.FC<ContactProps> = (props) => {
   const { data, className } = props;
 
   return (
-    <section
-      className={`section-01 py-[20px] md:py-[100px] lg:py-[150px] ${className} pt-[84px] md:pt-[94px] lg:pt-[100px] px-[20px]`}
-    >
-      <div className="container">
+    <section className={`section-01 ${className}`}>
+      <div className="container py-[20px] md:py-[100px] lg:py-[150px] px-[20px]">
         <div className="row">
-          <div className="col-sm-12 pr-[50px]">
+          <div className="col-12 lg:pr-[50px] pr-0">
             <h1 className="text-[#f9fdfe] text-[2.125rem] lg:text-[5.125rem] font-bold font-montserrat leading-1.4">
               {data?.object?.title}
             </h1>
           </div>
-          <div className="col-sm-6 md:pr-[30px]">
+          <div className="lg:col-6 col-12 md:pr-[30px]">
             <p className="pt-[50px] text-[#ffffffbf] text-[16px] leading-1.6">{data?.object?.description}</p>
             <div className="text-[16px] pt-[30px]">
               <ul className="text-[#f9fdfe]">
@@ -34,7 +32,7 @@ export const Contact: React.FC<ContactProps> = (props) => {
               </ul>
             </div>
           </div>
-          <div className="col-sm-6 pl-[50px]">
+          <div className="lg:col-6 col-12 lg:pl-[50px] pl-0">
             <div className="mb-[20px] pt-[50px] lg:pl-[50px] px-1">
               <form className="w-full">
                 <div className="mb-[30px] relative">
