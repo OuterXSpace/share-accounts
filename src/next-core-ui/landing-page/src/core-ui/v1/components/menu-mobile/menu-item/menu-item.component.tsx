@@ -33,7 +33,7 @@ export const LandingPageMenuItemMobileV1: React.FC<ILandingPageMenuItemMobileV1P
       >
         <span
           className={`min-w-max text-sm  ${
-            hovered ? 'text-accent' : 'text-white'
+            item?.link === router?.asPath || hovered ? 'text-accent' : 'text-white'
           } text-opacity-90 uppercase font-semibold`}
         >
           {item?.label}
