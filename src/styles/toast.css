@@ -1,0 +1,11 @@
+.toast-success {
+  background-color: green;
+}
+
+.toast-error {
+  background-color: red;
+}
+
+.toast-info {
+  background-color: blue;
+}

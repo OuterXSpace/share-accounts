@@ -11,6 +11,7 @@ import { IUiConfigServerSide } from '../../models';
 import { ROOT_LAYOUT_CONFIG } from '../../root-config';
 import { DynamicLayout } from '../../layouts';
 import { CartProvider, LANDING_PAGE_MOCK } from '../../next-core-ui';
+import { ToastProvider } from '../../components';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -33,7 +34,11 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
   switch (THEME) {
     case 'DYNAMIC_URL_THEME_01':
-      return <DynamicLayout systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} slug={slug} />;
+      return (
+        <ToastProvider>
+          <DynamicLayout systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} slug={slug} />
+        </ToastProvider>
+      );
 
     default:
       return (

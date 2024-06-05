@@ -4,11 +4,16 @@ import { LandingPageButtonV1 } from '../../common';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { postGoogleSheetApi } from '../../../../../../../api/save-google';
+import { LoadingMore, useToast } from '../../../../../../../components';
 
 export const Contact: React.FC<ContactProps> = (props) => {
   const { data, className } = props;
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { showToast } = useToast();
 
   const contactSchema = yup.object().shape({
     fullName: yup.string().required(data?.object?.form?.input.FULL_NAME?.error),
@@ -22,6 +27,7 @@ export const Contact: React.FC<ContactProps> = (props) => {
     register,
     formState: { errors },
     clearErrors,
+    reset,
   } = useForm<ILandingPageContactFormModel>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -29,15 +35,24 @@ export const Contact: React.FC<ContactProps> = (props) => {
     defaultValues: {},
   });
 
-  const onConfirmSubmit = useCallback((values: ILandingPageContactFormModel) => {
-    postGoogleSheetApi(values, data?.object?.apiGoogleSheetUrl)
-      .then(() => {
-        console.log('Data posted successfully!');
-      })
-      .catch((error) => {
-        console.error('Error posting data:', error);
-      });
-  }, []);
+  const onConfirmSubmit = useCallback(
+    (values: ILandingPageContactFormModel) => {
+      setIsLoading(true);
+      postGoogleSheetApi(values, data?.object?.apiGoogleSheetUrl)
+        .then(() => {
+          setIsLoading(false);
+          showToast('Data posted successfully!', 'success');
+          reset();
+        })
+        .catch(() => {
+          showToast('Data posted successfully!', 'error');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    },
+    [data?.object?.apiGoogleSheetUrl, reset, showToast],
+  );
 
   return (
     <section className={`section-01 ${className}`}>
@@ -158,9 +173,13 @@ export const Contact: React.FC<ContactProps> = (props) => {
             </div>
             <div className="lg:pl-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
               <LandingPageButtonV1 type="submit">
-                <span className="flex justify-center">
-                  <span className="flex-grow order-10 inline-block">{data?.object?.form?.button?.label}</span>
-                </span>
+                {isLoading ? (
+                  <LoadingMore />
+                ) : (
+                  <span className="flex justify-center">
+                    <span className="flex-grow order-10 inline-block">{data?.object?.form?.button?.label}</span>
+                  </span>
+                )}
               </LandingPageButtonV1>
             </div>
           </div>
