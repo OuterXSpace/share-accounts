@@ -11,7 +11,7 @@ import {
   LandingPageMenuMobileV1,
   Contact,
   Footer,
-} from '../../core-ui-landing-page/v1/components';
+} from '../../core-ui/v1/components';
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
