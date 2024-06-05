@@ -29,7 +29,7 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
             </div>
             <div className="w-full">
               <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
-                <LandingPageButtonV1 type="link" link={data?.object?.button?.link}>
+                <LandingPageButtonV1 link={data?.object?.button?.link}>
                   <span className="flex justify-center">
                     <span className="flex-grow order-10 inline-block">{data?.object?.button?.label}</span>
                   </span>
