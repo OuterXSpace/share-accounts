@@ -1,18 +1,27 @@
 export interface ICartContextType {
+  initialState: ICartContextInitState;
+  addItemToCart: (item: ICartItemCtx) => void;
+  removeItemToCart: (id: string) => void;
+  increaseItemQuantity: (id: string) => void;
+  decreaseItemQuantity: (id: string) => void;
+}
+
+export interface ICartContextInitState {
   cartItems: ICartItemCtx[];
   totalQuantity: number;
   totalPrice: number;
 }
 
 export interface ICartItemCtx {
-  price: number;
-  quantity: number;
+  id: string;
+  quantity?: number;
   imageUrl: string;
   imageAlt: string;
   title: string;
   linkUrl: string;
   durationLabel: string;
-  totalPrice: number;
+  totalPrice?: number;
+  originalPrice: number;
 }
 
 export interface ICartContextProviderProps {

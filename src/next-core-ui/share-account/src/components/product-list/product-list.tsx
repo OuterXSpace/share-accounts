@@ -23,11 +23,11 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
                 const {
                   imageUrl = '',
                   imageAlt = '',
-                  price = 0,
                   totalOrderNumber = 0,
                   categoryName = '',
                   linkUrl = '',
                   currency = 'VNĐ',
+                  duration,
                 } = product;
                 return (
                   <ProductCard
@@ -37,9 +37,9 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
                     title={product?.title}
                     quantity={totalOrderNumber}
                     category={categoryName}
-                    price={price}
                     linkUrl={linkUrl}
                     currency={currency}
+                    originalPrice={duration[0]?.price || 0}
                   />
                 );
               })}

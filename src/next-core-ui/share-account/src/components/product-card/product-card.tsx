@@ -8,7 +8,7 @@ export const ProductCard: React.FC<IProductCardProps> = (props) => {
     img = '',
     alt = '',
     title = '',
-    price = 0,
+    originalPrice = 0,
     quantity = 0,
     category = '',
     linkUrl = '',
@@ -29,7 +29,7 @@ export const ProductCard: React.FC<IProductCardProps> = (props) => {
         </div>
         <div className="flex justify-between items-center lg:pt-1 text-sm ">
           <span className="font-bold text-xs">
-            <FormattedCurrency value={price} isColored={false} /> {currency}
+            <FormattedCurrency value={originalPrice} isColored={false} /> {currency}
           </span>
           <div
             className="p-[5px] rounded-full flex items-center justify-center cursor-pointer"

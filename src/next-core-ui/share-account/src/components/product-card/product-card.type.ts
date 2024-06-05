@@ -2,7 +2,7 @@ export interface IProductCardProps {
   img?: string;
   alt?: string;
   title?: string;
-  price?: number;
+  originalPrice?: number;
   quantity?: number;
   category?: string;
   linkUrl?: string;

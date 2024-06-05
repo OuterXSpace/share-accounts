@@ -3,11 +3,13 @@ export interface ICartItemPageProps {
 }
 
 export interface ICartItem {
-  price: number;
-  quantity: number;
+  id: string;
+  quantity?: number;
   imageUrl: string;
   imageAlt: string;
   title: string;
   linkUrl: string;
   durationLabel: string;
+  totalPrice?: number;
+  originalPrice: number;
 }

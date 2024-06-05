@@ -6,7 +6,7 @@ import { ICartItemPageProps } from './cart-item.type';
 
 export const CartItem: React.FC<ICartItemPageProps> = (props) => {
   const { item } = props;
-  const { price, quantity, imageUrl, title, imageAlt, linkUrl, durationLabel } = item;
+  const { originalPrice, quantity, imageUrl, title, imageAlt, linkUrl, durationLabel } = item;
   const currency = 'VNĐ';
   return (
     <div className="flex flex-row gap-2 [&:not(:first-child)]:border-t py-2">
@@ -21,12 +21,12 @@ export const CartItem: React.FC<ICartItemPageProps> = (props) => {
           <span className="text-[13px] text-gray-500">
             {quantity} x{' '}
             <strong>
-              <FormattedCurrency value={price} isColored={false} /> {currency}
+              <FormattedCurrency value={originalPrice} isColored={false} /> {currency}
             </strong>{' '}
           </span>
         </div>
         <button>
-          <IonIcon className="text-gray-200 text-[24px]" name="close-circle-outline" />
+          <IonIcon className="text-gray-200 text-[16px] bg-red-500 rounded-full p-1" name="close-outline" />
         </button>
       </div>
     </div>
