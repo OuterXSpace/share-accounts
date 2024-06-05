@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import Head from 'next/head';
 import { LandingPageProps } from './landing-page.type';
 import {
@@ -12,7 +11,7 @@ import {
   LandingPageMenuMobileV1,
   Contact,
   Footer,
-} from './components';
+} from '../../core-ui-landing-page/v1/components';
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
@@ -87,7 +86,7 @@ export const LandingPageV1: React.FC<LandingPageProps> = (props) => {
   return (
     <>
       {renderSeoPage}
-      <main className="bg-[#000000]">{renderPage}</main>
+      <main className={`${systemConfig?.ldpSystemConfigPage?.className ? 'bg-[#000000]' : ''}`}>{renderPage}</main>
     </>
   );
 };
