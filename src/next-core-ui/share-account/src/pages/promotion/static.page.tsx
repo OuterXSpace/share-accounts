@@ -15,7 +15,7 @@ export const PromotionPage: React.FC<PromotionPageProps> = (props) => {
       <main className="pt-[120px]">
         <section className="container py-[3rem] pb-[2rem]">
           <div className="row">
-            <div className="col-sm-12" />
+            <div className="col-12" />
             <div dangerouslySetInnerHTML={{ __html: sacPromotion?.content }} />
           </div>
         </section>

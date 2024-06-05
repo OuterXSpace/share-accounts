@@ -33,7 +33,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
   switch (THEME) {
     case 'DYNAMIC_URL_THEME_01':
-      return <DynamicLayout systemConfig={systemConfig} slug={slug} />;
+      return <DynamicLayout systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} slug={slug} />;
 
     default:
       return (
@@ -72,7 +72,7 @@ export const getServerSideProps = (async () => {
   }
 
   if (THEME === 'DYNAMIC_URL_THEME_01') {
-    const ldpSystemConfigPage = (await fetchUiContentApi({ contentId: 'ldp-system-config-page' })) || LANDING_PAGE_MOCK;
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page' });
 
     systemConfig = {
       ldpSystemConfigPage,

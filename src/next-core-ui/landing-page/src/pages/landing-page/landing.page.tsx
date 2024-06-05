@@ -71,14 +71,22 @@ export const LandingPageV1: React.FC<LandingPageProps> = (props) => {
     });
   }, [isDevice?.isLargeDesktop, isDevice?.isSmallDesktop, slug, systemConfig?.ldpSystemConfigPage]);
 
+  const renderSeoPage = useMemo(() => {
+    const seoData = systemConfig?.ldpSystemConfigPage?.seoData?.[slug];
+
+    return (
+      <Head>
+        <meta property="og:title" content={seoData?.ogTitle} />
+        <meta property="og:url" content={seoData?.ogUrl} />
+        <meta property="og:image" content={seoData?.ogImage} />
+        <title>{seoData?.ogTitle}</title>
+      </Head>
+    );
+  }, [slug, systemConfig?.ldpSystemConfigPage]);
+
   return (
     <>
-      <Head>
-        <meta property="og:title" content="Nguyễn Trọng Nhân" />
-        <meta property="og:url" content="/" />
-        <meta property="og:image" />
-        <title>Nguyễn Trọng Nhân</title>
-      </Head>
+      {renderSeoPage}
       <main className="bg-[#000000]">{renderPage}</main>
     </>
   );

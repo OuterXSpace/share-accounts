@@ -4,13 +4,13 @@ export const AloneVideo: React.FC<AloneVideoProp> = (props) => {
   const { data, className } = props;
 
   return (
-    <section className={`section-01 ${className}`}>
+    <section className={`section-alone-video invisible sm:visible sm:p-0 sm:m-0 ${className}`}>
       <div className="container xl:p-0 xl:max-w-full">
         <div className="row xl:justify-end">
-          <div className="col-sm-12 xl:col-sm-10">
+          <div className="col-12 lg:col-10">
             <div className="video">
               <video
-                className="elementor-video"
+                className="w-full lg:h-full h-0"
                 src={data?.object?.video}
                 autoPlay
                 playsInline

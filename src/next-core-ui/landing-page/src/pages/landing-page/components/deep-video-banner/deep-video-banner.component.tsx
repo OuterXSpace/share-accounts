@@ -19,9 +19,9 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
       <div className="container px-[20px]">
         <div className="flex mx-auto relative">
           <div className="relative w-full flex-wrap content-start">
-            <div className="mt-[50px] pb-[50px]">
+            <div className="mt-0 lg:mt-[50px] pb-[50px]">
               <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
-                <h1 className="text-[#f9fdfe] leading-[1.4] lg:text-[5.125rem] text-[2.125rem] font-bold font-montserrat">
+                <h1 className="text-[#f9fdfe] leading-[1.4] lg:text-[5.125rem] text-[52px] font-bold font-montserrat">
                   {data?.object?.text}
                 </h1>
               </div>
