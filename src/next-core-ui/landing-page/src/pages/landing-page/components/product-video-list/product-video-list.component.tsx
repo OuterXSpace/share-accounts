@@ -14,16 +14,16 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
 
   return (
     <section className={`section-01 ${className}`}>
-      <div className="container pt-[100px] py-[20px]">
+      <div className="container pt-0 lg:pt-[100px] pb-0 lg:pb-[20px]">
         <div className="row">
-          <div className="col-sm-12 w-full">
-            <div className="pb-[80px] flex items-center justify-center w-full">
-              <h2 className="leading-1.3 text-[#f9fdfe] text-[32px] md:text-[44px] lg:text-[3.75rem] font-bold font-montserrat">
+          <div className="col-12 w-full">
+            <div className="pb-0 flex items-center justify-center w-full">
+              <h2 className="leading-1.3 text-[#f9fdfe] text-[44px] lg:text-[3.75rem] font-bold font-montserrat">
                 {data?.object?.title}
               </h2>
             </div>
           </div>
-          <div className="col-sm-12 mb-[50px]">
+          <div className="col-12 mb-[50px]">
             <div className=" flex justify-center aligns-center pt-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
               {data?.object?.filter?.map((item) => {
                 const { id, label, sort } = item;
@@ -41,14 +41,17 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
               })}
             </div>
           </div>
-          <div className="container">
+          <div className="col-12">
             <div className="row justify-center ">
               {dataFilterVideo?.map((item) => {
                 const { id, video, title, link } = item;
                 return (
                   <Fragment key={id}>
                     {isTypeVideo === 'SHORTS' && (
-                      <div key={id} className="col-6 sm:col-12 md:col-6 md:p-[10px] lg:p-[20px]">
+                      <div
+                        key={id}
+                        className="col-12 md:col-6  lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
+                      >
                         <div className="video mb-[20px]">
                           <iframe
                             width="100%"
@@ -70,8 +73,12 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         </div>
                       </div>
                     )}
+
                     {isTypeVideo === 'TIKTOK' && (
-                      <div key={id} className="col-6 sm:col-12 md:col-6 md:p-[10px] lg:p-[20px]">
+                      <div
+                        key={id}
+                        className="col-12 md:col-6  lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
+                      >
                         <div className="video mb-[20px]">
                           <blockquote className="tiktok-embed w-full" cite={video} />
                           <script async src="https://www.tiktok.com/embed.js" />
@@ -86,8 +93,12 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         </div>
                       </div>
                     )}
+
                     {isTypeVideo === 'VIDEO' && (
-                      <div key={id} className="col-4 sm:col-12 md:col-4 md:p-[10px] lg:p-[20px]">
+                      <div
+                        key={id}
+                        className="col-12 md:col-6 lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
+                      >
                         <div className="video mb-[20px]">
                           <iframe
                             width="100%"
@@ -116,7 +127,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
         </div>
 
         {!data?.object?.button?.hidden && (
-          <div className="col-sm-12">
+          <div className="col-12">
             <div className=" flex justify-center aligns-center pt-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
               <a
                 href={data?.object?.button?.link}

@@ -6,10 +6,10 @@ export const Contact: React.FC<ContactProps> = (props) => {
 
   return (
     <section className={`section-01 ${className}`}>
-      <div className="container py-[20px] md:py-[100px] lg:py-[150px] px-[20px]">
+      <div className="container py-0 md:py-[100px] lg:py-[150px]">
         <div className="row">
           <div className="col-12 lg:pr-[50px] pr-0">
-            <h1 className="text-[#f9fdfe] text-[2.125rem] lg:text-[5.125rem] font-bold font-montserrat leading-1.4">
+            <h1 className="text-[#f9fdfe] text-[44px] lg:text-[5.125rem] font-bold font-montserrat leading-1.4">
               {data?.object?.title}
             </h1>
           </div>

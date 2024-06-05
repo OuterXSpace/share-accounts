@@ -22,7 +22,7 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
             <IonIcon className="text-[55px]" name="reorder-three-outline" />
           )}
         </button>
-        <div className="col-sm-12 h-[64px] flex justify-center items-center">
+        <div className="col-12 h-[64px] flex justify-center items-center">
           <Link href="/" className="flex flex-wrap items-center h-full min-h-0 cursor-pointer">
             <img
               width="97"

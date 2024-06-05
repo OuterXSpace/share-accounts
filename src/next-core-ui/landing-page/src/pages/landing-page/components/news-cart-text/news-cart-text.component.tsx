@@ -14,7 +14,7 @@ export const NewCartText: React.FC<NewCartTextProps> = (props) => {
               </h3>
             </div>
           </div>
-          <div className="lg:col-6 col-12 lg:pl-[50px] pl-0">
+          <div className="lg:col-6 col-12 lg:pl-[50px] pl-0 lg:pb-[20px] pb-0">
             <div className="mb-[20px]">
               <p className="mb-[0.5rem] text-[#ffffffbf] text-[16px] leading-1.6">{data?.object?.description}</p>
             </div>

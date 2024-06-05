@@ -27,7 +27,7 @@ export const MenuMobile: React.FC<IMenuMobileProps> = (props) => {
               <IonIcon className="text-[55px]" name="reorder-three-outline" />
             )}
           </button>
-          <div className="col-sm-12 h-[64px] flex justify-center items-center">
+          <div className="col-12 h-[64px] flex justify-center items-center">
             <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
           </div>
         </div>

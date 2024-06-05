@@ -37,8 +37,8 @@ export const StaticPage: React.FC<IStaticPageProps> = (props) => {
       <main className="pt-[120px]">
         <section className="container py-[3rem] pb-[2rem]">
           <div className="row">
-            <div className="col-sm-1" />
-            <div className="col-sm-10">
+            <div className="col-1" />
+            <div className="col-10">
               <Tab defaultTab={defaultSectionId} onSelect={(id) => changeUrl(id)}>
                 {sacStaticPage?.data?.map((item) => {
                   return (

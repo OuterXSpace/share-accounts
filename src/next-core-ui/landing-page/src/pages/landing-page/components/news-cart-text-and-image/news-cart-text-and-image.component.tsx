@@ -4,10 +4,10 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) =
   const { data, className } = props;
 
   return (
-    <section className={`section ${className} px-[20px]`}>
+    <section className={`section ${className}`}>
       <div className="container">
-        <div className="row flex flex-col xl:flex-row px-[20px] md:px-0 pt-[84px] md:pt-[94px] lg:pt-[100px]">
-          <div className="xl:col-sm-6">
+        <div className="row flex flex-col xl:flex-row md:px-0 pt-[84px] md:pt-[94px] lg:pt-[100px]">
+          <div className="xl:col-6">
             <div className="pt-[50px]">
               <img
                 width={676}
@@ -18,7 +18,7 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) =
               />
             </div>
           </div>
-          <div className="xl:col-sm-6 pt-[50px]">
+          <div className="xl:col-6 pt-[50px]">
             {data?.object?.array?.map((item) => {
               const { id, title, description } = item;
               return (
