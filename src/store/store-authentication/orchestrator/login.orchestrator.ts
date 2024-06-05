@@ -6,7 +6,6 @@ import { backToRedirectUrl } from '../util';
 import { CoreUserProfileStore } from '../../store-user-profile';
 import { loginAPI } from '../../../api';
 import { ITranslatorParams } from '../../../configuration/language';
-import { ToastService } from '../../../components';
 
 orchestrator(loginAction, async (actionMessage) => {
   const { email, password } = actionMessage;
@@ -24,7 +23,6 @@ orchestrator(loginAction, async (actionMessage) => {
     CoreUserProfileStore.fetchProfileAction();
     backToRedirectUrl(500);
   } catch (error) {
-    ToastService.error((error as string) ?? 'Error');
     CommonMessageStore.updateErrorAction(error as string | ITranslatorParams);
   } finally {
     CoreLoadingStore.updateLoadingAction(false);

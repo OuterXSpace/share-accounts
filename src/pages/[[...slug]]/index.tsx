@@ -42,11 +42,13 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
     default:
       return (
-        <CartProvider>
-          <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
-          <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
-          <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
-        </CartProvider>
+        <ToastProvider>
+          <CartProvider>
+            <DynamicHeader item={contentPage?.header} systemConfig={systemConfig} slug={slug} />
+            <DynamicBody item={contentPage?.body} systemConfig={systemConfig} slug={slug} />
+            <DynamicFooter item={contentPage?.footer} systemConfig={systemConfig} slug={slug} />
+          </CartProvider>
+        </ToastProvider>
       );
   }
 });
