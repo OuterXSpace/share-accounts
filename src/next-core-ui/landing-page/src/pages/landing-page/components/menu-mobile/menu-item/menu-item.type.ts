@@ -1,9 +1,9 @@
-export interface IMenuItemMobile02Props {
-  item?: IMenuItemMobile02Model;
+export interface ILandingPageMenuItemMobileV1Props {
+  item?: ILandingPageMenuItemMobileV1Model;
   closeToggle?: () => void;
 }
 
-export interface IMenuItemMobile02Model {
+export interface ILandingPageMenuItemMobileV1Model {
   label?: string;
   link?: string;
   id?: string;

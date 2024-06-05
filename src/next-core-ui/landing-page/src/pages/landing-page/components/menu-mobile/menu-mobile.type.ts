@@ -1,4 +1,4 @@
-export interface IMenuMobile02Props {
+export interface ILandingPageMenuMobileV1Props {
   data?: Record<string, any>;
   className?: string;
 }

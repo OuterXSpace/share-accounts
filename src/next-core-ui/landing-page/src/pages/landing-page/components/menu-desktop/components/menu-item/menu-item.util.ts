@@ -1,9 +1,12 @@
-import { IMenuItemModel } from './menu-item.type';
+import { ILandingPageMenuDesktopItemModel } from './menu-item.type';
 
-export const splitSubmenuSectionItems = (menuItems: IMenuItemModel[], maxItemPerColumn: number): IMenuItemModel[][] => {
-  const splitItemArray: IMenuItemModel[][] = [];
+export const splitSubmenuSectionItems = (
+  menuItems: ILandingPageMenuDesktopItemModel[],
+  maxItemPerColumn: number,
+): ILandingPageMenuDesktopItemModel[][] => {
+  const splitItemArray: ILandingPageMenuDesktopItemModel[][] = [];
 
-  let tempItemArray: IMenuItemModel[] = [];
+  let tempItemArray: ILandingPageMenuDesktopItemModel[] = [];
   menuItems.forEach((item) => {
     if (tempItemArray.length >= maxItemPerColumn) {
       splitItemArray.push([...tempItemArray]);

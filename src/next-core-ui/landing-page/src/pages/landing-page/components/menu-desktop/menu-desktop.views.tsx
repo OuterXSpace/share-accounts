@@ -1,8 +1,8 @@
 import React from 'react';
-import { IMenuDesktop02Props } from './menu-desktop.type';
+import { ILandingPageMenuDesktopV1Props } from './menu-desktop.type';
 import Link from 'next/link';
 
-export const MenuDesktop02: React.FC<IMenuDesktop02Props> = (props) => {
+export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
   const { data, className } = props;
 
   return (

@@ -1,15 +1,15 @@
 import { IPopupLinkProps } from '../../../../../../../../../components';
 
-export interface IMenuItemProps {
+export interface ILandingPageMenuDesktopItemProps {
   className?: string;
   maxItemPerColumn?: number;
 
-  item?: IMenuItemModel;
+  item?: ILandingPageMenuDesktopItemModel;
   submenu?: ISubMenuModel;
   footerText?: string;
 }
 
-export interface IMenuItemModel extends IPopupLinkProps {
+export interface ILandingPageMenuDesktopItemModel extends IPopupLinkProps {
   label?: string;
   link?: string;
   icon?: string;
@@ -35,5 +35,5 @@ export interface ISubMenuSectionModel {
   id: string;
   label?: string;
   weekDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  menuItems?: IMenuItemModel[];
+  menuItems?: ILandingPageMenuDesktopItemModel[];
 }

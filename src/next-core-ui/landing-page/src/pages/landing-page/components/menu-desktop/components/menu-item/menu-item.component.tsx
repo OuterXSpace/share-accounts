@@ -1,13 +1,13 @@
 import { Popover } from 'flowbite-react';
 import { useState } from 'react';
-import { IMenuItemProps } from './menu-item.type';
+import { ILandingPageMenuDesktopItemProps } from './menu-item.type';
 import Link from 'next/link';
 import { PopupLink } from '../../../../../../../../../components';
 import { classNameStringify } from '../../../../../../../../../utils';
 
 const classNamePrefix = 'header-menu-item';
 
-export const MenuItem: React.FC<IMenuItemProps> = (props) => {
+export const LandingPageMenuDesktopItemV1: React.FC<ILandingPageMenuDesktopItemProps> = (props) => {
   const { item, submenu, className } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
