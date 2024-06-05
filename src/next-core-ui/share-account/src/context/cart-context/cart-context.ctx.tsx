@@ -46,8 +46,24 @@ export const CartProvider: React.FC<ICartContextProviderProps> = (props) => {
   };
 
   const removeItemToCart = (id: string) => {
-    console.log('remove item to cart', id);
     const itemExist = checkItemInCartExist(id);
+    if (itemExist !== -1) {
+      const updatedCartItems = [...initialState.cartItems];
+      const itemToRemove = updatedCartItems[itemExist];
+
+      // remove item from cart
+      updatedCartItems.splice(itemExist, 1);
+
+      // calculate total quantity and total price when remove item
+      const updatedTotalQuantity = initialState.totalQuantity - itemToRemove.quantity;
+      const updatedTotalPrice = initialState.totalPrice - itemToRemove.totalPrice;
+
+      setInitialState({
+        cartItems: updatedCartItems,
+        totalQuantity: updatedTotalQuantity,
+        totalPrice: updatedTotalPrice,
+      });
+    }
   };
 
   const increaseItemQuantity = (id: string) => {
@@ -56,6 +72,10 @@ export const CartProvider: React.FC<ICartContextProviderProps> = (props) => {
 
   const decreaseItemQuantity = (id: string) => {
     console.log('decrease item quantity', id);
+  };
+
+  const onChangeItemQuantity = (id: string, quantity: number) => {
+    console.log('change item quantity', id, quantity);
   };
 
   const calcTotalPriceItem = (price: number, quantity: number) => {
@@ -74,6 +94,7 @@ export const CartProvider: React.FC<ICartContextProviderProps> = (props) => {
         removeItemToCart,
         increaseItemQuantity,
         decreaseItemQuantity,
+        onChangeItemQuantity,
       }}
     >
       {children}

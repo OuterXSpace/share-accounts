@@ -5,8 +5,8 @@ import { FormattedCurrency } from '../../../../../../../components';
 import { ICartItemPageProps } from './cart-item.type';
 
 export const CartItem: React.FC<ICartItemPageProps> = (props) => {
-  const { item } = props;
-  const { originalPrice, quantity, imageUrl, title, imageAlt, linkUrl, durationLabel } = item;
+  const { item, removeItemToCart } = props;
+  const { id, originalPrice, quantity, imageUrl, title, imageAlt, linkUrl, durationLabel } = item;
   const currency = 'VNĐ';
   return (
     <div className="flex flex-row gap-2 [&:not(:first-child)]:border-t py-2">
@@ -25,8 +25,8 @@ export const CartItem: React.FC<ICartItemPageProps> = (props) => {
             </strong>{' '}
           </span>
         </div>
-        <button>
-          <IonIcon className="text-gray-200 text-[16px] bg-red-500 rounded-full p-1" name="close-outline" />
+        <button className="text-gray-200 text-[16px]" onClick={() => removeItemToCart(id)}>
+          <IonIcon name="close-outline" className="bg-red-500 p-1 rounded-full" />
         </button>
       </div>
     </div>

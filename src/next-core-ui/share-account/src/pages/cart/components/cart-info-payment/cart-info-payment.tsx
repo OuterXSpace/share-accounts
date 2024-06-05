@@ -1,7 +1,15 @@
 import Image from 'next/image';
 import { ICartInfoPaymentProps } from './cart-info-payment.type';
+import { useState } from 'react';
 
 export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
+  const { items, totalPrice, handlePostOrder } = props;
+  const [selectedPayment, setSelectedPayment] = useState<string>('momo-payment');
+
+  const handleChangeSelectPayment = (payment: string) => {
+    setSelectedPayment(payment);
+  };
+
   return (
     <div className="flex flex-col">
       {/* payment */}
@@ -10,12 +18,13 @@ export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
           <input
             id="momo-payment"
             type="radio"
-            value=""
-            defaultChecked
+            value="momo-payment"
+            checked={selectedPayment === 'momo-payment'}
+            onChange={() => handleChangeSelectPayment('momo-payment')}
             name="momo-payment"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 focus:ring-2"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
           />
-          <label htmlFor="momo-payment" className="ms-2 text-sm font-medium text-gray-900 mr-2">
+          <label htmlFor="momo-payment" className="text-sm font-bold text-gray-900 md:mr-2 mx-2">
             Thanh toán bằng ví MoMo
           </label>
           <Image
@@ -28,7 +37,13 @@ export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
         <p>Quét mã thanh toán tới nhà cung cấp dịch vụ là SHAREACCOUNT</p>
       </div>
       <div className="flex items-center">
-        <button className="flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 uppercase">
+        <button
+          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 uppercase ${
+            !items.length ? 'opacity-50' : 'opacity-100'
+          }`}
+          disabled={!items.length}
+          onClick={handlePostOrder}
+        >
           Đặt hàng
         </button>
       </div>

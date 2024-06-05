@@ -4,6 +4,7 @@ export interface ICartContextType {
   removeItemToCart: (id: string) => void;
   increaseItemQuantity: (id: string) => void;
   decreaseItemQuantity: (id: string) => void;
+  onChangeItemQuantity: (id: string, quantity: number) => void;
 }
 
 export interface ICartContextInitState {

@@ -11,7 +11,7 @@ import { FormattedCurrency } from '../../../../../../../components';
 
 export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
   const { isOpenCart, handleCloseCart, position } = props;
-  const { initialState } = useContext(CartContext);
+  const { initialState, removeItemToCart } = useContext(CartContext);
   const { cartItems, totalPrice } = initialState;
   const currency = 'VNĐ';
 
@@ -40,7 +40,7 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
                 {/* not empty Cart */}
                 {cartItems?.map((item) => {
                   const { id } = item;
-                  return <CartItem key={id} item={item} />;
+                  return <CartItem key={id} item={item} removeItemToCart={removeItemToCart} />;
                 })}
               </div>
             )}

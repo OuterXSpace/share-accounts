@@ -1,7 +1,8 @@
-import { ICartInfoFormProps } from './cart-info-form.type';
 import { Label, TextInput, Textarea } from 'flowbite-react';
+import { ICartInfoFormProps } from './cart-info-form.type';
 
 export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
+  const { register, errors, clearErrors } = props;
   return (
     <form className="flex flex-col gap-4 px-[15px] md:px-[30px]">
       <h3 className="font-bold uppercase text-[17px] md:text-[20px]">Thông tin thanh toán</h3>
@@ -14,11 +15,11 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
             id="firstName"
             type="text"
             sizing="md"
-            color="failure"
+            {...register('firstName')}
+            color={`${errors.firstName ? 'failure' : 'gray'}`}
+            onChange={() => clearErrors('firstName')}
             helperText={
-              <>
-                <span className="font-medium text-red-500">Oops!</span> Username already taken!
-              </>
+              errors.firstName && <span className="font-medium text-red-500">{errors.firstName?.message}</span>
             }
           />
         </div>
@@ -30,12 +31,10 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
             id="lastName"
             type="text"
             sizing="md"
-            color="failure"
-            helperText={
-              <>
-                <span className="font-medium text-red-500">Oops!</span> Username already taken!
-              </>
-            }
+            {...register('lastName')}
+            color={`${errors.lastName ? 'failure' : 'gray'}`}
+            onChange={() => clearErrors('lastName')}
+            helperText={errors.lastName && <span className="font-medium text-red-500">{errors.lastName?.message}</span>}
           />
         </div>
       </div>
@@ -45,13 +44,13 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
         </div>
         <TextInput
           id="phoneNumber"
-          type="text"
+          type="number"
           sizing="md"
-          color="failure"
+          {...register('phoneNumber')}
+          color={`${errors.phoneNumber ? 'failure' : 'gray'}`}
+          onChange={() => clearErrors('phoneNumber')}
           helperText={
-            <>
-              <span className="font-medium text-red-500">Oops!</span> Username already taken!
-            </>
+            errors.phoneNumber && <span className="font-medium text-red-500">{errors.phoneNumber?.message}</span>
           }
         />
       </div>
@@ -63,11 +62,11 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
           id="emailAddress"
           type="text"
           sizing="md"
-          color="failure"
+          {...register('emailAddress')}
+          color={`${errors.emailAddress ? 'failure' : 'gray'}`}
+          onChange={() => clearErrors('emailAddress')}
           helperText={
-            <>
-              <span className="font-medium text-red-500">Oops!</span> Username already taken!
-            </>
+            errors.emailAddress && <span className="font-medium text-red-500">{errors.emailAddress?.message}</span>
           }
         />
       </div>
@@ -76,7 +75,7 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
           <h3 className="uppecase font-bold text-[20px]">Thông tin bổ sung</h3>
           <Label htmlFor="note" value="Ghi chú đơn hàng (tùy chọn)" className="font-bold" />
         </div>
-        <Textarea id="note" className="h-[120px]" />
+        <Textarea id="note" className="h-[120px]" {...register('note')} />
       </div>
     </form>
   );

@@ -9,17 +9,50 @@ import { CartInfoTable } from './components/cart-info-table';
 import { CartInfoPayment } from './components/cart-info-payment';
 import { CartInfoForm } from './components/cart-info-form/cart-info-form';
 import IonIcon from '@reacticons/ionicons';
+import { ICartInfoFormModel } from './components/cart-info-form/cart-info-form.type';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+
+// validate sceheme for cart info form
+const cartInfoSchema = yup.object().shape({
+  firstName: yup.string().required('Tên là mục bắt buộc'),
+  lastName: yup.string().required('Họ là mục bắt buộc'),
+  phoneNumber: yup.string().required('Số điện thoại là mục bắt buộc'),
+  emailAddress: yup.string().email('Địa chỉ email không hợp lệ').required('Địa chỉ email là mục bắt buộc'),
+  note: yup.string(),
+});
 
 export const CartPage: React.FC<CartPageProps> = (props) => {
   const { sacProductData } = props;
 
-  const { initialState } = useContext(CartContext);
+  const { initialState, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } =
+    useContext(CartContext);
 
-  const { totalPrice } = initialState;
+  const { totalPrice, cartItems } = initialState;
 
   const currency = 'VNĐ';
 
-  console.log('initialState', initialState);
+  const {
+    getValues,
+    register,
+    formState: { errors, isValid },
+    clearErrors,
+  } = useForm<ICartInfoFormModel>({
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
+    resolver: yupResolver(cartInfoSchema),
+    defaultValues: {},
+  });
+
+  // console.log('initialState', initialState);
+
+  const handlePostOrder = () => {
+    const cartInfoValues = getValues();
+    if (isValid) {
+      console.log('handlePostOrder', cartInfoValues);
+    }
+  };
 
   return (
     <>
@@ -31,57 +64,68 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
       </Head>
       <main className="pt-[120px]">
         <section className="cart-page w-full min-h-auto mx-auto mt-10 flex gap-8 container mb-8">
-          <section className="w-full mb-[50px] shadow-custom bg-white p-[20px] md:p-[40px]">
-            <div className="flex flex-col gap-2">
-              <span>
-                Bạn đã có tài khoản?{' '}
-                <Link href="/" className="text-red-500">
-                  Ấn vào đây để đăng nhập
-                </Link>
-              </span>
-              <span>
-                Bạn đã có mã ưu đãi?{' '}
-                <Link href="/" className="text-red-500">
-                  Ấn vào đây để nhập mã
-                </Link>
-              </span>
-            </div>
-            <div className="py-4 bg-white block sm:flex items-center justify-between ">
-              <h1 className="text-[17px] md:text-[20px] text-gray-900 uppercase font-bold">Thông tin Giỏ hàng</h1>
-            </div>
-            {/* table cart */}
-            <CartInfoTable />
-            <div className="flex mt-3">
-              <button className="border-2 border-red-500 py-[5px] px-[15px] flex items-center gap-1 flex-row">
-                <IonIcon className="text-red-500 text-[16px]" name="arrow-back-outline" />
-                <span className="uppercase text-red-500">Tiếp tục xem sản phẩm</span>
-              </button>
-            </div>
-            <div className="border-t border-gray-200 my-4" />
-            {/* info buyer */}
-            <CartInfoForm />
-            <div className="border-t border-gray-200 my-4" />
-            {/* total price */}
-            <div className="flex w-full py-4 flex-col gap-2">
-              <div>
-                <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
-              </div>
-              <div className="flex items-center w-full gap-2 justify-between">
-                <div className="text-[17px] md:text-[20px]">Tạm tính</div>
-                <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                  <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+          <div className="row w-full">
+            <div className="col w-full">
+              <section className="w-full mb-[50px] shadow-custom bg-white p-[20px] md:p-[40px]">
+                <div className="flex flex-col gap-2">
+                  <span>
+                    Bạn đã có tài khoản?{' '}
+                    <Link href="/" className="text-red-500">
+                      Ấn vào đây để đăng nhập
+                    </Link>
+                  </span>
+                  <span>
+                    Bạn đã có mã ưu đãi?{' '}
+                    <Link href="/" className="text-red-500">
+                      Ấn vào đây để nhập mã
+                    </Link>
+                  </span>
                 </div>
-              </div>
-              <div className="flex items-center w-full gap-2 justify-between">
-                <div className="text-[17px] md:text-[20px]">Tổng</div>
-                <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                  <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+                <div className="py-4 bg-white block sm:flex items-center justify-between ">
+                  <h1 className="text-[17px] md:text-[20px] text-gray-900 uppercase font-bold">Thông tin Giỏ hàng</h1>
                 </div>
-              </div>
+                {/* table cart */}
+                <CartInfoTable
+                  items={cartItems}
+                  removeItemToCart={removeItemToCart}
+                  increaseItemQuantity={increaseItemQuantity}
+                  decreaseItemQuantity={decreaseItemQuantity}
+                  onChangeItemQuantity={onChangeItemQuantity}
+                />
+                {/* tiếp tục xem sản phẩm */}
+                <div className="flex mt-3">
+                  <button className="border-2 border-red-500 py-[5px] px-[15px] flex items-center gap-1 flex-row">
+                    <IonIcon className="text-red-500 text-[16px]" name="arrow-back-outline" />
+                    <span className="uppercase text-red-500 font-bold">Tiếp tục xem sản phẩm</span>
+                  </button>
+                </div>
+                <div className="border-t border-gray-200 my-4" />
+                {/* info buyer */}
+                <CartInfoForm register={register} errors={errors} clearErrors={clearErrors} />
+                <div className="border-t border-gray-200 my-4" />
+                {/* total price */}
+                <div className="flex w-full py-4 flex-col gap-2">
+                  <div>
+                    <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
+                  </div>
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tạm tính</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tổng</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+                    </div>
+                  </div>
+                </div>
+                {/* payment */}
+                <CartInfoPayment items={cartItems} totalPrice={totalPrice} handlePostOrder={handlePostOrder} />
+              </section>
             </div>
-            {/* payment */}
-            <CartInfoPayment />
-          </section>
+          </div>
         </section>
         {/* relate product */}
         <section className="container product-suggestion pb-10">

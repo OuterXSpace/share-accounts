@@ -1,5 +1,6 @@
 export interface ICartItemPageProps {
   item: ICartItem;
+  removeItemToCart: (id: string) => void;
 }
 
 export interface ICartItem {
