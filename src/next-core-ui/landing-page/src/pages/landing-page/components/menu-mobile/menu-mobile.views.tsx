@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { IMenuMobile02Props } from './menu-mobile.type';
 import IonIcon from '@reacticons/ionicons';
-import { MenuItemMobile02 } from './menu-item';
+import { Drawer } from 'flowbite-react';
+import { IMenuItemMobile02Model, MenuItemMobile02 } from './menu-item';
 import Link from 'next/link';
 
 export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
@@ -12,42 +13,50 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
   const handleToggleMenu = () => {
     setIsToggleMenu(!isToggleMenu);
   };
+
+  const handleCloseMenu = () => setIsToggleMenu(false);
+
   return (
     <div className={className}>
-      <nav className="menu-mobile z-20 bg-transparent w-full lg:hidden py-[10px] md:py-[15px] fixed top-0 left-1/2 -translate-x-1/2 text-lg">
-        <button className="absolute z-20 t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
-          {isToggleMenu ? (
-            <IonIcon className="text-[55px]" name="close-outline" />
-          ) : (
-            <IonIcon className="text-[55px]" name="reorder-three-outline" />
-          )}
-        </button>
-        <div className="col-12 h-[64px] flex justify-center items-center">
-          <Link href="/" className="flex flex-wrap items-center h-full min-h-0 cursor-pointer">
-            <img
-              width="97"
-              height="17"
-              src={data?.object?.logo}
-              className="custom-logo astra-logo-svg"
-              alt="Video Editor"
-            />
-          </Link>
+      {/* nav z-31 because backdrop drawer z-30 */}
+      <nav className="bg-transparent fixed top-0 lg:hidden menu-mobile w-full py-[10px] md:py-[15px] px-[10px] md:px-[40px] z-[50]">
+        <div className="flex justify-between items-center">
+          <button className="t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
+            {isToggleMenu ? (
+              <IonIcon className="text-[55px]" name="close-outline" />
+            ) : (
+              <IonIcon className="text-[55px]" name="reorder-three-outline" />
+            )}
+          </button>
+          <div className="col-12 h-[64px] flex justify-center items-center">
+            <Link href="/" className="flex flex-wrap items-center h-full min-h-0 cursor-pointer">
+              <img
+                width="97"
+                height="17"
+                src={data?.object?.logo}
+                className="custom-logo astra-logo-svg"
+                alt="Video Editor"
+              />
+            </Link>
+          </div>
         </div>
       </nav>
+      <Drawer
+        onClose={handleCloseMenu}
+        open={isToggleMenu}
+        position="left"
+        className="bg-[#17191bf2] lg:hidden fixed top-0 text-lg pt-[80px] w-2/5"
+      >
+        <Drawer.Items className="menu-list">
+          <ul>
+            {data?.object?.array?.map((item: IMenuItemMobile02Model) => {
+              const { id } = item;
 
-      <div className="menu-list">
-        <ul
-          className={`fixed bg-[#17191bf2] h-full w-2/5 z-10 pt-[80px] transition-all ${
-            isToggleMenu ? 'translate-x-0' : '-translate-x-full'
-          }`}
-        >
-          {data?.object?.array?.map((item) => {
-            const { id } = item;
-
-            return <MenuItemMobile02 key={id} item={item} closeToggle={handleToggleMenu} />;
-          })}
-        </ul>
-      </div>
+              return <MenuItemMobile02 key={id} item={item} closeToggle={handleToggleMenu} />;
+            })}
+          </ul>
+        </Drawer.Items>
+      </Drawer>
     </div>
   );
 };
