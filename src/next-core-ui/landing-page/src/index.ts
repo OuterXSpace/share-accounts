@@ -1,3 +1,3 @@
 export * from './layouts';
 export * from './pages';
-export * from './core-data-mock';
+export * from './core-data';
