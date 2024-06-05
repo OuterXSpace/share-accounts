@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useCallback } from 'react';
-import { IMenuItemMobile02Props } from './menu-item.type';
+import { ILandingPageMenuItemMobileV1Props } from './menu-item.type';
 
-export const MenuItemMobile02: React.FC<IMenuItemMobile02Props> = (props) => {
+export const LandingPageMenuItemMobileV1: React.FC<ILandingPageMenuItemMobileV1Props> = (props) => {
   const { item, closeToggle } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);

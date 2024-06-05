@@ -10,13 +10,13 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
       {
         id: 'DEEP_VIDEO_BANNER',
         type: 'DEEP_VIDEO_BANNER',
-        className: ' pt-[250px] pb-[150px]',
+        className: '',
         data: 'V1',
       },
       {
         id: 'NEW_CART_TEXT',
         type: 'NEW_CART_TEXT',
-        className: 'md:py-[100px] lg:py-[150px]',
+        className: '',
         data: 'V1',
       },
       {
@@ -28,19 +28,19 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
       {
         id: 'PRODUCT_IMAGE_LIST',
         type: 'PRODUCT_IMAGE_LIST',
-        className: 'mb-[50px]',
+        className: '',
         data: 'V1',
       },
       {
         id: 'ALONE_VIDEO',
         type: 'ALONE_VIDEO',
-        className: 'mb-[150px]',
+        className: '',
         data: 'V1',
       },
       {
         id: 'PRODUCT_VIDEO_LIST',
         type: 'PRODUCT_VIDEO_LIST',
-        className: 'mb-[50px]',
+        className: '',
         data: 'V1',
       },
       {
@@ -90,21 +90,15 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
         data: 'V1',
       },
       {
+        id: 'NEW_CART_TEXT_AND_IMAGE',
+        type: 'NEW_CART_TEXT_AND_IMAGE',
+        className: '',
+        data: 'V1',
+      },
+      {
         id: 'PRODUCT_IMAGE_LIST',
         type: 'PRODUCT_IMAGE_LIST',
-        className: '',
-        data: 'V1',
-      },
-      {
-        id: 'ALONE_VIDEO',
-        type: 'ALONE_VIDEO',
-        className: '',
-        data: 'V1',
-      },
-      {
-        id: 'PRODUCT_VIDEO_LIST',
-        type: 'PRODUCT_VIDEO_LIST',
-        className: '',
+        className: 'mb-[50px]',
         data: 'V1',
       },
       {
@@ -122,15 +116,15 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
         data: 'V1',
       },
       {
-        id: 'NEW_CART_TEXT_AND_IMAGE',
-        type: 'NEW_CART_TEXT_AND_IMAGE',
+        id: 'NEW_CART_TEXT',
+        type: 'NEW_CART_TEXT',
         className: '',
         data: 'V1',
       },
       {
-        id: 'CONTACT',
-        type: 'CONTACT',
-        className: '',
+        id: 'PRODUCT_VIDEO_LIST',
+        type: 'PRODUCT_VIDEO_LIST',
+        className: 'mb-[50px]',
         data: 'V1',
       },
       {
@@ -150,7 +144,7 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
       {
         id: 'CONTACT',
         type: 'CONTACT',
-        className: '',
+        className: 'pt-[100px] lg:pt-[150px]',
         data: 'V1',
       },
       {
@@ -169,27 +163,27 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
           array: [
             {
               id: 'HOME',
-              label: 'Home',
+              label: 'Trang chủ',
               link: '/',
             },
             {
-              id: 'CONTACT',
-              label: 'About me',
+              id: 'ABOUT-US',
+              label: 'Về tôi',
               link: '/about-us',
             },
             {
               id: 'SERVICES',
-              label: 'Services',
+              label: 'Dịch vụ',
               link: '/services',
             },
             {
               id: 'WORK',
-              label: 'Sork',
+              label: 'Công việc',
               link: '/work',
             },
             {
               id: 'CONTACT',
-              label: 'Contact',
+              label: 'Liên hệ',
               link: '/contact',
             },
           ],
@@ -199,11 +193,21 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
     FOOTER: {
       V1: {
         object: {
-          text: 'Copyright © 2024 Video Editor | Powered by Video Editor',
+          text: 'Bản quyền © 2024 Video Editor | Được cung cấp bởi Video Editor',
           array: [
             {
               id: '1',
-              icon: '',
+              icon: 'logo-facebook',
+              link: '',
+            },
+            {
+              id: '2',
+              icon: 'logo-pinterest',
+              link: '',
+            },
+            {
+              id: '3',
+              icon: 'logo-youtube',
               link: '',
             },
           ],
@@ -215,9 +219,9 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
         object: {
           video:
             'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Pexels-Ron-Lach-8100336-compress.mp4',
-          text: 'Turning Videos to a Cinematic Masterpiece',
+          text: 'Biến video thành kiệt tác điện ảnh',
           button: {
-            label: 'Contact Me',
+            label: 'Liên hệ tôi',
             link: '/contact',
           },
         },
@@ -226,11 +230,11 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
     NEW_CART_TEXT: {
       V1: {
         object: {
-          title: 'I’m Mark, a professional video editor & film maker',
+          title: 'Tôi là Mark, một biên tập viên video và nhà làm phim chuyên nghiệp',
           description:
             'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu.',
           button: {
-            label: 'Contact Me',
+            label: 'Liên hệ tôi',
             link: '/contact',
           },
         },
@@ -243,13 +247,13 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
           array: [
             {
               id: '1',
-              title: 'EXPERIENCED',
+              title: 'KINH NGHIỆM',
               description:
                 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu.',
             },
             {
               id: '2',
-              title: 'EXPERIENCED',
+              title: 'KINH NGHIỆM',
               description:
                 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur',
             },
@@ -260,26 +264,26 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
     PRODUCT_IMAGE_LIST: {
       V1: {
         object: {
-          title: 'I can help you with',
+          title: 'Tôi có thể giúp bạn với',
           array: [
             {
               id: '1',
               imageUrl: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/3.png',
-              title: 'Editing',
+              title: 'Biên tập',
               description:
                 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur',
             },
             {
               id: '2',
               imageUrl: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/4.png',
-              title: 'Color Correction',
+              title: 'Chỉnh màu',
               description:
                 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur',
             },
             {
               id: '3',
               imageUrl: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/5.png',
-              title: 'Sound Design',
+              title: 'Thiết kế âm thanh',
               description:
                 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore',
             },
@@ -298,30 +302,104 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
     PRODUCT_VIDEO_LIST: {
       V1: {
         object: {
-          title: 'Recent Work',
-          array: [
+          title: 'Công việc gần đây',
+          button: {
+            label: 'Xem tất cả',
+            link: '/',
+            hidden: false,
+          },
+          defaultFilter: 'VIDEO',
+          filter: [
             {
               id: '1',
-              video: 'https://www.youtube.com/embed/ZtjH22qJXSA?si=LqXVIwAjblWemD8n',
-              title: 'Volkswagen - 2023 Ad',
-              link: '',
+              label: 'Video',
+              sort: 'VIDEO',
             },
             {
               id: '2',
-              video: 'https://www.youtube.com/embed/zHKRk4huTzg?si=nC4_XXN4INwW7lH5',
-              title: 'Volkswagen - 2023 Ad',
-              link: '',
-            },
-            {
-              id: '3',
-              video: 'https://www.youtube.com/embed/W4oXEdZz3Z0?si=IN5tXgscRYpyC0g5',
-              title: 'Volkswagen - 2023 Ad',
-              link: '',
+              label: 'Shorts',
+              sort: 'SHORTS',
             },
           ],
-          button: {
-            label: 'View all',
-            link: '/',
+          object: {
+            VIDEO: [
+              {
+                id: '1',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'Volkswagen - Quảng cáo 2023',
+                link: '',
+              },
+              {
+                id: '2',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+              {
+                id: '3',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'MoveU - 2022 Ad',
+                link: '',
+              },
+              {
+                id: '4',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'Volkswagen - Quảng cáo 2023',
+                link: '',
+              },
+              {
+                id: '5',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+              {
+                id: '6',
+                video: 'https://www.youtube.com/embed/HJRzUQMhJMQ',
+                title: 'MoveU - 2022 Ad',
+                link: '',
+              },
+            ],
+            SHORTS: [
+              {
+                id: '1',
+                video: 'https://www.youtube.com/embed/7Wgyo8wV-dc',
+                title: 'Volkswagen - Quảng cáo 2023',
+                link: '',
+              },
+              {
+                id: '2',
+                video: 'https://www.youtube.com/embed/ktpUoQPPvyk',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+              {
+                id: '3',
+                video: 'https://www.youtube.com/embed/prj4YBNTqT8',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+              {
+                id: '4',
+                video: 'https://www.youtube.com/embed/cWtu9h_u29w',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+            ],
+            TIKTOK: [
+              {
+                id: '1',
+                video: 'https://www.tiktok.com/@scout2015/video/7335209680530148639',
+                title: 'Volkswagen - Quảng cáo 2023',
+                link: '',
+              },
+              {
+                id: '2',
+                video: 'https://www.tiktok.com/@scout2015/video/7335209680530148639',
+                title: 'Neighborhood - 2022 Film',
+                link: '',
+              },
+            ],
           },
         },
       },
@@ -329,7 +407,7 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
     CONTACT: {
       V1: {
         object: {
-          title: 'Let’s work together',
+          title: 'Hãy làm việc cùng nhau',
           description:
             'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
           phone: '202-555-0176',
@@ -338,24 +416,57 @@ export const LANDING_PAGE_MOCK: Record<string, any> = {
           form: {
             input: {
               FULL_NAME: {
-                label: 'Full Name',
+                label: 'Họ và tên',
                 error: '',
               },
               EMAIL: {
-                label: 'Full Name',
+                label: 'Email',
                 error: '',
               },
               MESSAGE: {
-                label: 'Full Name',
+                label: 'Tin nhắn',
                 error: '',
               },
             },
             button: {
-              label: 'Submit',
+              label: 'Gửi',
             },
           },
         },
       },
     },
   },
+  seoData: {
+    HOME: {
+      title: 'Trang chủ',
+      ogTitle: 'Trang chủ',
+      ogImage: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg',
+      ogUrl: 'https://nguyentrongnhan.info/',
+    },
+    'ABOUT-US': {
+      title: 'Về tôi',
+      ogTitle: 'Về tôi',
+      ogImage: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg',
+      ogUrl: 'https://nguyentrongnhan.info/about-us',
+    },
+    SERVICES: {
+      title: 'Dịch vụ',
+      ogTitle: 'Dịch vụ',
+      ogImage: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg',
+      ogUrl: 'https://nguyentrongnhan.info/service',
+    },
+    WORK: {
+      title: 'Công việc',
+      ogTitle: 'Công việc',
+      ogImage: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg',
+      ogUrl: 'https://nguyentrongnhan.info/work',
+    },
+    CONTACT: {
+      title: 'Liên lạc',
+      ogTitle: 'Liên lạc',
+      ogImage: 'https://websitedemos.net/video-editor-04/wp-content/uploads/sites/1219/2023/03/Mark.svg',
+      ogUrl: 'https://nguyentrongnhan.info/contact',
+    },
+  },
+  className: 'bg-[#000000]',
 };

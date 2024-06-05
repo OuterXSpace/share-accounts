@@ -1,3 +1,4 @@
+import { LandingPageButtonV1 } from '../../common';
 import { DeepVideoBannerProps } from './deep-video-banner.type';
 
 /* eslint-disable jsx-a11y/media-has-caption */
@@ -28,14 +29,11 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
             </div>
             <div className="w-full">
               <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
-                <a
-                  href={data?.object?.button?.link}
-                  className="border-[0] pt-[15px] pr-[30px] pb-[15px] pl-[30px] text-1 font-montserrat font-bold leading-1 border-[#97c584] bg-[#97c584] border-solid border-t-2 border-r-2 border-l-2 border-b-2 font-montserrat font-bold text-16 text-1 leading-1 inline-block text-center transition-all duration-300 fill-[#fff]"
-                >
+                <LandingPageButtonV1 type="link" link={data?.object?.button?.link}>
                   <span className="flex justify-center">
                     <span className="flex-grow order-10 inline-block">{data?.object?.button?.label}</span>
                   </span>
-                </a>
+                </LandingPageButtonV1>
               </div>
             </div>
           </div>

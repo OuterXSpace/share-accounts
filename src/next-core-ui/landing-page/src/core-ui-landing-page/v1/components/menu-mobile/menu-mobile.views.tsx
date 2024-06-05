@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { IMenuMobile02Props } from './menu-mobile.type';
 import IonIcon from '@reacticons/ionicons';
 import { Drawer } from 'flowbite-react';
-import { IMenuItemMobile02Model, MenuItemMobile02 } from './menu-item';
+import { ILandingPageMenuItemMobileV1Model, LandingPageMenuItemMobileV1 } from './menu-item';
+import { ILandingPageMenuMobileV1Props } from './menu-mobile.type';
 import Link from 'next/link';
 
-export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
+export const LandingPageMenuMobileV1: React.FC<ILandingPageMenuMobileV1Props> = (props) => {
   const { data, className } = props;
 
   const [isToggleMenu, setIsToggleMenu] = useState(false);
@@ -49,10 +49,10 @@ export const MenuMobile02: React.FC<IMenuMobile02Props> = (props) => {
       >
         <Drawer.Items className="menu-list">
           <ul>
-            {data?.object?.array?.map((item: IMenuItemMobile02Model) => {
+            {data?.object?.array?.map((item: ILandingPageMenuItemMobileV1Model) => {
               const { id } = item;
 
-              return <MenuItemMobile02 key={id} item={item} closeToggle={handleToggleMenu} />;
+              return <LandingPageMenuItemMobileV1 key={id} item={item} closeToggle={handleToggleMenu} />;
             })}
           </ul>
         </Drawer.Items>

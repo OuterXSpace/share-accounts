@@ -1,5 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { ContactProps } from './contact.type';
+import { LandingPageButtonV1 } from '../../common';
 
 export const Contact: React.FC<ContactProps> = (props) => {
   const { data, className } = props;
@@ -68,14 +69,11 @@ export const Contact: React.FC<ContactProps> = (props) => {
               </form>
             </div>
             <div className="lg:pl-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
-              <button
-                type="submit"
-                className="border-[0] pt-[15px] pr-[30px] pb-[15px] pl-[30px] text-1 font-montserrat leading-1 border-[#97c584] bg-[#97c584] border-solid border-t-2 border-r-2 border-l-2 border-b-2 font-montserrat font-bold text-16 text-1 leading-1 inline-block text-center transition-all duration-300 fill-[#fff]"
-              >
+              <LandingPageButtonV1 type="submit">
                 <span className="flex justify-center">
                   <span className="flex-grow order-10 inline-block">{data?.object?.form?.button?.label}</span>
                 </span>
-              </button>
+              </LandingPageButtonV1>
             </div>
           </div>
         </div>

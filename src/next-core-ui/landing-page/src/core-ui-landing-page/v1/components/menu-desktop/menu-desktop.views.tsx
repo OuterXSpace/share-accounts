@@ -1,8 +1,9 @@
 import React from 'react';
-import { IMenuDesktop02Props } from './menu-desktop.type';
+import { ILandingPageMenuDesktopV1Props } from './menu-desktop.type';
 import Link from 'next/link';
+import { LandingPageMenuDesktopItemV1 } from './components';
 
-export const MenuDesktop02: React.FC<IMenuDesktop02Props> = (props) => {
+export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
   const { data, className } = props;
 
   return (
@@ -23,16 +24,7 @@ export const MenuDesktop02: React.FC<IMenuDesktop02Props> = (props) => {
               {data?.object?.array?.map((item) => {
                 const { id, label, link } = item;
 
-                return (
-                  <li key={id} className="menu">
-                    <Link
-                      href={link}
-                      className="text-[#f9fdfe] text-[0.9375rem] text-no-underline px-[1em] inline-block transition-all duration-200 ease-linear"
-                    >
-                      <span className="">{label}</span>
-                    </Link>
-                  </li>
-                );
+                return <LandingPageMenuDesktopItemV1 key={id} label={label} link={link} />;
               })}
             </ul>
           </div>
