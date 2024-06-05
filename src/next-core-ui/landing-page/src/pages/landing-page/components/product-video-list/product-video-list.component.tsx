@@ -50,7 +50,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                     {isTypeVideo === 'SHORTS' && (
                       <div
                         key={id}
-                        className="col-12 md:col-6  lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
+                        className="col-12 md:col-6  lg:col-3 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
                       >
                         <div className="video mb-[20px]">
                           <iframe
