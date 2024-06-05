@@ -10,7 +10,7 @@ export const AloneVideo: React.FC<AloneVideoProp> = (props) => {
           <div className="col-12 lg:col-10">
             <div className="video">
               <video
-                className="w-full"
+                className="w-full lg:h-full h-0"
                 src={data?.object?.video}
                 autoPlay
                 playsInline

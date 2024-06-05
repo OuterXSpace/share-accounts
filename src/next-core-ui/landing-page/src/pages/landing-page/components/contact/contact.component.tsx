@@ -6,7 +6,7 @@ export const Contact: React.FC<ContactProps> = (props) => {
 
   return (
     <section className={`section-01 ${className}`}>
-      <div className="container py-0 md:py-[100px] lg:py-[150px]">
+      <div className="container pb-[50px] md:pb-[100px] lg:pb-[150px]">
         <div className="row">
           <div className="col-12 lg:pr-[50px] pr-0">
             <h1 className="text-[#f9fdfe] text-[44px] lg:text-[5.125rem] font-bold font-montserrat leading-1.4">
