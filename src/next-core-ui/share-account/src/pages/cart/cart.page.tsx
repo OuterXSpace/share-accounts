@@ -2,9 +2,9 @@ import Head from 'next/head';
 import { ProductCard } from '../../components/product-card';
 import { CartPageProps } from './cart.type';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context';
-import { FormattedCurrency } from '../../../../../components';
+import { FormattedCurrency, useToast } from '../../../../../components';
 import { CartInfoTable } from './components/cart-info-table';
 import { CartInfoPayment } from './components/cart-info-payment';
 import IonIcon from '@reacticons/ionicons';
@@ -29,6 +29,10 @@ const cartInfoSchema = yup.object().shape({
 
 export const CartPage: React.FC<CartPageProps> = (props) => {
   const { sacProductData } = props;
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { showToast } = useToast();
 
   const { initialState, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } =
     useContext(CartContext);
@@ -60,9 +64,18 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
       amount: totalPrice,
       url: URL,
     };
-    if (isValid) {
-      const res = await checkoutApi(payload);
-      window.open(res.payUrl, '_blank');
+    try {
+      setIsLoading(true);
+      if (isValid) {
+        const res = await checkoutApi(payload);
+        window.open(res.payUrl, '_blank');
+        showToast('Data posted successfully!', 'success');
+      }
+    } catch (error) {
+      setIsLoading(false);
+      showToast('Data posted successfully!', 'error');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -136,7 +149,12 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                   </div>
                 </div>
                 {/* payment */}
-                <CartInfoPayment items={cartItems} totalPrice={totalPrice} handlePostOrder={handlePostOrder} />
+                <CartInfoPayment
+                  items={cartItems}
+                  totalPrice={totalPrice}
+                  handlePostOrder={handlePostOrder}
+                  isLoading={isLoading}
+                />
               </section>
             </div>
           </div>

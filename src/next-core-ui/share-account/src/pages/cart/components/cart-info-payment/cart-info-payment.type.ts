@@ -4,4 +4,5 @@ export interface ICartInfoPaymentProps {
   items: ICartInfoTableItem[];
   totalPrice: number;
   handlePostOrder: () => void;
+  isLoading: boolean;
 }

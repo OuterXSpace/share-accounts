@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { ICartInfoPaymentProps } from './cart-info-payment.type';
 import { useState } from 'react';
+import { LoadingMore } from '../../../../../../../components';
 
 export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
-  const { items, totalPrice, handlePostOrder } = props;
+  const { items, handlePostOrder, isLoading } = props;
   const [selectedPayment, setSelectedPayment] = useState<string>('momo-payment');
 
   const handleChangeSelectPayment = (payment: string) => {
@@ -38,13 +39,12 @@ export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
       </div>
       <div className="flex items-center">
         <button
-          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 uppercase ${
-            !items.length ? 'opacity-50' : 'opacity-100'
-          }`}
-          disabled={!items.length}
+          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 uppercase ${!items.length ? 'opacity-50' : 'opacity-100'
+            }`}
+          disabled={!items.length || isLoading}
           onClick={handlePostOrder}
         >
-          Đặt hàng
+          {isLoading ? <LoadingMore /> : ' Đặt hàng'}
         </button>
       </div>
     </div>
