@@ -1,2 +1,2 @@
-export * from './payment.page';
-export * from './payment.type';
+export * from './checkout.page';
+export * from './checkout.type';

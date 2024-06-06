@@ -17,6 +17,7 @@ import { getUuid } from '../../../../../utils';
 import { URL } from '../../../../../constants/platform';
 import { checkoutApi } from '../../../../../api/checkout';
 import { CartInfoForm } from './components/cart-info-form';
+import { useRouter } from 'next/router';
 
 // validate sceheme for cart info form
 const cartInfoSchema = yup.object().shape({
@@ -45,6 +46,8 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
 
   const loginUrl = loginUrlSelector();
 
+  const router = useRouter();
+
   const {
     getValues,
     register,
@@ -68,8 +71,11 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
       setIsLoading(true);
       if (isValid) {
         const res = await checkoutApi(payload);
-        window.open(res.payUrl, '_blank');
         showToast('Data posted successfully!', 'success');
+        router.push({
+          pathname: '/checkout',
+          query: { url: res?.payUrl },
+        });
       }
     } catch (error) {
       setIsLoading(false);

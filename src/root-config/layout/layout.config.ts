@@ -167,6 +167,21 @@ export const ROOT_LAYOUT_CONFIG = {
             },
           },
         },
+        CHECKOUT: {
+          id: 'checkout',
+          name: 'checkout',
+          contentPage: {
+            header: {
+              type: 'HEADER_THEME_01',
+            },
+            body: {
+              type: 'BODY_THEME_01',
+            },
+            footer: {
+              type: 'FOOTER_THEME_01',
+            },
+          },
+        },
       },
     },
   },
