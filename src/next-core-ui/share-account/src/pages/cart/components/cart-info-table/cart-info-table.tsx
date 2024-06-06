@@ -7,6 +7,7 @@ import IonIcon from '@reacticons/ionicons';
 
 export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
   const { items, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } = props;
+
   const currency = 'VNĐ';
   return (
     <div className="flex flex-col">
@@ -62,7 +63,7 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
                           >
                             -
                           </button>
-                          <div className="w-[3rem] flex items-center justify-center">
+                          <div className="w-[4rem] flex items-center justify-center">
                             <input
                               type="number"
                               value={quantity}

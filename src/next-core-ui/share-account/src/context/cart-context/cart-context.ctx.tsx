@@ -67,15 +67,71 @@ export const CartProvider: React.FC<ICartContextProviderProps> = (props) => {
   };
 
   const increaseItemQuantity = (id: string) => {
-    console.log('increase item quantity', id);
+    const itemExist = checkItemInCartExist(id);
+    if (itemExist !== -1) {
+      const updatedCartItems = [...initialState.cartItems];
+      updatedCartItems[itemExist].quantity += 1;
+      updatedCartItems[itemExist].totalPrice = calcTotalPriceItem(
+        updatedCartItems[itemExist].originalPrice,
+        updatedCartItems[itemExist].quantity,
+      );
+
+      // calculate total quantity and total price when increase item
+      const updatedTotalQuantity = initialState.totalQuantity + 1;
+      const updatedTotalPrice = initialState.totalPrice + updatedCartItems[itemExist].originalPrice;
+
+      setInitialState({
+        cartItems: updatedCartItems,
+        totalQuantity: updatedTotalQuantity,
+        totalPrice: updatedTotalPrice,
+      });
+    }
   };
 
   const decreaseItemQuantity = (id: string) => {
-    console.log('decrease item quantity', id);
+    const itemExist = checkItemInCartExist(id);
+    if (itemExist !== -1) {
+      const updatedCartItems = [...initialState.cartItems];
+      if (updatedCartItems[itemExist].quantity > 1) {
+        updatedCartItems[itemExist].quantity -= 1;
+        updatedCartItems[itemExist].totalPrice = calcTotalPriceItem(
+          updatedCartItems[itemExist].originalPrice,
+          updatedCartItems[itemExist].quantity,
+        );
+
+        // calculate total quantity and total price when decrease item
+        const updatedTotalQuantity = initialState.totalQuantity - 1;
+        const updatedTotalPrice = initialState.totalPrice - updatedCartItems[itemExist].originalPrice;
+
+        setInitialState({
+          cartItems: updatedCartItems,
+          totalQuantity: updatedTotalQuantity,
+          totalPrice: updatedTotalPrice,
+        });
+      }
+    }
   };
 
   const onChangeItemQuantity = (id: string, quantity: number) => {
-    console.log('change item quantity', id, quantity);
+    const itemExist = checkItemInCartExist(id);
+    if (itemExist !== -1 && quantity > 0) {
+      const updatedCartItems = [...initialState.cartItems];
+      updatedCartItems[itemExist].quantity = quantity;
+      updatedCartItems[itemExist].totalPrice = calcTotalPriceItem(
+        updatedCartItems[itemExist].originalPrice,
+        updatedCartItems[itemExist].quantity,
+      );
+
+      // calculate total quantity and total price when change item quantity
+      const updatedTotalQuantity = updatedCartItems.reduce((total, item) => total + item.quantity, 0);
+      const updatedTotalPrice = updatedCartItems.reduce((total, item) => total + item.totalPrice, 0);
+
+      setInitialState({
+        cartItems: updatedCartItems,
+        totalQuantity: updatedTotalQuantity,
+        totalPrice: updatedTotalPrice,
+      });
+    }
   };
 
   const calcTotalPriceItem = (price: number, quantity: number) => {

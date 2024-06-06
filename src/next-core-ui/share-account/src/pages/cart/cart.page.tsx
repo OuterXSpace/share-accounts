@@ -13,6 +13,10 @@ import { ICartInfoFormModel } from './components/cart-info-form/cart-info-form.t
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import { isLoginSelector, loginUrlSelector } from '../../../../../store/store-authentication/selector';
+import { getUuid } from '../../../../../utils';
+import { URL } from '../../../../../constants/platform';
+import { checkoutApi } from '../../../../../api/checkout';
 
 // validate sceheme for cart info form
 const cartInfoSchema = yup.object().shape({
@@ -33,6 +37,10 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
 
   const currency = 'VNĐ';
 
+  const isLogin = isLoginSelector();
+
+  const loginUrl = loginUrlSelector();
+
   const {
     getValues,
     register,
@@ -45,12 +53,17 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
     defaultValues: {},
   });
 
-  // console.log('initialState', initialState);
-
-  const handlePostOrder = () => {
+  const handlePostOrder = async () => {
     const cartInfoValues = getValues();
+    const payload = {
+      orderId: getUuid(),
+      amount: totalPrice,
+      url: URL,
+    };
     if (isValid) {
       console.log('handlePostOrder', cartInfoValues);
+      const res = await checkoutApi(payload);
+      window.open(res.payUrl, '_blank');
     }
   };
 
@@ -68,12 +81,14 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
             <div className="col w-full">
               <section className="w-full mb-[50px] shadow-custom bg-white p-[20px] md:p-[40px]">
                 <div className="flex flex-col gap-2">
-                  <span>
-                    Bạn đã có tài khoản?{' '}
-                    <Link href="/" className="text-red-500">
-                      Ấn vào đây để đăng nhập
-                    </Link>
-                  </span>
+                  {!isLogin && (
+                    <span>
+                      Bạn đã có tài khoản?{' '}
+                      <Link href="/" className="text-red-500">
+                        Ấn vào đây để đăng nhập
+                      </Link>
+                    </span>
+                  )}
                   <span>
                     Bạn đã có mã ưu đãi?{' '}
                     <Link href="/" className="text-red-500">
