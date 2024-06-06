@@ -13,7 +13,8 @@ const classNamePrefix = 'tt-header';
 
 export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
   const { wuiHeaderContent, handleOpenCart } = props;
-  const { totalQuantity } = useContext(CartContext);
+  const { initialState } = useContext(CartContext);
+  const { totalQuantity } = initialState;
 
   const loginUrl = loginUrlSelector();
 
@@ -30,25 +31,25 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
           </Link>
           <div className="flex items-center gap-3">
             <button
-              className="inline-flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
+              className="flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
               onClick={handleOpenCart}
             >
+              Giỏ hàng
               <div className="relative">
-                <IonIcon className="pr-1 text-base" name="cart-outline" />
-                <div className="absolute top-[-8px] left-[-15px]">
+                <IonIcon className="pl-1 text-[20px]" name="cart-outline" />
+                <div className="absolute top-[-10px] right-[-10px]">
                   <div className="min-h-[20px] min-w-[20px] bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
                     <span>{totalQuantity}</span>
                   </div>
                 </div>
               </div>
-              Giỏ hàng
             </button>
             {!isLogin ? (
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark rounded-xl"
+                className="flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark rounded-xl"
               >
-                <IonIcon className="pr-1 text-base" name="person-outline" />
+                <IonIcon className="pr-1 text-[20px]" name="person-outline" />
                 Đăng nhập
               </Link>
             ) : (

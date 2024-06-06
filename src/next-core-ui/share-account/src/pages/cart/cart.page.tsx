@@ -1,9 +1,89 @@
 import Head from 'next/head';
 import { ProductCard } from '../../components/product-card';
 import { CartPageProps } from './cart.type';
+import Link from 'next/link';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context';
+import { FormattedCurrency, useToast } from '../../../../../components';
+import { CartInfoTable } from './components/cart-info-table';
+import { CartInfoPayment } from './components/cart-info-payment';
+import IonIcon from '@reacticons/ionicons';
+import { ICartInfoFormModel } from './components/cart-info-form/cart-info-form.type';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { isLoginSelector, loginUrlSelector } from '../../../../../store/store-authentication/selector';
+import { getUuid } from '../../../../../utils';
+import { URL } from '../../../../../constants/platform';
+import { checkoutApi } from '../../../../../api/checkout';
+import { CartInfoForm } from './components/cart-info-form';
+import { useRouter } from 'next/router';
+
+// validate sceheme for cart info form
+const cartInfoSchema = yup.object().shape({
+  firstName: yup.string().required('Tên là mục bắt buộc'),
+  lastName: yup.string().required('Họ là mục bắt buộc'),
+  phoneNumber: yup.string().required('Số điện thoại là mục bắt buộc'),
+  emailAddress: yup.string().email('Địa chỉ email không hợp lệ').required('Địa chỉ email là mục bắt buộc'),
+  note: yup.string(),
+});
 
 export const CartPage: React.FC<CartPageProps> = (props) => {
   const { sacProductData } = props;
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { showToast } = useToast();
+
+  const { initialState, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } =
+    useContext(CartContext);
+
+  const { totalPrice, cartItems } = initialState;
+
+  const currency = 'VNĐ';
+
+  const isLogin = isLoginSelector();
+
+  const loginUrl = loginUrlSelector();
+
+  const router = useRouter();
+
+  const {
+    getValues,
+    register,
+    formState: { errors, isValid },
+    clearErrors,
+  } = useForm<ICartInfoFormModel>({
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
+    resolver: yupResolver(cartInfoSchema),
+    defaultValues: {},
+  });
+
+  const handlePostOrder = async () => {
+    const cartInfoValues = getValues();
+    const payload = {
+      orderId: getUuid(),
+      amount: totalPrice,
+      url: URL,
+    };
+    try {
+      setIsLoading(true);
+      if (isValid) {
+        const res = await checkoutApi(payload);
+        showToast('Data posted successfully!', 'success');
+        router.push({
+          pathname: '/checkout',
+          query: { url: res?.payUrl },
+        });
+      }
+    } catch (error) {
+      setIsLoading(false);
+      showToast('Data posted successfully!', 'error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -14,130 +94,78 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
         <title>Cart page</title>
       </Head>
       <main className="pt-[120px]">
-        <section className="cart-page w-full min-h-auto lg:px-0 lg:w-5/6 mx-auto mt-10 flex gap-8">
-          <section className="w-full mb-[50px] shadow-custom bg-white pb-8">
-            <div className="p-4 bg-white block sm:flex items-center justify-between ">
-              <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl uppercase">Thông tin Giỏ hàng</h1>
-            </div>
-            <div className="flex flex-col">
-              <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle">
-                  <div className="overflow-hidden shadow">
-                    <table className="min-w-full divide-y divide-gray-200 table-fixed">
-                      <thead className="bg-gray-100">
-                        <tr>
-                          <th scope="col" className="p-4">
-                            <div className="flex items-center">
-                              <input
-                                id="checkbox-all"
-                                aria-describedby="checkbox-1"
-                                type="checkbox"
-                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                              />
-                              <label htmlFor="checkbox-all" className="sr-only">
-                                checkbox
-                              </label>
-                            </div>
-                          </th>
-                          <th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-                            Loại
-                          </th>
-
-                          <th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-                            Số lượng
-                          </th>
-                          <th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-                            Giá tiền
-                          </th>
-                          <th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
-                        <tr className="hover:bg-gray-100">
-                          <td className="w-4 p-4">
-                            <div className="flex items-center">
-                              <input
-                                id="checkbox-1"
-                                aria-describedby="checkbox-1"
-                                type="checkbox"
-                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                              />
-                              <label htmlFor="checkbox-1" className="sr-only">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
-                            <img
-                              className="w-10 h-10 rounded-full"
-                              src="https://flowbite-admin-dashboard.vercel.app/images/users/neil-sims.png"
-                              alt="Neil Sims avatar"
-                            />
-                            <div className="text-sm font-normal text-gray-500 ">
-                              <div className="text-base font-semibold text-gray-900 ">
-                                Mua Tài khoản Netflix Premium
-                              </div>
-                              <div className="text-sm font-normal text-gray-500 ">1 ngày</div>
-                            </div>
-                          </td>
-
-                          <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap">
-                            <div className="text-sm font-normal text-gray-500">1</div>
-                          </td>
-                          <td className="p-4 text-base font-semibold text-gray-900 whitespace-nowrap">
-                            200,000,000 VNĐ
-                          </td>
-                          <td className="p-4 space-x-2 whitespace-nowrap">
-                            <button className="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
-                              <svg
-                                className="w-6 h-6"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+        <section className="cart-page w-full min-h-auto mx-auto mt-10 flex gap-8 container mb-8">
+          <div className="row w-full">
+            <div className="col w-full">
+              <section className="w-full mb-[50px] shadow-custom bg-white p-[20px] md:p-[40px]">
+                <div className="flex flex-col gap-2">
+                  {!isLogin && (
+                    <span>
+                      Bạn đã có tài khoản?{' '}
+                      <Link href="/" className="text-red-500">
+                        Ấn vào đây để đăng nhập
+                      </Link>
+                    </span>
+                  )}
+                  <span>
+                    Bạn đã có mã ưu đãi?{' '}
+                    <Link href="/" className="text-red-500">
+                      Ấn vào đây để nhập mã
+                    </Link>
+                  </span>
                 </div>
-              </div>
-            </div>
-            <hr className="h-[1px] border-0" style={{ backgroundColor: '#d7e1ea' }} />
-            <div className="sticky bottom-0 right-0 items-center w-full p-4 border-t border-gray-200 sm:flex sm:justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="cart-total-wrapper text-right text-[12px] leading-[1.5] text-[var(--ui-2-greys-grey-2)]">
-                  <div className="flex items-center">
-                    <div className="">Tạm tính</div>
-                    <div className="cart-total text-[18px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)] ml-[6px]">
-                      200,000,000đ
+                <div className="py-4 bg-white block sm:flex items-center justify-between ">
+                  <h1 className="text-[17px] md:text-[20px] text-gray-900 uppercase font-bold">Thông tin Giỏ hàng</h1>
+                </div>
+                {/* table cart */}
+                <CartInfoTable
+                  items={cartItems}
+                  removeItemToCart={removeItemToCart}
+                  increaseItemQuantity={increaseItemQuantity}
+                  decreaseItemQuantity={decreaseItemQuantity}
+                  onChangeItemQuantity={onChangeItemQuantity}
+                />
+                {/* tiếp tục xem sản phẩm */}
+                <div className="flex mt-3">
+                  <button className="border-2 border-red-500 py-[5px] px-[15px] flex items-center gap-1 flex-row">
+                    <IonIcon className="text-red-500 text-[16px]" name="arrow-back-outline" />
+                    <span className="uppercase text-red-500 font-bold">Tiếp tục xem sản phẩm</span>
+                  </button>
+                </div>
+                <div className="border-t border-gray-200 my-4" />
+                {/* info buyer */}
+                <CartInfoForm register={register} errors={errors} clearErrors={clearErrors} />
+                <div className="border-t border-gray-200 my-4" />
+                {/* total price */}
+                <div className="flex w-full py-4 flex-col gap-2">
+                  <div>
+                    <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
+                  </div>
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tạm tính</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
                     </div>
                   </div>
-                  <div className="flex items-center">
-                    <div className="">Tổng</div>
-                    <div className="cart-total text-[18px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)] ml-[6px]">
-                      200,000,000đ
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tổng</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
                     </div>
                   </div>
                 </div>
-              </div>
+                {/* payment */}
+                <CartInfoPayment
+                  items={cartItems}
+                  totalPrice={totalPrice}
+                  handlePostOrder={handlePostOrder}
+                  isLoading={isLoading}
+                />
+              </section>
             </div>
-            <div className="flex items-center mx-[16px]">
-              <button className="flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-400 uppercase">
-                Đặt hàng
-              </button>
-            </div>
-          </section>
+          </div>
         </section>
+        {/* relate product */}
         <section className="container product-suggestion pb-10">
           <div className="row">
             <div className="col">
@@ -149,11 +177,10 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                     imageUrl = '',
                     imageAlt = '',
                     title = '',
-                    price = 0,
                     totalOrderNumber = 0,
                     categoryName = '',
                     linkUrl = '',
-                    currency = 'VNĐ',
+                    duration,
                   } = product;
                   return (
                     <ProductCard
@@ -163,7 +190,7 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                       title={title}
                       quantity={totalOrderNumber}
                       category={categoryName}
-                      price={price}
+                      originalPrice={duration[0]?.price || 0}
                       linkUrl={linkUrl}
                       currency={currency}
                     />

@@ -11,7 +11,8 @@ import { FormattedCurrency } from '../../../../../../../components';
 
 export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
   const { isOpenCart, handleCloseCart, position } = props;
-  const { cartItems, totalPrice } = useContext(CartContext);
+  const { initialState, removeItemToCart } = useContext(CartContext);
+  const { cartItems, totalPrice } = initialState;
   const currency = 'VNĐ';
 
   return (
@@ -25,7 +26,7 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
             <span className="border h-[3px] w-[30px] rounded bg-gray-200" />
           </div>
           <div className="my-[15px] flex flex-col gap-[30px] items-center">
-            {cartItems.length === 0 ? (
+            {cartItems?.length === 0 ? (
               <>
                 {/* empty Cart */}
                 <IonIcon className="text-gray-200 text-[80px]" name="cart-outline" />
@@ -37,14 +38,15 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
             ) : (
               <div>
                 {/* not empty Cart */}
-                {cartItems.map((item, index) => {
-                  return <CartItem key={index} item={item} />;
+                {cartItems?.map((item) => {
+                  const { id } = item;
+                  return <CartItem key={id} item={item} removeItemToCart={removeItemToCart} />;
                 })}
               </div>
             )}
           </div>
         </div>
-        {cartItems.length > 0 && (
+        {cartItems?.length > 0 && (
           <div>
             <div className="flex justify-between flex-col">
               <div className="flex justify-between py-[10px]">
@@ -55,11 +57,9 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
               </div>
               <span className="border h-[3px] w-full bg-gray-200" />
             </div>
-            <div className="mt-[8px] p-[10px] w-full bg-red-500 text-white uppercase text-center">
-              <Link href="/cart" onClick={handleCloseCart}>
-                Thanh toán
-              </Link>
-            </div>
+            <Link href="/cart" onClick={handleCloseCart}>
+              <div className="mt-[8px] p-[10px] w-full bg-red-500 text-white uppercase text-center">Thanh toán</div>
+            </Link>
           </div>
         )}
       </Drawer>

@@ -1,19 +1,12 @@
-export interface ICartContextType {
-  initialState: ICartContextInitState;
-  addItemToCart: (item: ICartItemCtx) => void;
+export interface ICartInfoTableProps {
+  items: ICartInfoTableItem[];
   removeItemToCart: (id: string) => void;
   increaseItemQuantity: (id: string) => void;
   decreaseItemQuantity: (id: string) => void;
   onChangeItemQuantity: (id: string, quantity: number) => void;
 }
 
-export interface ICartContextInitState {
-  cartItems: ICartItemCtx[];
-  totalQuantity: number;
-  totalPrice: number;
-}
-
-export interface ICartItemCtx {
+export interface ICartInfoTableItem {
   id: string;
   quantity?: number;
   imageUrl: string;
@@ -23,8 +16,4 @@ export interface ICartItemCtx {
   durationLabel: string;
   totalPrice?: number;
   originalPrice: number;
-}
-
-export interface ICartContextProviderProps {
-  children: React.ReactNode;
 }

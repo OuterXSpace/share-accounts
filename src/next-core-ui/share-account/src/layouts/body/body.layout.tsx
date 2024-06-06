@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage, PromotionPage } from '../../pages';
+import { ProfilePage, LoginPage, RegisterPage, CartPage, HomePage, PromotionPage, CheckoutPage } from '../../pages';
 import { BodyTheme01Props } from './body.type';
 import { ProductDetailPage } from '../../pages/product-detail';
 import { StaticPage } from '../../pages/static';
@@ -39,6 +39,8 @@ export const BodyTheme01: React.FC<BodyTheme01Props> = (props) => {
       return <LoginPage />;
     case 'REGISTER':
       return <RegisterPage />;
+    case 'CHECKOUT':
+      return <CheckoutPage />;
     default:
       return <div />;
   }
