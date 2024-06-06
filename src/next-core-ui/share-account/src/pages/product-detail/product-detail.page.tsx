@@ -13,7 +13,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
-import Link from 'next/link';
 import { CartContext } from '../../context';
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
@@ -42,7 +41,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
 
   const handleSelectedDuration = (durationItem: IProductItemDuration) => {
     setSelectedDuration(durationItem);
-    console.log('duration', durationItem);
   };
 
   const handleGetFirstAndLastPriceDuration = useCallback(() => {
@@ -61,7 +59,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
   }, [handleGetFirstAndLastPriceDuration]);
 
   const handleAddItemToCart = useCallback(() => {
-    console.log('product details', productDetail);
     const payload = {
       id: selectedDuration.id,
       linkUrl: productDetail.linkUrl,
@@ -71,7 +68,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
       durationLabel: selectedDuration.label,
       originalPrice: selectedDuration.price,
     };
-    console.log('payload', payload);
     addItemToCart(payload);
   }, [addItemToCart, productDetail, selectedDuration?.id, selectedDuration?.label, selectedDuration?.price]);
 

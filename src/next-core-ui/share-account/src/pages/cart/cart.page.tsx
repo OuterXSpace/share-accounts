@@ -7,7 +7,6 @@ import { CartContext } from '../../context';
 import { FormattedCurrency } from '../../../../../components';
 import { CartInfoTable } from './components/cart-info-table';
 import { CartInfoPayment } from './components/cart-info-payment';
-import { CartInfoForm } from './components/cart-info-form/cart-info-form';
 import IonIcon from '@reacticons/ionicons';
 import { ICartInfoFormModel } from './components/cart-info-form/cart-info-form.type';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,6 +16,7 @@ import { isLoginSelector, loginUrlSelector } from '../../../../../store/store-au
 import { getUuid } from '../../../../../utils';
 import { URL } from '../../../../../constants/platform';
 import { checkoutApi } from '../../../../../api/checkout';
+import { CartInfoForm } from './components/cart-info-form';
 
 // validate sceheme for cart info form
 const cartInfoSchema = yup.object().shape({
@@ -61,7 +61,6 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
       url: URL,
     };
     if (isValid) {
-      console.log('handlePostOrder', cartInfoValues);
       const res = await checkoutApi(payload);
       window.open(res.payUrl, '_blank');
     }
