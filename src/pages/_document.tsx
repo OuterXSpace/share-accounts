@@ -6,7 +6,7 @@ const Document = () => {
     <Html lang="en">
       <Head>
         <link rel="icon" href={FAVICON} type="image/svg+xml" />
-        {['DYNAMIC_URL_THEME_01'].includes(THEME) && <script src="https://cdn.tailwindcss.com" async />}
+        {['DYNAMIC_THEME_01'].includes(THEME) && <script src="https://cdn.tailwindcss.com" async />}
       </Head>
       <body className="overflow-x-hidden">
         <Main />
