@@ -1,22 +1,22 @@
 import Head from 'next/head';
-import { LandingPageV3Props } from './landing-page.type';
+import { LandingPageV4Props } from './landing-page.type';
 import {
-  DeepVideoBannerV3,
-  NewCartTextV3,
-  NewCartTextAndImageV3,
-  ProductImageListV3,
-  AloneVideoV3,
-  ProductVideoListV3,
-  LandingPageMenuDesktopV3,
-  LandingPageMenuMobileV3,
-  ContactV3,
-  FooterV3,
-} from '../../core-ui/v3/components';
+  DeepVideoBannerV4,
+  NewCartTextV4,
+  NewCartTextAndImageV4,
+  ProductImageListV4,
+  AloneVideoV4,
+  ProductVideoListV4,
+  LandingPageMenuDesktopV4,
+  LandingPageMenuMobileV4,
+  ContactV4,
+  FooterV4,
+} from '../../core-ui/v4/components';
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-export const LandingPageV3: React.FC<LandingPageV3Props> = (props) => {
+export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
   const { systemConfig } = props;
 
   const router = useRouter();
@@ -41,26 +41,26 @@ export const LandingPageV3: React.FC<LandingPageV3Props> = (props) => {
         switch (item?.type) {
           case 'MENU':
             return isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
-              <LandingPageMenuDesktopV3 key={item?.id} data={data} className={item?.className} />
+              <LandingPageMenuDesktopV4 key={item?.id} data={data} className={item?.className} />
             ) : (
-              <LandingPageMenuMobileV3 key={item?.id} data={data} className={item?.className} />
+              <LandingPageMenuMobileV4 key={item?.id} data={data} className={item?.className} />
             );
           case 'DEEP_VIDEO_BANNER':
-            return <DeepVideoBannerV3 key={item?.id} data={data} className={item?.className} />;
+            return <DeepVideoBannerV4 key={item?.id} data={data} className={item?.className} />;
           case 'NEW_CART_TEXT':
-            return <NewCartTextV3 key={item?.id} data={data} className={item?.className} />;
+            return <NewCartTextV4 key={item?.id} data={data} className={item?.className} />;
           case 'NEW_CART_TEXT_AND_IMAGE':
-            return <NewCartTextAndImageV3 key={item?.id} data={data} className={item?.className} />;
+            return <NewCartTextAndImageV4 key={item?.id} data={data} className={item?.className} />;
           case 'PRODUCT_IMAGE_LIST':
-            return <ProductImageListV3 key={item?.id} data={data} className={item?.className} />;
+            return <ProductImageListV4 key={item?.id} data={data} className={item?.className} />;
           case 'PRODUCT_VIDEO_LIST':
-            return <ProductVideoListV3 key={item?.id} data={data} className={item?.className} />;
+            return <ProductVideoListV4 key={item?.id} data={data} className={item?.className} />;
           case 'ALONE_VIDEO':
-            return <AloneVideoV3 key={item?.id} data={data} className={item?.className} />;
+            return <AloneVideoV4 key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':
-            return <ContactV3 key={item?.id} data={data} className={item?.className} />;
+            return <ContactV4 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
-            return <FooterV3 key={item?.id} data={data} className={item?.className} />;
+            return <FooterV4 key={item?.id} data={data} className={item?.className} />;
           default:
             return <div />;
         }

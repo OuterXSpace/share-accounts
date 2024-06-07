@@ -1,0 +1,42 @@
+name: 05.build-beincrypto
+on:
+  workflow_dispatch:
+    inputs:
+      confirmDeployment:
+        description: 'Confirm Deployment'
+        required: true
+env:
+  DEPLOYMENT_NAME: beincrypto
+  IMAGE: beincrypto
+  INGRESS_IP: 20.39.193.105:3000
+  PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/beincrypto/'
+  COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
+  PUBLIC_CDN: 'https://azureapis.blob.core.windows.net/public/'
+  DOT_ENV_FILE_NAME: .env.beincrypto
+jobs:
+  variables:
+    name: setup variable
+    runs-on: ubuntu-latest
+    outputs:
+      DEPLOYMENT_NAME: ${{ env.DEPLOYMENT_NAME }}
+      IMAGE: ${{ env.IMAGE }}
+      INGRESS_IP: ${{ env.INGRESS_IP }}
+      PERSONAL_TOTO_CDN: ${{ env.PERSONAL_TOTO_CDN }}
+      COMMON_TOTO_CDN: ${{ env.COMMON_TOTO_CDN }}
+      PUBLIC_CDN: ${{ env.PUBLIC_CDN }}
+      DOT_ENV_FILE_NAME: ${{ env.DOT_ENV_FILE_NAME }}
+    steps:
+      - name: Echo
+        run: echo prepare variable
+  beincrypto:
+    needs: variables
+    name: deploy beincrypto
+    uses: ./.github/workflows/00.gke-deployment.yml
+    with:
+      DEPLOYMENT_NAME: ${{ needs.variables.outputs.DEPLOYMENT_NAME }}
+      IMAGE: ${{ needs.variables.outputs.IMAGE }}
+      INGRESS_IP: ${{ needs.variables.outputs.INGRESS_IP }}
+      PERSONAL_TOTO_CDN: ${{ needs.variables.outputs.PERSONAL_TOTO_CDN }}
+      COMMON_TOTO_CDN: ${{ needs.variables.outputs.COMMON_TOTO_CDN }}
+      PUBLIC_CDN: ${{ needs.variables.outputs.PUBLIC_CDN }}
+      DOT_ENV_FILE_NAME: ${{ needs.variables.outputs.DOT_ENV_FILE_NAME }}
