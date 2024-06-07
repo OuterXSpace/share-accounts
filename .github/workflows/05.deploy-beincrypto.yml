@@ -1,4 +1,4 @@
-name: 04.deploy-adn
+name: 05.deploy-beincrypto
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
 env:
   SERVER_IP: "20.39.193.105"
   SERVER_USER: "azureuser"
-  IMAGE: adn
+  IMAGE: beincrypto
   DOCKER_HUB_USERNAME: warjamma
 
 jobs: 
@@ -28,6 +28,6 @@ jobs:
             sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
             sudo docker stop $IMAGE || true
             sudo docker rm $IMAGE || true
-            sudo docker run -d -p 5003:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
+            sudo docker run -d -p 5004:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
             sudo docker image prune -f
           "

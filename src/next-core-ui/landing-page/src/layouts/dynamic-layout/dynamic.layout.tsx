@@ -1,6 +1,6 @@
 import React from 'react';
 import { DynamicThemeProps } from './dynamic.type';
-import { LandingPageV1, LandingPageV2, LandingPageV3 } from '../../pages';
+import { LandingPageV1, LandingPageV2, LandingPageV3, LandingPageV4 } from '../../pages';
 import { THEME } from '../../../../../constants/platform';
 
 export const DynamicTheme: React.FC<DynamicThemeProps> = (props) => {
@@ -15,6 +15,9 @@ export const DynamicTheme: React.FC<DynamicThemeProps> = (props) => {
 
     case 'DYNAMIC_THEME_03':
       return <LandingPageV3 systemConfig={systemConfig} />;
+
+    case 'DYNAMIC_THEME_04':
+      return <LandingPageV4 systemConfig={systemConfig} />;
 
     default:
       return <div />;

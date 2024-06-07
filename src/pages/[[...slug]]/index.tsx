@@ -36,6 +36,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
     case 'DYNAMIC_THEME_01':
     case 'DYNAMIC_THEME_02':
     case 'DYNAMIC_THEME_03':
+    case 'DYNAMIC_THEME_04':
       return (
         <ToastProvider>
           <DynamicLayout systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} slug={slug} />
@@ -98,6 +99,14 @@ export const getServerSideProps = (async () => {
 
   if (THEME === 'DYNAMIC_THEME_03') {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v3' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_THEME_04') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v4' });
 
     systemConfig = {
       ldpSystemConfigPage,
