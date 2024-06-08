@@ -13,6 +13,7 @@
     "@reacticons/ionicons": "^7.1.0",
     "axios": "^1.6.8",
     "convert-excel-to-json": "^1.7.0",
+    "crypto-js": "^4.2.0",
     "dayjs": "^1.11.11",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.9.0",
