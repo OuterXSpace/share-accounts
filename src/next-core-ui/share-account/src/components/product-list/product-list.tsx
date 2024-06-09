@@ -12,8 +12,10 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
         return (
           <div className="col" key={id}>
             <div className="tt-home-page__section-header flex flex-col items-center gap-4">
-              <h4 className="tt-home-page__section-heading m-0 pd-0 text-[44px] font-bold text-accent">{title}</h4>
-              <div className="tt-home-page__section-subheading max-w-[40%] text-lg text-center font-extralight leading-[1.25em] text-white">
+              <h4 className="tt-home-page__section-heading m-0 pd-0 text-[30px] md:text-[44px] font-bold text-accent">
+                {title}
+              </h4>
+              <div className="tt-home-page__section-subheading md:max-w-[40%] text-lg text-center font-extralight leading-[1.25em] text-white">
                 {description}
               </div>
             </div>
@@ -55,13 +57,15 @@ export const ProductList: React.FC<IProductListProps> = (props) => {
             </div>
 
             <div className="section-body">
-              <div className="grid grid-cols-2">
+              <div className="flex flex-col">
                 <div className="flex flex-col justify-center gap-2">
-                  <h5 className="text-3xl font-bold text-accent">{item?.content?.title}</h5>
-                  <div className="text-lg font-light leading-[1.7em] text-white">{item?.content?.description}</div>
+                  <h5 className="text-[20px] md:text-[44px] font-bold text-accent">{item?.content?.title}</h5>
                 </div>
-                <div className="flex items-center justify-center">
-                  <img className="w-full p-10" src={item?.content?.imageUrl} alt={item?.content?.title} />
+                <div className="flex flex-col md:flex-row">
+                  <div className="text-lg font-light leading-[1.7em] text-white">{item?.content?.description}</div>
+                  <div className="flex items-center justify-center">
+                    <img className="w-full h-full" src={item?.content?.imageUrl} alt={item?.content?.title} />
+                  </div>
                 </div>
               </div>
             </div>
