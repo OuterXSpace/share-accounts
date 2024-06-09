@@ -6,7 +6,7 @@ export const FooterV2: React.FC<FooterV2Props> = (props) => {
   const { data, className } = props;
 
   return (
-    <section className={`section ${className} pb-5`}>
+    <footer className={`section ${className} pb-5`}>
       <div className="container">
         <div className="border-t-2 border-[#f9fdfe] h-[1px] w-full" />
         <div className="py-[20px]">
@@ -29,6 +29,6 @@ export const FooterV2: React.FC<FooterV2Props> = (props) => {
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };

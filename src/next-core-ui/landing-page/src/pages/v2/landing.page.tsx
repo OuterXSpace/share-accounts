@@ -1,17 +1,6 @@
 import Head from 'next/head';
 import { LandingPageV2Props } from './landing-page.type';
-import {
-  DeepVideoBannerV2,
-  NewCartTextV2,
-  NewCartTextAndImageV2,
-  ProductImageListV2,
-  AloneVideoV2,
-  ProductVideoListV2,
-  LandingPageMenuDesktopV2,
-  LandingPageMenuMobileV2,
-  ContactV2,
-  FooterV2,
-} from '../../core-ui/v2/components';
+import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 } from '../../core-ui/v2/components';
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
@@ -45,18 +34,6 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             ) : (
               <LandingPageMenuMobileV2 key={item?.id} data={data} className={item?.className} />
             );
-          case 'DEEP_VIDEO_BANNER':
-            return <DeepVideoBannerV2 key={item?.id} data={data} className={item?.className} />;
-          case 'NEW_CART_TEXT':
-            return <NewCartTextV2 key={item?.id} data={data} className={item?.className} />;
-          case 'NEW_CART_TEXT_AND_IMAGE':
-            return <NewCartTextAndImageV2 key={item?.id} data={data} className={item?.className} />;
-          case 'PRODUCT_IMAGE_LIST':
-            return <ProductImageListV2 key={item?.id} data={data} className={item?.className} />;
-          case 'PRODUCT_VIDEO_LIST':
-            return <ProductVideoListV2 key={item?.id} data={data} className={item?.className} />;
-          case 'ALONE_VIDEO':
-            return <AloneVideoV2 key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':
             return <ContactV2 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
