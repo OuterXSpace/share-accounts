@@ -86,14 +86,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
       </Head>
       <main className="pt-[120px]">
         <div className="container py-[16px]">
-          <div className="row flex flex-nowrap flex-col md:flex-row">
-            <div className="col-6 px-[16px] w-auto">
+          <div className="row flex flex-nowrap flex-col md:flex-row gap-4 md:gap-0">
+            <div className="md:col-6 px-[16px] w-auto">
               {/* slider product detail */}
               <Slider data={productDetail?.imagesUrls} />
             </div>
-            <div className="col-6">
+            <div className="md:col-6">
               <div className="flex flex-col gap-4 container">
-                <div className="section font-sans text-[32px] font-semibold leading-snug text-accent">
+                <div className="section font-sans text-[20px] md:text-[32px] font-semibold leading-snug text-accent">
                   {productDetail?.title}
                 </div>
                 {/* range price duration */}
