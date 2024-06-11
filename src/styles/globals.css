@@ -3,6 +3,5 @@
 @tailwind utilities;
 @import './common.css';
 @import './home-slider.css';
-@import './global.landing-page.v2.css';
 @import './layout.css';
 @import './toast.css';

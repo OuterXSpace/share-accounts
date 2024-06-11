@@ -4,6 +4,7 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
+import { GlobalStyle } from '../../core-ui/v2/styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;
@@ -56,6 +57,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
         <meta property="og:url" content={seoData?.ogUrl} />
         <meta property="og:image" content={seoData?.ogImage} />
         <title>{seoData?.ogTitle}</title>
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/dm-sans" />
       </Head>
     );
   }, [slug, systemConfig?.ldpSystemConfigPage]);
@@ -64,6 +66,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
     <>
       {renderSeoPage}
       <main className={`${systemConfig?.ldpSystemConfigPage?.className ? 'bg-[#000000]' : ''}`}>{renderPage}</main>
+      <GlobalStyle />
     </>
   );
 };
