@@ -19,14 +19,14 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
         onClick={handleToggleMenu}
       />
       <div className="col-span-1">
-        <a id="pt-link" href="/" aria-current="page" className="w-inline-block w--current">
+        <Link href="/" aria-current="page" className="inline-block">
           <img
             src="https://assets-global.website-files.com/6618e637b1708fa9ebdf54ae/662a07142a921dccb20fb20f_NEW-LOT-LOGO.svg"
             loading="lazy"
             alt="logo"
             className="min-w-[18vw] max-w-[18vw]"
           />
-        </a>
+        </Link>
       </div>
       <div
         className="fixed flex right-[5vw] mix-blend-difference z-[50] overflow-hidden flex-col h-[5vw]"

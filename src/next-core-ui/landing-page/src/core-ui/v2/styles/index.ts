@@ -1,1 +1,1 @@
-export * from './global';
+export * from './landing-page-v2.styles';

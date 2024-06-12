@@ -32,7 +32,7 @@
 //   z-index: 99999999;
 // }
 
-export const GlobalStyle = () => {
+export const LandingPageStylesV2: React.FC = () => {
   return (
     <style global jsx>{`
       body {
