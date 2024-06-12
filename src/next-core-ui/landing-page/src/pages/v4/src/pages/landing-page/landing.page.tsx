@@ -3,6 +3,8 @@ import { LandingPageV4Props } from './landing-page.type';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { LandingPageV4ThemeV1, LandingPageV4ThemeV2, LandingPageV4ThemeV3 } from '../../theme';
+import { LandingPageStyles } from './landing-page.style';
+import { LandingPageStylesV1 } from './landing-page-v1.styles';
 
 export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
   const { systemConfig } = props;
@@ -17,12 +19,12 @@ export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
     const seoData = systemConfig?.ldpSystemConfigPage?.seoData?.[router?.asPath];
 
     return (
-      <Head>
+      <>
         <meta property="og:title" content={seoData?.ogTitle} />
         <meta property="og:url" content={seoData?.ogUrl} />
         <meta property="og:image" content={seoData?.ogImage} />
         <title>{seoData?.ogTitle}</title>
-      </Head>
+      </>
     );
   }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.seoData]);
 
@@ -39,9 +41,13 @@ export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
   }, [pageDataConfigWithDynamicRouter?.theme, systemConfig]);
 
   return (
-    <div className="root">
-      {renderSeoPageWithDynamicRouter}
-      {renderPageWithDynamicRouter}
-    </div>
+    <>
+      <Head>
+        {renderSeoPageWithDynamicRouter}
+        <LandingPageStyles />
+        <LandingPageStylesV1 />
+      </Head>
+      <div className="root">{renderPageWithDynamicRouter}</div>
+    </>
   );
 };
