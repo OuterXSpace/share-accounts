@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ILandingPageMenuMobileV2Props } from './menu-mobile.type';
 
 export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = (props) => {
@@ -31,19 +32,22 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
           menu
         </div>
       </div>
-      <div className="col-span-8 col-start-4 text-6xl flex-row translate-x-full translate-y-full bg-white fixed flex flex-col justify-start items-start gap-5vw p-8vw pr-0 pt-10vw rounded-br-5vw bottom-0 right-0 text-black menu-hide">
-        <a href="/" aria-current="page" className="link w--current">
+      <div
+        className="col-span-8 col-start-4 text-6xl flex-row translate-x-full translate-y-full bg-white fixed flex flex-col justify-start items-start gap-5vw p-8vw pr-0 pt-10vw rounded-br-5vw bottom-0 right-0 text-black"
+        // style="transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+      >
+        <Link href="/" aria-current="page" className="text-[#A2254B]">
           home
-        </a>
-        <a href="./about.html" className="link">
+        </Link>
+        <Link href="/" className="link">
           about
-        </a>
-        <a href="./services.html" className="link">
+        </Link>
+        <Link href="/" className="link">
           services
-        </a>
-        <a href="./crm.html" className="link">
+        </Link>
+        <Link href="/" className="link">
           crm
-        </a>
+        </Link>
         <a
           href="./contact.html"
           className="p-[1vw] px-[1.5vw] rounded-[0.3vw] transition-[background] duration-500 ease"

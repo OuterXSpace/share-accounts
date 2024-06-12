@@ -20,21 +20,21 @@ export const LandingPageMenuDesktopV2: React.FC<ILandingPageMenuDesktopV2Props> 
         </Link>
       </div>
       <div className="col-start-8 col-end-13 flex justify-between items-center relative text-[0.7em] menu-hide font-pp-monument-extended-medium uppercase">
-        <Link href="/" aria-current="page" className="link w--current">
+        <Link href="/" aria-current="page" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
           home
         </Link>
-        <Link href="/" className="link">
+        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
           about
         </Link>
-        <Link href="/" className="link">
+        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw]  lg:text-[1vw]">
           services
         </Link>
-        <Link href="/" className="link">
+        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
           crm
         </Link>
         <Link
           href="/"
-          className="p-[1vw] px-[1.5vw] rounded-[0.3vw] transition-[background] duration-500 ease hover:!bg-[length:200%_200%] !bg-[length:100%_100%]"
+          className="p-[1vw] px-[1.5vw] rounded-[0.3vw] transition-[background] duration-500 ease hover:!bg-[length:200%_200%] !bg-[length:100%_100%] text-[3.5vw] lg:text-[1vw]"
           style={{
             background: 'linear-gradient(66deg, rgba(169, 45, 76, 1) 24%, rgba(95, 42, 87, 1) 100%)',
           }}
