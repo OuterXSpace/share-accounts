@@ -119,6 +119,12 @@ module.exports = {
     )})`,
     'gradient-to-top-secondary': 'linear-gradient(181.06deg, #e10000 0.91%, #a50000 99.09%)',
   }),
+  content: {
+    'counter-link': 'counter(linkCounter, decimal-leading-zero)',
+  },
+  gridColumn: {
+    '4-12': 'span 8 / span 8',
+  },
 };
 
 export {};

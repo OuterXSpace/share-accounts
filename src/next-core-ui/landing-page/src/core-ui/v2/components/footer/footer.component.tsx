@@ -22,40 +22,22 @@ export const FooterV2: React.FC<FooterV2Props> = (props) => {
                 <div>
                   <h3 className="tracking-[-0.02vw] text-[4.5vw] mb-[6vw] lg:text-[1.3vw] lg:mb-[2vw]">SERVICES</h3>
                   <div className="inline-flex flex-col gap-2 justify-start items-start">
-                    <Link
-                      href="https://www.lt-serv.com/services#devops-solutions"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       DevOps
                     </Link>
-                    <Link
-                      href="https://www.lt-serv.com/services#data-management"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       Data Management
                     </Link>
-                    <Link
-                      href="https://www.lt-serv.com/services#enterprise-solutions"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       Enterprise Solutions
                     </Link>
-                    <Link
-                      href="https://www.lt-serv.com/services#quality-assurance"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       Quality Assurance
                     </Link>
-                    <Link
-                      href="./crm.html"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       CRM Solutions
                     </Link>
-                    <Link
-                      href="https://www.lt-serv.com/services#in-tech-solutions"
-                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]"
-                    >
+                    <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] lg:text-[1vw]">
                       In-Tech Solutions
                     </Link>
                   </div>

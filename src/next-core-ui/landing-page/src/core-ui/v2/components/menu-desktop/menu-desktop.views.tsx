@@ -26,7 +26,7 @@ export const LandingPageMenuDesktopV2: React.FC<ILandingPageMenuDesktopV2Props> 
         <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
           about
         </Link>
-        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw]  lg:text-[1vw]">
+        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
           services
         </Link>
         <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
