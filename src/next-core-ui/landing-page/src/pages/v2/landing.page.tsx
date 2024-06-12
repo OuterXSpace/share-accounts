@@ -4,7 +4,7 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { LandingPageStylesV2 } from '../../core-ui/v2/styles';
+import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;
@@ -65,6 +65,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   return (
     <>
       <Head>{renderSeoPage}</Head>
+      {/* style global landing page v2 */}
       <LandingPageStylesV2 />
       <main className={`${systemConfig?.ldpSystemConfigPage?.className ? 'bg-[#000000]' : ''}`}>{renderPage}</main>
     </>
