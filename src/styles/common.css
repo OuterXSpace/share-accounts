@@ -18,26 +18,3 @@ body {
   padding: 0;
 }
 
-/* Firefox */
-/* IE and Edge */
-/* ::-webkit-scrollbar {
-  position: absolute;
-  width: 6px;
-  -ms-overflow-style: 6px; 
-  scrollbar-width: 6px; 
-  height: 6px;
-  bottom: 2px;
-  top: 2px;
-} */
-
-/* ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  height: 59px;
-  display: block;
-  border-radius: inherit;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-} */
