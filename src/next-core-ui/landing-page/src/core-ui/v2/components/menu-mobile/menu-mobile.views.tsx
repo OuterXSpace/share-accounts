@@ -15,7 +15,7 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
       className={`grid grid-cols-12 gap-4 mx-[5.5vw] top-[5vw] justify-end items-center bg-transparent z-3 transition-all ease-in-out duration-300 top-[5.5vw] fixed relative ${className}`}
     >
       <div
-        className={`fixed top-0 left-0 z-[6] w-full h-screen bg-opacity-30 bg-[#050512] ${!isToggleMenu && 'hidden'}`}
+        className={`fixed top-0 left-0 z-[11] w-full h-screen bg-opacity-30 bg-[#050512] ${!isToggleMenu && 'hidden'}`}
         onClick={handleToggleMenu}
       />
       <div className="col-span-1">
