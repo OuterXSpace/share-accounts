@@ -4,8 +4,9 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { CommonJxsStyle, Component, GlobalPageStyles, MainPageStyles, RootPageStyles } from './section';
+import { CommonJxsStyle, Component, GlobalPageStyles } from './section';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
+import { ServicesSlider } from '../../core-ui/v2/components/services-slider';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;
@@ -36,6 +37,8 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             ) : (
               <LandingPageMenuMobileV2 key={item?.id} data={data} className={item?.className} />
             );
+          case 'SERVICES_SLIDER':
+            return <ServicesSlider key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':
             return <ContactV2 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':

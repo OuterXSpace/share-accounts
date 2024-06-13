@@ -37,6 +37,21 @@ export const LandingPageStylesV2: React.FC = () => {
     <style global jsx>{`
       @import url('https://fonts.cdnfonts.com/css/dm-sans');
 
+      * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      ::selection {
+        background: #ae2c4b;
+        color: #ffffff;
+      }
+
+      canvas {
+        background-color: transparent;
+        pointer-events: none !important;
+      }
+
       html {
         -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
@@ -54,6 +69,18 @@ export const LandingPageStylesV2: React.FC = () => {
       a {
         font-family: 'PPMonumentExtended-Medium';
         text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        padding: 0;
+        margin: 0;
+        font-weight: unset;
       }
 
       body {
