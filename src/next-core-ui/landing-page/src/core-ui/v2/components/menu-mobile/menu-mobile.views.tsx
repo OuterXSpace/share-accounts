@@ -37,14 +37,14 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
             isToggleMenu ? 'animation-close-menu-btn' : 'animation-open-menu-btn'
           }`}
         >
-          menu
+          <h1>menu</h1>
         </div>
         <div
           className={`text-right text-[3.6vw] tracking-[0.5vw] h-[5vw] flex flex-col uppercase transition-all ease duration-300 transform-perserve-3d ${
             isToggleMenu && 'animation-close-menu-btn'
           }`}
         >
-          close
+          <h1>close</h1>
         </div>
       </div>
       <div
