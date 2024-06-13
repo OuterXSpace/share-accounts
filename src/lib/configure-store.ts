@@ -19,7 +19,7 @@ export function configureAppStore() {
 
   const store = configureStore({
     reducer: createReducer(),
-    middleware: defaultMiddleware => [...defaultMiddleware(), ...middlewares],
+    middleware: (defaultMiddleware) => [...defaultMiddleware(), ...middlewares],
     devTools: true,
     enhancers,
   });

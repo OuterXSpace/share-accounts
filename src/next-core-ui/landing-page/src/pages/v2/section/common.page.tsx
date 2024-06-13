@@ -319,7 +319,6 @@ export const Component: React.FC = () => {
                 className="splide__arrow splide__arrow--prev"
                 type="button"
                 aria-controls="splide01-track"
-                disabled=""
                 aria-label="Previous slide"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width={40} height={40}>
