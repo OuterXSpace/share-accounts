@@ -4,6 +4,7 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
+import { CommonJxsStyle, Component, GlobalPageStyles, MainPageStyles, RootPageStyles } from './section';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
@@ -39,6 +40,27 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             return <ContactV2 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
             return <FooterV2 key={item?.id} data={data} className={item?.className} />;
+          case 'TEST_02':
+            return (
+              <>
+                <GlobalPageStyles />
+                <CommonJxsStyle />
+                <Component />
+                <style global jsx>{`
+                  .splide__track {
+                    overflow: visible;
+                  }
+                  .splide__arrows,
+                  .splide__pagination {
+                    display: none;
+                  }
+                  .splide__slide {
+                    margin: unset !important;
+                    width: unset !important;
+                  }
+                `}</style>
+              </>
+            );
           default:
             return <div />;
         }

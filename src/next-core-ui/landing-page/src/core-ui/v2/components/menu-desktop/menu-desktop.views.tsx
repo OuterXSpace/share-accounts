@@ -20,21 +20,34 @@ export const LandingPageMenuDesktopV2: React.FC<ILandingPageMenuDesktopV2Props> 
         </Link>
       </div>
       <div className="col-start-8 col-end-13 flex justify-between items-center relative text-[0.7em] menu-hide font-pp-monument-extended-medium uppercase">
-        <Link href="/" aria-current="page" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
+        <Link
+          href="/"
+          aria-current="page"
+          className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[0.7vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
+        >
           home
         </Link>
-        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
+        <Link
+          href="/"
+          className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[0.7vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
+        >
           about
         </Link>
-        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
+        <Link
+          href="/"
+          className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[0.7vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
+        >
           services
         </Link>
-        <Link href="/" className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[1vw]">
+        <Link
+          href="/"
+          className="z-10 no-underline pb-1 text-[3.5vw] lg:text-[0.7vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
+        >
           crm
         </Link>
         <Link
           href="/"
-          className="p-[1vw] px-[1.5vw] rounded-[0.3vw] transition-[background] duration-500 ease hover:!bg-[length:200%_200%] !bg-[length:100%_100%] text-[3.5vw] lg:text-[1vw]"
+          className="p-[1vw] px-[1.5vw] rounded-[0.3vw] transition-[background] duration-500 ease hover:!bg-[length:200%_200%] !bg-[length:100%_100%] text-[3.5vw] lg:text-[0.7vw]"
           style={{
             background: 'linear-gradient(66deg, rgba(169, 45, 76, 1) 24%, rgba(95, 42, 87, 1) 100%)',
           }}

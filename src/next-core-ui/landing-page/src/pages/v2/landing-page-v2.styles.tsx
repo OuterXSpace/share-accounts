@@ -35,6 +35,27 @@
 export const LandingPageStylesV2: React.FC = () => {
   return (
     <style global jsx>{`
+      @import url('https://fonts.cdnfonts.com/css/dm-sans');
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      a {
+        font-family: 'PPMonumentExtended-Medium';
+        text-transform: uppercase;
+      }
+
       body {
         padding: 0;
         margin: 0;
@@ -67,6 +88,17 @@ export const LandingPageStylesV2: React.FC = () => {
 
       .body-loader::before {
         height: 100%;
+      }
+
+      @font-face {
+        font-family: 'PPMonumentExtended-Medium';
+        src: url('https://uploads-ssl.webflow.com/6618e637b1708fa9ebdf54ae/6618f78281f3fd598ccd5fe2_PPMonumentExtended-Medium.woff2')
+            format('woff2'),
+          url('https://uploads-ssl.webflow.com/6618e637b1708fa9ebdf54ae/6618f7825007c8a992614bad_PPMonumentExtended-Medium.woff')
+            format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
       }
     `}</style>
   );

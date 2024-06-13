@@ -60,6 +60,7 @@ export const RootPageStyles: React.FC = () => {
       h1,
       h2,
       h3,
+      a,
       .menu,
       .numbers-highlights h4,
       .menu-button,
