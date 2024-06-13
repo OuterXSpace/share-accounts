@@ -2,10 +2,10 @@ import { createSelector } from '@reduxjs/toolkit';
 import { initialState } from './slice';
 import { RootState } from '../../../types';
 
-const selectDomain = (state: RootState) => state.app || initialState;
+const selectDomain = (state: RootState) => state.test || initialState;
 
-export const selectApp = createSelector([selectDomain], (appState) => appState);
+export const selectTest = createSelector([selectDomain], (testState) => testState);
 
-export const selectLoading = createSelector([selectDomain], (appState) => appState.loading);
+export const selectLoading = createSelector([selectDomain], (testState) => testState.loading);
 
-export const selectData = createSelector([selectDomain], (appState) => appState.data);
+export const selectData = createSelector([selectDomain], (testState) => testState.data);

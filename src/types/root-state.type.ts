@@ -1,5 +1,5 @@
-import { AppState } from '../layouts';
+import { TestState } from '../lib/test-redux/slice';
 
 export interface RootState {
-  app?: AppState;
+  test?: TestState;
 }

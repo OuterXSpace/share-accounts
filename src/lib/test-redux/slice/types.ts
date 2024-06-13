@@ -1,4 +1,4 @@
-export interface AppState {
+export interface TestState {
   loading: boolean;
   data: Record<string, any>;
 }
@@ -8,4 +8,4 @@ export interface IFieldValue {
   value: any;
 }
 
-export type ContainerState = AppState;
+export type ContainerState = TestState;

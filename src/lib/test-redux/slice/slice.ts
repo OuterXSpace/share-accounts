@@ -7,8 +7,8 @@ export const initialState: ContainerState = {
   data: {},
 };
 
-const appSlice = createSlice({
-  name: 'app',
+const testSlice = createSlice({
+  name: 'test',
   initialState,
   reducers: {
     changeFieldValue: {
@@ -29,4 +29,4 @@ const appSlice = createSlice({
   },
 });
 
-export const { actions, reducer, name: sliceKey } = appSlice;
+export const { actions, reducer, name: sliceKey } = testSlice;
