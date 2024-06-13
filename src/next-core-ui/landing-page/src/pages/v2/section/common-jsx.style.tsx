@@ -7,7 +7,7 @@ import {
   RootPageStyles,
   ServicesPageStyles,
 } from './styles';
-import { AnimationCursor } from './cursor.animation';
+import { ClickLoader, CursorPointer } from './animation';
 
 export const CommonJxsStyle: React.FC = () => {
   return (
@@ -73,21 +73,7 @@ export const CommonJxsStyle: React.FC = () => {
           </Link>
         </div>
       </div>
-      {/* <div
-        id="cursor"
-        className="cursor"
-        style={{
-          translate: 'none',
-          rotate: 'none',
-          scale: 'none',
-          transform: 'translate(-50%, -50%) translate3d(353px, 253px, 0px)',
-          opacity: 1,
-          display: 'block',
-        }}
-      >
-        <div className="cursor__circle" />
-      </div> */}
-      <AnimationCursor />
+      <CursorPointer />
     </div>
   );
 };

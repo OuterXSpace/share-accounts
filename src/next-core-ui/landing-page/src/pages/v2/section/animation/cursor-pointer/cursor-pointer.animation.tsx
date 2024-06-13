@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
+import gsap from 'gsap-trial/dist/gsap';
+import { useGSAP } from '@gsap/react';
+import { CursorPointerProp } from './cursor-pointer.type';
 
-export const AnimationCursor: React.FC = () => {
-  useEffect(() => {
+gsap.registerPlugin(useGSAP);
+
+export const CursorPointer: React.FC<CursorPointerProp> = () => {
+  useGSAP(() => {
     const cursor = document.querySelector('#cursor');
-    const cursorCircle = cursor.querySelector('.cursor__circle');
     const mouse = { x: -100, y: -100 };
     let isMoving = false;
 
@@ -38,25 +41,22 @@ export const AnimationCursor: React.FC = () => {
       window.removeEventListener('mousedown', stopMoving);
       window.removeEventListener('mouseup', updateCoordinates);
     };
-  }, []);
+  });
 
   return (
     <div
       id="cursor"
       className="cursor"
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        pointerEvents: 'none',
-        transform: 'translate(-50%, -50%)',
-        zIndex: 9999,
+        translate: 'none',
+        rotate: 'none',
+        scale: 'none',
+        transform: 'translate(-50%, -50%) translate3d(353px, 253px, 0px)',
+        opacity: 1,
+        display: 'block',
       }}
     >
-      <div
-        className="cursor__circle"
-        style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'red' }}
-      />
+      <div className="cursor__circle" />
     </div>
   );
 };

@@ -9,7 +9,7 @@ interface AnimatedTextProps {
 }
 const randomX = gsap.utils.random(-200, 200, 1, true);
 
-const AnimatedTest: React.FC<AnimatedTextProps> = ({ text }) => {
+export const AnimatedTest: React.FC<AnimatedTextProps> = ({ text }) => {
   const textRef = useRef<any>();
   const container = useRef<any>();
   const boxRef = useRef<any>();
@@ -124,5 +124,3 @@ const AnimatedTest: React.FC<AnimatedTextProps> = ({ text }) => {
     </>
   );
 };
-
-export default AnimatedTest;

@@ -1,8 +1,21 @@
 import Link from 'next/link';
-import { AnimatedText } from './text.animation';
-import { TextTalkAnimation } from './text-talk.animation';
+import { HoverChangeText, HoverFloatText, UnicornStudioAnimation } from './animation';
+import gsap from 'gsap-trial/dist/gsap';
+import { useGSAP } from '@gsap/react';
+import { useRouter } from 'next/router';
+
+gsap.registerPlugin(useGSAP);
 
 export const Component: React.FC = () => {
+  const router = useRouter();
+
+  useGSAP(
+    () => {
+      document.body.classList.add('body-loaded');
+    },
+    { dependencies: [router] },
+  );
+
   return (
     <div id="page" className="page-content">
       <div className="hero">
@@ -34,37 +47,12 @@ export const Component: React.FC = () => {
                 </div>
               </div>
             </h4>
-            <AnimatedText
-              style={{
-                translate: 'none',
-                rotate: 'none',
-                scale: 'none',
-                opacity: 1,
-                transform: 'translate(0px, 0px)',
-              }}
-              text="Define."
-            />
 
-            <AnimatedText
-              style={{
-                translate: 'none',
-                rotate: 'none',
-                scale: 'none',
-                opacity: 1,
-                transform: 'translate(0px, 0px)',
-              }}
-              text="Innovate."
-            />
-            <AnimatedText
-              style={{
-                translate: 'none',
-                rotate: 'none',
-                scale: 'none',
-                opacity: 1,
-                transform: 'translate(0px, 0px)',
-              }}
-              text="Lead."
-            />
+            <HoverChangeText id="text-container">
+              <h1 className="text-container"> Define." </h1>
+              <h1 className="text-container"> Innovate." </h1>
+              <h1 className="text-container"> Lead." </h1>
+            </HoverChangeText>
           </div>
           <div className="hero-scroll-down">
             <img
@@ -75,9 +63,7 @@ export const Component: React.FC = () => {
             />
           </div>
         </div>
-        <div data-us-project="ywrqp5HH8f3PmuxayhNs?update=aaafff" className="hero-visual" data-us-initialized="true">
-          <canvas width={2205} height={730} style={{ width: 1470, height: 487 }} />
-        </div>
+        <UnicornStudioAnimation />
         <div className="red-glow glow-left" />
         <div className="video-box">
           <div
@@ -1629,96 +1615,13 @@ export const Component: React.FC = () => {
                       alt=""
                     />
                   </div>
-                  {/* <div className="cta-text-block">
-                    <div
-                      className="text-inside"
-                      style={{
-                        transform:
-                          'translate3d(0px, 0vw, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-                        transformStyle: 'preserve-3d',
-                      }}
-                    >
-                      <h2 style={{ visibility: 'visible' }}>
-                        <div
-                          className="split-parent"
-                          style={{
-                            display: 'block',
-                            textAlign: 'start',
-                            position: 'relative',
-                          }}
-                        >
-                          <div
-                            className="split-child"
-                            style={{
-                              display: 'block',
-                              textAlign: 'start',
-                              position: 'relative',
-                              translate: 'none',
-                              rotate: 'none',
-                              scale: 'none',
-                              opacity: 1,
-                              transform: 'translate(0px, 0px)',
-                            }}
-                          >
-                            LET’S TALK
-                          </div>
-                        </div>
-                      </h2>
-                      <h2 style={{ visibility: 'visible' }}>
-                        <div
-                          className="split-parent"
-                          style={{
-                            display: 'block',
-                            textAlign: 'start',
-                            position: 'relative',
-                          }}
-                        >
-                          <div
-                            className="split-child"
-                            style={{
-                              display: 'block',
-                              textAlign: 'start',
-                              position: 'relative',
-                              translate: 'none',
-                              rotate: 'none',
-                              scale: 'none',
-                              opacity: 1,
-                              transform: 'translate(0px, 0px)',
-                            }}
-                          >
-                            LET’S TALK
-                          </div>
-                        </div>
-                      </h2>
-                      <h2 style={{ visibility: 'visible' }}>
-                        <div
-                          className="split-parent"
-                          style={{
-                            display: 'block',
-                            textAlign: 'start',
-                            position: 'relative',
-                          }}
-                        >
-                          <div
-                            className="split-child"
-                            style={{
-                              display: 'block',
-                              textAlign: 'start',
-                              position: 'relative',
-                              translate: 'none',
-                              rotate: 'none',
-                              scale: 'none',
-                              opacity: 1,
-                              transform: 'translate(0px, 0px)',
-                            }}
-                          >
-                            LET’S TALK
-                          </div>
-                        </div>
-                      </h2>
-                    </div>
-                  </div> */}
-                  <TextTalkAnimation />
+                  <HoverFloatText>
+                    <HoverChangeText id="text-float-container">
+                      <h2 className="text-float-container">LET’S TALK</h2>
+                      <h2 className="text-float-container">LET’S TALK</h2>
+                      <h2 className="text-float-container">LET’S TALK</h2>
+                    </HoverChangeText>
+                  </HoverFloatText>
                 </div>
               </Link>
             </div>
