@@ -4,7 +4,7 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ServicesSlider } from '../../core-ui/v2/components/services-slider';
+import { ServicesSlider, ServicesSliderStylesV2 } from '../../core-ui/v2/components/services-slider';
 import { LandingPageTest } from './test';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
@@ -73,6 +73,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
       <Head>{renderSeoPage}</Head>
       {/* style global landing page v2 */}
       <LandingPageStylesV2 />
+      <ServicesSliderStylesV2 />
       {renderPage}
     </>
   );

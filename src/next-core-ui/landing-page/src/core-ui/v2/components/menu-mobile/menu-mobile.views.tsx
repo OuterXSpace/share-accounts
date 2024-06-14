@@ -12,7 +12,7 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
 
   return (
     <nav
-      className={`grid grid-cols-12 gap-4 mx-[5.5vw] top-[5vw] justify-end items-center bg-transparent z-3 transition-all ease-in-out duration-300 top-[5.5vw] fixed relative ${className}`}
+      className={`grid grid-cols-12 gap-4 mx-[5.5vw] top-[5vw] justify-end items-center bg-transparent z-3 transition-all ease-in-out duration-300 top-[5.5vw] relative ${className}`}
     >
       <div
         className={`fixed top-0 left-0 z-[11] w-full h-screen bg-opacity-30 bg-[#050512] ${!isToggleMenu && 'hidden'}`}
@@ -55,25 +55,25 @@ export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = 
         <Link
           href="/"
           aria-current="page"
-          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[1vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
+          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[0.8vw] before:pt-[0.2vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
         >
           home
         </Link>
         <Link
           href="/"
-          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[1vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
+          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[0.8vw] before:pt-[0.2vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
         >
           about
         </Link>
         <Link
           href="/"
-          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[1vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
+          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[0.8vw] before:pt-[0.2vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
         >
           services
         </Link>
         <Link
           href="/"
-          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[1vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter"
+          className="z-10 no-underline pb-1 text-[6em] md:text-[3em] before:content-counter-link before:text-[#A2254B] before:rounded-[50vw] before:px-[0.8vw] before:pt-[0.2vw] before:text-[7px] before:border-[0.5px] before:border-[#A2254B] flex flex-col items-start linkCounter "
         >
           crm
         </Link>
