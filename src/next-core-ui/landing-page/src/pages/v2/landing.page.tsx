@@ -5,7 +5,7 @@ import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { ServicesSlider } from '../../core-ui/v2/components/services-slider';
-import { LandingPageTest } from './test';
+import { LandingPageTest } from './landing-page-test';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
@@ -43,7 +43,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             return <ContactV2 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
             return <FooterV2 key={item?.id} data={data} className={item?.className} />;
-          case 'TEST_02':
+          case 'TEST':
             return <LandingPageTest />;
           default:
             return <div />;
@@ -71,7 +71,6 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   return (
     <>
       <Head>{renderSeoPage}</Head>
-      {/* style global landing page v2 */}
       <LandingPageStylesV2 />
       {renderPage}
     </>

@@ -56,10 +56,10 @@ export const LANDING_PAGE_MOCK_V2: Record<string, any> = {
         data: 'V1',
       },
     ],
-    TEST02: [
+    TEST: [
       {
-        id: 'TEST_02',
-        type: 'TEST_02',
+        id: 'TEST',
+        type: 'TEST',
         className: '',
         data: 'V1',
       },
