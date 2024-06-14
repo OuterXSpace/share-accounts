@@ -1,10 +1,16 @@
 import Head from 'next/head';
 import { LandingPageV2Props } from './landing-page.type';
-import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 } from '../sections';
+import {
+  LandingPageMenuDesktopV2,
+  LandingPageMenuMobileV2,
+  ContactV2,
+  FooterV2,
+  ServicesSlider,
+  ServicesSliderStylesV2,
+} from '../sections';
 import { useDeviceSizes } from '../../../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { ServicesSlider, ServicesSliderStylesV2 } from '../sections/services-slider';
 import { LandingPageTestHome } from './landing-page-home';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
 import { Introduction } from '../sections/introduction';
