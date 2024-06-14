@@ -1,3 +1,3 @@
-export interface ITitleSectionProps { 
-    title: string;
+export interface ITitleSectionProps {
+  title: string;
 }

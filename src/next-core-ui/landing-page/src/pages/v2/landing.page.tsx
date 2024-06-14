@@ -5,7 +5,7 @@ import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { ServicesSlider, ServicesSliderStylesV2 } from '../../core-ui/v2/components/services-slider';
-import { LandingPageTest } from './test';
+import { LandingPageTest } from './landing-page-test';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
