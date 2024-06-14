@@ -1,21 +1,7 @@
 import Link from 'next/link';
 import { HoverChangeText, HoverFloatText, UnicornStudioAnimation } from './animation';
-import gsap from 'gsap-trial/dist/gsap';
-import { useGSAP } from '@gsap/react';
-import { useRouter } from 'next/router';
-
-gsap.registerPlugin(useGSAP);
 
 export const Component: React.FC = () => {
-  const router = useRouter();
-
-  useGSAP(
-    () => {
-      document.body.classList.add('body-loaded');
-    },
-    { dependencies: [router] },
-  );
-
   return (
     <div id="page" className="page-content">
       <div className="hero">

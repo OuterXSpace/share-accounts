@@ -3,9 +3,26 @@ import Head from 'next/head';
 import { LandingPageV2Props } from './landing-page.type';
 import { Component } from './section/common.page';
 import { CommonJxsStyle } from './section/common-jsx.style';
-import { GlobalPageStyles } from './section';
+import { CommonPageStyles, GlobalPageStyles } from './section';
+import gsap from 'gsap-trial/dist/gsap';
+import { useGSAP } from '@gsap/react';
+import { useRouter } from 'next/router';
+
+gsap.registerPlugin(useGSAP);
 
 export const LandingPageTest: React.FC<LandingPageV2Props> = () => {
+  const router = useRouter();
+
+  useGSAP(
+    () => {
+      document.body.classList.add('body-loaded');
+      return () => {
+        document.body.classList.remove('body-loaded');
+      };
+    },
+    { dependencies: [router] },
+  );
+
   const imageUrl =
     'https://assets-global.website-files.com/6618e637b1708fa9ebdf54ae/662e2ed743a4ccf1e011041e_Preview%20(1).png';
   const imageWidth = '1200';
@@ -20,7 +37,7 @@ export const LandingPageTest: React.FC<LandingPageV2Props> = () => {
       <GlobalPageStyles />
       <CommonJxsStyle />
       <Component />
-      {/* <CommonPageStyles /> */}
+      <CommonPageStyles />
 
       <style global jsx>{`
         .splide__track {

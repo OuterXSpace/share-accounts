@@ -4,9 +4,9 @@ import { LandingPageMenuDesktopV2, LandingPageMenuMobileV2, ContactV2, FooterV2 
 import { useDeviceSizes } from '../../../../../hooks';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { CommonJxsStyle, Component, GlobalPageStyles } from './section';
-import { LandingPageStylesV2 } from './landing-page-v2.styles';
 import { ServicesSlider } from '../../core-ui/v2/components/services-slider';
+import { LandingPageTest } from './test';
+import { LandingPageStylesV2 } from './landing-page-v2.styles';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;
@@ -44,26 +44,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
           case 'FOOTER':
             return <FooterV2 key={item?.id} data={data} className={item?.className} />;
           case 'TEST_02':
-            return (
-              <>
-                <GlobalPageStyles />
-                <CommonJxsStyle />
-                <Component />
-                <style global jsx>{`
-                  .splide__track {
-                    overflow: visible;
-                  }
-                  .splide__arrows,
-                  .splide__pagination {
-                    display: none;
-                  }
-                  .splide__slide {
-                    margin: unset !important;
-                    width: unset !important;
-                  }
-                `}</style>
-              </>
-            );
+            return <LandingPageTest />;
           default:
             return <div />;
         }
@@ -92,7 +73,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
       <Head>{renderSeoPage}</Head>
       {/* style global landing page v2 */}
       <LandingPageStylesV2 />
-      <main className={`${systemConfig?.ldpSystemConfigPage?.className ? 'bg-[#000000]' : ''}`}>{renderPage}</main>
+      {renderPage}
     </>
   );
 };
