@@ -43,7 +43,7 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             return <ContactV2 key={item?.id} data={data} className={item?.className} />;
           case 'FOOTER':
             return <FooterV2 key={item?.id} data={data} className={item?.className} />;
-          case 'TEST_02':
+          case 'TEST':
             return <LandingPageTest />;
           default:
             return <div />;
@@ -71,7 +71,6 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   return (
     <>
       <Head>{renderSeoPage}</Head>
-      {/* style global landing page v2 */}
       <LandingPageStylesV2 />
       <ServicesSliderStylesV2 />
       {renderPage}
