@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { ServicesSlider, ServicesSliderStylesV2 } from '../../core-ui/v2/components/services-slider';
 import { LandingPageTest } from './landing-page-test';
 import { LandingPageStylesV2 } from './landing-page-v2.styles';
+import { Introduction } from '../../core-ui/v2/components/introduction';
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;
@@ -37,6 +38,8 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             ) : (
               <LandingPageMenuMobileV2 key={item?.id} data={data} className={item?.className} />
             );
+            case 'INTRODUCTION':
+              return <Introduction key={item?.id} data={data} className={item?.className} />;
           case 'SERVICES_SLIDER':
             return <ServicesSlider key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':

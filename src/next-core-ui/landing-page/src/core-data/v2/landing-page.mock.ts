@@ -8,6 +8,12 @@ export const LANDING_PAGE_MOCK_V2: Record<string, any> = {
         data: 'V1',
       },
       {
+        id: 'INTRODUCTION',
+        type: 'INTRODUCTION',
+        className: '',
+        data: 'V1',
+      },
+      {
         id: 'SERVICES_SLIDER',
         type: 'SERVICES_SLIDER',
         className: '',
