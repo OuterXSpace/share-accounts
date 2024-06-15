@@ -7,8 +7,8 @@ on:
         description: 'Confirm Deployment'
         required: true
 env:
-  SERVER_IP: "20.39.193.105"
-  SERVER_USER: "azureuser"
+  SERVER_IP: "34.67.90.123"
+  SERVER_USER: "g16521524"
   IMAGE: share-account
   DOCKER_HUB_USERNAME: warjamma
 
