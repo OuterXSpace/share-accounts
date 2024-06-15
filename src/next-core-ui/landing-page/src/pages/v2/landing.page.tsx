@@ -38,8 +38,8 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
             ) : (
               <LandingPageMenuMobileV2 key={item?.id} data={data} className={item?.className} />
             );
-            case 'INTRODUCTION':
-              return <Introduction key={item?.id} data={data} className={item?.className} />;
+          case 'INTRODUCTION':
+            return <Introduction key={item?.id} data={data} className={item?.className} />;
           case 'SERVICES_SLIDER':
             return <ServicesSlider key={item?.id} data={data} className={item?.className} />;
           case 'CONTACT':
