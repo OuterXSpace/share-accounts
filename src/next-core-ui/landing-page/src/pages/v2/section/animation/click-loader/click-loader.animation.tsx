@@ -3,6 +3,7 @@ import gsap from 'gsap-trial/dist/gsap';
 import { useGSAP } from '@gsap/react';
 import { ClickLoaderProp } from './click-loader.type';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 gsap.registerPlugin(useGSAP);
 
@@ -13,11 +14,14 @@ export const ClickLoader: React.FC<ClickLoaderProp> = (props) => {
 
   const onClickRef = useRef<any>();
 
+  const router = useRouter();
+
   useGSAP(
     (_, contextSafe) => {
       const handleClick = contextSafe(() => {
         document.body.classList.add('body-loader');
         setTimeout(() => {
+          router.reload();
           document.body.classList.remove('body-loader');
         }, 1000);
       });

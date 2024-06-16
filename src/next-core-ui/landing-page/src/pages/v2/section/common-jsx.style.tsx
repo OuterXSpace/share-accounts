@@ -56,6 +56,7 @@ export const CommonJxsStyle: React.FC = () => {
           </div>
         </div>
         <div className="menu menu-hide">
+          <ClickLoader link="/test" title="click" />
           <Link href="/" id="menu-link" aria-current="page" className="link w--current">
             home
           </Link>
