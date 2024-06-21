@@ -8,7 +8,7 @@ on:
 env:
   DEPLOYMENT_NAME: nicholaf
   IMAGE: nicholaf
-  INGRESS_IP: 20.39.193.105:3000
+  INGRESS_IP: 34.67.90.123:3000
   PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/nicholaf/'
   COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
   PUBLIC_CDN: 'https://azureapis.blob.core.windows.net/public/'

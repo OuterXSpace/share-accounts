@@ -35,8 +35,8 @@ env:
   EMAIL_DOCKER_HUB: lgold141@gmail.com 
   PASSWORD_DOCKER_HUB: BWKk9q9B@Cm7!$M
   DOCKER_HUB_USERNAME: warjamma
-  SERVER_USER: "azureuser"
-  SERVER_IP: "20.39.193.105"
+  SERVER_USER: "g16521524"
+  SERVER_IP: "34.67.90.123"
 
 jobs:
   setup-build-publish-deploy:
