@@ -1,0 +1,18 @@
+.toto-announcement-welcome .swiper-pagination {
+  position: absolute;
+  z-index: 9999;
+  bottom: 5px !important;
+  left: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  -webkit-transform: translate(-50%) !important;
+  transform: translate(-50%);
+  box-shadow: 0px 0px 15px #6d6d6d;
+  border-radius: 7.5px;
+  padding: 0 8px;
+  height: 15px;
+  background: black;
+  width: auto !important;
+}

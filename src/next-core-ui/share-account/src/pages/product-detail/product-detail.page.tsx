@@ -9,11 +9,11 @@ import Head from 'next/head';
 import { FormattedCurrency } from '../../../../../components';
 import { useRouter } from 'next/router';
 import { notFound } from 'next/navigation';
+import { CartContext } from '../../context';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
-import { CartContext } from '../../context';
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
   const { sacProductData } = props;

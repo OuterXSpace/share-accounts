@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { SwiperSlide } from 'swiper/react';
+import { HomeSliderShareAccountStyles } from './home-slider.styles';
 
 export const HomePage: React.FC<HomePageProps> = (props) => {
   const { sacWelcomePopup, sacProductData, sacHomeContent } = props;
@@ -25,6 +26,8 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
         <meta property="og:image" />
         <title>Home page</title>
       </Head>
+      {/* style home slider */}
+      <HomeSliderShareAccountStyles />
       <main className="pt-[80px] md:pt-[90px] lg:pt-[120px]">
         <SliderFull extraClassContainer="home-slide-container" className="h-full sm:h-[300px] lg:h-full">
           {sacHomeContent?.sliderHomeBanner.map((item) => {
