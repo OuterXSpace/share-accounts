@@ -1,5 +1,5 @@
 import React from 'react';
-import { DynamicLayoutProps } from './dyanmic.type';
+import { DynamicLayoutProps } from './dynamic.type';
 import { DynamicTheme } from '../../next-core-ui';
 
 export const DynamicLayout: React.FC<DynamicLayoutProps> = (props) => {
