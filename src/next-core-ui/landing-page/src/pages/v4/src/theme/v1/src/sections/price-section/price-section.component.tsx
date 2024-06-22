@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PriceSectionV4Props } from './price-section.type';
 
 export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
@@ -8,9 +9,9 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
       <div id="exchanges-list" className="coins-list">
         <div className="flex flex-wrap items-center justify-between mb-6">
           <div className="text-3.5 font-sans font-normal text-blue-600 ">
-            <a href="/" className="b-home" aria-label="Go to home" />
+            <Link href="/" className="b-home" aria-label="Go to home" />
             <i>/</i>
-            <a href="#">Giá</a>
+            <Link href="#">Giá</Link>
           </div>
         </div>
         <div className="header-wrapper">
@@ -46,13 +47,12 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                 placeholder="Tìm kiếm các loại tiền tệ"
                 aria-label="Search exchange"
                 className="w-full p-0 bg-transparent border-none appearance-none p4 p4--ns placeholder:text-grey-600  peer focus:outline-none focus:border-none focus:ring-0 text-dark-grey-700 "
-                googl="true"
               />
               <button
                 className="hidden w-5 h-5 peer peer-focus:block hover:block acfo:block"
                 type="submit"
                 aria-label="Search"
-                onclick="if (!window.__cfRLUnblockHandlers) return false; this.previousElementSibling.value='';this.previousElementSibling.focus()"
+                // onclick="if (!window.__cfRLUnblockHandlers) return false; this.previousElementSibling.value='';this.previousElementSibling.focus()"
               >
                 <svg
                   className="w-4 h-4"
@@ -247,7 +247,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/bitcoin/"
@@ -266,7 +266,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Bitcoin</div>
                           <div className="uppercase text-grey-600 p5">BTC</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -275,7 +275,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $69,540.00
                     <div>
-                      <a
+                      <Link
                         href="/price/bitcoin/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -296,7 +296,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -345,7 +345,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/ethereum/"
@@ -364,7 +364,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Ethereum</div>
                           <div className="uppercase text-grey-600 p5">ETH</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -373,7 +373,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $3,681.14
                     <div>
-                      <a
+                      <Link
                         href="/price/ethereum/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -394,7 +394,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -443,7 +443,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/tether/"
@@ -462,7 +462,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Tether</div>
                           <div className="uppercase text-grey-600 p5">USDT</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -517,7 +517,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/binancecoin/"
@@ -536,7 +536,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">BNB</div>
                           <div className="uppercase text-grey-600 p5">BNB</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -545,7 +545,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $667.03
                     <div>
-                      <a
+                      <Link
                         href="/price/binancecoin/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -566,7 +566,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-red-500 p_percent">
@@ -615,7 +615,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/solana/"
@@ -633,7 +633,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Solana</div>
                           <div className="uppercase text-grey-600 p5">SOL</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -642,7 +642,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $159.69
                     <div>
-                      <a
+                      <Link
                         href="/price/solana/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -663,7 +663,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -711,7 +711,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/staked-ether/"
@@ -729,7 +729,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Lido Staked Ether</div>
                           <div className="uppercase text-grey-600 p5">STETH</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -783,7 +783,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/usd-coin/"
@@ -801,7 +801,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">USDC</div>
                           <div className="uppercase text-grey-600 p5">USDC</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -855,7 +855,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/ripple/"
@@ -873,7 +873,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">XRP</div>
                           <div className="uppercase text-grey-600 p5">XRP</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -882,7 +882,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $0.499533
                     <div>
-                      <a
+                      <Link
                         href="/price/ripple/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -903,7 +903,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -951,7 +951,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/dogecoin/"
@@ -969,7 +969,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Dogecoin</div>
                           <div className="uppercase text-grey-600 p5">DOGE</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -978,7 +978,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $0.145678
                     <div>
-                      <a
+                      <Link
                         href="/price/dogecoin/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -999,7 +999,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-red-500 p_percent">
@@ -1047,7 +1047,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/the-open-network/"
@@ -1065,7 +1065,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Toncoin</div>
                           <div className="uppercase text-grey-600 p5">TON</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1074,7 +1074,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $7.12
                     <div>
-                      <a
+                      <Link
                         href="/price/the-open-network/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1095,7 +1095,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1143,7 +1143,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/cardano/"
@@ -1161,7 +1161,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Cardano</div>
                           <div className="uppercase text-grey-600 p5">ADA</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1170,7 +1170,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $0.440957
                     <div>
-                      <a
+                      <Link
                         href="/price/cardano/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1191,7 +1191,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1239,7 +1239,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/shiba-inu/"
@@ -1257,7 +1257,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Shiba Inu</div>
                           <div className="uppercase text-grey-600 p5">SHIB</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1266,7 +1266,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $0.00002328
                     <div>
-                      <a
+                      <Link
                         href="/price/shiba-inu/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1287,7 +1287,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1335,7 +1335,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/avalanche-2/"
@@ -1353,7 +1353,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Avalanche</div>
                           <div className="uppercase text-grey-600 p5">AVAX</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1362,7 +1362,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $32.93
                     <div>
-                      <a
+                      <Link
                         href="/price/avalanche-2/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1383,7 +1383,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1431,7 +1431,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/wrapped-bitcoin/"
@@ -1449,7 +1449,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Wrapped Bitcoin</div>
                           <div className="uppercase text-grey-600 p5">WBTC</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1458,7 +1458,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $69,562.00
                     <div>
-                      <a
+                      <Link
                         href="/price/wrapped-bitcoin/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1479,7 +1479,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1527,7 +1527,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/tron/"
@@ -1545,7 +1545,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">TRON</div>
                           <div className="uppercase text-grey-600 p5">TRX</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1554,7 +1554,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $0.117054
                     <div>
-                      <a
+                      <Link
                         href="/price/tron/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1575,7 +1575,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1623,7 +1623,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/chainlink/"
@@ -1641,7 +1641,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Chainlink</div>
                           <div className="uppercase text-grey-600 p5">LINK</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1650,7 +1650,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $16.13
                     <div>
-                      <a
+                      <Link
                         href="/price/chainlink/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1671,7 +1671,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1719,7 +1719,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/bitcoin-cash/"
@@ -1737,7 +1737,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Bitcoin Cash</div>
                           <div className="uppercase text-grey-600 p5">BCH</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1746,7 +1746,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $469.73
                     <div>
-                      <a
+                      <Link
                         href="/price/bitcoin-cash/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1767,7 +1767,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1815,7 +1815,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/polkadot/"
@@ -1833,7 +1833,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Polkadot</div>
                           <div className="uppercase text-grey-600 p5">DOT</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1842,7 +1842,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $6.46
                     <div>
-                      <a
+                      <Link
                         href="/price/polkadot/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1863,7 +1863,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-green-500 p_percent">
@@ -1911,7 +1911,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/uniswap/"
@@ -1929,7 +1929,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">Uniswap</div>
                           <div className="uppercase text-grey-600 p5">UNI</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -1938,7 +1938,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $9.73
                     <div>
-                      <a
+                      <Link
                         href="/price/uniswap/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -1959,7 +1959,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-red-500 p_percent">
@@ -2007,7 +2007,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   </td>
                   <td className=" bg-white  [&:hover>td]:bg-grey-100  sticky top-0 left-0 bg-white font-medium text-left border-r border-white p5 lg:p4 ">
                     <div className="relative px-2.5 lg:px-4 py-2 lg:py-3.5">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="https://vn.beincrypto.com/price/near/"
@@ -2025,7 +2025,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           <div className="whitespace-nowrap s3 s3--medium s3--normal-case">NEAR Protocol</div>
                           <div className="uppercase text-grey-600 p5">NEAR</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td
@@ -2034,7 +2034,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   >
                     $6.46
                     <div>
-                      <a
+                      <Link
                         href="/price/near/du-doan-gia/"
                         target="_self"
                         className="inline-flex items-center text-blue-600 capitalize p5 p5--medium  hover:no-underline hover:text-blue-700 "
@@ -2055,7 +2055,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                           />
                         </svg>
                         XEM DỰ ĐOÁN GIÁ
-                      </a>
+                      </Link>
                     </div>
                   </td>
                   <td className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-white  text-right text-red-500 p_percent">
@@ -2096,7 +2096,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
         </div>
         <div className="flex justify-center my-5 table-wrapper-footer">
           <div className="flex items-center">
-            <a
+            <Link
               href="https://vn.beincrypto.com/price/"
               target="_self"
               data-el="ce-pagination-prev"
@@ -2122,7 +2122,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                 />
               </svg>
               <span className="hidden lg:inline-block">Trước đó</span>
-            </a>
+            </Link>
             <div
               data-bic_pagination='{"current_page": 1,"total_pages": 649}'
               className="inline-flex items-center gap-x-2 sm:gap-x-4 btn-1 pagination-small-buttons"
@@ -2135,7 +2135,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
               >
                 1
               </span>
-              <a
+              <Link
                 data-el="bic-c-pagination-number"
                 data-page={2}
                 href="https://vn.beincrypto.com/price/2/"
@@ -2143,8 +2143,8 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                 aria-label="Page 2"
               >
                 2
-              </a>
-              <a
+              </Link>
+              <Link
                 data-el="bic-c-pagination-number"
                 data-page={3}
                 href="https://vn.beincrypto.com/price/3/"
@@ -2152,9 +2152,9 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                 aria-label="Page 3"
               >
                 3
-              </a>
+              </Link>
               <span className="lg:mx-3 text-grey-500">...</span>
-              <a
+              <Link
                 data-page={649}
                 data-el="bic-c-pagination-number"
                 data-el_pos="bic-c-pagination-last-page"
@@ -2163,9 +2163,9 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                 aria-label="Page 649"
               >
                 649
-              </a>
+              </Link>
             </div>
-            <a
+            <Link
               href="https://vn.beincrypto.com/price/2/"
               target="_self"
               data-el="ce-pagination-next"
@@ -2191,7 +2191,7 @@ export const PriceSectionV4: React.FC<PriceSectionV4Props> = (props) => {
                   fill="currentColor"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

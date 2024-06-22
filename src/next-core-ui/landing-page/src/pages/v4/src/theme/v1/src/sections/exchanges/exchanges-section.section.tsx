@@ -52,11 +52,7 @@ export const ExchangesSectionV4: React.FC<ExchangesSectionV4Props> = (props) => 
                   className="w-full p-0 bg-transparent border-none appearance-none search-exchange p4 p4--ns placeholder:text-grey-600  peer focus:outline-none focus:border-none focus:ring-0 text-dark-grey-700 "
                   aria-label="Tìm kiếm sàn giao dịch"
                 />
-                <button
-                  className="hidden w-5 h-5 peer peer-focus:block hover:block acfo:block"
-                  type="button"
-                  onclick="if (!window.__cfRLUnblockHandlers) return false; this.previousElementSibling.value='';this.previousElementSibling.focus()"
-                >
+                <button className="hidden w-5 h-5 peer peer-focus:block hover:block acfo:block" type="button">
                   <svg
                     className="w-4 h-4"
                     width={16}

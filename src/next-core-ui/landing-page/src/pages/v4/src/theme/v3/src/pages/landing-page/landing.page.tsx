@@ -107,7 +107,7 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
   const renderTestPage = () => {
     switch ('about') {
       case 'about':
-        return <Component />;
+        return <Them3Component />;
 
       default:
         return <div />;
@@ -116,7 +116,7 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
   return renderTestPage();
 };
 
-export const Component: React.FC = () => {
+export const Them3Component: React.FC = () => {
   return (
     <div className="page-template page-template-template-clean-with-coins template-clean-with-coins page page-id-164 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-164-data page-about-data template-clean-with-coins-data about non-amp page-about-us dark page-about-us dark">
       <header className="relative w-full -mb-px py-2 border-b border-grey-200 [.dark_&]:border-dark-grey-500 bg-white [.dark_&]:bg-dark-grey-700 z-800 lg:py-4 lg:flex-nowrap main-header ">
@@ -906,7 +906,6 @@ export const Component: React.FC = () => {
                 method="get"
                 target="_top"
                 action="https://beincrypto.com"
-                noValidate=""
               >
                 <div data-el="bic-c-search" className="bic-c-search md:ml-2.5 lg:flex-grow">
                   <div className="py-2 px-3.5 border text-grey-600  flex items-center bg-grey-100 border-transparent  focus-within:bg-white focus-within:border-blue-600  rounded-md gap-x-2.5 acfo:border-blue-600 ">
@@ -939,7 +938,7 @@ export const Component: React.FC = () => {
                     <button
                       className="hidden w-5 h-5 peer peer-focus:block hover:block acfo:block"
                       type="button"
-                      onclick="this.previousElementSibling.value='';this.previousElementSibling.focus()"
+                      // onclick="this.previousElementSibling.value='';this.previousElementSibling.focus()"
                       aria-label="Clear"
                     >
                       <svg
@@ -1883,7 +1882,6 @@ export const Component: React.FC = () => {
                       >
                         <input data-place="coin_id" type="checkbox" name="coin_id" defaultValue="" className="mr-3" />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -1912,7 +1910,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -1946,7 +1943,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -1980,7 +1976,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2014,7 +2009,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2048,7 +2042,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2082,7 +2075,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2116,7 +2108,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2150,7 +2141,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2184,7 +2174,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2218,7 +2207,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2252,7 +2240,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2286,7 +2273,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2320,7 +2306,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2354,7 +2339,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -2388,7 +2372,6 @@ export const Component: React.FC = () => {
                           className="mr-3"
                         />
                         <img
-                          fetchpriority="low"
                           loading="lazy"
                           data-place="logo"
                           className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -3917,7 +3900,6 @@ export const Component: React.FC = () => {
                                   <Link href="https://beincrypto.com/beincrypto-ceo-reflects-company-after-five-years/">
                                     <img
                                       decoding="async"
-                                      fetchpriority="high"
                                       className="lazy object-cover aspect-video w-full entered loaded"
                                       data-sizes=""
                                       src="https://beincrypto.com/wp-content/uploads/2023/03/EN_Alena_Afanaseva.png"

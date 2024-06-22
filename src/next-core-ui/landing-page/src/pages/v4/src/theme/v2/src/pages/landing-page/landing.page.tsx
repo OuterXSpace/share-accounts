@@ -47,12 +47,12 @@ export const LandingPageV4ThemeV2: React.FC<LandingPageV4ThemeV2Props> = (props)
 
   return (
     <div className="page-template page-template-template-custom-empty-with-footer template-custom-empty-with-footer page page-id-95991 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-95991-data page-beincrypto-sales-data template-custom-empty-with-footer-data beincrypto-sales non-amp dark !bg-dark-grey-700 dark !bg-dark-grey-700">
-      <Component />
+      <Them2Component />
     </div>
   );
 };
 
-export const Component: React.FC = (props) => {
+export const Them2Component: React.FC = (props) => {
   return (
     <div className="container">
       <section
@@ -608,7 +608,6 @@ export const Component: React.FC = (props) => {
                         method="post"
                         className="wpcf7-form resetting"
                         aria-label="Contact form"
-                        noValidate="novalidate"
                         data-status="resetting"
                       >
                         <div style={{ display: 'none' }}>
@@ -631,7 +630,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Tên*"
@@ -647,7 +645,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Địa chỉ Email*"
@@ -663,7 +660,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Tên Công Ty*"
@@ -708,7 +704,6 @@ export const Component: React.FC = (props) => {
                             <span className="wpcf7-form-control-wrap" data-name="yout-type-of-organization">
                               <select
                                 className="wpcf7-form-control wpcf7-select wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 name="yout-type-of-organization"
@@ -817,7 +812,6 @@ export const Component: React.FC = (props) => {
                         method="post"
                         className="wpcf7-form resetting"
                         aria-label="Contact form"
-                        noValidate="novalidate"
                         data-status="resetting"
                       >
                         <div style={{ display: 'none' }}>
@@ -840,7 +834,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Tên*"
@@ -856,7 +849,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Địa chỉ Email*"
@@ -872,7 +864,6 @@ export const Component: React.FC = (props) => {
                               <input
                                 size={40}
                                 className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 placeholder="Tên Công Ty*"
@@ -917,7 +908,6 @@ export const Component: React.FC = (props) => {
                             <span className="wpcf7-form-control-wrap" data-name="yout-type-of-organization">
                               <select
                                 className="wpcf7-form-control wpcf7-select wpcf7-validates-as-required w-full"
-                                required=""
                                 aria-required="true"
                                 aria-invalid="false"
                                 name="yout-type-of-organization"
@@ -1811,18 +1801,10 @@ export const Component: React.FC = (props) => {
             </li>
           </ul>
           <div className="">
-            <button
-              className="logo-slider-button-prev swiper-button-disabled swiper-button-lock"
-              type="button"
-              disabled=""
-            >
+            <button className="logo-slider-button-prev swiper-button-disabled swiper-button-lock" type="button">
               &nbsp;
             </button>
-            <button
-              className="logo-slider-button-next swiper-button-disabled swiper-button-lock"
-              type="button"
-              disabled=""
-            >
+            <button className="logo-slider-button-next swiper-button-disabled swiper-button-lock" type="button">
               &nbsp;
             </button>
           </div>

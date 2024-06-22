@@ -93,7 +93,6 @@ export const ContactV4: React.FC<ContactV4Props> = (props) => {
               method="post"
               className="wpcf7-form resetting"
               aria-label="Contact form"
-              noValidate="novalidate"
               data-status="resetting"
             >
               <div style={{ display: 'none' }}>

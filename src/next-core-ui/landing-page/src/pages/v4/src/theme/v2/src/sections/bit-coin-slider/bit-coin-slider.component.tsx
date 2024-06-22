@@ -537,7 +537,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                     >
                       <input data-place="coin_id" type="checkbox" name="coin_id" defaultValue="" className="mr-3" />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -566,7 +565,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -600,7 +598,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -634,7 +631,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -668,7 +664,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -702,7 +697,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -736,7 +730,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -770,7 +763,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -804,7 +796,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -838,7 +829,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -872,7 +862,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -906,7 +895,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -940,7 +928,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -974,7 +961,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -1008,7 +994,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"
@@ -1042,7 +1027,6 @@ export const BitCoinSliderV4: React.FC<BitCoinSliderV4Props> = (props) => {
                         className="mr-3"
                       />
                       <img
-                        fetchpriority="low"
                         loading="lazy"
                         data-place="logo"
                         className="mr-2 max-w-4 max-h-4 min-w-4"

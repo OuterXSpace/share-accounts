@@ -13,7 +13,6 @@ export const NewContentV4: React.FC<NewContentV4Props> = (props) => {
             className="bic-featured wp-post-image"
             alt="Core Scientific ký thỏa thuận trị giá 3.5 tỷ USD để đa dạng hóa thành AI"
             decoding="async"
-            fetchpriority="high"
             srcSet="https://s32697.pcdn.co/wp-content/uploads/2024/06/mining-crypto-what-850x478.jpg.webp 850w, https://s32697.pcdn.co/wp-content/uploads/2024/06/mining-crypto-what-360x203.jpg.webp 360w, https://s32697.pcdn.co/wp-content/uploads/2024/06/mining-crypto-what-768x432.jpg.webp 768w, https://s32697.pcdn.co/wp-content/uploads/2024/06/mining-crypto-what.jpg.webp 1280w"
             sizes="(max-width: 850px) 100vw, 850px"
           />{' '}

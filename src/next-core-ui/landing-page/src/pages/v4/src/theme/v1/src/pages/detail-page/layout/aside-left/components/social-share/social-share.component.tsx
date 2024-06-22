@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { SocialShareV4Props } from './social-share.type';
- 
+
 export const SocialShareV4: React.FC<SocialShareV4Props> = (props) => {
   return (
     <div className="flex items-center justify-between">

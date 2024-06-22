@@ -43,14 +43,14 @@ export const CtaBlockSectionV4: React.FC<LearnSectionV4Props> = (props) => {
                 <div className="flex flex-col justify-between h-full text-center">
                   <h6 className="mb-5 text-white">Tìm hiểu về Đội ngũ chuyên viên của chúng tôi trên toàn cầu!</h6>
                   <div className="btn-wrapper">
-                    <a
+                    <Link
                       className="transition-colors justify-center inline-flex items-center border hover:no-underline cursor-pointer bic-c-btn-medium gap-x-2.5 btn-3 px-4 py-2.5 rounded-md btn-medium bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white
                 disabled:bg-grey-300 disabled:border-grey-300 disabled:text-grey-100 bic-c-button-primary   btn btn-primary"
                       href="/editorial-team/"
                       target=""
                     >
                       <span>Đội ngũ biên tập</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

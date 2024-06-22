@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ConvertPriceSectionV4Props } from './convert-price-section.type';
 
 export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (props) => {
@@ -11,9 +12,9 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
       <div id="exchanges-list" className="convert-list">
         <div className="flex flex-wrap items-center justify-between mb-6">
           <div className="text-3.5 font-sans font-normal text-blue-600 ">
-            <a href="/" className="b-home" aria-label="Go to home" />
+            <Link href="/" className="b-home" aria-label="Go to home" />
             <i>/</i>
-            <a href="#">Chuyển đổi</a>
+            <Link href="#">Chuyển đổi</Link>
           </div>
         </div>
         <div className="mb-8 lg:mb-11 lg:w-7/12">
@@ -465,7 +466,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                 </div>
               </div>
               <div className="flex flex-grow flex-wrap justify-between @lg:max-w-fit @lg:flex-col @4xl:flex-row @lg:ml-6 @4xl:ml-2 @4xl:gap-2 @4xl:flex-nowrap">
-                <a
+                <Link
                   data-el="currency_convert"
                   className="inline-flex justify-center items-center border hover:no-underline cursor-pointer gap-x-2.5 btn-1 px-5 py-3.25 rounded-lg btn-big bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white
     disabled:bg-grey-300 disabled:border-grey-300 disabled:text-grey-100     disabled:cursor-not-allowed transition-colors w-full @4xl:w-auto"
@@ -479,8 +480,8 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     />
                   </svg>
                   Coin's Details
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   id="convert-on-exchange-button"
                   href="https://vn.beincrypto.com/k8ok_AFF_VN_WIDGET_bydfi_signup"
@@ -498,7 +499,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     />
                   </svg>
                   <span>TIẾP TỤC BYDFI</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -555,7 +556,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/bitcoin/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/bitcoin/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy entered loaded"
@@ -569,47 +570,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Bitcoin</strong>
                           <small className="flex w-full">BTC</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/bitcoin-to-usd/" className="value-link">
+                      <Link href="/convert/bitcoin-to-usd/" className="value-link">
                         $69,710.00
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/bitcoin-to-vnd/" className="value-link">
+                      <Link href="/convert/bitcoin-to-vnd/" className="value-link">
                         1,771,724,859 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/bitcoin-to-eur/" className="value-link">
+                      <Link href="/convert/bitcoin-to-eur/" className="value-link">
                         €64,752.00
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/bitcoin-to-jpy/" className="value-link">
+                      <Link href="/convert/bitcoin-to-jpy/" className="value-link">
                         ¥10,952,959
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/bitcoin-to-krw/" className="value-link">
+                      <Link href="/convert/bitcoin-to-krw/" className="value-link">
                         ₩96,096,128
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -618,7 +619,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/ethereum/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/ethereum/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy entered loaded"
@@ -632,47 +633,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Ethereum</strong>
                           <small className="flex w-full">ETH</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/ethereum-to-usd/" className="value-link">
+                      <Link href="/convert/ethereum-to-usd/" className="value-link">
                         $3,689.85
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/ethereum-to-vnd/" className="value-link">
+                      <Link href="/convert/ethereum-to-vnd/" className="value-link">
                         93,779,474 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/ethereum-to-eur/" className="value-link">
+                      <Link href="/convert/ethereum-to-eur/" className="value-link">
                         €3,427.40
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/ethereum-to-jpy/" className="value-link">
+                      <Link href="/convert/ethereum-to-jpy/" className="value-link">
                         ¥579,753
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/ethereum-to-krw/" className="value-link">
+                      <Link href="/convert/ethereum-to-krw/" className="value-link">
                         ₩5,086,481
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -681,7 +682,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/tether/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/tether/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -694,47 +695,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Tether</strong>
                           <small className="flex w-full">USDT</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/tether-to-usd/" className="value-link">
+                      <Link href="/convert/tether-to-usd/" className="value-link">
                         $0.999648
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/tether-to-vnd/" className="value-link">
+                      <Link href="/convert/tether-to-vnd/" className="value-link">
                         25,407 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/tether-to-eur/" className="value-link">
+                      <Link href="/convert/tether-to-eur/" className="value-link">
                         €0.928544
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/tether-to-jpy/" className="value-link">
+                      <Link href="/convert/tether-to-jpy/" className="value-link">
                         ¥157
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/tether-to-krw/" className="value-link">
+                      <Link href="/convert/tether-to-krw/" className="value-link">
                         ₩1,378
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -743,7 +744,11 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/binancecoin/">
+                      <Link
+                        data-el="bic-cer-coin"
+                        className="flex items-center name-wrpapper"
+                        href="/price/binancecoin/"
+                      >
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -756,47 +761,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">BNB</strong>
                           <small className="flex w-full">BNB</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/binancecoin-to-usd/" className="value-link">
+                      <Link href="/convert/binancecoin-to-usd/" className="value-link">
                         $671.62
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/binancecoin-to-vnd/" className="value-link">
+                      <Link href="/convert/binancecoin-to-vnd/" className="value-link">
                         17,069,543 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/binancecoin-to-eur/" className="value-link">
+                      <Link href="/convert/binancecoin-to-eur/" className="value-link">
                         €623.85
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/binancecoin-to-jpy/" className="value-link">
+                      <Link href="/convert/binancecoin-to-jpy/" className="value-link">
                         ¥105,525
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/binancecoin-to-krw/" className="value-link">
+                      <Link href="/convert/binancecoin-to-krw/" className="value-link">
                         ₩925,831
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -805,7 +810,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/solana/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/solana/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -818,47 +823,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Solana</strong>
                           <small className="flex w-full">SOL</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/solana-to-usd/" className="value-link">
+                      <Link href="/convert/solana-to-usd/" className="value-link">
                         $160.52
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/solana-to-vnd/" className="value-link">
+                      <Link href="/convert/solana-to-vnd/" className="value-link">
                         4,079,814 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/solana-to-eur/" className="value-link">
+                      <Link href="/convert/solana-to-eur/" className="value-link">
                         €149.11
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/solana-to-jpy/" className="value-link">
+                      <Link href="/convert/solana-to-jpy/" className="value-link">
                         ¥25,222
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/solana-to-krw/" className="value-link">
+                      <Link href="/convert/solana-to-krw/" className="value-link">
                         ₩221,284
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -867,7 +872,11 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/staked-ether/">
+                      <Link
+                        data-el="bic-cer-coin"
+                        className="flex items-center name-wrpapper"
+                        href="/price/staked-ether/"
+                      >
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -880,47 +889,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Lido Staked Ether</strong>
                           <small className="flex w-full">STETH</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/staked-ether-to-usd/" className="value-link">
+                      <Link href="/convert/staked-ether-to-usd/" className="value-link">
                         $3,688.93
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/staked-ether-to-vnd/" className="value-link">
+                      <Link href="/convert/staked-ether-to-vnd/" className="value-link">
                         93,791,025 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/staked-ether-to-eur/" className="value-link">
+                      <Link href="/convert/staked-ether-to-eur/" className="value-link">
                         €3,426.66
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/staked-ether-to-jpy/" className="value-link">
+                      <Link href="/convert/staked-ether-to-jpy/" className="value-link">
                         ¥579,647
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/staked-ether-to-krw/" className="value-link">
+                      <Link href="/convert/staked-ether-to-krw/" className="value-link">
                         ₩5,085,566
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -929,7 +938,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/usd-coin/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/usd-coin/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -942,47 +951,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">USDC</strong>
                           <small className="flex w-full">USDC</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/usd-coin-to-usd/" className="value-link">
+                      <Link href="/convert/usd-coin-to-usd/" className="value-link">
                         $0.999923
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/usd-coin-to-vnd/" className="value-link">
+                      <Link href="/convert/usd-coin-to-vnd/" className="value-link">
                         25,423 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/usd-coin-to-eur/" className="value-link">
+                      <Link href="/convert/usd-coin-to-eur/" className="value-link">
                         €0.928833
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/usd-coin-to-jpy/" className="value-link">
+                      <Link href="/convert/usd-coin-to-jpy/" className="value-link">
                         ¥157
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/usd-coin-to-krw/" className="value-link">
+                      <Link href="/convert/usd-coin-to-krw/" className="value-link">
                         ₩1,379
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -991,7 +1000,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/ripple/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/ripple/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1004,47 +1013,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">XRP</strong>
                           <small className="flex w-full">XRP</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/ripple-to-usd/" className="value-link">
+                      <Link href="/convert/ripple-to-usd/" className="value-link">
                         $0.500520
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/ripple-to-vnd/" className="value-link">
+                      <Link href="/convert/ripple-to-vnd/" className="value-link">
                         12,720.97 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/ripple-to-eur/" className="value-link">
+                      <Link href="/convert/ripple-to-eur/" className="value-link">
                         €0.464919
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/ripple-to-jpy/" className="value-link">
+                      <Link href="/convert/ripple-to-jpy/" className="value-link">
                         ¥78.64
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/ripple-to-krw/" className="value-link">
+                      <Link href="/convert/ripple-to-krw/" className="value-link">
                         ₩690
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1053,7 +1062,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/dogecoin/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/dogecoin/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1066,47 +1075,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Dogecoin</strong>
                           <small className="flex w-full">DOGE</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/dogecoin-to-usd/" className="value-link">
+                      <Link href="/convert/dogecoin-to-usd/" className="value-link">
                         $0.146290
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/dogecoin-to-vnd/" className="value-link">
+                      <Link href="/convert/dogecoin-to-vnd/" className="value-link">
                         3,719.43 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/dogecoin-to-eur/" className="value-link">
+                      <Link href="/convert/dogecoin-to-eur/" className="value-link">
                         €0.135890
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/dogecoin-to-jpy/" className="value-link">
+                      <Link href="/convert/dogecoin-to-jpy/" className="value-link">
                         ¥22.99
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/dogecoin-to-krw/" className="value-link">
+                      <Link href="/convert/dogecoin-to-krw/" className="value-link">
                         ₩202
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1115,7 +1124,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="/price/the-open-network/"
@@ -1132,47 +1141,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Toncoin</strong>
                           <small className="flex w-full">TON</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/the-open-network-to-usd/" className="value-link">
+                      <Link href="/convert/the-open-network-to-usd/" className="value-link">
                         $7.09
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/the-open-network-to-vnd/" className="value-link">
+                      <Link href="/convert/the-open-network-to-vnd/" className="value-link">
                         180,340 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/the-open-network-to-eur/" className="value-link">
+                      <Link href="/convert/the-open-network-to-eur/" className="value-link">
                         €6.59
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/the-open-network-to-jpy/" className="value-link">
+                      <Link href="/convert/the-open-network-to-jpy/" className="value-link">
                         ¥1,115
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/the-open-network-to-krw/" className="value-link">
+                      <Link href="/convert/the-open-network-to-krw/" className="value-link">
                         ₩9,778
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1181,7 +1190,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/cardano/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/cardano/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1194,47 +1203,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Cardano</strong>
                           <small className="flex w-full">ADA</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/cardano-to-usd/" className="value-link">
+                      <Link href="/convert/cardano-to-usd/" className="value-link">
                         $0.442246
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/cardano-to-vnd/" className="value-link">
+                      <Link href="/convert/cardano-to-vnd/" className="value-link">
                         11,244.11 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/cardano-to-eur/" className="value-link">
+                      <Link href="/convert/cardano-to-eur/" className="value-link">
                         €0.410805
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/cardano-to-jpy/" className="value-link">
+                      <Link href="/convert/cardano-to-jpy/" className="value-link">
                         ¥69.49
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/cardano-to-krw/" className="value-link">
+                      <Link href="/convert/cardano-to-krw/" className="value-link">
                         ₩610
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1243,7 +1252,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/shiba-inu/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/shiba-inu/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1256,47 +1265,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Shiba Inu</strong>
                           <small className="flex w-full">SHIB</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/shiba-inu-to-usd/" className="value-link">
+                      <Link href="/convert/shiba-inu-to-usd/" className="value-link">
                         $0.00002336
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/shiba-inu-to-vnd/" className="value-link">
+                      <Link href="/convert/shiba-inu-to-vnd/" className="value-link">
                         0.59382500 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/shiba-inu-to-eur/" className="value-link">
+                      <Link href="/convert/shiba-inu-to-eur/" className="value-link">
                         €0.00002170
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/shiba-inu-to-jpy/" className="value-link">
+                      <Link href="/convert/shiba-inu-to-jpy/" className="value-link">
                         ¥0.00366995
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/shiba-inu-to-krw/" className="value-link">
+                      <Link href="/convert/shiba-inu-to-krw/" className="value-link">
                         ₩0.03219855
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1305,7 +1314,11 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/avalanche-2/">
+                      <Link
+                        data-el="bic-cer-coin"
+                        className="flex items-center name-wrpapper"
+                        href="/price/avalanche-2/"
+                      >
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1318,47 +1331,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Avalanche</strong>
                           <small className="flex w-full">AVAX</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/avalanche-2-to-usd/" className="value-link">
+                      <Link href="/convert/avalanche-2-to-usd/" className="value-link">
                         $33.17
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/avalanche-2-to-vnd/" className="value-link">
+                      <Link href="/convert/avalanche-2-to-vnd/" className="value-link">
                         843,233 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/avalanche-2-to-eur/" className="value-link">
+                      <Link href="/convert/avalanche-2-to-eur/" className="value-link">
                         €30.81
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/avalanche-2-to-jpy/" className="value-link">
+                      <Link href="/convert/avalanche-2-to-jpy/" className="value-link">
                         ¥5,211
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/avalanche-2-to-krw/" className="value-link">
+                      <Link href="/convert/avalanche-2-to-krw/" className="value-link">
                         ₩45,722
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1367,7 +1380,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a
+                      <Link
                         data-el="bic-cer-coin"
                         className="flex items-center name-wrpapper"
                         href="/price/wrapped-bitcoin/"
@@ -1384,47 +1397,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Wrapped Bitcoin</strong>
                           <small className="flex w-full">WBTC</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/wrapped-bitcoin-to-usd/" className="value-link">
+                      <Link href="/convert/wrapped-bitcoin-to-usd/" className="value-link">
                         $69,725.00
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/wrapped-bitcoin-to-vnd/" className="value-link">
+                      <Link href="/convert/wrapped-bitcoin-to-vnd/" className="value-link">
                         1,772,089,442 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/wrapped-bitcoin-to-eur/" className="value-link">
+                      <Link href="/convert/wrapped-bitcoin-to-eur/" className="value-link">
                         €64,765.00
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/wrapped-bitcoin-to-jpy/" className="value-link">
+                      <Link href="/convert/wrapped-bitcoin-to-jpy/" className="value-link">
                         ¥10,955,213
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/wrapped-bitcoin-to-krw/" className="value-link">
+                      <Link href="/convert/wrapped-bitcoin-to-krw/" className="value-link">
                         ₩96,115,903
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1433,7 +1446,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/tron/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/tron/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1446,47 +1459,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">TRON</strong>
                           <small className="flex w-full">TRX</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/tron-to-usd/" className="value-link">
+                      <Link href="/convert/tron-to-usd/" className="value-link">
                         $0.116804
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/tron-to-vnd/" className="value-link">
+                      <Link href="/convert/tron-to-vnd/" className="value-link">
                         2,969.75 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/tron-to-eur/" className="value-link">
+                      <Link href="/convert/tron-to-eur/" className="value-link">
                         €0.108500
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/tron-to-jpy/" className="value-link">
+                      <Link href="/convert/tron-to-jpy/" className="value-link">
                         ¥18.35
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/tron-to-krw/" className="value-link">
+                      <Link href="/convert/tron-to-krw/" className="value-link">
                         ₩161
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1495,7 +1508,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/chainlink/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/chainlink/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1508,47 +1521,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Chainlink</strong>
                           <small className="flex w-full">LINK</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/chainlink-to-usd/" className="value-link">
+                      <Link href="/convert/chainlink-to-usd/" className="value-link">
                         $16.15
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/chainlink-to-vnd/" className="value-link">
+                      <Link href="/convert/chainlink-to-vnd/" className="value-link">
                         410,605 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/chainlink-to-eur/" className="value-link">
+                      <Link href="/convert/chainlink-to-eur/" className="value-link">
                         €15.00
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/chainlink-to-jpy/" className="value-link">
+                      <Link href="/convert/chainlink-to-jpy/" className="value-link">
                         ¥2,538
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/chainlink-to-krw/" className="value-link">
+                      <Link href="/convert/chainlink-to-krw/" className="value-link">
                         ₩22,264
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1557,7 +1570,11 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/bitcoin-cash/">
+                      <Link
+                        data-el="bic-cer-coin"
+                        className="flex items-center name-wrpapper"
+                        href="/price/bitcoin-cash/"
+                      >
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1570,47 +1587,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Bitcoin Cash</strong>
                           <small className="flex w-full">BCH</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/bitcoin-cash-to-usd/" className="value-link">
+                      <Link href="/convert/bitcoin-cash-to-usd/" className="value-link">
                         $471.07
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/bitcoin-cash-to-vnd/" className="value-link">
+                      <Link href="/convert/bitcoin-cash-to-vnd/" className="value-link">
                         11,977,020 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/bitcoin-cash-to-eur/" className="value-link">
+                      <Link href="/convert/bitcoin-cash-to-eur/" className="value-link">
                         €437.58
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/bitcoin-cash-to-jpy/" className="value-link">
+                      <Link href="/convert/bitcoin-cash-to-jpy/" className="value-link">
                         ¥74,020
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/bitcoin-cash-to-krw/" className="value-link">
+                      <Link href="/convert/bitcoin-cash-to-krw/" className="value-link">
                         ₩649,422
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1619,7 +1636,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/polkadot/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/polkadot/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1632,47 +1649,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Polkadot</strong>
                           <small className="flex w-full">DOT</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/polkadot-to-usd/" className="value-link">
+                      <Link href="/convert/polkadot-to-usd/" className="value-link">
                         $6.48
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/polkadot-to-vnd/" className="value-link">
+                      <Link href="/convert/polkadot-to-vnd/" className="value-link">
                         164,880 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/polkadot-to-eur/" className="value-link">
+                      <Link href="/convert/polkadot-to-eur/" className="value-link">
                         €6.02
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/polkadot-to-jpy/" className="value-link">
+                      <Link href="/convert/polkadot-to-jpy/" className="value-link">
                         ¥1,019
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/polkadot-to-krw/" className="value-link">
+                      <Link href="/convert/polkadot-to-krw/" className="value-link">
                         ₩8,940
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1681,7 +1698,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/uniswap/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/uniswap/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1694,47 +1711,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">Uniswap</strong>
                           <small className="flex w-full">UNI</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/uniswap-to-usd/" className="value-link">
+                      <Link href="/convert/uniswap-to-usd/" className="value-link">
                         $9.78
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/uniswap-to-vnd/" className="value-link">
+                      <Link href="/convert/uniswap-to-vnd/" className="value-link">
                         248,462 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/uniswap-to-eur/" className="value-link">
+                      <Link href="/convert/uniswap-to-eur/" className="value-link">
                         €9.08
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/uniswap-to-jpy/" className="value-link">
+                      <Link href="/convert/uniswap-to-jpy/" className="value-link">
                         ¥1,536
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/uniswap-to-krw/" className="value-link">
+                      <Link href="/convert/uniswap-to-krw/" className="value-link">
                         ₩13,476
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -1743,7 +1760,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     className="border-b text-dark-grey-700  hover:bg-grey-100  border-grey-200  [&:hover>td]:bg-grey-100 "
                   >
                     <td className="sticky left-0 top-0 bg-white px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-2">
-                      <a data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/near/">
+                      <Link data-el="bic-cer-coin" className="flex items-center name-wrpapper" href="/price/near/">
                         <p className="w-8 mr-2 name-wrpapper__logo">
                           <img
                             className="img-logo lazy"
@@ -1756,47 +1773,47 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                           <strong className="flex w-full lg:whitespace-nowrap">NEAR Protocol</strong>
                           <small className="flex w-full">NEAR</small>
                         </p>
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-3"
                       data-currency="usd"
                     >
-                      <a href="/convert/near-to-usd/" className="value-link">
+                      <Link href="/convert/near-to-usd/" className="value-link">
                         $6.51
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-4"
                       data-currency="vnd"
                     >
-                      <a href="/convert/near-to-vnd/" className="value-link">
+                      <Link href="/convert/near-to-vnd/" className="value-link">
                         165,410 VND
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-5"
                       data-currency="eur"
                     >
-                      <a href="/convert/near-to-eur/" className="value-link">
+                      <Link href="/convert/near-to-eur/" className="value-link">
                         €6.04
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-6"
                       data-currency="jpy"
                     >
-                      <a href="/convert/near-to-jpy/" className="value-link">
+                      <Link href="/convert/near-to-jpy/" className="value-link">
                         ¥1,022
-                      </a>
+                      </Link>
                     </td>
                     <td
                       className="px-2.5 lg:px-4 py-2 lg:py-3.5 p5 p5--medium lg:p4 lg:p4--medium border-r border-r-white  text-left border-b border-b-grey-200  cl-s-7"
                       data-currency="krw"
                     >
-                      <a href="/convert/near-to-krw/" className="value-link">
+                      <Link href="/convert/near-to-krw/" className="value-link">
                         ₩8,969
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                 </tbody>
@@ -1805,7 +1822,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
           </div>
           <div className="flex justify-center my-5 table-wrapper-footer">
             <div className="flex items-center">
-              <a
+              <Link
                 href="https://vn.beincrypto.com/convert/"
                 target="_self"
                 data-el="ce-pagination-prev"
@@ -1831,7 +1848,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                   />
                 </svg>
                 <span className="hidden lg:inline-block">Trước đó</span>
-              </a>
+              </Link>
               <div
                 data-bic_pagination='{"current_page": 1,"total_pages": 649}'
                 className="inline-flex items-center gap-x-2 sm:gap-x-4 btn-1 pagination-small-buttons"
@@ -1844,7 +1861,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                 >
                   1
                 </span>
-                <a
+                <Link
                   data-el="bic-c-pagination-number"
                   data-page={2}
                   href="https://vn.beincrypto.com/convert/2/"
@@ -1852,8 +1869,8 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                   aria-label="Page 2"
                 >
                   2
-                </a>
-                <a
+                </Link>
+                <Link
                   data-el="bic-c-pagination-number"
                   data-page={3}
                   href="https://vn.beincrypto.com/convert/3/"
@@ -1861,9 +1878,9 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                   aria-label="Page 3"
                 >
                   3
-                </a>
+                </Link>
                 <span className="lg:mx-3 text-grey-500">...</span>
-                <a
+                <Link
                   data-page={649}
                   data-el="bic-c-pagination-number"
                   data-el_pos="bic-c-pagination-last-page"
@@ -1872,9 +1889,9 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                   aria-label="Page 649"
                 >
                   649
-                </a>
+                </Link>
               </div>
-              <a
+              <Link
                 href="https://vn.beincrypto.com/convert/2/"
                 target="_self"
                 data-el="ce-pagination-next"
@@ -1900,7 +1917,7 @@ export const ConvertPriceSectionV4: React.FC<ConvertPriceSectionV4Props> = (prop
                     fill="currentColor"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

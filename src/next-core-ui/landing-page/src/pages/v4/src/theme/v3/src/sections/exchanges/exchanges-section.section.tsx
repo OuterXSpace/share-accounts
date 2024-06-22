@@ -55,7 +55,7 @@ export const ExchangesSectionV4: React.FC<ExchangesSectionV4Props> = (props) => 
                 <button
                   className="hidden w-5 h-5 peer peer-focus:block hover:block acfo:block"
                   type="button"
-                  onclick="if (!window.__cfRLUnblockHandlers) return false; this.previousElementSibling.value='';this.previousElementSibling.focus()"
+                  // onclick="if (!window.__cfRLUnblockHandlers) return false; this.previousElementSibling.value='';this.previousElementSibling.focus()"
                 >
                   <svg
                     className="w-4 h-4"
