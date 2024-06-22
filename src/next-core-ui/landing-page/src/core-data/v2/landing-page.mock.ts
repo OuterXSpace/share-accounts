@@ -26,10 +26,42 @@ export const LANDING_PAGE_MOCK_V2: Record<string, any> = {
         data: 'V1',
       },
     ],
-    TEST: [
+    TEST_HOME: [
       {
-        id: 'TEST',
-        type: 'TEST',
+        id: 'TEST_HOME',
+        type: 'TEST_HOME',
+        className: '',
+        data: 'V1',
+      },
+    ],
+    TEST_CONTACT: [
+      {
+        id: 'TEST_CONTACT',
+        type: 'TEST_CONTACT',
+        className: '',
+        data: 'V1',
+      },
+    ],
+    TEST_ABOUT: [
+      {
+        id: 'TEST_ABOUT',
+        type: 'TEST_ABOUT',
+        className: '',
+        data: 'V1',
+      },
+    ],
+    TEST_CRM: [
+      {
+        id: 'TEST_CRM',
+        type: 'TEST_CRM',
+        className: '',
+        data: 'V1',
+      },
+    ],
+    TEST_SERVICE: [
+      {
+        id: 'TEST_SERVICE',
+        type: 'TEST_SERVICE',
         className: '',
         data: 'V1',
       },
