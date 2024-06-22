@@ -1,17 +1,18 @@
-import { Fragment, useCallback, useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { ProductVideoListProps } from './product-video-list.type';
 import { LandingPageButtonV1 } from '../../common';
 
 export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
   const { data, className } = props;
 
-  const [isTypeVideo, setTypeVideo] = useState(data?.object?.defaultFilter);
+  const [idSelected, setSelectedId] = useState(data?.object?.defaultFilter);
 
-  const changeTypeVideo = useCallback((type: 'SORTS' | 'VIDEO' | 'TIKTOK') => {
-    setTypeVideo(type);
-  }, []);
-
-  const dataFilterVideo = useMemo(() => data?.object?.object?.[isTypeVideo] ?? [], [data?.object?.object, isTypeVideo]);
+  const dataFilter = useMemo(() => {
+    return {
+      data: data?.object?.object?.[idSelected]?.array ?? [],
+      type: data?.object?.object?.[idSelected]?.type,
+    };
+  }, [data?.object?.object, idSelected]);
 
   return (
     <section className={`section-01 ${className}`}>
@@ -27,13 +28,13 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
           <div className="col-12 mb-[50px]">
             <div className=" flex justify-center aligns-center pt-[50px] transition-[background,border,border-radius,box-shadow,transform] duration-300">
               {data?.object?.filter?.map((item) => {
-                const { id, label, sort } = item;
+                const { id, label } = item;
                 return (
                   <LandingPageButtonV1
                     type="button"
-                    onClick={() => changeTypeVideo(sort)}
+                    onClick={() => setSelectedId(id)}
                     key={id}
-                    className={isTypeVideo === sort ? 'border-2 bg-transparent text-white' : ''}
+                    className={idSelected === id ? 'border-2 bg-transparent text-white' : ''}
                   >
                     <span className="flex justify-center">
                       <span className="flex-grow order-10 inline-block">{label}</span>
@@ -45,11 +46,11 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
           </div>
           <div className="col-12">
             <div className="row justify-center ">
-              {dataFilterVideo?.map((item) => {
-                const { id, video, title, link } = item;
+              {dataFilter?.data?.map((item) => {
+                const { id, video, title, link, image } = item;
                 return (
                   <Fragment key={id}>
-                    {isTypeVideo === 'SHORTS' && (
+                    {dataFilter?.type === 'SHORTS' && (
                       <div
                         key={id}
                         className="col-12 md:col-6  lg:col-3 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
@@ -76,27 +77,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                       </div>
                     )}
 
-                    {isTypeVideo === 'TIKTOK' && (
-                      <div
-                        key={id}
-                        className="col-12 md:col-6  lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
-                      >
-                        <div className="video mb-[20px]">
-                          <blockquote className="tiktok-embed w-full" cite={video} />
-                          <script async src="https://www.tiktok.com/embed.js" />
-                        </div>
-                        <div className="content pb-[30px] min-w-full">
-                          <a
-                            href={link}
-                            className="leading-1 text-15 font-medium fill-[#ffffffbf] text-[#ffffffbf] bg-[#02010100] border-[none] p-0"
-                          >
-                            <span className="elementor-button-text">{title}</span>
-                          </a>
-                        </div>
-                      </div>
-                    )}
-
-                    {isTypeVideo === 'VIDEO' && (
+                    {dataFilter?.type === 'VIDEO' && (
                       <div
                         key={id}
                         className="col-12 md:col-6 lg:col-4 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
@@ -110,6 +91,25 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
                           />
+                        </div>
+                        <div className="content pb-[30px] min-w-full">
+                          <a
+                            href={link}
+                            className="leading-1 text-15 font-medium fill-[#ffffffbf] text-[#ffffffbf] bg-[#02010100] border-[none] p-0"
+                          >
+                            <span className="elementor-button-text">{title}</span>
+                          </a>
+                        </div>
+                      </div>
+                    )}
+
+                    {dataFilter?.type === 'IMAGE' && (
+                      <div
+                        key={id}
+                        className="col-12 md:col-6  lg:col-3 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
+                      >
+                        <div className="video mb-[20px]">
+                          <img width="100%" height="671" src={image} alt={title} />
                         </div>
                         <div className="content pb-[30px] min-w-full">
                           <a
