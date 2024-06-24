@@ -39,7 +39,7 @@ export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
       </div>
       <div className="flex items-center">
         <button
-          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 uppercase ${
+          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 hover:bg-primary break-words transition duration-200 uppercase ${
             !items.length ? 'opacity-50' : 'opacity-100'
           }`}
           disabled={!items.length || isLoading}

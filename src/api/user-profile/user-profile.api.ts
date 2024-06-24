@@ -5,7 +5,7 @@ export const fetchUserProfileApi = () => {
   return new Promise<IUserProfile>((resolve, reject) => {
     API.get<{
       data: IUserProfile;
-    }>('/v1/user-service/me')
+    }>('/account/accounts/me/user-info')
       .then((res) => {
         resolve(res.data.data);
       })
@@ -15,7 +15,7 @@ export const fetchUserProfileApi = () => {
 
 export const fetchUserProfileByIdApi = (id: string) => {
   return new Promise<IUserProfile>((resolve, reject) => {
-    API.get<IUserProfile>(`/v1/user-service/users/${id}`)
+    API.get<IUserProfile>(`/account/accounts/${id}`)
       .then((res) => {
         resolve(res.data);
       })

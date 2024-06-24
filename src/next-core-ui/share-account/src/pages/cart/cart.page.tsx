@@ -127,9 +127,9 @@ export const CartPage: React.FC<CartPageProps> = (props) => {
                 />
                 {/* tiếp tục xem sản phẩm */}
                 <div className="flex mt-3">
-                  <button className="border-2 border-red-500 py-[5px] px-[15px] flex items-center gap-1 flex-row">
-                    <IonIcon className="text-red-500 text-[16px]" name="arrow-back-outline" />
-                    <span className="uppercase text-red-500 font-bold">Tiếp tục xem sản phẩm</span>
+                  <button className="border-2 border-red-500 hover:bg-primary break-words transition duration-200 py-[5px] px-[15px] flex items-center gap-1 flex-row">
+                    <IonIcon className="text-red-500 text-[16px] hover:text-white" name="arrow-back-outline" />
+                    <span className="uppercase text-red-500  hover:text-white font-bold">Tiếp tục xem sản phẩm</span>
                   </button>
                 </div>
                 <div className="border-t border-gray-200 my-4" />

@@ -150,18 +150,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
                 <div className="section">
                   <div className="button-group flex flex-wrap gap-[15px] pt-2">
                     <button
-                      className={`inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-success rounded-xl ${
-                        selectedDuration ? 'opacity-100' : 'opacity-50'
-                      }`}
+                      className={`inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white 
+                        bg-success hover:bg-success-darker break-words transition duration-200
+                        rounded-xl ${selectedDuration ? 'opacity-100' : 'opacity-50'}`}
                       onClick={handleBuyNowItem}
                     >
                       <IonIcon className="pr-1 text-base" name="card-outline" />
                       Mua ngay
                     </button>
                     <button
-                      className={`inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark rounded-xl  ${
-                        selectedDuration ? 'opacity-100' : 'opacity-50'
-                      }`}
+                      className={`inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white 
+                        bg-primary-dark hover:bg-primary-darker break-words transition duration-200
+                        rounded-xl  ${selectedDuration ? 'opacity-100' : 'opacity-50'}`}
                       type="button"
                       onClick={handleAddItemToCart}
                     >

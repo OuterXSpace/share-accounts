@@ -4,7 +4,7 @@ import { DynamicHeader } from '../../layouts/header/header.layout';
 import { DynamicFooter } from '../../layouts/footer/footer.layout';
 import { useRouter } from 'next/router';
 import { DynamicBody } from '../../layouts/body/body.layout';
-import { THEME } from '../../constants/platform';
+import { GOOGLE_APP_CLIENT_ID, THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { ROOT_LAYOUT_CONFIG } from '../../root-config';
 import { DynamicLayout } from '../../layouts';
@@ -12,6 +12,7 @@ import { CartProvider, LANDING_PAGE_MOCK } from '../../next-core-ui';
 import crypto from 'crypto-js';
 import { GetServerSideProps } from 'next';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -49,11 +50,13 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
     default:
       return (
-        <CartProvider>
-          <DynamicHeader item={contentPage?.header} systemConfig={DATA_PROPS} slug={slug} />
-          <DynamicBody item={contentPage?.body} systemConfig={DATA_PROPS} slug={slug} />
-          <DynamicFooter item={contentPage?.footer} systemConfig={DATA_PROPS} slug={slug} />
-        </CartProvider>
+        <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
+          <CartProvider>
+            <DynamicHeader item={contentPage?.header} systemConfig={DATA_PROPS} slug={slug} />
+            <DynamicBody item={contentPage?.body} systemConfig={DATA_PROPS} slug={slug} />
+            <DynamicFooter item={contentPage?.footer} systemConfig={DATA_PROPS} slug={slug} />
+          </CartProvider>
+        </GoogleOAuthProvider>
       );
   }
 });

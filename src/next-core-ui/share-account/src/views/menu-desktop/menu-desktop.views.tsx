@@ -31,7 +31,7 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
           </Link>
           <div className="flex items-center gap-3">
             <button
-              className="flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white rounded-xl"
+              className="flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white hover:bg-gray-1 break-words transition duration-200 rounded-xl"
               onClick={handleOpenCart}
             >
               Giỏ hàng
@@ -47,7 +47,7 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
             {!isLogin ? (
               <Link
                 href="/login"
-                className="flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark rounded-xl"
+                className="flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark hover:bg-primary-darker break-words transition duration-200 rounded-xl"
               >
                 <IonIcon className="pr-1 text-[20px]" name="person-outline" />
                 Đăng nhập
@@ -59,7 +59,7 @@ export const MenuDesktop: React.FC<IMenuDesktopProps> = (props) => {
                 className="bg-[#053724e6] border-t-[1px] border-primary"
                 renderTrigger={() => (
                   <button
-                    className="inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark rounded-xl"
+                    className="inline-flex items-center justify-center px-4 py-3 font-semibold text-sm text-white bg-primary-dark hover:bg-primary-darker break-words transition duration-200 rounded-xl"
                     type="button"
                   >
                     <IonIcon className="pr-1 text-base" name="person-outline" />

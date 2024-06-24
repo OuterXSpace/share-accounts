@@ -31,7 +31,7 @@ export const DrawerCart: React.FC<IDrawerCartProps> = (props) => {
                 {/* empty Cart */}
                 <IonIcon className="text-gray-200 text-[80px]" name="cart-outline" />
                 <span className="text-center block">Chưa có sản phẩm trong giỏ hàng.</span>
-                <div className="mt-[8px] p-[10px] w-fit bg-red-500 text-white uppercase text-center">
+                <div className="mt-[8px] p-[10px] w-fit bg-red-500 hover:bg-primary break-words transition duration-200 text-white uppercase text-center">
                   <Link href="/cart">Quay trở lại cửa hàng</Link>
                 </div>
               </>

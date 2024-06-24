@@ -36,7 +36,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
             return (
               <SwiperSlide key={id} className="w-full h-full flex items-center home-slide">
                 <Link href={link} className="w-full ">
-                  <img src={imageUrl} alt={title} className="h-full w-full" />
+                  <img src={imageUrl} alt={title} className="object-cover max-h-[500px] w-full" />
                 </Link>
               </SwiperSlide>
             );

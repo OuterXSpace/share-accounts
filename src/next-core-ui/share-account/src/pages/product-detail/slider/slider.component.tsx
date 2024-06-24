@@ -54,7 +54,9 @@ export const Slider: React.FC<SliderProps> = (props) => {
           virtual
         >
           <div
-            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 w-9 h-9 bg-white border-none outline-none p-0 top-1/2 left-0 transform -translate-y-1/2"
+            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10 w-9 h-9 
+            bg-white hover:bg-gray-1 break-words transition duration-200
+            border-none outline-none p-0 top-1/2 left-0 transform -translate-y-1/2"
             onClick={handlePrev}
           >
             <IonIcon className="text-[20px]" name="arrow-back-outline" />
@@ -69,9 +71,9 @@ export const Slider: React.FC<SliderProps> = (props) => {
                 onClick={() => setItemSelected(item)}
                 onMouseMove={() => setItemSelected(item)}
               >
-                <div className="rounded-lg">
+                <div className="rounded-lg h-full">
                   <img
-                    className={`rounded-lg object-cover ${
+                    className={`rounded-lg object-cover h-full w-full ${
                       isItemSelected?.id === id ? 'border-[3px] border-solid border-white' : ''
                     }`}
                     alt="product"
@@ -82,7 +84,9 @@ export const Slider: React.FC<SliderProps> = (props) => {
             );
           })}
           <div
-            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10  w-9 h-9 bg-white border-none outline-none p-0 top-1/2 right-0 transform -translate-y-1/2"
+            className="items-center flex justify-center rounded-lg cursor-pointer absolute z-10  w-9 h-9 
+            bg-white hover:bg-gray-1 break-words transition duration-200
+            border-none outline-none p-0 top-1/2 right-0 transform -translate-y-1/2"
             onClick={handleNext}
           >
             <IonIcon className="text-[20px]" name="arrow-forward-outline" />
