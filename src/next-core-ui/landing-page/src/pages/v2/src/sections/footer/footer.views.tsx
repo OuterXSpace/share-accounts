@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FooterV2Props } from './footer.type';
+import { HoverUnderlineAnimation } from '../../animation/hover-underline';
 
 export const FooterV2: React.FC<FooterV2Props> = (props) => {
   const { data, className } = props;
@@ -23,42 +24,54 @@ export const FooterV2: React.FC<FooterV2Props> = (props) => {
                   SERVICES
                 </h3>
                 <div className="inline-flex flex-col gap-2 justify-start items-start">
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] md:text-[2vw] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    DevOps
-                  </Link>
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    Data Management
-                  </Link>
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    Enterprise Solutions
-                  </Link>
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    Quality Assurance
-                  </Link>
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    CRM Solutions
-                  </Link>
-                  <Link
-                    href="/"
-                    className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] after:block after:content-[''] after:border-b after:border-b-[1px] after:border-[#fff] after:pb-[0.2vw] after:m-auto after:text-left after:origin-[100%_0%] after:transform after:scale-x-0 after:ease-in-out after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-[0%_50%]"
-                  >
-                    In-Tech Solutions
-                  </Link>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] text-[#938388] md:text-[2vw] lg:text-[1vw]"
+                    >
+                      DevOps
+                    </Link>
+                  </HoverUnderlineAnimation>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw]"
+                    >
+                      Data Management
+                    </Link>
+                  </HoverUnderlineAnimation>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] "
+                    >
+                      Enterprise Solutions
+                    </Link>
+                  </HoverUnderlineAnimation>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw]"
+                    >
+                      Quality Assurance
+                    </Link>
+                  </HoverUnderlineAnimation>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw]"
+                    >
+                      CRM Solutions
+                    </Link>
+                  </HoverUnderlineAnimation>
+                  <HoverUnderlineAnimation>
+                    <Link
+                      href="/"
+                      className="z-10 no-underline pb-1 text-[3.5vw] md:text-[2vw] text-[#938388] lg:text-[1vw] "
+                    >
+                      In-Tech Solutions
+                    </Link>
+                  </HoverUnderlineAnimation>
                 </div>
               </div>
               <div>
