@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { LandingPageV2Props } from './landing-page.type';
 import gsap from 'gsap-trial/dist/gsap';
 import { useGSAP } from '@gsap/react';
 import { useRouter } from 'next/router';
-import { GlobalPageStyles, CommonJxsStyle, CommonPageStyles } from '../views';
+import { GlobalPageStyles, CommonJxsStyle, CommonPageStyles, HomePage } from '../views';
 
 gsap.registerPlugin(useGSAP);
 
@@ -34,7 +34,7 @@ export const LandingPageTestHome: React.FC<LandingPageV2Props> = () => {
       </Head>
       <GlobalPageStyles />
       <CommonJxsStyle />
-      <Component />
+      <HomePage />
       <CommonPageStyles />
 
       <style global jsx>{`
