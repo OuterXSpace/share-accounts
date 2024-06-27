@@ -1,0 +1,97 @@
+import Link from 'next/link';
+import { NewsV4Props } from './news.type';
+
+export const NewsV4: React.FC<NewsV4Props> = (props) => {
+  const { data, className } = props;
+
+  return (
+    <section className={`py-4 my-4 tpw lg:px-5 lg:w-full ${className}`}>
+      <div className="flex items-center mb-5 ">
+        <h3 className="text-2xl font-bold leading-2.5 text-dark-grey-700 mb-0">{data?.object?.title}</h3>
+        <Link
+          className="transition-colors justify-center inline-flex items-center border hover:no-underline cursor-pointer bic-c-btn-medium gap-x-2.5 btn-3 px-4 py-2.5 rounded-md btn-medium bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white
+              disabled:bg-grey-300 disabled:border-grey-300 disabled:text-grey-100 bic-c-button-primary ml-auto md:flex"
+          href={data?.object?.button?.link ?? ''}
+        >
+          <span>{data?.object?.button?.label}</span>
+        </Link>
+      </div>
+      <div className="flex flex-wrap -mx-3 card-wrapper md:mb-0 lg:mx-0 lg:justify-between">
+        {data?.object?.array?.map((item) => {
+          const { id, title, imageUrl, link, category } = item;
+
+          return (
+            <div key={id} data-el="bic-c-news-big" className="flex w-full flex-col h-auto md:w-6/12 px-3 lg:w-1/4 mb-5">
+              <div className="shrink-0 rounded-lg md:rounded-xl mb-2.5 md:mb-3 max-w-full overflow-hidden">
+                <Link href={link ?? ''}>
+                  <img
+                    decoding="async"
+                    className="lazy object-cover aspect-video w-full entered loaded"
+                    data-sizes="75vw"
+                    src={imageUrl}
+                    data-src={imageUrl}
+                    alt={title}
+                    width={310}
+                    height={196}
+                    data-ll-status="loaded"
+                    sizes="75vw"
+                  />
+                </Link>
+              </div>
+              <div className="flex flex-col justify-between w-full lg:h-full">
+                <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-dark-grey-700 p4  mb-1 gap-x-3">
+                  <Link
+                    className="whitespace-nowrap hover:underline [.dark_&]:text-white"
+                    href={data?.object?.category?.link ?? ''}
+                  >
+                    {data?.object?.category?.title}
+                  </Link>
+                  <Link
+                    href={category?.link ?? ''}
+                    className="whitespace-nowrap hover:underline [.dark_&]:text-white"
+                    title={category?.title}
+                    style={{ color: '#e25500' }}
+                    target="_blank"
+                  >
+                    <span className="tpw tpw_style1 tpw_5686 " style={{ color: '#e25500' }}>
+                      {category?.title}
+                    </span>
+                  </Link>
+                </div>
+                <h5 className="h-full s2 s2--medium mb-2 lg:s1 lg:s1--medium">
+                  <Link href={link ?? ''} className="hover:no-underline">
+                    {title}
+                  </Link>
+                </h5>
+                <div className="flex items-center text-grey-700 [.dark_&]:text-white p5 gap-x-4">
+                  <span className="inline-flex items-center">
+                    <svg
+                      className="bic-svg-icon mr-1"
+                      width={12}
+                      height={12}
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 0C2.69138 0 0 2.69164 0 6C0 9.30862 2.69164 12 6 12C9.30836 12 12 9.30836 12 6C12 2.69138 9.30836 0 6 0ZM6 0.878101C8.83406 0.878101 11.122 3.16612 11.122 6.00005C11.122 8.83411 8.83393 11.122 6 11.122C3.16607 11.122 0.878049 8.83398 0.878049 6.00005C0.878049 3.16599 3.16607 0.878101 6 0.878101ZM6 1.60981C5.75756 1.60981 5.56095 1.80641 5.56095 2.04886V6.00008C5.56095 6.16238 5.64945 6.30366 5.78042 6.3796L8.9495 8.20887C9.15948 8.33014 9.42733 8.25879 9.54861 8.04881C9.66989 7.83883 9.59853 7.57098 9.38855 7.44969L6.43898 5.74842V2.04886C6.43898 1.80642 6.24255 1.60981 6 1.60981Z"
+                        fill="currentColor"
+                      />
+                    </svg>{' '}
+                    <span className="font-normal body">3 mins</span>
+                  </span>
+                  <time className="date whitespace-nowrap" dateTime="2024-06-07T14:45:07+07:00">
+                    11 giờ trước
+                  </time>{' '}
+                  <time className="ago whitespace-nowrap" dateTime="2024-06-07T14:45:07+07:00">
+                    Th6 7, 2024
+                  </time>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
