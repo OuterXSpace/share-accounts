@@ -40,7 +40,7 @@ export const MenuMobileShareAccountV1ThemeV1: React.FC<IMenuMobileShareAccountV1
       >
         <Drawer.Items className="menu-list">
           <ul>
-            {data?.object?.mobileMenus?.map((item, index) => {
+            {data?.object?.mobile?.array?.map((item, index) => {
               const { id = index } = item;
 
               return (

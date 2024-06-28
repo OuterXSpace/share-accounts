@@ -99,7 +99,7 @@ export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccount
             <div
               className={`${classNamePrefix}-bar__container  px-4 flex justify-between items-center gap-8 mx-auto max-w-screen-xl w-full`}
             >
-              {data?.object?.desktopMenus?.map((item, index) => {
+              {data?.object?.desktop?.array?.map((item, index) => {
                 const { id = index } = item;
                 return <MenuItem key={id} {...item} />;
               })}

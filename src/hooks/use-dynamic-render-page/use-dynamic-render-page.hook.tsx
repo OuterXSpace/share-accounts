@@ -10,6 +10,14 @@ export const useDynamicRenderPage = (props: IDynamicRenderPageProps) => {
 
   const router = useRouter();
 
+  const slugKey = useMemo(() => {
+    const path = router?.asPath.split('/').filter((segment) => segment !== '');
+    if (path?.length === 0) {
+      return '/';
+    }
+    return `/${path?.[path.length - 1]}`;
+  }, [router?.asPath]);
+
   const slugConfigJSON = useMemo(() => {
     return findTheme(configJSON, router?.asPath);
   }, [configJSON, router?.asPath]);
@@ -30,5 +38,6 @@ export const useDynamicRenderPage = (props: IDynamicRenderPageProps) => {
   return {
     slugConfigJSON,
     renderSeoPage,
+    slugKey,
   };
 };

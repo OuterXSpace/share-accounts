@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
-import { FormattedCurrency } from '../../../../../../../../../../../components';
+import { FormattedCurrency, NotFound } from '../../../../../../../../../../../components';
 
 export const ProductDetailPageShareAccountTheme01: React.FC<ProductDetailPageShareAccountTheme01Props> = (props) => {
   const { products } = props;
@@ -31,7 +31,7 @@ export const ProductDetailPageShareAccountTheme01: React.FC<ProductDetailPageSha
   }, [products, router?.query?.id]);
 
   if (!productDetail) {
-    return <div>Product not found</div>;
+    return <NotFound />;
   }
 
   const handleSelectedDuration = (durationItem: IProductItemDuration) => {
