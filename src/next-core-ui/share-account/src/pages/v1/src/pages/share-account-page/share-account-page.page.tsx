@@ -7,15 +7,15 @@ import { useDynamicRenderPage } from '../../../../../../../../hooks';
 export const ShareAccountPageV1: React.FC<LandingPageV4Props> = (props) => {
   const { systemConfig } = props;
 
-  const { configParentOutput, configChildrenOutput, renderSeoPage } = useDynamicRenderPage({systemConfig});
+  const { slugConfigJSON, renderSeoPage } = useDynamicRenderPage({ systemConfig });
 
   const renderPageFollowTheme = useMemo(() => {
-    if (configParentOutput?.theme || configChildrenOutput?.theme === 'V1') {
-      return <ShareAccountPageV1ThemeV1 systemConfig={systemConfig} />;
+    if (slugConfigJSON?.theme === 'V1') {
+      return <ShareAccountPageV1ThemeV1 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} />;
     }
 
     return <div>Not found theme</div>;
-  }, [configChildrenOutput?.theme, configParentOutput?.theme, systemConfig]);
+  }, [slugConfigJSON, systemConfig]);
 
   return (
     <>

@@ -8,47 +8,31 @@ import { useMemo } from 'react';
 import { useDeviceSizes } from '../../../../../../../../../../../hooks';
 import { HomeSliderShareAccountStyles } from './home-slider.styles';
 import { ExportSectionShareAccountV1ThemeV1 } from '../../sections/export.section';
-import { useDynamicRenderPage } from '../../../../../../../../../../../hooks/use-dynamic-render-page';
 
 export const ShareAccountPageV1ThemeV1: React.FC<ShareAccountPageV1ThemeV1Props> = (props) => {
-  const { systemConfig } = props;
+  const { systemConfig, slugConfigJSON } = props;
 
   const isDevice = useDeviceSizes();
 
-  const { configParentOutput, configChildrenOutput } = useDynamicRenderPage({ systemConfig });
+  const renderSections = useMemo(() => {
+    if (!slugConfigJSON) return <div>Notfound config page</div>;
 
-  const renderParentOutput = useMemo(() => {
-    return configParentOutput?.array?.map((item) => {
-      const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.theme];
-      return (
-        <ExportSectionShareAccountV1ThemeV1
-          key={item?.id}
-          data={data}
-          systemConfig={systemConfig}
-          section={item?.section}
-          className={item?.className}
-        />
-      );
-    });
-  }, [configParentOutput?.array, systemConfig]);
+    return slugConfigJSON?.array?.map((childItem) => {
+      const { id, section, className, theme } = childItem;
 
-  const renderChildrenOutput = useMemo(() => {
-    if (!configChildrenOutput) return;
-
-    return configChildrenOutput?.slug?.array?.map((childItem) => {
-      const childData = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[childItem?.section]?.[childItem?.theme];
+      const childData = systemConfig?.ldpSystemConfigPage?.dataConfig?.[slugConfigJSON?.theme]?.[section]?.[theme];
 
       return (
         <ExportSectionShareAccountV1ThemeV1
-          key={childItem?.id}
+          key={id}
           data={childData}
           systemConfig={systemConfig}
-          section={childItem?.section}
-          className={childItem?.className}
+          section={section}
+          className={className}
         />
       );
     });
-  }, [configChildrenOutput, systemConfig]);
+  }, [slugConfigJSON, systemConfig]);
 
   return (
     <main className="pt-[80px] md:pt-[90px] lg:pt-[120px]">
@@ -60,8 +44,7 @@ export const ShareAccountPageV1ThemeV1: React.FC<ShareAccountPageV1ThemeV1Props>
         ) : (
           <MenuMobileShareAccountV1ThemeV1 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU_SECTION?.V1} />
         )}
-        {renderParentOutput}
-        {renderChildrenOutput}
+        {renderSections}
         <FooterShareAccountTheme01 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.FOOTER_SECTION?.V1} />
         <HomeSliderShareAccountStyles />
       </div>
