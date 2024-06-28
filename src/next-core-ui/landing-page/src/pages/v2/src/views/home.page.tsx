@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { HoverChangeText, HoverFloatText } from '../animation';
 
-export const Component: React.FC = () => {
+export const HomePage: React.FC = () => {
   return (
     <div id="page" className="page-content">
       <div className="hero">

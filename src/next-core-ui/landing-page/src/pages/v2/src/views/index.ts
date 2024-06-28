@@ -3,7 +3,7 @@ export * from './common.style';
 export * from '../styles';
 export * from './global.style';
 export * from '../animation';
-export * from './common.page';
+export * from './home.page';
 export * from './contact.page';
 export * from './crm.page';
 export * from './service.page';
