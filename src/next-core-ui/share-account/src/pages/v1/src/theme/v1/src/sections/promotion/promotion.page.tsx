@@ -12,7 +12,7 @@ export const PromotionPageShareAccountTheme01: React.FC<IPromotionPageShareAccou
         <meta property="og:image" />
         <title>Promotion page</title>
       </Head>
-      <main className="pt-[120px]">
+      <main className="promotion">
         <section className="container py-[3rem] pb-[2rem]">
           <div className="row">
             <div className="col-12" />

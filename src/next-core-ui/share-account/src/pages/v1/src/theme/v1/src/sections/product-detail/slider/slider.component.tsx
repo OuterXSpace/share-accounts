@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual, Pagination } from 'swiper/modules';
 import { useRef, useCallback, useState, useEffect } from 'react';
 import IonIcon from '@reacticons/ionicons';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -31,10 +32,11 @@ export const Slider: React.FC<SliderProps> = (props) => {
 
   return (
     <div className="flex flex-col items-start">
-      <img
+      <LazyLoadImage
         className="rounded-lg bg-white cursor-pointer object-cover mb-5 w-full h-[275px] md:w-[275px]"
         alt="product"
         src={isItemSelected?.imageUrl}
+        effect="blur"
       />
       <div className="w-full">
         <Swiper
@@ -72,12 +74,15 @@ export const Slider: React.FC<SliderProps> = (props) => {
                 onMouseMove={() => setItemSelected(item)}
               >
                 <div className="rounded-lg h-full">
-                  <img
+                  <LazyLoadImage
                     className={`rounded-lg object-cover h-full w-full ${
                       isItemSelected?.id === id ? 'border-[3px] border-solid border-white' : ''
                     }`}
                     alt="product"
                     src={imageUrl}
+                    effect="blur"
+                    width="100%"
+                    height="100%"
                   />
                 </div>
               </SwiperSlide>

@@ -3,6 +3,7 @@ import { ISliderHomeShareAccountTheme01Props } from './slider-home.sections.type
 import Link from 'next/link';
 import { SliderFull } from '../../components/slider-full';
 import { SwiperSlide } from 'swiper/react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const SliderHomeShareAccountTheme01: React.FC<ISliderHomeShareAccountTheme01Props> = (props) => {
   const { data } = props;
@@ -15,7 +16,13 @@ export const SliderHomeShareAccountTheme01: React.FC<ISliderHomeShareAccountThem
         return (
           <SwiperSlide key={id} className="w-full h-full flex items-center home-slide">
             <Link href={link} className="w-full ">
-              <img src={imageUrl} alt={title} className="object-cover max-h-[500px] w-full" />
+              <LazyLoadImage
+                src={imageUrl}
+                alt={title}
+                className="object-cover max-h-[500px]"
+                effect="blur"
+                width="100%"
+              />
             </Link>
           </SwiperSlide>
         );

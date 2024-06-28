@@ -11,6 +11,7 @@ import {
   isLoginSelector,
 } from '../../../../../../../../../../../store/store-authentication/selector';
 import { IMenuDesktopShareAccountV1ThemeV1Props } from './menu-desktop.type';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const classNamePrefix = 'tt-header';
 
@@ -29,8 +30,13 @@ export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccount
     <nav className={`${classNamePrefix} w-full fixed top-0 z-[39] bg-white`}>
       <div className={`${classNamePrefix}__top-nav border-b border-primary bg-gradient-to-top-primary h-[72px]`}>
         <div className="container flex items-center justify-between h-[72px]">
-          <Link href="/" className="h-[72px] cursor-pointer">
-            <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
+          <Link href="/" className="cursor-pointer">
+            <LazyLoadImage
+              className="h-[70px]"
+              src="https://79sodo.com/assets/home/wui/logo.gif"
+              alt="logo icon"
+              effect="blur"
+            />
           </Link>
           <div className="flex items-center gap-3">
             <button

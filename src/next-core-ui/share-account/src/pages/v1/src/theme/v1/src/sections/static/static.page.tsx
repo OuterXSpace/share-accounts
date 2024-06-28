@@ -26,7 +26,7 @@ export const StaticPageShareAccountTheme01: React.FC<IStaticPageShareAccountThem
   }, [router?.query?.slug, data?.data]);
 
   return (
-    <main className="pt-[120px]">
+    <main className="static-page">
       <section className="container py-[3rem] pb-[2rem]">
         <div className="row">
           <div className="col-1" />

@@ -5,3 +5,4 @@
 @import './toto-slider.css';
 @import './layout.css';
 @import './toast.css';
+@import 'react-lazy-load-image-component/src/effects/blur.css';

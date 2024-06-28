@@ -79,7 +79,7 @@ export const ProductDetailPageShareAccountTheme01: React.FC<ProductDetailPageSha
         <meta property="og:image" />
         <title>{productDetail?.title}</title>
       </Head>
-      <main className="pt-[120px]">
+      <main className="product-detail">
         <div className="container py-[16px]">
           <div className="row flex flex-nowrap flex-col md:flex-row gap-4 md:gap-0">
             <div className="md:col-6 px-[16px] w-auto">

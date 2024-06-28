@@ -30,7 +30,7 @@ export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTh
   }, [id]);
 
   return (
-    <main className="container pt-[120px] w-full mt-10">
+    <main className="container w-full mt-10">
       <section className="row">
         <aside className="col-3 pr-5">
           <div className="overflow-y-auto w-full rounded-xl p-4 bg-white border shadow-lg">
