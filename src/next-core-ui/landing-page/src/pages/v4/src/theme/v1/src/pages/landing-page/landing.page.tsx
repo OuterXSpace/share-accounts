@@ -25,7 +25,7 @@ export const LandingPageV4ThemeV1: React.FC<LandingPageV4ThemeV1Props> = (props)
 
   const isDevice = useDeviceSizes();
 
-  const pageDataConfigWithDynamicRouter = useMemo(() => {
+  const dataConfigOfDynamicRouter = useMemo(() => {
     return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
   }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
@@ -34,14 +34,14 @@ export const LandingPageV4ThemeV1: React.FC<LandingPageV4ThemeV1Props> = (props)
 
     if (!router?.query?.slug) return;
 
-    if (router?.query?.slug?.length === 1 && !!pageDataConfigWithDynamicRouter) return;
+    if (router?.query?.slug?.length === 1 && !!dataConfigOfDynamicRouter) return;
 
     if (router?.query?.slug?.length > 1) {
       str = router?.query?.slug[0];
     }
 
     return systemConfig?.ldpSystemConfigPage?.systemConfig?.[str];
-  }, [pageDataConfigWithDynamicRouter, router?.query?.slug, systemConfig?.ldpSystemConfigPage?.systemConfig]);
+  }, [dataConfigOfDynamicRouter, router?.query?.slug, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
   const renderPageDetailWithDynamicRouter = useMemo(() => {
     if (!pageDetailDataConfigWithDynamicRouter) return;
@@ -54,7 +54,7 @@ export const LandingPageV4ThemeV1: React.FC<LandingPageV4ThemeV1Props> = (props)
   }, [pageDetailDataConfigWithDynamicRouter, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
 
   const renderSectionPageWithDynamicRouter = useMemo(() => {
-    return pageDataConfigWithDynamicRouter?.array?.map((item) => {
+    return dataConfigOfDynamicRouter?.array?.map((item) => {
       const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.data];
 
       const renderItem = () => {
@@ -83,7 +83,7 @@ export const LandingPageV4ThemeV1: React.FC<LandingPageV4ThemeV1Props> = (props)
       };
       return renderItem();
     });
-  }, [pageDataConfigWithDynamicRouter?.array, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
+  }, [dataConfigOfDynamicRouter?.array, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
 
   return (
     <main className="bg-[#ffffff]">

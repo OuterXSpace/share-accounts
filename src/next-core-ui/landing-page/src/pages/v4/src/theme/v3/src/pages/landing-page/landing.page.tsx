@@ -23,7 +23,7 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
 
   const isDevice = useDeviceSizes();
 
-  const pageDataConfigWithDynamicRouter = useMemo(() => {
+  const dataConfigOfDynamicRouter = useMemo(() => {
     return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
   }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
@@ -32,14 +32,14 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
 
     if (!router?.query?.slug) return;
 
-    if (router?.query?.slug?.length === 1 && !!pageDataConfigWithDynamicRouter) return;
+    if (router?.query?.slug?.length === 1 && !!dataConfigOfDynamicRouter) return;
 
     if (router?.query?.slug?.length > 1) {
       str = router?.query?.slug[0];
     }
 
     return systemConfig?.ldpSystemConfigPage?.systemConfig?.[str];
-  }, [pageDataConfigWithDynamicRouter, router?.query?.slug, systemConfig?.ldpSystemConfigPage?.systemConfig]);
+  }, [dataConfigOfDynamicRouter, router?.query?.slug, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
   const renderPageDetailWithDynamicRouter = useMemo(() => {
     if (!pageDetailDataConfigWithDynamicRouter) return;
@@ -52,7 +52,7 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
   }, [pageDetailDataConfigWithDynamicRouter, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
 
   const renderSectionPageWithDynamicRouter = useMemo(() => {
-    return pageDataConfigWithDynamicRouter?.array?.map((item) => {
+    return dataConfigOfDynamicRouter?.array?.map((item) => {
       const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.data];
 
       const renderItem = () => {
@@ -81,7 +81,7 @@ export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props)
       };
       return renderItem();
     });
-  }, [pageDataConfigWithDynamicRouter?.array, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
+  }, [dataConfigOfDynamicRouter?.array, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
 
   // return (
   //   <main className="page-template page-template-template-clean-with-coins template-clean-with-coins page page-id-164 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-164-data page-about-data template-clean-with-coins-data about non-amp page-about-us dark page-about-us dark">

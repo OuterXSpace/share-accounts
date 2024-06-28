@@ -7,7 +7,7 @@ export const LandingPageV4ThemeV2: React.FC<LandingPageV4ThemeV2Props> = (props)
 
   // const isDevice = useDeviceSizes();
 
-  // const pageDataConfigWithDynamicRouter = useMemo(() => {
+  // const dataConfigOfDynamicRouter = useMemo(() => {
   //   return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
   // }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
@@ -20,7 +20,7 @@ export const LandingPageV4ThemeV2: React.FC<LandingPageV4ThemeV2Props> = (props)
   //         ) : (
   //           <LandingPageMenuMobileV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
   //         )}
-  //         {pageDataConfigWithDynamicRouter?.array?.map((item) => {
+  //         {dataConfigOfDynamicRouter?.array?.map((item) => {
   //           const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.data];
 
   //           const renderItem = () => {

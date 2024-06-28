@@ -1,4 +1,1 @@
 export * from './layouts';
-export * from './pages';
-export * from './views';
-export * from './context';

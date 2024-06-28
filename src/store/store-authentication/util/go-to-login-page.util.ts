@@ -6,10 +6,10 @@ export const goToLoginPage = (delay?: number) => {
   const loginUrl = loginUrlSelector();
 
   if (!delay || delay < 0) {
-    history.push(loginUrl);
+    history?.push(loginUrl);
   } else {
     setTimeout(() => {
-      history.push(loginUrl);
+      history?.push(loginUrl);
     }, delay);
   }
 };
