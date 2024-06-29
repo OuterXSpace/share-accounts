@@ -1,6 +1,6 @@
 import { CartPageShareAccountTheme01Props } from './cart.type';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { CartInfoTable } from './components/cart-info-table';
 import { CartInfoPayment } from './components/cart-info-payment';
 import IonIcon from '@reacticons/ionicons';
@@ -10,18 +10,14 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { CartInfoForm } from './components/cart-info-form';
 import { useRouter } from 'next/router';
-import { checkoutApi } from '../../../../../../../../../../../api/checkout';
 import { FormattedCurrency, useToast } from '../../../../../../../../../../../components';
-import { PUBLIC_URL } from '../../../../../../../../../../../constants/platform';
-import {
-  isLoginSelector,
-  loginUrlSelector,
-} from '../../../../../../../../../../../store/store-authentication/selector';
 import { getUuid } from '../../../../../../../../../../../utils';
 import { ProductCard } from '../../components/product-card';
-import { CartContext } from '../../context';
+import { cartActions, selectCart } from '../../../../../../../../../../../store-tookit';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkoutApi } from '../../../../../../../../../../../api/checkout';
+import { PUBLIC_URL } from '../../../../../../../../../../../constants/platform';
 
-// validate sceheme for cart info form
 const cartInfoSchema = yup.object().shape({
   firstName: yup.string().required('Tên là mục bắt buộc'),
   lastName: yup.string().required('Họ là mục bắt buộc'),
@@ -33,22 +29,23 @@ const cartInfoSchema = yup.object().shape({
 export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Props> = (props) => {
   const { products } = props;
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const { showToast } = useToast();
 
-  const { initialState, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } =
-    useContext(CartContext);
+  const router = useRouter();
 
-  const { totalPrice, cartItems } = initialState;
+  const cartState = useSelector(selectCart);
+
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const currency = 'VNĐ';
 
-  const isLogin = isLoginSelector();
-
-  const loginUrl = loginUrlSelector();
-
-  const router = useRouter();
+  const totalPriceCart = useMemo(() => {
+    return cartState.cart.reduce((total, item) => {
+      return total + item.quantity * item.price;
+    }, 0);
+  }, [cartState]);
 
   const {
     getValues,
@@ -62,11 +59,11 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
     defaultValues: {},
   });
 
-  const handlePostOrder = async () => {
+  const onSubmit = async () => {
     const cartInfoValues = getValues();
     const payload = {
       orderId: getUuid(),
-      amount: totalPrice,
+      amount: totalPriceCart,
       url: PUBLIC_URL,
     };
     try {
@@ -93,34 +90,14 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
         <div className="row w-full">
           <div className="col w-full">
             <section className="w-full mb-[50px] shadow-custom bg-white p-[20px] md:p-[40px]">
-              <div className="flex flex-col gap-2">
-                {!isLogin && (
-                  <span>
-                    Bạn đã có tài khoản?{' '}
-                    <Link href="/" className="text-red-500">
-                      Ấn vào đây để đăng nhập
-                    </Link>
-                  </span>
-                )}
-                <span>
-                  Bạn đã có mã ưu đãi?{' '}
-                  <Link href="/" className="text-red-500">
-                    Ấn vào đây để nhập mã
-                  </Link>
-                </span>
-              </div>
               <div className="py-4 bg-white block sm:flex items-center justify-between ">
                 <h1 className="text-[17px] md:text-[20px] text-gray-900 uppercase font-bold">Thông tin Giỏ hàng</h1>
               </div>
-              {/* table cart */}
               <CartInfoTable
-                items={cartItems}
-                removeItemToCart={removeItemToCart}
-                increaseItemQuantity={increaseItemQuantity}
-                decreaseItemQuantity={decreaseItemQuantity}
-                onChangeItemQuantity={onChangeItemQuantity}
+                cart={cartState.cart}
+                removeFromCart={(c) => dispatch(cartActions.removeFromCart(c))}
+                updateCart={(c) => dispatch(cartActions.updateCart(c))}
               />
-              {/* tiếp tục xem sản phẩm */}
               <div className="flex mt-3">
                 <Link
                   href="/"
@@ -131,10 +108,8 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
                 </Link>
               </div>
               <div className="border-t border-gray-200 my-4" />
-              {/* info buyer */}
               <CartInfoForm register={register} errors={errors} clearErrors={clearErrors} />
               <div className="border-t border-gray-200 my-4" />
-              {/* total price */}
               <div className="flex w-full py-4 flex-col gap-2">
                 <div>
                   <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
@@ -142,28 +117,21 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
                 <div className="flex items-center w-full gap-2 justify-between">
                   <div className="text-[17px] md:text-[20px]">Tạm tính</div>
                   <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                    <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+                    <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
                   </div>
                 </div>
                 <div className="flex items-center w-full gap-2 justify-between">
                   <div className="text-[17px] md:text-[20px]">Tổng</div>
                   <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                    <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
+                    <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
                   </div>
                 </div>
               </div>
-              {/* payment */}
-              <CartInfoPayment
-                items={cartItems}
-                totalPrice={totalPrice}
-                handlePostOrder={handlePostOrder}
-                isLoading={isLoading}
-              />
+              <CartInfoPayment cart={cartState.cart} onSubmit={onSubmit} isLoading={isLoading} disabled={!isValid} />
             </section>
           </div>
         </div>
       </section>
-      {/* relate product */}
       <section className="container product-suggestion pb-10">
         <div className="row">
           <div className="col">

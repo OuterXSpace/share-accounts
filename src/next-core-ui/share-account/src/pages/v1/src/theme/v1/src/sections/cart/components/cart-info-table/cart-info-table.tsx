@@ -6,9 +6,8 @@ import IonIcon from '@reacticons/ionicons';
 import { FormattedCurrency } from '../../../../../../../../../../../../../components';
 
 export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
-  const { items, removeItemToCart, increaseItemQuantity, decreaseItemQuantity, onChangeItemQuantity } = props;
+  const { cart, removeFromCart, updateCart } = props;
 
-  const currency = 'VNĐ';
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
@@ -22,14 +21,26 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
                 <Table.HeadCell className="min-w-[180px]">Tạm tính</Table.HeadCell>
               </Table.Head>
               <Table.Body className="divide-y">
-                {items.map((item) => {
-                  const { id, imageUrl, imageAlt, title, linkUrl, durationLabel, totalPrice, originalPrice, quantity } =
-                    item;
+                {cart.map((c) => {
+                  const { quantity, price, variants, product } = c;
+
+                  const { id, linkUrl, imageUrl, imageAlt, title, currency, durations } = product;
+
+                  const duration = durations.filter((d) => d.id === variants)[0];
+
+                  const totalPrice = quantity * price;
                   return (
                     <Table.Row className="bg-white" key={id}>
                       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 flex flex-row gap-4 items-center">
                         <div className="relative">
-                          <button className="absolute top-[-5px] left-[-5px]" onClick={() => removeItemToCart(id)}>
+                          <button
+                            className="absolute top-[-5px] left-[-5px]"
+                            onClick={() =>
+                              removeFromCart({
+                                id: c.id,
+                              })
+                            }
+                          >
                             <IonIcon
                               className="text-black text-[20px] bg-white rounded-full"
                               name="close-circle-outline"
@@ -46,20 +57,19 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
                           </Link>
                         </div>
                         <Link href={linkUrl} className="text-red-500">
-                          {title} ({durationLabel})
+                          {title} ({duration?.label})
                         </Link>
                       </Table.Cell>
                       <Table.Cell>
-                        {' '}
                         <strong>
-                          <FormattedCurrency value={originalPrice} isColored={false} /> {currency}
+                          <FormattedCurrency value={price} isColored={false} /> {currency}
                         </strong>
                       </Table.Cell>
                       <Table.Cell>
                         <div className="flex flex-row h-full">
                           <button
                             className="px-[10px] border h-[35px] w-[3rem]"
-                            onClick={() => decreaseItemQuantity(id)}
+                            onClick={() => updateCart({ idCart: c?.id, type: 'decrease' })}
                           >
                             -
                           </button>
@@ -67,20 +77,26 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
                             <input
                               type="number"
                               value={quantity}
+                              defaultValue={quantity}
                               className="px-[10px] border h-[35px] border-gray-200 w-full text-center"
-                              onChange={(e) => onChangeItemQuantity(id, Number(e.target.value))}
+                              onChange={(e) =>
+                                updateCart({
+                                  idCart: c?.id,
+                                  type: 'pass-parameters',
+                                  quantity: Number(e.target.value),
+                                })
+                              }
                             />
                           </div>
                           <button
                             className="px-[10px] border h-[35px] w-[3rem]"
-                            onClick={() => increaseItemQuantity(id)}
+                            onClick={() => updateCart({ idCart: c?.id, type: 'increase' })}
                           >
                             +
                           </button>
                         </div>
                       </Table.Cell>
                       <Table.Cell>
-                        {' '}
                         <strong>
                           <FormattedCurrency value={totalPrice} isColored={false} /> {currency}
                         </strong>

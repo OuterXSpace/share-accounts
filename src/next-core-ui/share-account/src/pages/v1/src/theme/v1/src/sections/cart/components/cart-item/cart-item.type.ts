@@ -1,16 +1,6 @@
-export interface ICartItemPageProps {
-  item: ICartItem;
-  removeItemToCart: (id: string) => void;
-}
+import { ICartState } from '../../../../../../../../../../../../../store-tookit';
 
-export interface ICartItem {
-  id: string;
-  quantity?: number;
-  imageUrl: string;
-  imageAlt: string;
-  title: string;
-  linkUrl: string;
-  durationLabel: string;
-  totalPrice?: number;
-  originalPrice: number;
+export interface ICartItemPageProps {
+  item: ICartState;
+  removeFromCart: (id: string) => void;
 }

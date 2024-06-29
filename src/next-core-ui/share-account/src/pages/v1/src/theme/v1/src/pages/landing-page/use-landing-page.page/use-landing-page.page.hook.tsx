@@ -1,15 +1,25 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { useDeviceSizes } from '../../../../../../../../../../../../hooks';
+import { cartActions, cartSliceKey, reducer, selectCart } from '../../../../../../../../../../../../store-tookit';
+import { useInjectReducer } from '../../../../../../../../../../../../utils';
 import {
   ExportSectionShareAccountV1ThemeV1,
   MenuDesktopShareAccountV1ThemeV1,
   MenuMobileShareAccountV1ThemeV1,
   FooterShareAccountTheme01,
+  DialogCartShareAccountTheme01,
 } from '../../../sections';
 import { IUseShareAccountPageV1ThemeV1Props } from './use-landing-page.page.type';
 import { useMemo } from 'react';
 
 export const useShareAccountPageV1ThemeV1 = (props: IUseShareAccountPageV1ThemeV1Props) => {
+  useInjectReducer({ key: cartSliceKey, reducer });
+
   const { systemConfig, slugConfigJSON, slugKey } = props;
+
+  const cartState = useSelector(selectCart);
+
+  const dispatch = useDispatch();
 
   const isDevice = useDeviceSizes();
 
@@ -52,9 +62,21 @@ export const useShareAccountPageV1ThemeV1 = (props: IUseShareAccountPageV1ThemeV
       return <FooterShareAccountTheme01 data={dataByTheme?.FOOTER_SECTION?.V1} />;
   }, [dataByTheme?.FOOTER_SECTION?.V1, slugKey]);
 
+  const renderDrawCart = useMemo(() => {
+    return (
+      <DialogCartShareAccountTheme01
+        isOpenCart={cartState?.dialogCart}
+        handleCloseCart={() => dispatch(cartActions.openDialogCart(false))}
+        handleOpenCart={() => dispatch(cartActions.openDialogCart(true))}
+        position={isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? 'right' : 'left'}
+      />
+    );
+  }, [cartState?.dialogCart, dispatch, isDevice?.isLargeDesktop, isDevice?.isSmallDesktop]);
+
   return {
     renderSections,
     renderMenu,
     renderFooter,
+    renderDrawCart,
   };
 };

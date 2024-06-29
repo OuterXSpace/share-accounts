@@ -1,19 +1,7 @@
-export interface ICartInfoTableProps {
-  items: ICartInfoTableItem[];
-  removeItemToCart: (id: string) => void;
-  increaseItemQuantity: (id: string) => void;
-  decreaseItemQuantity: (id: string) => void;
-  onChangeItemQuantity: (id: string, quantity: number) => void;
-}
+import { CartPayloadAction, ICartState } from '../../../../../../../../../../../../../store-tookit';
 
-export interface ICartInfoTableItem {
-  id: string;
-  quantity?: number;
-  imageUrl: string;
-  imageAlt: string;
-  title: string;
-  linkUrl: string;
-  durationLabel: string;
-  totalPrice?: number;
-  originalPrice: number;
+export interface ICartInfoTableProps {
+  cart: ICartState[];
+  removeFromCart: (pl: { id: string }) => void;
+  updateCart: (cA: CartPayloadAction) => void;
 }

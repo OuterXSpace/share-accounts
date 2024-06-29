@@ -1,4 +1,4 @@
-export interface IDrawerCartProps {
+export interface IDialogCartShareAccountTheme01Props {
   isOpenCart?: boolean;
   handleCloseCart?: () => void;
   handleOpenCart?: () => void;

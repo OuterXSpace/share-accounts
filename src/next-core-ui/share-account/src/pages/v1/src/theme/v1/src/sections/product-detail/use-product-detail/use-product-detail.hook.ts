@@ -5,6 +5,7 @@ import { cartSliceKey, reducer, cartActions } from '../../../../../../../../../.
 import { IProductItemDuration } from '../product-detail.type';
 import { useInjectReducer } from '../../../../../../../../../../../../utils';
 import { IUseProductDetailProps } from './use-product-detail.type';
+import { toast } from 'react-toastify';
 
 export const useProductDetail = (props: IUseProductDetailProps) => {
   useInjectReducer({ key: cartSliceKey, reducer });
@@ -29,7 +30,7 @@ export const useProductDetail = (props: IUseProductDetailProps) => {
   }, []);
 
   const addToCart = useCallback(
-    (ev) => {
+    (ev, type?: 'add-to-cart' | 'buy-now') => {
       ev.preventDefault();
 
       setFormError(undefined);
@@ -50,6 +51,10 @@ export const useProductDetail = (props: IUseProductDetailProps) => {
           product: productDetail,
         }),
       );
+
+      if (type === 'add-to-cart') {
+        toast.success('Sản phẩm đã được thêm vào Giỏ hàng!');
+      }
     },
     [dispatch, productDetail, variant],
   );
@@ -63,7 +68,7 @@ export const useProductDetail = (props: IUseProductDetailProps) => {
         return;
       }
 
-      addToCart(ev);
+      addToCart(ev, 'buy-now');
 
       router.push('/cart');
     },

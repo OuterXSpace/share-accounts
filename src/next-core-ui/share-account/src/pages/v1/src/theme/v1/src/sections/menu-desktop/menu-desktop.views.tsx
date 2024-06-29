@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import IonIcon from '@reacticons/ionicons';
 import { Dropdown, DropdownItem } from 'flowbite-react';
 import { useRouter } from 'next/router';
 import { MenuItem } from './components';
-import { CartContext } from '../../context/cart-context';
 import { logOutAction } from '../../../../../../../../../../../store/store-authentication/action';
 import {
   loginUrlSelector,
@@ -12,13 +11,17 @@ import {
 } from '../../../../../../../../../../../store/store-authentication/selector';
 import { IMenuDesktopShareAccountV1ThemeV1Props } from './menu-desktop.type';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { cartActions, selectCart } from '../../../../../../../../../../../store-tookit';
+import { useDispatch, useSelector } from 'react-redux';
 
 const classNamePrefix = 'tt-header';
 
 export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccountV1ThemeV1Props> = (props) => {
-  const { data, handleOpenCart } = props;
-  const { initialState } = useContext(CartContext);
-  const { totalQuantity } = initialState;
+  const { data } = props;
+
+  const dispatch = useDispatch();
+
+  const cartState = useSelector(selectCart);
 
   const loginUrl = loginUrlSelector();
 
@@ -41,16 +44,18 @@ export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccount
           <div className="flex items-center gap-3">
             <button
               className="flex items-center justify-center px-5 py-3 font-semibold text-sm text-dark bg-white hover:bg-gray-1 break-words transition duration-200 rounded-xl"
-              onClick={handleOpenCart}
+              onClick={() => dispatch(cartActions.openDialogCart(true))}
             >
               Giỏ hàng
               <div className="relative">
                 <IonIcon className="pl-1 text-[20px]" name="cart-outline" />
-                <div className="absolute top-[-10px] right-[-10px]">
-                  <div className="min-h-[20px] min-w-[20px] bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
-                    <span>{totalQuantity}</span>
+                {cartState?.cart?.length > 0 && (
+                  <div className="absolute top-[-10px] right-[-10px]">
+                    <div className="min-h-[20px] min-w-[20px] bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">
+                      <span>{cartState?.cart?.length}</span>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </button>
             {!isLogin ? (

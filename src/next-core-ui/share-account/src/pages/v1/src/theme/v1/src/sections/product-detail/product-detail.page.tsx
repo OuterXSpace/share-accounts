@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { ProductDetailPageShareAccountTheme01Props } from './product-detail.type';
 import { Slider } from './slider/slider.component';
 import IonIcon from '@reacticons/ionicons';
@@ -30,6 +29,25 @@ export const ProductDetailPageShareAccountTheme01: React.FC<ProductDetailPageSha
         <meta property="og:image" />
         <title>{productDetail?.title}</title>
       </Head>
+      {/* <div className="toast-content">
+        Lỗi rồi
+        <div className="ic_close">
+          <svg xmlns="http://www.w3.org/2000/svg" width={48} height={48} viewBox="0 0 48 48">
+            <g fill="none" fillRule="evenodd">
+              <g fill="#FFF" fillRule="nonzero">
+                <g>
+                  <g>
+                    <path
+                      d="M34.293 15.963c.501-.501.504-1.31.002-1.812l-.446-.446c-.5-.5-1.313-.497-1.812.002L24 21.744l-8.037-8.037c-.501-.501-1.31-.504-1.812-.002l-.446.446c-.5.5-.497 1.313.002 1.812L21.744 24l-8.037 8.037c-.501.501-.504 1.31-.002 1.812l.446.446c.5.5 1.313.497 1.812-.002L24 26.256l8.037 8.037c.501.501 1.31.504 1.812.002l.446-.446c.5-.5.497-1.313-.002-1.812L26.256 24l8.037-8.037z"
+                      transform="translate(-697 -469) translate(687 459) translate(10 10)"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div> */}
       <main className="product-detail">
         <div className="container py-[16px]">
           <div className="row flex flex-nowrap flex-col md:flex-row gap-4 md:gap-0">
@@ -114,7 +132,7 @@ export const ProductDetailPageShareAccountTheme01: React.FC<ProductDetailPageSha
                         bg-primary-dark hover:bg-primary-darker break-words transition durations-200
                         rounded-xl"
                       type="submit"
-                      onClick={addToCart}
+                      onClick={(e) => addToCart(e, 'add-to-cart')}
                     >
                       <IonIcon className="pr-1 text-base" name="cart-outline" />
                       Thêm vào giỏ hàng

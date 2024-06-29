@@ -5,7 +5,7 @@ import { useShareAccountPageV1ThemeV1 } from './use-landing-page.page';
 export const ShareAccountPageV1ThemeV1: React.FC<ShareAccountPageV1ThemeV1Props> = (props) => {
   const { systemConfig, slugConfigJSON, slugKey } = props;
 
-  const { renderSections, renderMenu, renderFooter } = useShareAccountPageV1ThemeV1({
+  const { renderSections, renderMenu, renderFooter, renderDrawCart } = useShareAccountPageV1ThemeV1({
     systemConfig,
     slugConfigJSON,
     slugKey,
@@ -17,6 +17,7 @@ export const ShareAccountPageV1ThemeV1: React.FC<ShareAccountPageV1ThemeV1Props>
         {renderMenu}
         {renderSections}
         {renderFooter}
+        {renderDrawCart}
         <HomeSliderShareAccountStyles />
       </div>
     </main>

@@ -14,8 +14,6 @@ export const DynamicLayout: React.FC<DynamicLayoutProps> = (props) => {
 
   const appData = useSelector(selectTest);
 
-  console.log('hack', appData);
-
   useEffect(() => {
     dispatch(fetchTestSlide('pikachu'));
   }, [dispatch]);

@@ -1,8 +1,8 @@
-import { ICartInfoTableItem } from '../cart-info-table';
+import { ICartState } from '../../../../../../../../../../../../../store-tookit';
 
 export interface ICartInfoPaymentProps {
-  items: ICartInfoTableItem[];
-  totalPrice: number;
-  handlePostOrder: () => void;
+  cart: ICartState[];
+  onSubmit: () => void;
+  disabled: boolean;
   isLoading: boolean;
 }

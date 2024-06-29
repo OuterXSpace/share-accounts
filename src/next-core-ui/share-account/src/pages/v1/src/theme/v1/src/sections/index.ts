@@ -13,3 +13,4 @@ export * from './welcome-popup';
 export * from './product-list';
 export * from './new-image-text-section';
 export * from './export.section';
+export * from './dialog-cart';

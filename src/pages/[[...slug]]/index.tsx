@@ -8,7 +8,6 @@ import { GetServerSideProps } from 'next';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ShareAccountLayout } from '../../layouts';
-import { CartProvider } from '../../next-core-ui/share-account/src/pages/v1/src/theme/v1/src/context';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
@@ -45,9 +44,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
     case 'SHARE_ACCOUNT_V1':
       return (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
-          <CartProvider>
-            <ShareAccountLayout systemConfig={DATA_PROPS} slug={slug} />
-          </CartProvider>
+          <ShareAccountLayout systemConfig={DATA_PROPS} slug={slug} />
         </GoogleOAuthProvider>
       );
     default:

@@ -4,6 +4,7 @@ import { createSlice, getUuid } from '../../utils';
 
 export const initialState: ContainerState = {
   loading: false,
+  dialogCart: false,
   data: {},
   cart: [],
 };
@@ -23,6 +24,9 @@ const cartSlice = createSlice({
     changeLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
+    openDialogCart(state, action: PayloadAction<boolean>) {
+      state.dialogCart = action.payload;
+    },
     addToCart(state, action: PayloadAction<ICartState>) {
       const cart = [...state.cart];
 
@@ -38,7 +42,7 @@ const cartSlice = createSlice({
 
       state.cart = cart;
     },
-    removeFromCart(state, action: PayloadAction<ICartState>) {
+    removeFromCart(state, action: PayloadAction<{ id: string }>) {
       const cart = [...state.cart];
 
       const { id } = action.payload;
@@ -50,7 +54,7 @@ const cartSlice = createSlice({
     updateCart(state, action: PayloadAction<CartPayloadAction>) {
       let cart = [...state.cart];
 
-      const { idCart, type } = action.payload;
+      const { idCart, type, quantity } = action.payload;
 
       if (type === 'increase') {
         cart = cart.map((item) => (item.id === idCart ? { ...item, quantity: item.quantity + 1 } : item));
@@ -59,6 +63,9 @@ const cartSlice = createSlice({
         cart = cart
           .map((item) => (item.id === idCart ? { ...item, quantity: item.quantity - 1 } : item))
           .filter((item) => item.quantity > 0);
+      }
+      if (type === 'pass-parameters') {
+        cart = cart.map((item) => (item.id === idCart ? { ...item, quantity } : item));
       }
       if (type === 'variants') {
         cart = cart.map((item) => (item.id === idCart ? { ...item, variants: item.variants } : item));

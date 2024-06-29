@@ -1,5 +1,6 @@
 export interface CartState {
   loading: boolean;
+  dialogCart: boolean;
   data: Record<string, any>;
   cart: ICartState[];
 }
@@ -20,6 +21,7 @@ export interface ICartState {
 
 export interface CartPayloadAction {
   idCart: string;
-  type: 'increase' | 'decrease' | 'variants';
+  type: 'increase' | 'decrease' | 'variants' | 'pass-parameters';
+  quantity?: number;
 }
 export type ContainerState = CartState;
