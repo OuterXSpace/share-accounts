@@ -178,7 +178,7 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
                   totalOrderNumber = 0,
                   categoryName = '',
                   linkUrl = '',
-                  duration,
+                  durations,
                 } = product;
                 return (
                   <ProductCard
@@ -188,7 +188,7 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
                     title={title}
                     quantity={totalOrderNumber}
                     category={categoryName}
-                    originalPrice={duration[0]?.price || 0}
+                    originalPrice={durations?.[0]?.price || 0}
                     linkUrl={linkUrl}
                     currency={currency}
                   />

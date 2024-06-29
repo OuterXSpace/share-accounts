@@ -27,7 +27,7 @@ export const ProductListShareAccountTheme01: React.FC<IProductListShareAccountTh
                 categoryName = '',
                 linkUrl = '',
                 currency = 'VNĐ',
-                duration,
+                durations,
               } = product;
               return (
                 <ProductCard
@@ -39,7 +39,7 @@ export const ProductListShareAccountTheme01: React.FC<IProductListShareAccountTh
                   category={categoryName}
                   linkUrl={linkUrl}
                   currency={currency}
-                  originalPrice={duration[0]?.price || 0}
+                  originalPrice={durations?.[0]?.price || 0}
                 />
               );
             })}

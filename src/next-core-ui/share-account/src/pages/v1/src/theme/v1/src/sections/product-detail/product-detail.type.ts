@@ -17,7 +17,7 @@ export interface IProductItem {
   imagesUrls: IProductItemImagesUrls[];
   totalCustomerReviews: number;
   rating: number;
-  duration: IProductItemDuration[];
+  durations: IProductItemDuration[];
 }
 
 export interface IProductItemImagesUrls {

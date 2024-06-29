@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import type { AppProps } from 'next/app';
 import { initFlowbite } from 'flowbite';
 import { ToastProvider } from '../components';
-import { configureAppStore } from '../lib';
+import { configureAppStore } from '../store-tookit';
 import { Provider } from 'react-redux';
 import '../styles/globals.css';
 
