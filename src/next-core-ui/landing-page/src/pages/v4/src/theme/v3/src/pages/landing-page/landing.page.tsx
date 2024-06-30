@@ -1,107 +1,25 @@
+import { useLandingPageV4 } from '../../../../../pages';
 import { LandingPageV4ThemeV3Props } from './landing-page.type';
-import {
-  NewsV4,
-  NewsAndTopReadV4,
-  SingleNewsCardV4,
-  ContactV4,
-  DetailPageV4ThemeV3,
-  StaticSectionV4,
-  ExchangesSectionV4,
-  PriceSectionV4,
-  ConvertPriceSectionV4,
-  NewLetterSectionV4,
-} from '../../sections';
-import { useMemo } from 'react';
-import { useRouter } from 'next/router';
-import { useDeviceSizes } from '../../../../../../../../../../../hooks';
+
 import Link from 'next/link';
 
 export const LandingPageV4ThemeV3: React.FC<LandingPageV4ThemeV3Props> = (props) => {
-  const { systemConfig } = props;
+  const { systemConfig, slugConfigJSON, slugKey } = props;
 
-  const router = useRouter();
-
-  const isDevice = useDeviceSizes();
-
-  const dataConfigOfDynamicRouter = useMemo(() => {
-    return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
-  }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
-
-  const pageDetailDataConfigWithDynamicRouter = useMemo(() => {
-    let str = '/';
-
-    if (!router?.query?.slug) return;
-
-    if (router?.query?.slug?.length === 1 && !!dataConfigOfDynamicRouter) return;
-
-    if (router?.query?.slug?.length > 1) {
-      str = router?.query?.slug[0];
-    }
-
-    return systemConfig?.ldpSystemConfigPage?.systemConfig?.[str];
-  }, [dataConfigOfDynamicRouter, router?.query?.slug, systemConfig?.ldpSystemConfigPage?.systemConfig]);
-
-  const renderPageDetailWithDynamicRouter = useMemo(() => {
-    if (!pageDetailDataConfigWithDynamicRouter) return;
-
-    return pageDetailDataConfigWithDynamicRouter?.slug?.array?.map((slugItem) => {
-      const dataSlug = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[slugItem?.section]?.[slugItem?.data];
-
-      return <DetailPageV4ThemeV3 key={slugItem?.id} data={dataSlug} className={slugItem?.className} />;
-    });
-  }, [pageDetailDataConfigWithDynamicRouter, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
-
-  const renderSectionPageWithDynamicRouter = useMemo(() => {
-    return dataConfigOfDynamicRouter?.array?.map((item) => {
-      const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.data];
-
-      const renderItem = () => {
-        switch (item?.section) {
-          case 'SINGLE_NEWS_CARD':
-            return <SingleNewsCardV4 key={item?.id} data={data} className={item?.className} />;
-          case 'NEWS':
-            return <NewsV4 key={item?.id} data={data} className={item?.className} />;
-          case 'NEW_AND_TOP_READ':
-            return <NewsAndTopReadV4 key={item?.id} data={data} className={item?.className} />;
-          case 'CONTACT':
-            return <ContactV4 key={item?.id} data={data} className={item?.className} />;
-          case 'GRADIENT_BANNER1':
-            return <StaticSectionV4 key={item?.id} data={data} className={item?.className} />;
-          case 'EXCHANGES_SECTION':
-            return <ExchangesSectionV4 key={item?.id} data={data} className={item?.className} />;
-          case 'PRICE_SECTION':
-            return <PriceSectionV4 key={item?.id} data={data} className={item?.className} />;
-          case 'CONVERT_PRICE_SECTION':
-            return <ConvertPriceSectionV4 key={item?.id} data={data} className={item?.className} />;
-          case 'NEW_LETTER':
-            return <NewLetterSectionV4 key={item?.id} data={data} className={item?.className} />;
-          default:
-            return <div />;
-        }
-      };
-      return renderItem();
-    });
-  }, [dataConfigOfDynamicRouter?.array, systemConfig?.ldpSystemConfigPage?.dataConfig?.V1]);
+  const { renderSections, renderMenu, renderFooter } = useLandingPageV4({
+    systemConfig,
+    slugConfigJSON,
+    slugKey,
+    version: 'V3',
+  });
 
   // return (
-  //   <main className="page-template page-template-template-clean-with-coins template-clean-with-coins page page-id-164 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-164-data page-about-data template-clean-with-coins-data about non-amp page-about-us dark page-about-us dark">
-  //     <div className="container wrap p-lg-0 pt-0 lg:pt-2">
-  //       <div className="content pt-2">
-  //         <main className="main">
-  //           <div className="page-content max-w-full w-full">
-  //             {isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
-  //               <LandingPageMenuDesktopV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //             ) : (
-  //               <LandingPageMenuMobileV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //             )}
-  //             {renderSectionPageWithDynamicRouter}
-  //             {renderPageDetailWithDynamicRouter}
-  //             <FooterV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //           </div>
-  //         </main>
-  //       </div>
-  //     </div>
-  //   </main>
+  //   <div className="page-template page-template-template-custom-empty-with-footer template-custom-empty-with-footer page page-id-95991 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-95991-data page-beincrypto-sales-data template-custom-empty-with-footer-data beincrypto-sales non-amp dark !bg-dark-grey-700 dark !bg-dark-grey-700">
+  //     <Them2Component />
+  //     {/* {renderMenu}
+  //     {renderSections}
+  //     {renderFooter} */}
+  //   </div>
   // );
 
   const renderTestPage = () => {

@@ -1,58 +1,27 @@
+import { useLandingPageV4 } from '../../../../../pages';
 import { LandingPageV4ThemeV2Props } from './landing-page.type';
 
 export const LandingPageV4ThemeV2: React.FC<LandingPageV4ThemeV2Props> = (props) => {
-  const { systemConfig } = props;
+  const { systemConfig, slugConfigJSON, slugKey } = props;
 
-  // const router = useRouter();
-
-  // const isDevice = useDeviceSizes();
-
-  // const dataConfigOfDynamicRouter = useMemo(() => {
-  //   return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
-  // }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
-
-  // return (
-  //   <main className="page-template page-template-template-custom-empty-with-footer template-custom-empty-with-footer page page-id-95991 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-95991-data page-beincrypto-sales-data template-custom-empty-with-footer-data beincrypto-sales non-amp dark !bg-dark-grey-700 dark !bg-dark-grey-700">
-  //     <main className="container">
-  //       <div className="page-content max-w-full w-full">
-  //         {isDevice?.isSmallDesktop || isDevice?.isLargeDesktop ? (
-  //           <LandingPageMenuDesktopV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //         ) : (
-  //           <LandingPageMenuMobileV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //         )}
-  //         {dataConfigOfDynamicRouter?.array?.map((item) => {
-  //           const data = systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.[item?.section]?.[item?.data];
-
-  //           const renderItem = () => {
-  //             switch (item?.section) {
-  //               case 'SINGLE_NEWS_CARD':
-  //                 return <SingleNewsCardV4 key={item?.id} data={data} className={item?.className} />;
-  //               case 'NEWS':
-  //                 return <NewsV4 key={item?.id} data={data} className={item?.className} />;
-  //               case 'NEW_AND_TOP_READ':
-  //                 return <NewsAndTopReadV4 key={item?.id} data={data} className={item?.className} />;
-  //               case 'CONTACT':
-  //                 return <ContactV4 key={item?.id} data={data} className={item?.className} />;
-  //               default:
-  //                 return <div />;
-  //             }
-  //           };
-  //           return renderItem();
-  //         })}
-  //         <FooterV4 data={systemConfig?.ldpSystemConfigPage?.dataConfig?.V1?.MENU?.V1} />
-  //       </div>
-  //     </main>
-  //   </main>
-  // );
+  const { renderSections, renderMenu, renderFooter } = useLandingPageV4({
+    systemConfig,
+    slugConfigJSON,
+    slugKey,
+    version: 'V2',
+  });
 
   return (
     <div className="page-template page-template-template-custom-empty-with-footer template-custom-empty-with-footer page page-id-95991 bg-white overflow-x-hidden scroll-smooth text-dark-grey-700 app-data index-data singular-data page-data page-95991-data page-beincrypto-sales-data template-custom-empty-with-footer-data beincrypto-sales non-amp dark !bg-dark-grey-700 dark !bg-dark-grey-700">
       <Them2Component />
+      {/* {renderMenu}
+      {renderSections}
+      {renderFooter} */}
     </div>
   );
 };
 
-export const Them2Component: React.FC = (props) => {
+export const Them2Component: React.FC = () => {
   return (
     <div className="container">
       <section
