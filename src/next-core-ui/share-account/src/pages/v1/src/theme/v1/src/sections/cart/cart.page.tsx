@@ -17,6 +17,7 @@ import { cartActions, selectCart } from '../../../../../../../../../../../store-
 import { useDispatch, useSelector } from 'react-redux';
 import { checkoutApi } from '../../../../../../../../../../../api/checkout';
 import { PUBLIC_URL } from '../../../../../../../../../../../constants/platform';
+import { toast } from 'react-toastify';
 
 const cartInfoSchema = yup.object().shape({
   firstName: yup.string().required('Tên là mục bắt buộc'),
@@ -28,8 +29,6 @@ const cartInfoSchema = yup.object().shape({
 
 export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Props> = (props) => {
   const { products } = props;
-
-  const { showToast } = useToast();
 
   const router = useRouter();
 
@@ -70,7 +69,7 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
       setIsLoading(true);
       if (isValid) {
         const res = await checkoutApi(payload);
-        showToast('Data posted successfully!', 'success');
+        toast.success('Data posted successfully!');
         router.push({
           pathname: '/checkout',
           query: { url: res?.payUrl },
@@ -78,7 +77,7 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
       }
     } catch (error) {
       setIsLoading(false);
-      showToast('Data posted successfully!', 'error');
+      toast.error('Data posted successfully!');
     } finally {
       setIsLoading(false);
     }
