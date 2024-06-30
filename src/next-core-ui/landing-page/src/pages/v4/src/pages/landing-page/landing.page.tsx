@@ -1,49 +1,36 @@
 import Head from 'next/head';
 import { LandingPageV4Props } from './landing-page.type';
 import { useMemo } from 'react';
-import { useRouter } from 'next/router';
 import { LandingPageV4ThemeV1, LandingPageV4ThemeV2, LandingPageV4ThemeV3 } from '../../theme';
 import { LandingPageStyles } from './landing-page.style';
 import { LandingPageStylesV1 } from './landing-page-v1.styles';
+import { useDynamicRenderPage } from '../../../../../../../../hooks';
+import { NotFound } from '../../../../../../../../components';
 
 export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
   const { systemConfig } = props;
 
-  const router = useRouter();
-
-  const dataConfigOfDynamicRouter = useMemo(() => {
-    return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
-  }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
-
-  const renderSeoPageWithDynamicRouter = useMemo(() => {
-    const seoData = systemConfig?.ldpSystemConfigPage?.seoData?.[router?.asPath];
-
-    return (
-      <>
-        <meta property="og:title" content={seoData?.ogTitle} />
-        <meta property="og:url" content={seoData?.ogUrl} />
-        <meta property="og:image" content={seoData?.ogImage} />
-        <title>{seoData?.ogTitle}</title>
-      </>
-    );
-  }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.seoData]);
+  const { slugConfigJSON, renderSeoPage, slugKey } = useDynamicRenderPage({ systemConfig });
 
   const renderPageWithDynamicRouter = useMemo(() => {
-    if (dataConfigOfDynamicRouter?.theme === 'V2') {
-      return <LandingPageV4ThemeV2 systemConfig={systemConfig} />;
+    if (slugConfigJSON?.theme === 'V1') {
+      return <LandingPageV4ThemeV1 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} slugKey={slugKey} />;
+    }
+    if (slugConfigJSON?.theme === 'V2') {
+      return <LandingPageV4ThemeV2 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} slugKey={slugKey} />;
     }
 
-    if (dataConfigOfDynamicRouter?.theme === 'V3') {
-      return <LandingPageV4ThemeV3 systemConfig={systemConfig} />;
+    if (slugConfigJSON?.theme === 'V3') {
+      return <LandingPageV4ThemeV3 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} slugKey={slugKey} />;
     }
 
-    return <LandingPageV4ThemeV1 systemConfig={systemConfig} />;
-  }, [dataConfigOfDynamicRouter?.theme, systemConfig]);
+    return <NotFound />;
+  }, [slugConfigJSON, slugKey, systemConfig]);
 
   return (
     <>
       <Head>
-        {renderSeoPageWithDynamicRouter}
+        {renderSeoPage}
         <LandingPageStyles />
         <LandingPageStylesV1 />
       </Head>

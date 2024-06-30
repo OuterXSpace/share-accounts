@@ -95,7 +95,7 @@ export const LandingPageMenuDesktopV4: React.FC<ILandingPageMenuDesktopV4Props> 
                   id="menu-fast-links"
                   className="bic-main-nav items-start flex-col lg:flex-row flex lg:items-center gap-x-6 py-1.5 border border-transparent"
                 >
-                  {data?.object?.array?.map((item) => {
+                  {data?.object?.desktop?.array?.map((item) => {
                     const { id, label, link } = item;
                     return <LandingPageMenuDesktopItemV1 key={id} label={label} link={link} />;
                   })}

@@ -1,4 +1,4 @@
-export interface FooterV4Props {
+export interface LandingPageFooterV4Props {
   data?: Record<string, any>;
   className?: string;
 }
