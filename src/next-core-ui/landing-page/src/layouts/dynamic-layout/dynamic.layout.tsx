@@ -9,16 +9,16 @@ export const DynamicTheme: React.FC<DynamicThemeProps> = (props) => {
   const { systemConfig } = props;
 
   switch (THEME) {
-    case 'DYNAMIC_THEME_01':
+    case 'DYNAMIC_PAGE_V1':
       return <LandingPageV1 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
 
-    case 'DYNAMIC_THEME_02':
+    case 'DYNAMIC_PAGE_V2':
       return <LandingPageV2 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK_V2 }} />;
 
-    case 'DYNAMIC_THEME_03':
+    case 'DYNAMIC_PAGE_V3':
       return <LandingPageV3 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
 
-    case 'DYNAMIC_THEME_04':
+    case 'DYNAMIC_PAGE_V4':
       return <LandingPageV4 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
 
     default:

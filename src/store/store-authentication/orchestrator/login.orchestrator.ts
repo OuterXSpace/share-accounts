@@ -8,12 +8,12 @@ import { loginAPI } from '../../../api';
 import { ITranslatorParams } from '../../../configuration/language';
 
 orchestrator(loginAction, async (actionMessage) => {
-  const { email, password } = actionMessage;
+  const { username, password } = actionMessage;
 
   CoreLoadingStore.updateLoadingAction(true);
 
   try {
-    const { data } = await loginAPI(email, password);
+    const { data } = await loginAPI(username, password);
 
     const { accessToken } = data.data;
 

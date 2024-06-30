@@ -16,7 +16,7 @@ orchestrator(registerAction, (actionMessage) => {
   registerAPI(email, username, password, fullName)
     .then((response) => {
       if (response) {
-        loginAction(email, password);
+        loginAction(username, password);
       }
     })
     .catch((error) => {

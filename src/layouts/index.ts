@@ -1,4 +1,2 @@
-export * from './body';
-export * from './footer';
-export * from './header';
 export * from './dynamic-layout';
+export * from './share-account-layout';

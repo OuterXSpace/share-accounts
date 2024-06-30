@@ -1,5 +1,5 @@
-import { isMobileBrowser, languageReplace, accessTokenReplace } from '../../../utils';
-import { AppHistory } from '../../store-router-manager';
+import { languageReplace, accessTokenReplace } from '../../../utils';
+// import { AppHistory } from '../../store-router-manager';
 import { accessTokenSelector } from '../selector';
 
 export const backToRedirectUrl = (delay?: number) => {
@@ -13,15 +13,19 @@ export const backToRedirectUrl = (delay?: number) => {
     redirectUrl = languageReplace(redirectUrl);
   }
 
-  const isMobile = isMobileBrowser();
+  // const isMobile = isMobileBrowser();
 
-  if (isMobile) {
-    setTimeout(() => {
-      AppHistory()?.push(redirectUrl ?? '/');
-    }, Math.max(delay || 0, 0));
-  } else {
-    setTimeout(() => {
-      window.location.href = redirectUrl ?? '/';
-    }, Math.max(delay || 0, 0));
-  }
+  // if (isMobile) {
+  //   setTimeout(() => {
+  //     AppHistory()?.push(redirectUrl ?? '/');
+  //   }, Math.max(delay || 0, 0));
+  // } else {
+  //   setTimeout(() => {
+  //     window.location.href = redirectUrl ?? '/';
+  //   }, Math.max(delay || 0, 0));
+  // }
+
+  setTimeout(() => {
+    window.location.href = redirectUrl ?? '/';
+  }, Math.max(delay || 0, 0));
 };

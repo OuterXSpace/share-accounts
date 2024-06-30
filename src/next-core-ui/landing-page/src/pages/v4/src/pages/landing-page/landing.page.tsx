@@ -11,7 +11,7 @@ export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
 
   const router = useRouter();
 
-  const pageDataConfigWithDynamicRouter = useMemo(() => {
+  const dataConfigOfDynamicRouter = useMemo(() => {
     return systemConfig?.ldpSystemConfigPage?.systemConfig?.[router?.asPath];
   }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.systemConfig]);
 
@@ -29,16 +29,16 @@ export const LandingPageV4: React.FC<LandingPageV4Props> = (props) => {
   }, [router?.asPath, systemConfig?.ldpSystemConfigPage?.seoData]);
 
   const renderPageWithDynamicRouter = useMemo(() => {
-    if (pageDataConfigWithDynamicRouter?.theme === 'V2') {
+    if (dataConfigOfDynamicRouter?.theme === 'V2') {
       return <LandingPageV4ThemeV2 systemConfig={systemConfig} />;
     }
 
-    if (pageDataConfigWithDynamicRouter?.theme === 'V3') {
+    if (dataConfigOfDynamicRouter?.theme === 'V3') {
       return <LandingPageV4ThemeV3 systemConfig={systemConfig} />;
     }
 
     return <LandingPageV4ThemeV1 systemConfig={systemConfig} />;
-  }, [pageDataConfigWithDynamicRouter?.theme, systemConfig]);
+  }, [dataConfigOfDynamicRouter?.theme, systemConfig]);
 
   return (
     <>

@@ -5,15 +5,14 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { useCallback, useState } from 'react';
 import { postGoogleSheetApi } from '../../../../../../../../api/save-google';
-import { LoadingMore, useToast } from '../../../../../../../../components';
+import { LoadingMore } from '../../../../../../../../components';
 import { LandingPageButtonV1 } from '../../common';
+import { toast } from 'react-toastify';
 
 export const Contact: React.FC<ContactProps> = (props) => {
   const { data, className } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const { showToast } = useToast();
 
   const contactSchema = yup.object().shape({
     fullName: yup.string().required(data?.object?.form?.input.FULL_NAME?.error),
@@ -41,11 +40,11 @@ export const Contact: React.FC<ContactProps> = (props) => {
       postGoogleSheetApi(values, data?.object?.apiGoogleSheetUrl)
         .then(() => {
           setIsLoading(false);
-          showToast('Data posted successfully!', 'success');
+          toast.success('Data posted successfully!');
           reset();
         })
         .catch(() => {
-          showToast('Data posted successfully!', 'error');
+          toast.error('Data posted successfully!');
         })
         .finally(() => {
           setIsLoading(false);

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, EffectFade, Pagination } from 'swiper/modules';
 import { AnnouncementProp } from './announcement.type';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -32,7 +33,13 @@ export const AnnouncementComponent: React.FC<AnnouncementProp> = (props) => {
             <SwiperSlide key={id} className="cursor-pointer w-full h-full flex items-center bg-cover">
               <div className="toto-announcement-welcome__swiper-slide flex justify-center items-center h-auto">
                 <Link href={link} className="toto-popup-link  ">
-                  <img className="w-full h-full object-contain object-center" alt="" src={imageUrl} width="100%" />
+                  <LazyLoadImage
+                    className="w-full h-full object-contain object-center"
+                    alt=""
+                    src={imageUrl}
+                    width="100%"
+                    effect="blur"
+                  />
                 </Link>
               </div>
             </SwiperSlide>
