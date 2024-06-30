@@ -17,7 +17,6 @@ export const MenuMobileShareAccountV1ThemeV1: React.FC<IMenuMobileShareAccountV1
 
   return (
     <>
-      {/* nav z-31 because backdrop drawer z-30 */}
       <nav className="bg-gradient-to-top-primary fixed top-0 lg:hidden menu-mobile w-full py-[10px] md:py-[15px] px-[10px] md:px-[40px] z-[31]">
         <div className="flex justify-between items-center">
           <button className="t-[15px] flex justify-center text-gray-3 z-11" onClick={handleToggleMenu}>

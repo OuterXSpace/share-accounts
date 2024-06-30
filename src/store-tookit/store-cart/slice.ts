@@ -43,32 +43,30 @@ const cartSlice = createSlice({
       state.cart = cart;
     },
     removeFromCart(state, action: PayloadAction<{ id: string }>) {
-      const cart = [...state.cart];
-
       const { id } = action.payload;
 
-      const newCart = cart.filter((item) => !(item.id === id));
+      const newCart = state.cart.filter((item) => !(item.id === id));
 
       state.cart = newCart;
     },
     updateCart(state, action: PayloadAction<CartPayloadAction>) {
-      let cart = [...state.cart];
+      let cart = [];
 
       const { idCart, type, quantity } = action.payload;
 
       if (type === 'increase') {
-        cart = cart.map((item) => (item.id === idCart ? { ...item, quantity: item.quantity + 1 } : item));
+        cart = state.cart.map((item) => (item.id === idCart ? { ...item, quantity: item.quantity + 1 } : item));
       }
       if (type === 'decrease') {
-        cart = cart
+        cart = state.cart
           .map((item) => (item.id === idCart ? { ...item, quantity: item.quantity - 1 } : item))
           .filter((item) => item.quantity > 0);
       }
       if (type === 'pass-parameters') {
-        cart = cart.map((item) => (item.id === idCart ? { ...item, quantity } : item));
+        cart = state.cart.map((item) => (item.id === idCart ? { ...item, quantity } : item));
       }
       if (type === 'variants') {
-        cart = cart.map((item) => (item.id === idCart ? { ...item, variants: item.variants } : item));
+        cart = state.cart.map((item) => (item.id === idCart ? { ...item, variants: item.variants } : item));
       }
 
       state.cart = cart;

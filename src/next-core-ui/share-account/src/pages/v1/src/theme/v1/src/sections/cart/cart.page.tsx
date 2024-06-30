@@ -39,14 +39,6 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const currency = 'VNĐ';
-
-  const totalPriceCart = useMemo(() => {
-    return cartState.cart.reduce((total, item) => {
-      return total + item.quantity * item.price;
-    }, 0);
-  }, [cartState]);
-
   const {
     getValues,
     register,
@@ -58,6 +50,14 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
     resolver: yupResolver(cartInfoSchema),
     defaultValues: {},
   });
+
+  const currency = 'VNĐ';
+
+  const totalPriceCart = useMemo(() => {
+    return cartState.cart.reduce((total, item) => {
+      return total + item.quantity * item.price;
+    }, 0);
+  }, [cartState]);
 
   const onSubmit = async () => {
     const cartInfoValues = getValues();
