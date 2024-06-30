@@ -6,3 +6,4 @@ export * from './use-register';
 export * from './use-react-google-login';
 export * from './use-login';
 export * from './use-dynamic-render-page';
+export * from './use-key-down';

@@ -1,8 +1,12 @@
 import { Label, TextInput, Textarea } from 'flowbite-react';
 import { ICartInfoFormProps } from './cart-info-form.type';
+import { useKeyDown } from '../../../../../../../../../../../../../hooks';
 
 export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
   const { register, errors, clearErrors } = props;
+
+  const { tabKey, enterKey } = useKeyDown();
+
   return (
     <div className="flex flex-col gap-4 px-[15px] md:px-[30px]">
       <h3 className="font-bold uppercase text-[17px] md:text-[20px]">Thông tin thanh toán</h3>
@@ -17,10 +21,18 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
             sizing="md"
             {...register('firstName')}
             color={`${errors.firstName ? 'failure' : 'gray'}`}
-            onChange={() => clearErrors('firstName')}
+            onChange={(e) => {
+              if (!e.target.value) {
+                clearErrors('firstName');
+              }
+            }}
             helperText={
               errors.firstName && <span className="font-medium text-red-500">{errors.firstName?.message}</span>
             }
+            onKeyDown={(e) => {
+              enterKey(e);
+              tabKey(e);
+            }}
           />
         </div>
         <div className="md:col-6">
@@ -33,8 +45,16 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
             sizing="md"
             {...register('lastName')}
             color={`${errors.lastName ? 'failure' : 'gray'}`}
-            onChange={() => clearErrors('lastName')}
+            onChange={(e) => {
+              if (!e.target.value) {
+                clearErrors('lastName');
+              }
+            }}
             helperText={errors.lastName && <span className="font-medium text-red-500">{errors.lastName?.message}</span>}
+            onKeyDown={(e) => {
+              enterKey(e);
+              tabKey(e);
+            }}
           />
         </div>
       </div>
@@ -48,10 +68,18 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
           sizing="md"
           {...register('phoneNumber')}
           color={`${errors.phoneNumber ? 'failure' : 'gray'}`}
-          onChange={() => clearErrors('phoneNumber')}
+          onChange={(e) => {
+            if (!e.target.value) {
+              clearErrors('phoneNumber');
+            }
+          }}
           helperText={
             errors.phoneNumber && <span className="font-medium text-red-500">{errors.phoneNumber?.message}</span>
           }
+          onKeyDown={(e) => {
+            enterKey(e);
+            tabKey(e);
+          }}
         />
       </div>
       <div>
@@ -64,10 +92,18 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
           sizing="md"
           {...register('emailAddress')}
           color={`${errors.emailAddress ? 'failure' : 'gray'}`}
-          onChange={() => clearErrors('emailAddress')}
+          onChange={(e) => {
+            if (!e.target.value) {
+              clearErrors('emailAddress');
+            }
+          }}
           helperText={
             errors.emailAddress && <span className="font-medium text-red-500">{errors.emailAddress?.message}</span>
           }
+          onKeyDown={(e) => {
+            enterKey(e);
+            tabKey(e);
+          }}
         />
       </div>
       <div>

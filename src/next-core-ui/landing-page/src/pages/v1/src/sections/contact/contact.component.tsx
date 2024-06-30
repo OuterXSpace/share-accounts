@@ -8,11 +8,14 @@ import { postGoogleSheetApi } from '../../../../../../../../api/save-google';
 import { LoadingMore } from '../../../../../../../../components';
 import { LandingPageButtonV1 } from '../../common';
 import { toast } from 'react-toastify';
+import { useKeyDown } from '../../../../../../../../hooks';
 
 export const Contact: React.FC<ContactProps> = (props) => {
   const { data, className } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { tabKey, enterKey } = useKeyDown();
 
   const contactSchema = yup.object().shape({
     fullName: yup.string().required(data?.object?.form?.input.FULL_NAME?.error),
@@ -86,6 +89,10 @@ export const Contact: React.FC<ContactProps> = (props) => {
               <div className="w-full">
                 <div className="mb-[30px] relative">
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     style={{
                       boxShadow: 'none',
                     }}
@@ -107,6 +114,10 @@ export const Contact: React.FC<ContactProps> = (props) => {
                 </div>
                 <div className="mb-[30px] relative">
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     style={{
                       boxShadow: 'none',
                     }}
@@ -128,6 +139,10 @@ export const Contact: React.FC<ContactProps> = (props) => {
                 </div>
                 <div className="mb-[30px] relative">
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     style={{
                       boxShadow: 'none',
                     }}

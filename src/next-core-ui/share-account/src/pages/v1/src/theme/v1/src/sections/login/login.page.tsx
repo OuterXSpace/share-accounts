@@ -5,12 +5,14 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { SnowComponent } from '../../../../../../../../../../../components';
-import { useLogin, useReactGoogleLogin } from '../../../../../../../../../../../hooks';
+import { useKeyDown, useLogin, useReactGoogleLogin } from '../../../../../../../../../../../hooks';
 
 export const LoginPageShareAccountTheme01: React.FC<ILoginPageShareAccountTheme01Props> = () => {
   const { handleLogin } = useLogin();
 
   const { handleLoginGoogle } = useReactGoogleLogin();
+
+  const { tabKey, enterKey } = useKeyDown();
 
   const loginSchema = yup.object().shape({
     username: yup.string().required('username không được để trống'),
@@ -76,6 +78,10 @@ export const LoginPageShareAccountTheme01: React.FC<ILoginPageShareAccountTheme0
               <div className="mb-4">
                 <label className="block font-medium text-sm mb-2 text-dark-3">Username</label>
                 <input
+                  onKeyDown={(e) => {
+                    enterKey(e);
+                    tabKey(e);
+                  }}
                   className={`rounded-md block w-full border border-gray-4 bg-[#ffffff66] text-sm px-4 py-2 ${
                     errors.username ? 'border-solid border-2 border-red-400' : ''
                   }`}
@@ -100,6 +106,10 @@ export const LoginPageShareAccountTheme01: React.FC<ILoginPageShareAccountTheme0
                   Mật khẩu
                 </label>
                 <input
+                  onKeyDown={(e) => {
+                    enterKey(e);
+                    tabKey(e);
+                  }}
                   className={`rounded-md block w-full border border-gray-4 bg-[#ffffff66] text-sm px-4 py-2 ${
                     errors.password ? 'border-solid border-2 border-red-400' : ''
                   }`}
