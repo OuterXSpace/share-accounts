@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { CartInfoForm } from './components/cart-info-form';
 import { useRouter } from 'next/router';
-import { FormattedCurrency, useToast } from '../../../../../../../../../../../components';
+import { FormattedCurrency } from '../../../../../../../../../../../components';
 import { getUuid } from '../../../../../../../../../../../utils';
 import { ProductCard } from '../../components/product-card';
 import { cartActions, selectCart } from '../../../../../../../../../../../store-tookit';
@@ -39,9 +39,10 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
+    handleSubmit,
     getValues,
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     clearErrors,
   } = useForm<ICartInfoFormModel>({
     mode: 'onBlur',
@@ -59,28 +60,32 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
   }, [cartState]);
 
   const onSubmit = async () => {
+    if (cartState?.cart?.length === 0) {
+      toast.error('Bạn vẫn chưa chọn sản phẩm nào để mua. ');
+      return;
+    }
     const cartInfoValues = getValues();
+
     const payload = {
       orderId: getUuid(),
       amount: totalPriceCart,
       url: PUBLIC_URL,
     };
-    try {
-      setIsLoading(true);
-      if (isValid) {
-        const res = await checkoutApi(payload);
-        toast.success('Data posted successfully!');
+
+    checkoutApi(payload)
+      .then((res) => {
         router.push({
           pathname: '/checkout',
           query: { url: res?.payUrl },
         });
-      }
-    } catch (error) {
-      setIsLoading(false);
-      toast.error('Data posted successfully!');
-    } finally {
-      setIsLoading(false);
-    }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        toast.error('Đã có lỗi xảy ra! Bạn vui lòng thử lại sau ít phút!');
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -107,26 +112,28 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
                 </Link>
               </div>
               <div className="border-t border-gray-200 my-4" />
-              <CartInfoForm register={register} errors={errors} clearErrors={clearErrors} />
-              <div className="border-t border-gray-200 my-4" />
-              <div className="flex w-full py-4 flex-col gap-2">
-                <div>
-                  <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
-                </div>
-                <div className="flex items-center w-full gap-2 justify-between">
-                  <div className="text-[17px] md:text-[20px]">Tạm tính</div>
-                  <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                    <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <CartInfoForm register={register} errors={errors} clearErrors={clearErrors} />
+                <div className="border-t border-gray-200 my-4" />
+                <div className="flex w-full py-4 flex-col gap-2">
+                  <div>
+                    <h3 className="font-bold text-[17px] md:text-[20px] uppercase">Đơn hàng của bạn</h3>
+                  </div>
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tạm tính</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full gap-2 justify-between">
+                    <div className="text-[17px] md:text-[20px]">Tổng</div>
+                    <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
+                      <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center w-full gap-2 justify-between">
-                  <div className="text-[17px] md:text-[20px]">Tổng</div>
-                  <div className="cart-total text-[17px] md:text-[20px] font-semibold leading-[1.56] text-[var(--ui-1-color-fill-color-1)]">
-                    <FormattedCurrency value={totalPriceCart} isColored={false} /> {currency}
-                  </div>
-                </div>
-              </div>
-              <CartInfoPayment cart={cartState.cart} onSubmit={onSubmit} isLoading={isLoading} disabled={!isValid} />
+                <CartInfoPayment cart={cartState.cart} isLoading={isLoading} />
+              </form>
             </section>
           </div>
         </div>

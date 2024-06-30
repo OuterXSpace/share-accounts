@@ -4,7 +4,7 @@ import { ICartInfoFormProps } from './cart-info-form.type';
 export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
   const { register, errors, clearErrors } = props;
   return (
-    <form className="flex flex-col gap-4 px-[15px] md:px-[30px]">
+    <div className="flex flex-col gap-4 px-[15px] md:px-[30px]">
       <h3 className="font-bold uppercase text-[17px] md:text-[20px]">Thông tin thanh toán</h3>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:col-6">
@@ -77,6 +77,6 @@ export const CartInfoForm: React.FC<ICartInfoFormProps> = (props) => {
         </div>
         <Textarea id="note" className="h-[120px]" {...register('note')} />
       </div>
-    </form>
+    </div>
   );
 };

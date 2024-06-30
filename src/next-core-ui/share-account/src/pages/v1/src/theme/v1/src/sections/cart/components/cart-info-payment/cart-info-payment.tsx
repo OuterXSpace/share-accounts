@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { LoadingMore } from '../../../../../../../../../../../../../components';
 
 export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
-  const { cart, onSubmit, disabled, isLoading } = props;
+  const { isLoading } = props;
 
   const [selectedPayment, setSelectedPayment] = useState<string>('momo-payment');
 
@@ -39,11 +39,9 @@ export const CartInfoPayment: React.FC<ICartInfoPaymentProps> = (props) => {
       </div>
       <div className="flex items-center">
         <button
-          className={`flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 hover:bg-primary break-words transition duration-200 uppercase ${
-            !cart.length ? 'opacity-50' : 'opacity-100'
-          }`}
-          disabled={disabled}
-          onClick={onSubmit}
+          className="cursor-pointer flex items-center justify-center flex-1 px-3 py-3 font-semibold text-[20px] text-white bg-red-500 hover:bg-primary break-words transition duration-200 uppercase"
+          disabled={isLoading}
+          type="submit"
         >
           {isLoading ? <LoadingMore /> : ' Đặt hàng'}
         </button>
