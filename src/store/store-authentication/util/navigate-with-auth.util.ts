@@ -11,10 +11,10 @@ export function navigateWithAuth(path: string, history?: NextRouter, options?: {
   if (isLogin) {
     switch (options?.replace) {
       case true:
-        actionhistory?.push(path);
+        actionHistory?.push(path);
         break;
       default:
-        actionhistory?.push(path);
+        actionHistory?.push(path);
         break;
     }
   } else {

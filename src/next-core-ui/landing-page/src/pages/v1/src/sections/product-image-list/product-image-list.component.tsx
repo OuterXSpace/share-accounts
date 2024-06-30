@@ -1,4 +1,5 @@
 import { ProductImageListProps } from './product-image-list.type';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const ProductImageList: React.FC<ProductImageListProps> = (props) => {
   const { data, className } = props;
@@ -21,7 +22,7 @@ export const ProductImageList: React.FC<ProductImageListProps> = (props) => {
                 return (
                   <div key={id} className="col-12 lg:col-4 md:lg:col-6 pr-[10px] last:pr-0">
                     <div className="video mb-[20px]">
-                      <img width="100%" height="219" src={imageUrl} alt={title} />
+                      <LazyLoadImage width="100%" height="219" src={imageUrl} alt={title} effect="blur" />
                     </div>
                     <div className="content">
                       <div className="mb-[70px]">

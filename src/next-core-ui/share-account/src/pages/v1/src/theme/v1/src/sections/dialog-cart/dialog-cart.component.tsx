@@ -26,7 +26,7 @@ export const DialogCartShareAccountTheme01: React.FC<IDialogCartShareAccountThem
   return (
     <Drawer open={isOpenCart} onClose={handleCloseCart} position={position} className="flex flex-col justify-between">
       <div>
-        <Drawer.Header titleIcon={() => ''} />
+        <Drawer.Header />
         <div className="flex flex-col items-center">
           <h2 className="text-[20px] uppercase font-bold text-center mb-[18px]">Giỏ hàng</h2>
           <span className="border h-[3px] w-[30px] rounded bg-gray-200" />

@@ -7,9 +7,7 @@ import Link from 'next/link';
 import { TIonIconName } from '../../../../../../../../../../../models';
 import { useRouter } from 'next/router';
 
-export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTheme01Props> = (props) => {
-  const { data } = props;
-
+export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTheme01Props> = () => {
   const router = useRouter();
 
   const id = useMemo(() => {
