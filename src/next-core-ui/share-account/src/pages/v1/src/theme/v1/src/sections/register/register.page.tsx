@@ -5,11 +5,13 @@ import { IRegisterPageShareAccountTheme01Props } from './register.type';
 import * as yup from 'yup';
 import Link from 'next/link';
 import Head from 'next/head';
-import { IRegisterFormData, useRegister } from '../../../../../../../../../../../hooks';
+import { IRegisterFormData, useKeyDown, useRegister } from '../../../../../../../../../../../hooks';
 import { SnowComponent } from '../../../../../../../../../../../components';
 
 export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccountTheme01Props> = () => {
   const { handleRegister } = useRegister();
+
+  const { tabKey, enterKey } = useKeyDown();
 
   const loginSchema = yup.object().shape({
     email: yup.string().required('Email không được để trống'),
@@ -69,6 +71,10 @@ export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccount
                     Email{' '}
                   </label>
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     className="rounded-md block w-full bg-[#ffffff66] border border-gray-4 text-sm px-4 py-2 "
                     id="email"
                     type="text"
@@ -91,6 +97,10 @@ export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccount
                     Tên của bạn
                   </label>
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     className="rounded-md block w-full bg-[#ffffff66] border border-gray-4 text-sm px-4 py-2 "
                     id="fullName"
                     type="text"
@@ -113,6 +123,10 @@ export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccount
                     Tên tài khoản
                   </label>
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     className="rounded-md block w-full bg-[#ffffff66] border border-gray-4 text-sm px-4 py-2 "
                     id="username"
                     type="text"
@@ -135,6 +149,10 @@ export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccount
                     Mật khẩu
                   </label>
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     className="rounded-md block w-full bg-[#ffffff66] border border-gray-4 text-sm px-4 py-2 "
                     id="password"
                     type="password"
@@ -157,6 +175,10 @@ export const RegisterPageShareAccountTheme01: React.FC<IRegisterPageShareAccount
                     Xác nhận mật khẩu{' '}
                   </label>
                   <input
+                    onKeyDown={(e) => {
+                      enterKey(e);
+                      tabKey(e);
+                    }}
                     className="rounded-md block w-full bg-[#ffffff66] border border-gray-4 text-sm px-4 py-2 "
                     id="confirmPassword"
                     type="password"

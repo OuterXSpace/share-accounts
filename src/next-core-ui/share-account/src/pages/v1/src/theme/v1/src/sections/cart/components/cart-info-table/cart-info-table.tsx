@@ -4,10 +4,29 @@ import Link from 'next/link';
 import Image from 'next/image';
 import IonIcon from '@reacticons/ionicons';
 import { FormattedCurrency } from '../../../../../../../../../../../../../components';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { toast } from 'react-toastify';
 
 export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
   const { cart, removeFromCart, updateCart } = props;
+
+  const onUpdateCart = useCallback(
+    (c, e) => {
+      const { value } = e.target;
+
+      if (value && parseInt(value, 10) <= 0) {
+        toast.error('Lỗi xãy ra, số lượng phải lớn hơn 0.');
+        return;
+      }
+
+      updateCart({
+        idCart: c?.id,
+        type: 'pass-parameters',
+        quantity: Number(e.target.value),
+      });
+    },
+    [updateCart],
+  );
 
   const renderRow = useMemo(() => {
     return cart.map((c) => {
@@ -68,11 +87,7 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
                   onChange={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    updateCart({
-                      idCart: c?.id,
-                      type: 'pass-parameters',
-                      quantity: Number(e.target.value),
-                    });
+                    onUpdateCart(c, e);
                   }}
                 />
               </div>
@@ -96,7 +111,7 @@ export const CartInfoTable: React.FC<ICartInfoTableProps> = (props) => {
         </Table.Row>
       );
     });
-  }, [cart, removeFromCart, updateCart]);
+  }, [cart, onUpdateCart, removeFromCart, updateCart]);
 
   return (
     <div className="flex flex-col">
