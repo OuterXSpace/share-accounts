@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import { IPromotionPageShareAccountTheme01Props } from './promotion.type';
 
-export const PromotionPageShareAccountTheme01: React.FC<IPromotionPageShareAccountTheme01Props> = (props) => {
-  const { data } = props;
-
+export const PromotionPageShareAccountTheme01: React.FC<IPromotionPageShareAccountTheme01Props> = () => {
   return (
     <>
       <Head>

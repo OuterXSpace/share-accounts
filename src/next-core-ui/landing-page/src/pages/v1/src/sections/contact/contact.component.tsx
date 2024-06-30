@@ -50,7 +50,7 @@ export const Contact: React.FC<ContactProps> = (props) => {
           setIsLoading(false);
         });
     },
-    [data?.object?.apiGoogleSheetUrl, reset, showToast],
+    [data?.object?.apiGoogleSheetUrl, reset],
   );
 
   return (

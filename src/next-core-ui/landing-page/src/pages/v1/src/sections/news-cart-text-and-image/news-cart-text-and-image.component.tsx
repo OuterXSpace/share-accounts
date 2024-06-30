@@ -1,4 +1,5 @@
 import { NewCartTextAndImageProps } from './news-cart-text-and-image.type';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) => {
   const { data, className } = props;
@@ -9,12 +10,11 @@ export const NewCartTextAndImage: React.FC<NewCartTextAndImageProps> = (props) =
         <div className="row flex flex-col xl:flex-row md:px-0 pt-[84px] md:pt-[94px] lg:pt-[100px]">
           <div className="xl:col-6">
             <div className="pt-[50px]">
-              <img
-                width={676}
-                height={650}
+              <LazyLoadImage
                 src={data?.object?.imageUrl}
                 className="w-full md:max-w-[676px] lg:max-w-[550px]"
                 alt="marker"
+                effect="blur"
               />
             </div>
           </div>

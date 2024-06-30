@@ -1,8 +1,6 @@
 import { StaticSectionV4Props } from './static-section.type';
 
-export const StaticSectionV4: React.FC<StaticSectionV4Props> = (props) => {
-  const { data, className } = props;
-
+export const StaticSectionV4: React.FC<StaticSectionV4Props> = () => {
   return (
     <section className="container flex flex-wrap pt-10 template-policies-container lg:flex-nowrap lg:gap-x-32">
       <aside className="pb-14 pt-12 lg:pt-0 lg:pb-0 lg:max-w-[220px] w-full h-fit lg:pl-3 lg:border-l lg:border-l-grey-200  lg:sticky top-0">

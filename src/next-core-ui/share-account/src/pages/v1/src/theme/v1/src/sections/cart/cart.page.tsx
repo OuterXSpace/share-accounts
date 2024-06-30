@@ -40,7 +40,6 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
 
   const {
     handleSubmit,
-    getValues,
     register,
     formState: { errors },
     clearErrors,
@@ -64,7 +63,7 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
       toast.error('Bạn vẫn chưa chọn sản phẩm nào để mua. ');
       return;
     }
-    const cartInfoValues = getValues();
+    // const cartInfoValues = getValues();
 
     const payload = {
       orderId: getUuid(),

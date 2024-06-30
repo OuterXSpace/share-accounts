@@ -2,6 +2,7 @@ import React from 'react';
 import { ILandingPageMenuDesktopV1Props } from './menu-desktop.type';
 import Link from 'next/link';
 import { LandingPageMenuDesktopItemV1 } from './components';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
   const { data, className } = props;
@@ -11,12 +12,13 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
       <div className="bg-transparent h-[100px]">
         <div className="container grid grid-cols-[auto,auto] items-center gap-x-20 overflow-wrap-anywhere h-full">
           <Link href="/" className="flex flex-wrap items-center h-full min-h-0 cursor-pointer">
-            <img
+            <LazyLoadImage
               width="97"
               height="17"
               src={data?.object?.logo}
               className="custom-logo astra-logo-svg"
-              alt="Video Editor"
+              alt="Logo"
+              effect="blur"
             />
           </Link>
           <div className="flex flex-wrap justify-end">
