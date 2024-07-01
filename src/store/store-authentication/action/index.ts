@@ -14,3 +14,4 @@ export * from './update-id-token.action';
 export * from './update-access-token.action';
 export * from './update-login-url.action';
 export * from './update-register-url.action';
+export * from './login-3rd.action';

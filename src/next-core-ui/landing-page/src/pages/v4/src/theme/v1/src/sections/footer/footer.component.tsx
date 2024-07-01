@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { FooterV4Props } from './footer.type';
+import { LandingPageFooterV4Props } from './footer.type';
 import IonIcon from '@reacticons/ionicons';
 
-export const FooterV4: React.FC<FooterV4Props> = (props) => {
+export const LandingPageFooterV4: React.FC<LandingPageFooterV4Props> = (props) => {
   const { data, className } = props;
 
   return (

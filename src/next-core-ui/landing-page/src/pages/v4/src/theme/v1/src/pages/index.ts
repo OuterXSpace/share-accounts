@@ -1,2 +1,2 @@
 export * from './landing-page';
-export * from './detail-page';
+export * from '../sections/new-detail';

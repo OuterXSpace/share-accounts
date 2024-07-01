@@ -1,7 +1,7 @@
 export const ROOT_LAYOUT_CONFIG = {
   rootLayout: {
-    THEME_01: {
-      id: 'THEME_01',
+    SHARE_ACCOUNT_V1: {
+      id: 'SHARE_ACCOUNT_V1',
       title: 'Theme 01',
       contentTheme: {
         HOME: {

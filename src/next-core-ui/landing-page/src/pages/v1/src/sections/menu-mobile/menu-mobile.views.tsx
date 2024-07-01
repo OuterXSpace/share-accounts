@@ -4,6 +4,7 @@ import { Drawer } from 'flowbite-react';
 import { ILandingPageMenuItemMobileV1Model, LandingPageMenuItemMobileV1 } from './menu-item';
 import { ILandingPageMenuMobileV1Props } from './menu-mobile.type';
 import Link from 'next/link';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const LandingPageMenuMobileV1: React.FC<ILandingPageMenuMobileV1Props> = (props) => {
   const { data, className } = props;
@@ -18,7 +19,6 @@ export const LandingPageMenuMobileV1: React.FC<ILandingPageMenuMobileV1Props> = 
 
   return (
     <div className={className}>
-      {/* nav z-31 because backdrop drawer z-30 */}
       <nav className="bg-transparent fixed top-0 lg:hidden menu-mobile w-full py-[10px] md:py-[15px] px-[10px] md:px-[40px] z-[50]">
         <div className="flex justify-between items-center">
           <button className="t-[15px] flex justify-center text-gray-3" onClick={handleToggleMenu}>
@@ -30,12 +30,13 @@ export const LandingPageMenuMobileV1: React.FC<ILandingPageMenuMobileV1Props> = 
           </button>
           <div className="col-12 h-[64px] flex justify-center items-center">
             <Link href="/" className="flex flex-wrap items-center h-full min-h-0 cursor-pointer">
-              <img
+              <LazyLoadImage
                 width="97"
                 height="17"
                 src={data?.object?.logo}
                 className="custom-logo astra-logo-svg"
                 alt="Video Editor"
+                effect="blur"
               />
             </Link>
           </div>
