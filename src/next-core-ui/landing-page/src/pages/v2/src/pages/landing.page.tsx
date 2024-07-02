@@ -2,8 +2,13 @@ import Head from 'next/head';
 import { LandingPageV2Props } from './landing-page.type';
 import { useDynamicRenderPage } from '../../../../../../../hooks';
 import { useMemo } from 'react';
-import { NotFound } from '../../../../../../../components';
-import { LandingPageV2ThemeV1 } from '../theme';
+import { LoadingSpinner, NotFound } from '../../../../../../../components';
+import dynamic from 'next/dynamic';
+
+const LandingPageV2ThemeV1 = dynamic(() => import('../theme').then((mod) => mod.LandingPageV2ThemeV1), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
 
 export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
   const { systemConfig } = props;

@@ -1601,13 +1601,17 @@ export const HomePage: React.FC = () => {
                       alt=""
                     />
                   </div>
-                  {/* <HoverFloatText> */}
-                  <HoverChangeText id="text-float-container">
-                    <h2 className="text-float-container">LET’S TALK</h2>
-                    <h2 className="text-float-container">LET’S TALK</h2>
-                    <h2 className="text-float-container">LET’S TALK</h2>
-                  </HoverChangeText>
-                  {/* </HoverFloatText> */}
+                  <div className="cta-text-block">
+                    <div className="text-inside">
+                      {/* <HoverFloatText> */}
+                      <HoverChangeText id="text-float-container">
+                        <h2 className="text-float-container">LET’S TALK</h2>
+                        {/* <h2 className="text-float-container">LET’S TALK</h2>
+                        <h2 className="text-float-container">LET’S TALK</h2> */}
+                      </HoverChangeText>
+                      {/* </HoverFloatText> */}
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
