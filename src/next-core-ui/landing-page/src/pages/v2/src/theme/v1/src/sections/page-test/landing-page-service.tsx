@@ -1,21 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
-import { LandingPageV2Props } from './landing-page.type';
 import gsap from 'gsap-trial/dist/gsap';
 import { useGSAP } from '@gsap/react';
 import { useRouter } from 'next/router';
-import { GlobalPageStyles, CommonJxsStyle, ContactPage, CommonPageStyles } from '../views';
+import { LandingPageV2Props } from '../../../../../pages';
+import { GlobalPageStyles, CommonJxsStyle, ServicePage, CommonPageStyles } from '../../../../../views';
 
 gsap.registerPlugin(useGSAP);
 
-export const LandingPageTestContact: React.FC<LandingPageV2Props> = () => {
+export const LandingPageTestService: React.FC<LandingPageV2Props> = () => {
   const router = useRouter();
 
   useGSAP(
     () => {
-      document.body.classList.add(...['body-loaded', 'inner-page-white']);
+      document.body.classList.add(...['body-loaded', 'services-page']);
       return () => {
-        document.body.classList.remove(...['body-loaded', 'inner-page-white']);
+        document.body.classList.remove(...['body-loaded', 'services-page']);
       };
     },
     { dependencies: [router] },
@@ -34,7 +34,7 @@ export const LandingPageTestContact: React.FC<LandingPageV2Props> = () => {
       </Head>
       <GlobalPageStyles />
       <CommonJxsStyle />
-      <ContactPage />
+      <ServicePage />
       <CommonPageStyles />
 
       <style global jsx>{`

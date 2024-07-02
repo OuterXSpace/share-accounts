@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { FooterV2Props } from './footer.type';
-import { HoverUnderlineAnimation } from '../../animation/hover-underline';
+import { HoverUnderlineAnimation } from '../../../../../animation/hover-underline';
 
-export const FooterV2: React.FC<FooterV2Props> = (props) => {
+export const LandingPageFooterV2: React.FC<FooterV2Props> = (props) => {
   const { data, className } = props;
 
   return (

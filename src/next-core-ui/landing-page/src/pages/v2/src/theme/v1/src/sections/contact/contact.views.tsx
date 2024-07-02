@@ -3,8 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { useCallback, useState } from 'react';
-import { postGoogleSheetApi } from '../../../../../../../../api/save-google';
 import { toast } from 'react-toastify';
+import { postGoogleSheetApi } from '../../../../../../../../../../../api';
 
 export const ContactV2: React.FC<ContactV2Props> = (props) => {
   const { data, className } = props;

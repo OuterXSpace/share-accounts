@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import { LandingPageV2Props } from './landing-page.type';
+import { LandingPageV2Props } from '../../../../../pages/landing-page.type';
 import gsap from 'gsap-trial/dist/gsap';
 import { useGSAP } from '@gsap/react';
 import { useRouter } from 'next/router';
-import { GlobalPageStyles, CommonJxsStyle, CrmPage, CommonPageStyles } from '../views';
+import { GlobalPageStyles, CommonJxsStyle, CrmPage, CommonPageStyles } from '../../../../../views';
 
 gsap.registerPlugin(useGSAP);
 

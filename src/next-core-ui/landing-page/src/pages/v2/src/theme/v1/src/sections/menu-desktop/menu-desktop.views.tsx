@@ -1,7 +1,7 @@
 import React from 'react';
 import { ILandingPageMenuDesktopV2Props } from './menu-desktop.type';
 import Link from 'next/link';
-import { HoverUnderlineAnimation } from '../../animation/hover-underline';
+import { HoverUnderlineAnimation } from '../../../../../animation/hover-underline';
 
 export const LandingPageMenuDesktopV2: React.FC<ILandingPageMenuDesktopV2Props> = (props) => {
   const { data, className } = props;
