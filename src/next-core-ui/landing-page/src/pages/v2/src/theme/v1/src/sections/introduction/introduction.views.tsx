@@ -1,4 +1,5 @@
 import { IntroductionBall } from './components/introduction-ball/introduction-ball.views';
+import { IntroductionTitle } from './components/introduction-title/introduction-title.views';
 import { IIntroductionProps } from './introduction.type';
 
 export const Introduction: React.FC<IIntroductionProps> = (props) => {
@@ -6,6 +7,7 @@ export const Introduction: React.FC<IIntroductionProps> = (props) => {
   return (
     <main className="h-screen grid grid-cols-12">
       <IntroductionBall />
+      <IntroductionTitle />
     </main>
   );
 };
