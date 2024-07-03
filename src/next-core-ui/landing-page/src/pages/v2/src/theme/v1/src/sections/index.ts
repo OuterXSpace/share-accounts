@@ -3,3 +3,4 @@ export * from './footer';
 export * from './menu-desktop';
 export * from './menu-mobile';
 export * from './services-slider';
+export * from './export.section';

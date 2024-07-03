@@ -4,6 +4,7 @@ import { ILandingPageMenuMobileV2Props } from './menu-mobile.type';
 
 export const LandingPageMenuMobileV2: React.FC<ILandingPageMenuMobileV2Props> = (props) => {
   const { data, className } = props;
+
   const [isToggleMenu, setIsToggleMenu] = useState(false);
 
   const handleToggleMenu = () => {

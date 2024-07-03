@@ -1,12 +1,10 @@
-import { floor } from 'lodash';
-
 class CurrencyFormatterFactory {
   private currencyFormatter = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0,
   });
 
   public format(value: number, compact?: boolean) {
-    const number = floor(value);
+    const number = Math.floor(value);
     const formatNumber = this.currencyFormatter.format(Number.isNaN(number) || !number ? 0 : number);
     return compact ? this.compact(formatNumber) : formatNumber;
   }
