@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [
     flowbite.plugin(),
-    function ({ addUtilities }) {
+    ({ addUtilities }) => {
       addUtilities(PLUGIN_THEME_CONFIG);
     },
   ],

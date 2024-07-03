@@ -49,7 +49,7 @@ export const LandingPageMenuMobileV4: React.FC<ILandingPageMenuMobileV4Props> = 
       >
         <Drawer.Items className="menu-list">
           <ul>
-            {data?.object?.array?.map((item: ILandingPageMenuItemMobileV1Model) => {
+            {data?.object?.mobile?.array?.map((item: ILandingPageMenuItemMobileV1Model) => {
               const { id } = item;
 
               return <LandingPageMenuItemMobileV1 key={id} item={item} closeToggle={handleToggleMenu} />;

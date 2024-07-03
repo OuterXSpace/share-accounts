@@ -1,6 +1,7 @@
 import { Fragment, useMemo, useState } from 'react';
 import { ProductVideoListProps } from './product-video-list.type';
 import { LandingPageButtonV1 } from '../../common';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
   const { data, className } = props;
@@ -109,7 +110,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         className="col-12 md:col-6  lg:col-3 md:pr-[10px] lg:pr-[20px] last:pr-0 last:md:pr-[10px] last:lg:pr-[20px]"
                       >
                         <div className="video mb-[20px]">
-                          <img width="100%" height="671" src={image} alt={title} />
+                          <LazyLoadImage width="100%" height="671" src={image} alt={title} effect="blur" />
                         </div>
                         <div className="content pb-[30px] min-w-full">
                           <a
