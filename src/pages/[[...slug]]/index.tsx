@@ -1,61 +1,51 @@
-import React from 'react';
-import { observer } from 'mobx-react';
-import { GOOGLE_APP_CLIENT_ID, THEME } from '../../constants/platform';
-import { IUiConfigServerSide } from '../../models';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { NotFound } from '../../components';
-import { DynamicLayout, ShareAccountLayout } from '../../layouts';
-import { useUIContent } from '../../hooks';
+import { observer } from 'mobx-react';
+import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
+import { useMemo } from 'react';
+
+import crypto from 'crypto-js';
+import { LoadingSpinner, NotFound } from '../../components';
+import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
+import { IUiConfigServerSide } from '../../models';
+import { fetchUiContentApi } from '../../store/store-ui-content/api';
+
+const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
+
+const ShareAccountLayout = dynamic(() => import('../../layouts').then((mod) => mod.ShareAccountLayout), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
 }
 
-const DynamicPage: React.FC<IServerSideProps> = observer(() => {
-  let systemConfig: IUiConfigServerSide = {};
+const SECRET_DATA = 'K951B6PE1waDMi640xX08PD3vg6EkVlz';
 
-  if (THEME === 'SHARE_ACCOUNT_V1') {
-    const data = useUIContent<IUiConfigServerSide>('sac-system-config-page');
-    systemConfig = {
-      ldpSystemConfigPage: data?.content,
-    };
-  }
-  if (THEME === 'DYNAMIC_PAGE_V1') {
-    const data = useUIContent<IUiConfigServerSide>('ldp-system-config-page-v1');
-    systemConfig = {
-      ldpSystemConfigPage: data?.content,
-    };
-  }
-  if (THEME === 'DYNAMIC_PAGE_V2') {
-    const data = useUIContent<IUiConfigServerSide>('ldp-system-config-page-v2');
-    systemConfig = {
-      ldpSystemConfigPage: data?.content,
-    };
-  }
-  if (THEME === 'DYNAMIC_PAGE_V3') {
-    const data = useUIContent<IUiConfigServerSide>('ldp-system-config-page-v3');
-    systemConfig = {
-      ldpSystemConfigPage: data?.content,
-    };
-  }
-  if (THEME === 'DYNAMIC_PAGE_V4') {
-    const data = useUIContent<IUiConfigServerSide>('ldp-system-config-page-v4');
-    systemConfig = {
-      ldpSystemConfigPage: data?.content,
-    };
-  }
+const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
+  const { systemConfig } = props;
+
+  const DATA_PROPS = useMemo(() => {
+    const bytes = crypto.AES.decrypt(systemConfig, SECRET_DATA);
+
+    return JSON.parse(bytes.toString(crypto.enc.Utf8));
+  }, [systemConfig]);
 
   switch (THEME) {
     case 'DYNAMIC_PAGE_V1':
     case 'DYNAMIC_PAGE_V2':
     case 'DYNAMIC_PAGE_V3':
     case 'DYNAMIC_PAGE_V4':
-      return <DynamicLayout systemConfig={systemConfig} />;
+      return <DynamicLayout systemConfig={DATA_PROPS} />;
 
     case 'SHARE_ACCOUNT_V1':
       return (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
-          <ShareAccountLayout systemConfig={systemConfig} />
+          <ShareAccountLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
       );
     default:
@@ -64,3 +54,55 @@ const DynamicPage: React.FC<IServerSideProps> = observer(() => {
 });
 
 export default DynamicPage;
+
+export const getServerSideProps = (async () => {
+  let systemConfig: IUiConfigServerSide = {};
+
+  if (THEME === 'SHARE_ACCOUNT_V1') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'sac-system-config-page' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_PAGE_V1') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_PAGE_V2') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v2' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_PAGE_V3') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v3' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  if (THEME === 'DYNAMIC_PAGE_V4') {
+    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v4' });
+
+    systemConfig = {
+      ldpSystemConfigPage,
+    };
+  }
+
+  systemConfig = crypto.AES.encrypt(JSON.stringify(systemConfig), SECRET_DATA).toString();
+
+  return {
+    props: {
+      systemConfig,
+    },
+  };
+}) satisfies GetServerSideProps<IServerSideProps>;
