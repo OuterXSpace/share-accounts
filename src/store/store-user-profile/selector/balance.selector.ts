@@ -1,3 +1,4 @@
+import { floor } from 'lodash';
 import { fetchBalanceAction } from '../action';
 import { getStore } from '../store';
 
@@ -11,7 +12,7 @@ export const balanceSelector = (fetchIfUndefined?: boolean) => {
   return {
     balance,
     availableBalanceForWithdraw: balance
-      ? Math.floor(
+      ? floor(
           Math.max(
             0,
             (balance.balance >= balance.availableBalance

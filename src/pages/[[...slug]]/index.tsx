@@ -6,18 +6,8 @@ import crypto from 'crypto-js';
 import { GetServerSideProps } from 'next';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { LoadingSpinner, NotFound } from '../../components';
-import dynamic from 'next/dynamic';
-
-const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
-  loading: () => <LoadingSpinner />,
-  ssr: true,
-});
-
-const ShareAccountLayout = dynamic(() => import('../../layouts').then((mod) => mod.ShareAccountLayout), {
-  loading: () => <LoadingSpinner />,
-  ssr: true,
-});
+import { DynamicLayout, ShareAccountLayout } from '../../layouts';
+import { NotFound } from '../../components';
 
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;

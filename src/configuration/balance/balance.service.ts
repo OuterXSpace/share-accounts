@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { throttle } from 'underscore';
+import { throttle } from 'lodash';
 import { API, SearchResult } from '../../api';
 import { IBalance, IBalanceService } from './balance.type';
 

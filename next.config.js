@@ -14,17 +14,6 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  swcMinify: true,
-  experimental: {
-    outputStandalone: true,
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.alias['@sentry/node'] = '@sentry/browser';
-    }
-
-    return config;
-  },
 };
 
 module.exports = nextConfig;
