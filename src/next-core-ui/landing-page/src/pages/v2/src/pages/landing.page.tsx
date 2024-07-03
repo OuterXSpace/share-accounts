@@ -84,7 +84,6 @@ export const LandingPageV2: React.FC<LandingPageV2Props> = (props) => {
         <meta property="og:url" content={seoData?.ogUrl} />
         <meta property="og:image" content={seoData?.ogImage} />
         <title>{seoData?.ogTitle}</title>
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/dm-sans" />
       </>
     );
   }, [slug, systemConfig?.ldpSystemConfigPage]);

@@ -3,3 +3,4 @@ export * from './hover-float-text';
 export * from './cursor-pointer';
 export * from './unicorn-studio';
 export * from './click-loader';
+export * from './hover-underline';

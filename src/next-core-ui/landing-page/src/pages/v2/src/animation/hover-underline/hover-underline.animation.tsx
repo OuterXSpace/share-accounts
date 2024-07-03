@@ -7,4 +7,4 @@ export const HoverUnderlineAnimation: React.FC<IHoverUnderlineProp> = (props) =>
       {children}
     </div>
   );
-}
+};
