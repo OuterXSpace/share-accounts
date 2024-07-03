@@ -9,15 +9,15 @@ export const IntroductionTitle: React.FC<IIntroductionTitleProps> = (props) => {
           Lot Technologies®
         </h4>
         <HoverChangeText id="text-container">
-          <h1 className="text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
             {' '}
             Define.{' '}
           </h1>
-          <h1 className="text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
             {' '}
             Innovate.{' '}
           </h1>
-          <h1 className="text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
             {' '}
             Lead.{' '}
           </h1>
