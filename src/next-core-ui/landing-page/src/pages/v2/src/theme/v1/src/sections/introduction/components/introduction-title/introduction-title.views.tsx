@@ -5,19 +5,19 @@ export const IntroductionTitle: React.FC<IIntroductionTitleProps> = (props) => {
   return (
     <div className="flex justify-between items-end absolute left-[5.5vw] right-[5.5vw] bottom-[5.5vw] text-xs">
       <div>
-        <h4 className="md:text-[2em] leading-[1.35] mb-[1.5vw] font-medium tracking-[-0.09vw] visible">
+        <h4 className="text-[1em] md:text-[2em] leading-[1.35] mb-[1.5vw] font-medium tracking-[-0.09vw] visible">
           Lot Technologies®
         </h4>
         <HoverChangeText id="text-container">
-          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] md:text-[5em] lg:text-[7.5em] leading-[0.83] font-normal tracking-[-0.5vw] md:ml-[-0.4vw] ">
             {' '}
             Define.{' '}
           </h1>
-          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] md:text-[5em] lg:text-[7.5em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw]">
             {' '}
             Innovate.{' '}
           </h1>
-          <h1 className="text-container text-[3em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] md:text-[7.5em]">
+          <h1 className="text-container text-[3em] md:text-[5em] lg:text-[7.5em] leading-[0.83] font-normal tracking-[-0.5vw]  md:ml-[-0.4vw] ">
             {' '}
             Lead.{' '}
           </h1>
