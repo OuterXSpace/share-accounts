@@ -9,6 +9,7 @@ import { LoadingSpinner, NotFound } from '../../components';
 import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
+import { IRootSystemConfig } from '../../models/system-config/root-system-config';
 
 const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
   loading: () => <LoadingSpinner />,
@@ -62,7 +63,7 @@ export const getServerSideProps = (async () => {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'sac-system-config-page' });
 
     systemConfig = {
-      ldpSystemConfigPage,
+      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
     };
   }
 
@@ -70,7 +71,7 @@ export const getServerSideProps = (async () => {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page' });
 
     systemConfig = {
-      ldpSystemConfigPage,
+      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
     };
   }
 
@@ -78,7 +79,7 @@ export const getServerSideProps = (async () => {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v2' });
 
     systemConfig = {
-      ldpSystemConfigPage,
+      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
     };
   }
 
@@ -86,7 +87,7 @@ export const getServerSideProps = (async () => {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v3' });
 
     systemConfig = {
-      ldpSystemConfigPage,
+      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
     };
   }
 
@@ -94,7 +95,7 @@ export const getServerSideProps = (async () => {
     const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v4' });
 
     systemConfig = {
-      ldpSystemConfigPage,
+      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
     };
   }
 

@@ -28,7 +28,9 @@ const nextConfig = {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name(module) {
-              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+              const context = module.context || '';
+              const packageNameMatch = context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+              const packageName = packageNameMatch ? packageNameMatch[1] : 'unknown';
               return `npm.${packageName.replace('@', '')}`;
             },
           },
