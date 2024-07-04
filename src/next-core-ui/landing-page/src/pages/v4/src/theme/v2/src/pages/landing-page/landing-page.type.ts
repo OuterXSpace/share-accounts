@@ -1,5 +1,4 @@
-import { IThemeResult } from '../../../../../../../../../../../hooks';
-import { IUiConfigServerSide } from '../../../../../../../../../../../models';
+import { IThemeResult, IUiConfigServerSide } from '../../../../../../../../../../../models';
 
 export interface LandingPageV4ThemeV2Props {
   systemConfig?: IUiConfigServerSide;
