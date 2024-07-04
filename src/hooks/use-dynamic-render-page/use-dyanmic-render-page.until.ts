@@ -1,47 +1,35 @@
-import { ISystemConfig, IThemeResult } from '../../models';
+import { IThemeResult } from '../../models';
 
-const isThemeResult = (config: ISystemConfig | IThemeResult | undefined): config is IThemeResult => {
-  return !!config && 'theme' in config && 'className' in config && 'array' in config;
-};
-
-const isSystemConfig = (config: ISystemConfig | IThemeResult | undefined): config is ISystemConfig => {
-  return !!config && typeof config === 'object' && !Array.isArray(config);
-};
-
-const findThemeRecursive = (config: ISystemConfig | IThemeResult, segments: string[]): IThemeResult | undefined => {
+const findThemeRecursive = (config: IThemeResult, segments: string[]): IThemeResult | undefined => {
   if (segments.length === 0 || segments[0] === '/') {
-    if (isThemeResult(config)) {
-      return config;
+    if ('theme' in config || 'className' in config || 'array' in config) {
+      return config as IThemeResult;
     }
     return undefined;
   }
 
-  const currentSegment = segments[0];
+  const currentSegment = `/${segments[0]}`;
   const remainingSegments = segments.slice(1);
 
-  let nextConfig = config[currentSegment] as ISystemConfig | IThemeResult | undefined;
+  let nextConfig = config[currentSegment];
   if (!nextConfig && '[id]' in config) {
-    nextConfig = config['[id]'] as ISystemConfig | IThemeResult;
+    nextConfig = config['[id]'];
   }
 
-  if (isSystemConfig(nextConfig) || isThemeResult(nextConfig)) {
-    return findThemeRecursive(nextConfig, remainingSegments);
-  }
-
-  return undefined;
+  return nextConfig ? findThemeRecursive(nextConfig as IThemeResult, remainingSegments) : undefined;
 };
 
-export const findTheme = (systemConfig: ISystemConfig, path: string): IThemeResult | undefined => {
-  const pathSegments = path.split('/').filter((segment) => segment !== '');
+export const findTheme = (systemConfig: IThemeResult, path: string): IThemeResult | undefined => {
+  let pathSegments = path.split('/').filter((segment) => segment !== '');
+  let currentConfig: IThemeResult = systemConfig;
 
   if (pathSegments.length === 0) {
-    return systemConfig['/'] as IThemeResult;
+    currentConfig = systemConfig['/'] as IThemeResult;
+    pathSegments = ['/'];
   }
 
-  let currentConfig: ISystemConfig | IThemeResult = systemConfig;
-
   if (!Object.prototype.hasOwnProperty.call(systemConfig, `/${pathSegments[0]}`)) {
-    currentConfig = systemConfig['/'];
+    currentConfig = systemConfig['/'] as IThemeResult;
   }
 
   return findThemeRecursive(currentConfig, pathSegments);
