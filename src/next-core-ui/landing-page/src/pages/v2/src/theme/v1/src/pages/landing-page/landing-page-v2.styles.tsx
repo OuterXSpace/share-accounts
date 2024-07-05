@@ -65,7 +65,6 @@ export const LandingPageStylesV2: React.FC = () => {
       h1,
       h2,
       h3,
-      h4,
       a {
         font-family: 'PPMonumentExtended-Medium';
         text-transform: uppercase;
