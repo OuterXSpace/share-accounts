@@ -122,9 +122,6 @@ module.exports = {
   content: {
     'counter-link': 'counter(linkCounter, decimal-leading-zero)',
   },
-  gridColumn: {
-    '4-12': 'span 8 / span 8',
-  },
 };
 
 export {};
