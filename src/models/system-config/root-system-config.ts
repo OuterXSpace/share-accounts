@@ -2,9 +2,7 @@ import { IDataConfig } from './data-config.model';
 import { SeoData } from './seo-data-config.model';
 import { ISystemConfig } from './system-config.model';
 
-type TDynamicValue = number | string | boolean | Record<string, any>[] | Record<string, any>;
-
-export interface IRootDynamicConfig<T = TDynamicValue> {
+export interface IRootDynamicConfig<T = any> {
   [key: string]: T;
 }
 
