@@ -10,6 +10,7 @@ import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { IRootSystemConfig } from '../../models/system-config/root-system-config';
+// import { useUIContent } from '../../hooks';
 
 const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
   loading: () => <LoadingSpinner />,
@@ -29,6 +30,8 @@ const SECRET_DATA = 'K951B6PE1waDMi640xX08PD3vg6EkVlz';
 
 const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
   const { systemConfig } = props;
+
+  // const { content } = useUIContent<IRootSystemConfig>('sac-system-config-page');
 
   const DATA_PROPS = useMemo(() => {
     const bytes = crypto.AES.decrypt(systemConfig, SECRET_DATA);

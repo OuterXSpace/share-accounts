@@ -61,7 +61,7 @@ jobs:
         run: chmod +x ./deploy/*
 
       - name: Create nginx folder
-        run: mkdir ./nginx && mkdir ./nginx/conf.d
+        run:  mkdir ./nginx/conf.d
 
       - name: Generate default nginx configuration file setting
         run: ./deploy/nginx.default.conf.sh "$INGRESS_IP" "$PERSONAL_TOTO_CDN" "$COMMON_TOTO_CDN" "$PUBLIC_CDN" > ./nginx/conf.d/default.conf
@@ -69,11 +69,17 @@ jobs:
       - name: Generate nginx configuration file setting
         run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
 
+      - name: Generate Dockerfile configuration file setting
+        run: ./deploy/docker-file.sh > ./nginx/Dockerfile
+
+      - name: Generate docker compose configuration file setting
+        run: ./deploy/docker-compose.sh "$IMAGE" "DOCKER_HUB_USERNAME" "$EMAIL_DOCKER_HUB" "$PASSWORD_DOCKER_HUB" > docker-compose.yml
+
       - name: Build Docker image
         run: docker build -t $IMAGE .
 
       - name: Log in to Docker Hub
-        run: docker login -u" $EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
+        run: docker login -u "$EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
 
       - name: Push Docker image
         run: |
