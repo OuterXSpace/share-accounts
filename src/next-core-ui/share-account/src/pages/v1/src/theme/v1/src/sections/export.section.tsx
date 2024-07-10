@@ -10,6 +10,7 @@ import {
   RegisterPageShareAccountTheme01,
   ProfilePageShareAccountTheme01,
   ProductDetailPageShareAccountTheme01,
+  CheckoutPageShareAccountTheme01,
 } from '.';
 import { StaticPageShareAccountTheme01 } from './static';
 
@@ -76,6 +77,8 @@ export const ExportSectionShareAccountV1ThemeV1: React.FC<IExportSectionShareAcc
           products={systemConfig?.ldpSystemConfigPage?.products}
         />
       );
+    case 'CHECKOUT_SECTION':
+      return <CheckoutPageShareAccountTheme01 data={data} className={className} />;
     default:
       return <div>Not found section</div>;
   }

@@ -11,11 +11,18 @@ export const useDynamicRenderPage = (props: IDynamicRenderPageProps) => {
   const router = useRouter();
 
   const slugKey = useMemo(() => {
-    const path = router?.asPath.split('/').filter((segment) => segment !== '');
-    if (path?.length === 0) {
+    if (!router?.asPath) return '/';
+
+    const path = router.asPath
+      .split('?')[0]
+      .split('/')
+      .filter((segment) => segment !== '');
+
+    if (path.length === 0) {
       return '/';
     }
-    return `/${path?.[path.length - 1]}`;
+
+    return `/${path[path.length - 1]}`;
   }, [router?.asPath]);
 
   const slugConfigJSON = useMemo(() => {

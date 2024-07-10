@@ -71,6 +71,8 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
       url: PUBLIC_URL,
     };
 
+    setIsLoading(true);
+
     checkoutApi(payload)
       .then((res) => {
         router.push({
@@ -81,9 +83,6 @@ export const CartPageShareAccountTheme01: React.FC<CartPageShareAccountTheme01Pr
       .catch(() => {
         setIsLoading(false);
         toast.error('Đã có lỗi xảy ra! Bạn vui lòng thử lại sau ít phút!');
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   };
 

@@ -20,8 +20,18 @@ const findThemeRecursive = (config: IThemeResult, segments: string[]): IThemeRes
 };
 
 export const findTheme = (systemConfig: IThemeResult, path: string): IThemeResult | undefined => {
-  let pathSegments = path.split('/').filter((segment) => segment !== '');
+  let pathSegments;
   let currentConfig: IThemeResult = systemConfig;
+
+  if (!path) {
+    currentConfig = systemConfig['/'] as IThemeResult;
+    pathSegments = ['/'];
+  }
+
+  pathSegments = path
+    .split('?')[0]
+    .split('/')
+    .filter((segment) => segment !== '');
 
   if (pathSegments.length === 0) {
     currentConfig = systemConfig['/'] as IThemeResult;
