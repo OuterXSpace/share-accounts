@@ -36,22 +36,22 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
     return JSON.parse(bytes.toString(crypto.enc.Utf8));
   }, [systemConfig]);
 
-  switch (THEME) {
-    case 'DYNAMIC_PAGE_V1':
-    case 'DYNAMIC_PAGE_V2':
-    case 'DYNAMIC_PAGE_V3':
-    case 'DYNAMIC_PAGE_V4':
-      return <DynamicLayout systemConfig={DATA_PROPS} />;
-
-    case 'SHARE_ACCOUNT_V1':
-      return (
+  const renderTheme = useMemo(() => {
+    return {
+      DYNAMIC_PAGE_V1: <DynamicLayout systemConfig={systemConfig} />,
+      DYNAMIC_PAGE_V2: <DynamicLayout systemConfig={systemConfig} />,
+      DYNAMIC_PAGE_V3: <DynamicLayout systemConfig={systemConfig} />,
+      DYNAMIC_PAGE_V4: <DynamicLayout systemConfig={systemConfig} />,
+      SHARE_ACCOUNT_V1: (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
           <ShareAccountLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
-      );
-    default:
-      return <NotFound />;
-  }
+      ),
+      NOT_FOUND: <NotFound />,
+    };
+  }, [DATA_PROPS, systemConfig]);
+
+  return renderTheme?.[THEME ?? 'NOT_FOUND'];
 });
 
 export default DynamicPage;

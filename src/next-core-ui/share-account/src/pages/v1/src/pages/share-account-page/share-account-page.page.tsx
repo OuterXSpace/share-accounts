@@ -11,19 +11,16 @@ export const ShareAccountPageV1: React.FC<LandingPageV4Props> = (props) => {
   const { slugConfigJSON, renderSeoPage, slugKey } = useDynamicRenderPage({ systemConfig });
 
   const renderPageFollowTheme = useMemo(() => {
-    if (slugConfigJSON?.theme === 'V1') {
-      return (
-        <ShareAccountPageV1ThemeV1 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} slugKey={slugKey} />
-      );
-    }
-
-    return <NotFound />;
-  }, [slugConfigJSON, slugKey, systemConfig]);
+    return {
+      V1: <ShareAccountPageV1ThemeV1 systemConfig={systemConfig} slugConfigJSON={slugConfigJSON} slugKey={slugKey} />,
+      'NOT-FOUND': <NotFound />,
+    };
+  }, [systemConfig, slugConfigJSON, slugKey]);
 
   return (
     <>
       <Head>{renderSeoPage}</Head>
-      <div className="root">{renderPageFollowTheme}</div>
+      <div className="root">{renderPageFollowTheme?.[slugConfigJSON?.theme ?? 'NOT-FOUND']}</div>
     </>
   );
 };

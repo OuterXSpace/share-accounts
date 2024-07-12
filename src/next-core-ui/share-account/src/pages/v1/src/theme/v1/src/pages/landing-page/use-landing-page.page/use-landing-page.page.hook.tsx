@@ -43,10 +43,11 @@ export const useShareAccountPageV1ThemeV1 = (props: IUseShareAccountPageV1ThemeV
           systemConfig={systemConfig}
           section={section}
           className={className}
+          slugKey={slugKey}
         />
       );
     });
-  }, [dataByTheme, slugConfigJSON, systemConfig]);
+  }, [dataByTheme, slugConfigJSON, slugKey, systemConfig]);
 
   const renderMenu = useMemo(() => {
     if (isDevice?.isSmallDesktop || isDevice?.isLargeDesktop)

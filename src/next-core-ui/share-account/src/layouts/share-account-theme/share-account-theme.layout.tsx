@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { THEME } from '../../../../../constants/platform';
 import { ShareAccountThemeProps } from './share-account-theme.type';
 import { LoadingSpinner, NotFound } from '../../../../../components';
+import { useMemo } from 'react';
 
 const ShareAccountPageV1 = dynamic(() => import('../../pages').then((mod) => mod.ShareAccountPageV1), {
   loading: () => <LoadingSpinner />,
@@ -11,11 +12,12 @@ const ShareAccountPageV1 = dynamic(() => import('../../pages').then((mod) => mod
 export const ShareAccountTheme: React.FC<ShareAccountThemeProps> = (props) => {
   const { systemConfig } = props;
 
-  switch (THEME) {
-    case 'SHARE_ACCOUNT_V1':
-      return <ShareAccountPageV1 systemConfig={systemConfig} />;
+  const renderTheme = useMemo(() => {
+    return {
+      SHARE_ACCOUNT_V1: <ShareAccountPageV1 systemConfig={systemConfig} />,
+      NOT_FOUND: <NotFound />,
+    };
+  }, [systemConfig]);
 
-    default:
-      return <NotFound />;
-  }
+  return renderTheme?.[THEME ?? 'NOT_FOUND'];
 };

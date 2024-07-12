@@ -1,12 +1,12 @@
 export const menuProfile = [
   {
-    id: 1,
+    id: '/profile-info',
     title: 'Thông tin cá nhân',
     icon: 'person-outline',
     href: '/profile/profile-info',
   },
   {
-    id: 2,
+    id: '/payment-history',
     title: 'Lịch sử giao dịch',
     icon: 'card-outline',
     href: '/profile/payment-history',

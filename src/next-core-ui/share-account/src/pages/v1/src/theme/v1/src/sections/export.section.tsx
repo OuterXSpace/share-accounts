@@ -13,73 +13,54 @@ import {
   CheckoutPageShareAccountTheme01,
 } from '.';
 import { StaticPageShareAccountTheme01 } from './static';
+import { useMemo } from 'react';
 
 export interface IExportSectionShareAccountV1ThemeV1Props {
   systemConfig?: IUiConfigServerSide;
   data?: Record<string, any>;
   className?: string;
   section?: string;
-  // section?:
-  //   | 'SLIDER_HOME_SECTION'
-  //   | 'WELCOME_POPUP_SECTION'
-  //   | 'PRODUCT_LIST_SECTION'
-  //   | 'NEW_IMAGE_TEXT_SECTION'
-  //   | 'PROMOTION_SECTION'
-  //   | 'STATIC_SECTION'
-  //   | 'CART_SECTION'
-  //   | 'LOGIN_SECTION'
-  //   | 'REGISTER_SECTION'
-  //   | 'PROFILE_SECTION'
-  //   | 'PRODUCT_DETAIL_SECTION';
+  slugKey?: string;
 }
 
 export const ExportSectionShareAccountV1ThemeV1: React.FC<IExportSectionShareAccountV1ThemeV1Props> = (props) => {
-  const { systemConfig, section, data, className } = props;
+  const { systemConfig, section, data, className, slugKey } = props;
 
-  switch (section) {
-    case 'SLIDER_HOME_SECTION':
-      return <SliderHomeShareAccountTheme01 data={data} className={className} />;
-    case 'WELCOME_POPUP_SECTION':
-      return <WelcomePopupShareAccountTheme01 data={data} className={className} />;
-    case 'PRODUCT_LIST_SECTION':
-      return (
-        <ProductListShareAccountTheme01
-          data={data}
-          products={systemConfig?.ldpSystemConfigPage?.products}
-          className={className}
-        />
-      );
-    case 'NEW_IMAGE_TEXT_SECTION':
-      return <NewImageTextSectionShareAccountTheme01 data={data} className={className} />;
-    case 'PROMOTION_SECTION':
-      return <PromotionPageShareAccountTheme01 data={data} className={className} />;
-    case 'STATIC_SECTION':
-      return <StaticPageShareAccountTheme01 data={data} className={className} />;
-    case 'CART_SECTION':
-      return (
+  const renderSection = useMemo(() => {
+    return {
+      SLIDER_HOME_SECTION: <SliderHomeShareAccountTheme01 data={data} className={className} />,
+      WELCOME_POPUP_SECTION: <WelcomePopupShareAccountTheme01 data={data} className={className} />,
+      NEW_IMAGE_TEXT_SECTION: <NewImageTextSectionShareAccountTheme01 data={data} className={className} />,
+      PROMOTION_SECTION: <PromotionPageShareAccountTheme01 data={data} className={className} />,
+      STATIC_SECTION: <StaticPageShareAccountTheme01 data={data} className={className} />,
+      LOGIN_SECTION: <LoginPageShareAccountTheme01 data={data} className={className} />,
+      REGISTER_SECTION: <RegisterPageShareAccountTheme01 data={data} className={className} />,
+      CHECKOUT_SECTION: <CheckoutPageShareAccountTheme01 data={data} className={className} />,
+      PROFILE_SECTION: <ProfilePageShareAccountTheme01 data={data} className={className} slugKey={slugKey} />,
+      CART_SECTION: (
         <CartPageShareAccountTheme01
           data={data}
           className={className}
           products={systemConfig?.ldpSystemConfigPage?.products}
         />
-      );
-    case 'LOGIN_SECTION':
-      return <LoginPageShareAccountTheme01 data={data} className={className} />;
-    case 'REGISTER_SECTION':
-      return <RegisterPageShareAccountTheme01 data={data} className={className} />;
-    case 'PROFILE_SECTION':
-      return <ProfilePageShareAccountTheme01 data={data} className={className} />;
-    case 'PRODUCT_DETAIL_SECTION':
-      return (
+      ),
+      PRODUCT_DETAIL_SECTION: (
         <ProductDetailPageShareAccountTheme01
           data={data}
           className={className}
           products={systemConfig?.ldpSystemConfigPage?.products}
         />
-      );
-    case 'CHECKOUT_SECTION':
-      return <CheckoutPageShareAccountTheme01 data={data} className={className} />;
-    default:
-      return <div>Not found section</div>;
-  }
+      ),
+      PRODUCT_LIST_SECTION: (
+        <ProductListShareAccountTheme01
+          data={data}
+          className={className}
+          products={systemConfig?.ldpSystemConfigPage?.products}
+        />
+      ),
+      NOT_FOUND_SECTION: <div>Not found section</div>,
+    };
+  }, [className, data, slugKey, systemConfig?.ldpSystemConfigPage?.products]);
+
+  return renderSection[section ?? 'NOT_FOUND_SECTION'];
 };
