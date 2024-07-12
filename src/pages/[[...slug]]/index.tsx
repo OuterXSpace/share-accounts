@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
-
 import crypto from 'crypto-js';
 import { LoadingSpinner, NotFound } from '../../components';
 import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
