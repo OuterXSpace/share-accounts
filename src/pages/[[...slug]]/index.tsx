@@ -58,45 +58,19 @@ export default DynamicPage;
 export const getServerSideProps = (async () => {
   let systemConfig: IUiConfigServerSide = {};
 
-  if (THEME === 'SHARE_ACCOUNT_V1') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'sac-system-config-page' });
+  const uiConfigService = {
+    SHARE_ACCOUNT_V1: 'sac-system-config-page',
+    DYNAMIC_PAGE_V1: 'ldp-system-config-page',
+    DYNAMIC_PAGE_V2: 'ldp-system-config-page-v2',
+    DYNAMIC_PAGE_V3: 'ldp-system-config-page-v3',
+    DYNAMIC_PAGE_V4: 'ldp-system-config-page-v4',
+  };
 
-    systemConfig = {
-      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
-    };
-  }
+  const ldpSystemConfigPage = await fetchUiContentApi({ contentId: uiConfigService[THEME] });
 
-  if (THEME === 'DYNAMIC_PAGE_V1') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page' });
-
-    systemConfig = {
-      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V2') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v2' });
-
-    systemConfig = {
-      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V3') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v3' });
-
-    systemConfig = {
-      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V4') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v4' });
-
-    systemConfig = {
-      ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
-    };
-  }
+  systemConfig = {
+    ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
+  };
 
   systemConfig = crypto.AES.encrypt(JSON.stringify(systemConfig), SECRET_DATA).toString();
 
