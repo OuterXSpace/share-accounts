@@ -37,10 +37,10 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
 
   const renderTheme = useMemo(() => {
     return {
-      DYNAMIC_PAGE_V1: <DynamicLayout systemConfig={systemConfig} />,
-      DYNAMIC_PAGE_V2: <DynamicLayout systemConfig={systemConfig} />,
-      DYNAMIC_PAGE_V3: <DynamicLayout systemConfig={systemConfig} />,
-      DYNAMIC_PAGE_V4: <DynamicLayout systemConfig={systemConfig} />,
+      DYNAMIC_PAGE_V1: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V2: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V3: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V4: <DynamicLayout systemConfig={DATA_PROPS} />,
       SHARE_ACCOUNT_V1: (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
           <ShareAccountLayout systemConfig={DATA_PROPS} />
@@ -48,7 +48,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
       ),
       NOT_FOUND: <NotFound />,
     };
-  }, [DATA_PROPS, systemConfig]);
+  }, [DATA_PROPS]);
 
   return renderTheme?.[THEME ?? 'NOT_FOUND'];
 });
