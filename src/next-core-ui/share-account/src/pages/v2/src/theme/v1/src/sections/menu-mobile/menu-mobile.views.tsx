@@ -1,10 +1,10 @@
 import IonIcon from '@reacticons/ionicons';
-import { IMenuMobileShareAccountV1ThemeV1Props } from './menu-mobile.type';
+import { IMenuMobileShareAccountV1ThemeV2Props } from './menu-mobile.type';
 import { useState } from 'react';
 import { Drawer } from 'flowbite-react';
 import { MenuItemMobile01 } from './menu-item';
 
-export const MenuMobileShareAccountV1ThemeV1: React.FC<IMenuMobileShareAccountV1ThemeV1Props> = (props) => {
+export const MenuMobileShareAccountV1ThemeV2: React.FC<IMenuMobileShareAccountV1ThemeV2Props> = (props) => {
   const { data, handleOpenCart } = props;
 
   const [isToggleMenu, setIsToggleMenu] = useState(false);

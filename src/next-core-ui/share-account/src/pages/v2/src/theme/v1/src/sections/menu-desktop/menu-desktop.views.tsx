@@ -9,14 +9,14 @@ import {
   loginUrlSelector,
   isLoginSelector,
 } from '../../../../../../../../../../../store/store-authentication/selector';
-import { IMenuDesktopShareAccountV1ThemeV1Props } from './menu-desktop.type';
+import { IMenuDesktopShareAccountV1ThemeV2Props } from './menu-desktop.type';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { cartActions, selectCart } from '../../../../../../../../../../../store-tookit';
 import { useDispatch, useSelector } from 'react-redux';
 
 const classNamePrefix = 'tt-header';
 
-export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccountV1ThemeV1Props> = (props) => {
+export const MenuDesktopShareAccountV1ThemeV2: React.FC<IMenuDesktopShareAccountV1ThemeV2Props> = (props) => {
   const { data } = props;
 
   const dispatch = useDispatch();

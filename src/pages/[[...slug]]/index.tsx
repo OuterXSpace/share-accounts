@@ -46,6 +46,11 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
           <ShareAccountLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
       ),
+      SHARE_ACCOUNT_V2: (
+        <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
+          <ShareAccountLayout systemConfig={DATA_PROPS} />
+        </GoogleOAuthProvider>
+      ),
       NOT_FOUND: <NotFound />,
     };
   }, [DATA_PROPS]);
@@ -60,6 +65,7 @@ export const getServerSideProps = (async () => {
 
   const uiConfigService = {
     SHARE_ACCOUNT_V1: 'sac-system-config-page',
+    SHARE_ACCOUNT_V2: 'adn-system-config-page',
     DYNAMIC_PAGE_V1: 'ldp-system-config-page',
     DYNAMIC_PAGE_V2: 'ldp-system-config-page-v2',
     DYNAMIC_PAGE_V3: 'ldp-system-config-page-v3',
