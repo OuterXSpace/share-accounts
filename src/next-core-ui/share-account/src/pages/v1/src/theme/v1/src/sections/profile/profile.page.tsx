@@ -5,27 +5,17 @@ import { PaymentHistory, ProfileInfo } from './views';
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { TIonIconName } from '../../../../../../../../../../../models';
-import { useRouter } from 'next/router';
 
-export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTheme01Props> = () => {
-  const router = useRouter();
+export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTheme01Props> = (props) => {
+  const { slugKey } = props;
 
-  const id = useMemo(() => {
-    const str = router?.query?.slug;
-
-    if (!str) return 'HOME';
-
-    return (str[1] ?? str[0])?.toLocaleUpperCase();
-  }, [router?.query?.slug]);
-
-  const renderPageBody = useMemo(() => {
-    switch (id) {
-      case 'PAYMENT-HISTORY':
-        return <PaymentHistory />;
-      default:
-        return <ProfileInfo />;
-    }
-  }, [id]);
+  const renderSection = useMemo(() => {
+    return {
+      '/payment-history': <PaymentHistory />,
+      '/profile-info': <ProfileInfo />,
+      '/profile': <ProfileInfo />,
+    };
+  }, []);
 
   return (
     <main className="container w-full mt-10">
@@ -35,10 +25,10 @@ export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTh
             <h1 className="text-xl font-semibold mb-4">Thông tin cá nhân</h1>
             <ul className="space-y-2 font-medium text-gray-600">
               {menuProfile?.map((item) => {
-                const { title, icon, href } = item;
+                const { title, icon, href, id } = item;
                 return (
-                  <li key={item?.id}>
-                    <Link href={href} className="flex items-center p-2 text-gray-900 ">
+                  <li key={item?.id} className={`${id === slugKey ? 'border border-primary rounded-[8px]' : ''}`}>
+                    <Link href={href} className="flex items-center p-2 text-gray-900">
                       <IonIcon className="w-4 h-4" name={icon as TIonIconName} />
                       <span className="ms-3">{title}</span>
                     </Link>
@@ -48,7 +38,7 @@ export const ProfilePageShareAccountTheme01: React.FC<IProfilePageShareAccountTh
             </ul>
           </div>
         </aside>
-        <div className="col-9">{renderPageBody}</div>
+        <div className="col-9">{renderSection?.[slugKey ?? '/profile']}</div>
       </section>
     </main>
   );

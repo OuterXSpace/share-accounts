@@ -3,7 +3,7 @@ export * from './footer';
 export * from './login';
 export * from './menu-desktop';
 export * from './menu-mobile';
-export * from './payment';
+export * from './checkout';
 export * from './product-detail';
 export * from './profile';
 export * from './promotion';

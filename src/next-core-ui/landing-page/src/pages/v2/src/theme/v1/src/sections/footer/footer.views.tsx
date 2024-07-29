@@ -7,8 +7,8 @@ export const LandingPageFooterV2: React.FC<FooterV2Props> = (props) => {
 
   return (
     <footer className={`section ${className} px-[5.5vw]`}>
-      <div className="mt-[15vw]">
-        <div className="relative my-[25vw] lg:mb-[13vw] lg:grid lg:grid-cols-11 gap-[2.2vw] flex flex-col-reverse">
+      <div className="mt-0">
+        <div className="relative my-[15vw] lg:mb-[13vw] lg:grid lg:grid-cols-11 gap-[2.2vw] flex flex-col-reverse">
           <div className="flex justify-start items-start">
             <img
               src="https://assets-global.website-files.com/6618e637b1708fa9ebdf54ae/662529fa7a4aea81f88af1b9_lot-logo-white.svg"

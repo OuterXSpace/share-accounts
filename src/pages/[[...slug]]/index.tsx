@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react';
-import { observer } from 'mobx-react';
-import { GOOGLE_APP_CLIENT_ID, THEME } from '../../constants/platform';
-import { IUiConfigServerSide } from '../../models';
-import crypto from 'crypto-js';
-import { GetServerSideProps } from 'next';
-import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { LoadingSpinner, NotFound } from '../../components';
+import { observer } from 'mobx-react';
+import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
+import { useMemo } from 'react';
+import crypto from 'crypto-js';
+import { LoadingSpinner, NotFound } from '../../components';
+import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
+import { IUiConfigServerSide } from '../../models';
+import { fetchUiContentApi } from '../../store/store-ui-content/api';
+import { IRootSystemConfig } from '../../models/system-config/root-system-config';
 
 const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
   loading: () => <LoadingSpinner />,
@@ -34,22 +35,22 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
     return JSON.parse(bytes.toString(crypto.enc.Utf8));
   }, [systemConfig]);
 
-  switch (THEME) {
-    case 'DYNAMIC_PAGE_V1':
-    case 'DYNAMIC_PAGE_V2':
-    case 'DYNAMIC_PAGE_V3':
-    case 'DYNAMIC_PAGE_V4':
-      return <DynamicLayout systemConfig={DATA_PROPS} />;
-
-    case 'SHARE_ACCOUNT_V1':
-      return (
+  const renderTheme = useMemo(() => {
+    return {
+      DYNAMIC_PAGE_V1: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V2: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V3: <DynamicLayout systemConfig={DATA_PROPS} />,
+      DYNAMIC_PAGE_V4: <DynamicLayout systemConfig={DATA_PROPS} />,
+      SHARE_ACCOUNT_V1: (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
           <ShareAccountLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
-      );
-    default:
-      return <NotFound />;
-  }
+      ),
+      NOT_FOUND: <NotFound />,
+    };
+  }, [DATA_PROPS]);
+
+  return renderTheme?.[THEME ?? 'NOT_FOUND'];
 });
 
 export default DynamicPage;
@@ -57,45 +58,19 @@ export default DynamicPage;
 export const getServerSideProps = (async () => {
   let systemConfig: IUiConfigServerSide = {};
 
-  if (THEME === 'SHARE_ACCOUNT_V1') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'sac-system-config-page' });
+  const uiConfigService = {
+    SHARE_ACCOUNT_V1: 'sac-system-config-page',
+    DYNAMIC_PAGE_V1: 'ldp-system-config-page',
+    DYNAMIC_PAGE_V2: 'ldp-system-config-page-v2',
+    DYNAMIC_PAGE_V3: 'ldp-system-config-page-v3',
+    DYNAMIC_PAGE_V4: 'ldp-system-config-page-v4',
+  };
 
-    systemConfig = {
-      ldpSystemConfigPage,
-    };
-  }
+  const ldpSystemConfigPage = await fetchUiContentApi({ contentId: uiConfigService[THEME] });
 
-  if (THEME === 'DYNAMIC_PAGE_V1') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page' });
-
-    systemConfig = {
-      ldpSystemConfigPage,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V2') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v2' });
-
-    systemConfig = {
-      ldpSystemConfigPage,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V3') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v3' });
-
-    systemConfig = {
-      ldpSystemConfigPage,
-    };
-  }
-
-  if (THEME === 'DYNAMIC_PAGE_V4') {
-    const ldpSystemConfigPage = await fetchUiContentApi({ contentId: 'ldp-system-config-page-v4' });
-
-    systemConfig = {
-      ldpSystemConfigPage,
-    };
-  }
+  systemConfig = {
+    ldpSystemConfigPage: ldpSystemConfigPage as IRootSystemConfig,
+  };
 
   systemConfig = crypto.AES.encrypt(JSON.stringify(systemConfig), SECRET_DATA).toString();
 
