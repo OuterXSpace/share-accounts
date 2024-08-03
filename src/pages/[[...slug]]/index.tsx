@@ -20,6 +20,11 @@ const ShareAccountLayout = dynamic(() => import('../../layouts').then((mod) => m
   ssr: true,
 });
 
+const XConixLayout = dynamic(() => import('../../layouts').then((mod) => mod.XConixLayout), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
+
 export interface IServerSideProps {
   systemConfig: IUiConfigServerSide;
 }
@@ -46,9 +51,9 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
           <ShareAccountLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
       ),
-      SHARE_ACCOUNT_V2: (
+      X_CONIX_V1: (
         <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
-          <ShareAccountLayout systemConfig={DATA_PROPS} />
+          <XConixLayout systemConfig={DATA_PROPS} />
         </GoogleOAuthProvider>
       ),
       NOT_FOUND: <NotFound />,
@@ -65,7 +70,7 @@ export const getServerSideProps = (async () => {
 
   const uiConfigService = {
     SHARE_ACCOUNT_V1: 'sac-system-config-page',
-    SHARE_ACCOUNT_V2: 'adn-system-config-page',
+    X_CONIX_V1: 'xconix-system-config-page',
     DYNAMIC_PAGE_V1: 'ldp-system-config-page',
     DYNAMIC_PAGE_V2: 'ldp-system-config-page-v2',
     DYNAMIC_PAGE_V3: 'ldp-system-config-page-v3',
