@@ -1,25 +1,25 @@
 import React from 'react';
 import Head from 'next/head';
-import gsap from 'gsap-trial/dist/gsap';
-import { useGSAP } from '@gsap/react';
+// import gsap from 'gsap-trial/dist/gsap';
+// import { useGSAP } from '@gsap/react';
 import { useRouter } from 'next/router';
 import { LandingPageV2Props } from '../../../../../pages';
 import { GlobalPageStyles, CommonJxsStyle, ServicePage, CommonPageStyles } from '../../../../../views';
 
-gsap.registerPlugin(useGSAP);
+// gsap.registerPlugin(useGSAP);
 
 export const LandingPageTestService: React.FC<LandingPageV2Props> = () => {
   const router = useRouter();
 
-  useGSAP(
-    () => {
-      document.body.classList.add(...['body-loaded', 'services-page']);
-      return () => {
-        document.body.classList.remove(...['body-loaded', 'services-page']);
-      };
-    },
-    { dependencies: [router] },
-  );
+  // useGSAP(
+  //   () => {
+  //     document.body.classList.add(...['body-loaded', 'services-page']);
+  //     return () => {
+  //       document.body.classList.remove(...['body-loaded', 'services-page']);
+  //     };
+  //   },
+  //   { dependencies: [router] },
+  // );
 
   const imageUrl =
     'https://assets-global.website-files.com/6618e637b1708fa9ebdf54ae/662e2ed743a4ccf1e011041e_Preview%20(1).png';
