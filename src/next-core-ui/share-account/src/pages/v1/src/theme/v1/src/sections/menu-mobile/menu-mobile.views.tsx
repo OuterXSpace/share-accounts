@@ -27,7 +27,7 @@ export const MenuMobileShareAccountV1ThemeV1: React.FC<IMenuMobileShareAccountV1
             )}
           </button>
           <div className="col-12 h-[64px] flex justify-center items-center">
-            <img src="https://79sodo.com/assets/home/wui/logo.gif" alt="logo icon" className="h-full" />
+            <img src={data?.object?.logo} alt="logo icon" className="h-full" />
           </div>
         </div>
       </nav>

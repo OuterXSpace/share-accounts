@@ -9,12 +9,18 @@ const ShareAccountPageV1 = dynamic(() => import('../../pages').then((mod) => mod
   ssr: true,
 });
 
+const ShareAccountPageV2 = dynamic(() => import('../../pages').then((mod) => mod.ShareAccountPageV2), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
+
 export const ShareAccountTheme: React.FC<ShareAccountThemeProps> = (props) => {
   const { systemConfig } = props;
 
   const renderTheme = useMemo(() => {
     return {
       SHARE_ACCOUNT_V1: <ShareAccountPageV1 systemConfig={systemConfig} />,
+      SHARE_ACCOUNT_V2: <ShareAccountPageV2 systemConfig={systemConfig} />,
       NOT_FOUND: <NotFound />,
     };
   }, [systemConfig]);

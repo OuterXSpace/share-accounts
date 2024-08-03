@@ -34,12 +34,7 @@ export const MenuDesktopShareAccountV1ThemeV1: React.FC<IMenuDesktopShareAccount
       <div className={`${classNamePrefix}__top-nav border-b border-primary bg-gradient-to-top-primary h-[72px]`}>
         <div className="container flex items-center justify-between h-[72px]">
           <Link href="/" className="cursor-pointer">
-            <LazyLoadImage
-              className="h-[70px]"
-              src="https://79sodo.com/assets/home/wui/logo.gif"
-              alt="logo icon"
-              effect="blur"
-            />
+            <LazyLoadImage className="h-[70px]" src={data?.object?.logo} alt="logo icon" effect="blur" />
           </Link>
           <div className="flex items-center gap-3">
             <button
