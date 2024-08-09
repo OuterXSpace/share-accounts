@@ -118,6 +118,7 @@ module.exports = {
       'colors.primary.dark',
     )})`,
     'gradient-to-top-secondary': 'linear-gradient(181.06deg, #e10000 0.91%, #a50000 99.09%)',
+    'gradient-deep-video': 'radial-gradient(at bottom left, #906836 0%, #13293b 40%)',
   }),
 };
 

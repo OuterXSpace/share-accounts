@@ -1,27 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { DynamicThemeProps } from './dynamic.type';
-import { LandingPageV1, LandingPageV2, LandingPageV3, LandingPageV4 } from '../../pages';
 import { THEME } from '../../../../../constants/platform';
+import dynamic from 'next/dynamic';
+import { LoadingSpinner, NotFound } from '../../../../../components';
 import { LANDING_PAGE_MOCK } from '../../core-data';
-import { LANDING_PAGE_MOCK_V2 } from '../../core-data/v2';
+
+const LandingPageV1 = dynamic(() => import('../../pages').then((mod) => mod.LandingPageV1), {
+  loading: () => <LoadingSpinner />,
+  ssr: true,
+});
 
 export const DynamicTheme: React.FC<DynamicThemeProps> = (props) => {
   const { systemConfig } = props;
 
-  switch (THEME) {
-    case 'DYNAMIC_PAGE_V1':
-      return <LandingPageV1 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
+  const renderTheme = useMemo(() => {
+    return {
+      DYNAMIC_PAGE_V1: <LandingPageV1 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />,
+      NOT_FOUND: <NotFound />,
+    };
+  }, [systemConfig]);
 
-    case 'DYNAMIC_PAGE_V2':
-      return <LandingPageV2 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK_V2 }} />;
-
-    case 'DYNAMIC_PAGE_V3':
-      return <LandingPageV3 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
-
-    case 'DYNAMIC_PAGE_V4':
-      return <LandingPageV4 systemConfig={systemConfig ?? { ldpSystemConfigPage: LANDING_PAGE_MOCK }} />;
-
-    default:
-      return <div />;
-  }
+  return renderTheme?.[THEME ?? 'NOT_FOUND'];
 };

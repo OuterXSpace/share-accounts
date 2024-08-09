@@ -1,26 +1,15 @@
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { observer } from 'mobx-react';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
 import crypto from 'crypto-js';
 import { LoadingSpinner, NotFound } from '../../components';
-import { THEME, GOOGLE_APP_CLIENT_ID } from '../../constants/platform';
+import { THEME } from '../../constants/platform';
 import { IUiConfigServerSide } from '../../models';
 import { fetchUiContentApi } from '../../store/store-ui-content/api';
 import { IRootSystemConfig } from '../../models/system-config/root-system-config';
 
 const DynamicLayout = dynamic(() => import('../../layouts').then((mod) => mod.DynamicLayout), {
-  loading: () => <LoadingSpinner />,
-  ssr: true,
-});
-
-const ShareAccountLayout = dynamic(() => import('../../layouts').then((mod) => mod.ShareAccountLayout), {
-  loading: () => <LoadingSpinner />,
-  ssr: true,
-});
-
-const XConixLayout = dynamic(() => import('../../layouts').then((mod) => mod.XConixLayout), {
   loading: () => <LoadingSpinner />,
   ssr: true,
 });
@@ -43,19 +32,7 @@ const DynamicPage: React.FC<IServerSideProps> = observer((props) => {
   const renderTheme = useMemo(() => {
     return {
       DYNAMIC_PAGE_V1: <DynamicLayout systemConfig={DATA_PROPS} />,
-      DYNAMIC_PAGE_V2: <DynamicLayout systemConfig={DATA_PROPS} />,
-      DYNAMIC_PAGE_V3: <DynamicLayout systemConfig={DATA_PROPS} />,
-      DYNAMIC_PAGE_V4: <DynamicLayout systemConfig={DATA_PROPS} />,
-      SHARE_ACCOUNT_V1: (
-        <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
-          <ShareAccountLayout systemConfig={DATA_PROPS} />
-        </GoogleOAuthProvider>
-      ),
-      X_CONIX_V1: (
-        <GoogleOAuthProvider clientId={GOOGLE_APP_CLIENT_ID}>
-          <XConixLayout systemConfig={DATA_PROPS} />
-        </GoogleOAuthProvider>
-      ),
+
       NOT_FOUND: <NotFound />,
     };
   }, [DATA_PROPS]);
@@ -69,12 +46,7 @@ export const getServerSideProps = (async () => {
   let systemConfig: IUiConfigServerSide = {};
 
   const uiConfigService = {
-    SHARE_ACCOUNT_V1: 'sac-system-config-page',
-    X_CONIX_V1: 'xconix-system-config-page',
-    DYNAMIC_PAGE_V1: 'ldp-system-config-page',
-    DYNAMIC_PAGE_V2: 'ldp-system-config-page-v2',
-    DYNAMIC_PAGE_V3: 'ldp-system-config-page-v3',
-    DYNAMIC_PAGE_V4: 'ldp-system-config-page-v4',
+    DYNAMIC_PAGE_V1: 'cbt-system-config-page',
   };
 
   const ldpSystemConfigPage = await fetchUiContentApi({ contentId: uiConfigService[THEME] });

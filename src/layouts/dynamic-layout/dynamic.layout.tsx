@@ -3,7 +3,7 @@ import { DynamicLayoutProps } from './dynamic.type';
 import { DynamicTheme } from '../../next-core-ui';
 
 export const DynamicLayout: React.FC<DynamicLayoutProps> = (props) => {
-  const { systemConfig, slug } = props;
+  const { systemConfig } = props;
 
-  return <DynamicTheme systemConfig={systemConfig} slug={slug} />;
+  return <DynamicTheme systemConfig={systemConfig} />;
 };

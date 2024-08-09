@@ -1,3 +1,5 @@
+import { IUiConfigServerSide } from '../../../../../../../models';
+
 export interface LandingPageV1Props {
-  systemConfig?: Record<string, any>;
+  systemConfig?: IUiConfigServerSide;
 }
