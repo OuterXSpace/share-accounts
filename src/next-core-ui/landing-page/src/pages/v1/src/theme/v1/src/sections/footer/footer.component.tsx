@@ -1,34 +1,54 @@
 import Link from 'next/link';
 import { ILandingPageFooterV1Props } from './footer.type';
-import IonIcon from '@reacticons/ionicons';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import InlineSVG from 'svg-inline-react';
 
 export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) => {
   const { data, className } = props;
 
   return (
-    <section className={`section ${className} pb-5`}>
-      <div className="container">
-        <div className="border-t-2 border-[#f9fdfe] h-[1px] w-full" />
-        <div className="py-[20px]">
-          <div className="col-12">
-            <div className="flex justify-between items-center flex-col lg:flex-row gap-2">
-              <div className="text-[#ffffffbf] text-[16px] leading-1.6 text-center lg:text-start">
-                {data?.object?.text}
-              </div>
-              <div className="text-[#ffffffbf] text-[16px] leading-1.6 flex flex-wrap items-center gap-4">
-                {data?.object?.array?.map((item) => {
-                  const { id, icon, link } = item;
-                  return (
-                    <Link key={id} href={link} className="text-white">
-                      <IonIcon name={icon} className="text-white text-[25px]" />
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
+    <footer className={`${className} container pt-8 pb-28`}>
+      <div className="grid-wrapper-sm">
+        <div className="md:grid md:grid-cols-8 mb-6 pb-8 border-b border-black-20">
+          <div className="mb-8 lg:mb-0 md:col-span-2">
+            <LazyLoadImage
+              src={data?.object?.logoText}
+              className="custom-logo astra-logo-svg h-[33px]"
+              alt="Logo"
+              effect="blur"
+            />
+          </div>
+          <div className="footer-social-media flex items-center md:justify-end md:col-span-6">
+            {data?.object?.social?.map((item) => {
+              const { id, link, svgIcon } = item;
+              return (
+                <Link key={id} className="mr-8 last:mr-0 w-5 block text-light-navy" href={link}>
+                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon} />}</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
+        <div className="flex flex-wrap lg:flex-nowrap lg:items-center lg:justify-between">
+          <div className="w-full order-2 lg:order-1 mt-12 lg:mt-0 lg:w-auto lg:shrink-0 lg:mr-8">
+            <p className="type-paragraph-sm font-medium text-wm-black"> {data?.object?.text}</p>
+          </div>
+          <nav className="w-full grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-10 lg:grid-flow-col lg:auto-cols-max lg:order-2 lg:w-auto">
+            {data?.object?.static?.map((item) => {
+              const { id, label, link } = item;
+              return (
+                <Link
+                  key={id}
+                  href={link}
+                  className=" type-paragraph-sm font-medium text-wm-black col-span-1 hover-underline"
+                >
+                  <span className="">{label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 };

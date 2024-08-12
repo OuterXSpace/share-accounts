@@ -1,0 +1,4 @@
+export interface IPreFooterSectionProps {
+  data?: Record<string, any>;
+  className?: string;
+}

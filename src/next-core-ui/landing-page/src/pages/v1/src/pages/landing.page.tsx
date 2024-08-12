@@ -20,8 +20,7 @@ export const LandingPageV1: React.FC<LandingPageV1Props> = (props) => {
   return (
     <>
       <Head>{renderSeoPage}</Head>
-      {/* #fffbfb */}
-      <div className="root bg-[#000]">{renderPageFollowTheme?.[slugConfigJSON?.theme ?? 'NOT-FOUND']}</div>
+      <div className="root bg-[#f3f5f7]">{renderPageFollowTheme?.[slugConfigJSON?.theme ?? 'NOT-FOUND']}</div>
     </>
   );
 };

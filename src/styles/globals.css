@@ -1,9 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './common.css';
-@import './toto-slider.css';
+@import './font.css';
 @import './layout.css';
-@import './toast.css';
+@import './common.css';
+@import './style-global.css';
+@import './welcome-popup.css';
 @import 'react-lazy-load-image-component/src/effects/blur.css';
 @import 'react-toastify/dist/ReactToastify.css';

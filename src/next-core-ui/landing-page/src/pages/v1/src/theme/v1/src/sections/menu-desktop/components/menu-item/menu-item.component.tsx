@@ -18,7 +18,7 @@ export const LandingPageMenuDesktopItemV1: React.FC<ILandingPageMenuDesktopItemP
         href={link}
         className={`${
           link === router?.asPath || hovered ? 'text-accent' : 'text-[#f9fdfe]'
-        } text-[0.9375rem] text-no-underline px-[1em] inline-block transition-all duration-200 ease-linear uppercase`}
+        } block font-medium text-[0.875rem] leading-4 pt-3 pb-2.5 uppercase font-sans text-no-underline px-[1em] inline-block transition-all duration-200 ease-linear uppercase`}
       >
         <span className="">{label}</span>
       </Link>

@@ -6,7 +6,7 @@ import { fetchTestSlide, reducer, selectTest, sliceKey } from './slice';
 import { useInjectReducer } from '../../utils';
 
 export const DynamicLayout: React.FC<DynamicLayoutProps> = (props) => {
-  const { systemConfig, slug } = props;
+  const { systemConfig } = props;
 
   useInjectReducer({ key: sliceKey, reducer });
 
@@ -18,5 +18,5 @@ export const DynamicLayout: React.FC<DynamicLayoutProps> = (props) => {
     dispatch(fetchTestSlide('pikachu'));
   }, [dispatch]);
 
-  return <DynamicTheme systemConfig={systemConfig} slug={slug} />;
+  return <DynamicTheme systemConfig={systemConfig} />;
 };

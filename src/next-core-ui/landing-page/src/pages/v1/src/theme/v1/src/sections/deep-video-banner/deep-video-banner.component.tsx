@@ -1,53 +1,42 @@
-import { LandingPageButtonV1 } from '../../common';
 import { DeepVideoBannerProps } from './deep-video-banner.type';
 
-/* eslint-disable jsx-a11y/media-has-caption */
 export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
   const { data, className } = props;
 
   return (
-    <section
-      className={`transition-[background,border,border-radius,box-shadow] duration-300 relative ${className} pt-[250px] pb-[150px]`}
+    <div
+      className={`${className} home-hero overflow-hidden md:h-full md:aspect-[1650/673] w-full min-h-[390px] md:max-h-[673px] z-0 relative`}
     >
-      <div className="w-full transition-opacity duration-1000 pointer-events-none overflow-hidden z-0 direction-ltr">
+      <div
+        className="md:aspect-video overflow-hidden absolute top-0 left-0 h-full w-full z-10"
+        x-data={{
+          video: data?.object?.video,
+        }}
+      >
+        <div className="absolute top-0 left-0 w-full h-full opacity-50 z-10 bg-wm-gradient-yellow-blue" />
         <video
+          className="object-cover w-full h-full !opacity-100"
           autoPlay
           playsInline
           loop
           muted
-          src={data?.object?.video}
-          className="w-full h-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 m-0 leading-1 border-none max-w-full overflow-clip-margin overflow-clip"
-          poster="https://cdn.westmonroe.com/-/media/west-monroe-images/2023-homepage-assets/homepageimagestatic.jpg"
+          poster={data?.object?.altVideo}
+          x-effect="() => video && $el.load()"
         >
-          <source
-            type="video/mp4"
-            src="https://player.vimeo.com/progressive_redirect/playback/855211636/rendition/1080p/file.mp4?loc=external&amp;signature=92dd156f8cd52b52bf022f65bd5edde13114e394290532b5e15dae49a4f988b1"
-          />
+          <source src={data?.object?.video} type="video/mp4" />
         </video>
-        <div className="bg-gradient-deep-video opacity-50 transition-[background,border-radius,opacity] duration-300 h-full w-full top-0 left-0 absolute" />
       </div>
-      <div className="container px-[20px]">
-        <div className="flex mx-auto relative">
-          <div className="relative w-full flex-wrap content-start">
-            <div className="mt-0 lg:mt-[50px] pb-[50px]">
-              <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
-                <h1 className="text-[#f9fdfe] leading-[1.4] lg:text-[5.125rem] text-[52px] font-bold font-montserrat">
-                  {data?.object?.text}
-                </h1>
-              </div>
-            </div>
-            <div className="w-full">
-              <div className="transition-[background,border,border-radius,box-shadow,transform] duration-300">
-                <LandingPageButtonV1 link={data?.object?.button?.link}>
-                  <span className="flex justify-center">
-                    <span className="flex-grow order-10 inline-block">{data?.object?.button?.label}</span>
-                  </span>
-                </LandingPageButtonV1>
-              </div>
-            </div>
-          </div>
+      <div className="relative z-20 flex items-center h-full justify-center text-center text-white max-w-[1224px] mx-auto px-[10px] sm:px-10">
+        <div className="md:pt-16">
+          <h1 className="mb-3 type-alpha"> {data?.object?.text}</h1>
+          <h3 className="md:mt-[52px] mt-4 type-paragraph lg:text-2xl lg:leading-8 w-full">
+            {data?.object?.description}
+          </h3>
+          <a href={data?.object?.button?.link} className="relative mt-12 type-button-outline type-button-large">
+            {data?.object?.button?.label}
+          </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

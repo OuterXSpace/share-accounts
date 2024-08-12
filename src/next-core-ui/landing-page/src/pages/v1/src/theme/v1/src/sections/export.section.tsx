@@ -8,6 +8,13 @@ import { NewCartText } from './news-cart-text';
 import { NewCartTextAndImage } from './news-cart-text-and-image';
 import { ProductImageList } from './product-image-list';
 import { ProductVideoList } from './product-video-list';
+import { ThreePanelFeatureSection } from './three-panel-feature';
+import { PerspectivesGridSection } from './perspectives-grid';
+import { SubscriberInterrupterSection } from './subscriber-interrupter';
+import { GetInTouchSection } from './get-in-touch';
+import { PreFooterSection } from './pre-footer';
+import { HeroLandingSection } from './hero-landing';
+import { AwardCarouselSection } from './award-carousel';
 
 export interface IExportSectionLandingPageV1ThemeV1Props {
   systemConfig?: IUiConfigServerSide;
@@ -29,7 +36,14 @@ export const ExportSectionLandingPageV1ThemeV1: React.FC<IExportSectionLandingPa
       PRODUCT_VIDEO_LIST_SECTION: <ProductVideoList data={data} className={className} />,
       LOGIN_SECTION_SECTION: <LoginPageShareAccountTheme01 data={data} className={className} />,
       ALONE_VIDEO_SECTION: <AloneVideo data={data} className={className} />,
+      THREE_PANEL_FEATURE_SECTION: <ThreePanelFeatureSection data={data} className={className} />,
       CONTACT_SECTION: <Contact data={data} className={className} />,
+      PERSPECTIVES_GRID_SECTION: <PerspectivesGridSection data={data} className={className} />,
+      SUBSCRIBER_INTERRUPTER_SECTION: <SubscriberInterrupterSection data={data} className={className} />,
+      GET_IN_TOUCH_SECTION: <GetInTouchSection data={data} className={className} />,
+      PRE_FOOTER_SECTION: <PreFooterSection data={data} className={className} />,
+      HERO_LANDING_SECTION: <HeroLandingSection data={data} className={className} />,
+      AWARD_CAROUSEL_SECTION: <AwardCarouselSection data={data} className={className} />,
       NOT_FOUND: <div>Not found section</div>,
     };
   }, [className, data]);
