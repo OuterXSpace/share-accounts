@@ -1,0 +1,9 @@
+//global print styles
+.grid-x {
+    > .large-8.large-offset-2, > .large-6.large-offset-2 {
+        @include print-detail {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}

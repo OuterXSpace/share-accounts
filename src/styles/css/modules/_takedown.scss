@@ -1,0 +1,44 @@
+.cmpt__takedown {
+	padding: 54px 0;
+
+	.headline2 {
+		margin-bottom: 30px;
+	}
+
+	.cmpt__rich-text {
+		padding: 0;
+	}
+
+	.takedown-item {
+		display:flex;
+		align-items: items-start;
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.takedown-image {
+		overflow:hidden;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		margin-right: 20px;
+		flex-shrink: 0;
+		background: fuchsia;
+
+		@include breakpoint(medium) {
+			width: 90px;
+			height: 90px;
+		}
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			object-position: center;
+		}
+	}
+}

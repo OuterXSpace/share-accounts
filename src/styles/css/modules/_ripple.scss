@@ -1,0 +1,64 @@
+#ripple-events {
+	.root_2f9cmxK0 * {
+		font-family: $gotham;
+	}
+	.root_2g3BTfwh {
+		border-radius: 0;
+	}
+
+	.RoleCard_1ddzj8ed.green_pYih3RT9 {
+		background-color: get-color(athens-gray);
+	}
+
+	h5.legacyAdapter, .RoleCard_1ddzj8ed .header_34YL6pTX {
+		color: get-color(downriver) !important;
+		font-family: $gotham;
+		font-weight: 500;
+	}
+
+	.RoleCard_1ddzj8ed .location_2tn6mfr4, .RoleCard_1ddzj8ed .date_3ahtYBt- {
+		color: get-color(tangaroa);
+		padding-left: 0;
+	}
+
+	.header_27ltopH4 {
+		@extend .headline2 !optional;
+		margin-bottom:24px;
+		color: get-color(downriver);
+	}
+
+	.ripGrid_G96ZZpw7 {
+		display:block;
+		font-family: $gotham;
+	}
+
+	.RoleCard_1ddzj8ed .link_HX6J7eRk {
+		font-family: $gotham;
+	}
+
+	.RoleCard_1ddzj8ed .button_2WZ2Bokl {
+		border-radius: 0;
+		border: 1px solid get-color(regal-blue);
+	    min-height: 48px;
+	    background-color: get-color(regal-blue);
+	    padding: 16px 24px 14px 24px;
+	    position: relative;
+	    color: white;
+	    text-transform: uppercase;
+	    font-weight: $font-medium;
+	    font-size: rem-calc(14px);
+	    text-align: center;
+	    line-height: 1.14;
+	    display: inline-block;
+	    cursor: pointer;
+	    transition: color .3s ease-in, background-color .3s ease-in;
+
+
+	     &:hover {
+	        @include breakpoint(large) {
+	            background-color: get-color(venice-blue);
+	        }
+	    }
+
+	}
+}

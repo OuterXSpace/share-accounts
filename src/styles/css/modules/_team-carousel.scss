@@ -1,0 +1,123 @@
+.cmpt__team-carousel {
+    padding: $moduleSpacing 0;
+
+    .team-carousel-wrapper {
+        position: relative;
+    }
+
+    .team-carousel-title {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .slick-slide {
+        width: 220px;
+        padding: 0 6px;
+        position: relative;
+        height: auto;
+
+        @include breakpoint(medium) {
+            padding: 0 12px;
+        }
+
+        @include breakpoint(large) {
+            width: 408px;
+        }
+
+    }
+
+    .team-slide-content {
+        position: relative;
+        margin-bottom: 24px;
+
+        a {
+            display: block;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .team-slide-name {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            display: inline-block;
+            font-size: rem-calc(17px);
+            cursor: pointer;
+            vertical-align: middle;
+
+            svg {
+                fill: get-color(downriver);
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .team-name {
+        @include breakpoint(large) {
+            padding: 0 24px;
+        }
+    }
+
+    .team-slide-bio {
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: max-height .3s ease-in, padding .3s ease-in;
+        padding: 0 12px;
+
+        @include breakpoint(large) {
+            padding: 0 24px;
+        }
+    }
+
+    .showBio {
+        .team-slide {
+            box-shadow: 10px 10px 20px 0 rgba(123,134,140,0.40);
+        }
+
+        .team-slide-bio {
+            max-height: 500px;
+            padding: 12px 10px 12px 12px;
+
+            @include breakpoint(large) {
+                padding: 24px 20px 24px 24px;
+            }
+        }
+    }
+
+    .cta-wrapper {
+        padding-top: 32px;
+        text-align: center;
+
+        @include breakpoint(large) {
+            padding-top: 48px;
+        }
+    }
+
+    &.cmpt__team-carousel-centered {
+        @include breakpoint(xxlarge) {
+            .slide-circular-nav {
+                display: none;
+            }
+
+            .slick-track {
+                display: flex;
+                justify-content: center;
+                width: 100% !important;
+                transform: translate3d(0,0,0) !important;
+            }
+        }
+    }
+
+    .cta {
+        z-index: 0;
+    }
+}

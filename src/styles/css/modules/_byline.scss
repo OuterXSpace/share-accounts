@@ -1,0 +1,66 @@
+.cmpt__byline {
+	padding-top: 48px;
+
+    @include print-detail {
+        padding-top: 0;
+    }
+
+	// padding top on whatever is next:
+	& + * {
+		padding-top: 48px;
+	}
+
+    // Reduce the spacing on rich text and images after byline
+    + .cmpt__rich-text,
+    + .cmpt__embed-container.cmpt__image-container {
+        padding-top: 10px;
+    }
+}
+
+.byline-text {
+    font-weight: $font-normal;
+}
+
+.byline-text-contributor {
+    padding-top: 14px;
+    position: relative;
+
+    .byline-intro {
+        font-weight: $font-bold;
+    }
+
+    &:before {
+        content: "";
+        background: get-color(sun);
+        width: 38px;
+        height: 4px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.byline-text-contributor-notes {
+    margin-top: 32px;
+    margin-bottom: 56px;
+    padding: 32px;
+    font-size: 14px;
+}
+
+.byline-intro {
+    padding-right: 4px;
+    font-weight: $font-medium;
+}
+
+.byline-link {
+	// padding-right: 14px;
+    color: get-color(downriver);
+	border-bottom: 1px solid get-color(sun);
+    font-weight: $font-medium;
+    transition: color .3s ease-in;
+
+    &:hover {
+        color: get-color(venice-blue);
+    }
+}

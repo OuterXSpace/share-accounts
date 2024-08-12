@@ -1,0 +1,115 @@
+.cmpt__rotating-featured-video {
+    position: relative;
+    padding: $moduleSpacing 0;
+
+    .rotating-featured-video-title {
+        margin-bottom: 12px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 22px;
+        }
+
+        @include breakpoint(large) {
+            margin-bottom: 32px;
+        }
+    }
+
+    .video-slides-wrapper {
+        position: relative;
+    }
+
+    .video-description {
+        padding-top: 0;
+    }
+
+    .slide-nav {
+        bottom: 0;
+        height: 18px;
+        width: 18px;
+        border: 0;
+        bottom: -27px;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(medium) {
+            bottom: -24px;
+        }
+
+        @include breakpoint(xxlarge) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            bottom: auto;
+            top: 44%;
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(xxlarge) {
+                left: auto;
+                right: -80px;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(medium) {
+                left: 12px;
+            }
+
+            @include breakpoint(xxlarge) {
+                left: -80px;
+            }
+        }
+    }
+
+    .slider-countdown {
+        bottom: -20px;
+        right: 0;
+
+        @include breakpoint(xxlarge) {
+            top: auto;
+            bottom: -17px;
+        }
+    }
+
+    .slider-countdown-wrapper {
+        @include breakpoint(xxlarge) {
+            top: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            padding-top: 56.25%;
+            height: 0;
+        }
+    }
+}

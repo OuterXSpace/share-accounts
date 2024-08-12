@@ -84,36 +84,6 @@ module.exports = {
       DEFAULT: '#ffffff',
     },
   },
-  fontFamily: {
-    serif: [
-      'system-ui',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Helvetica Neue',
-      'Arial',
-      'Noto Sans',
-      'Liberation Sans',
-      'sans-serif',
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Segoe UI Symbol',
-      'Noto Color Emoji',
-    ],
-    monospace: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
-  },
-  container: {
-    center: true,
-    padding: '1rem',
-    screens: {
-      sm: '100%',
-      md: '100%',
-      lg: '1024px',
-      mdxl: '1150px',
-      xl: '1280px',
-      '2xl': '1536px',
-    },
-  },
   backgroundImage: (theme) => ({
     'gradient-to-top-primary': `linear-gradient(to top, ${theme('colors.primary.darker')}, ${theme(
       'colors.primary.dark',

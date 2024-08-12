@@ -1,0 +1,11 @@
+.cmpt__description {
+    padding: 76px 0 0;
+
+    @include breakpoint(medium) {
+        padding: 48px 0;
+    }
+
+    @include breakpoint(large) {
+        padding: 130px 0;
+    }
+}

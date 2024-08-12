@@ -1,0 +1,127 @@
+.cmpt__toggle-content {
+    padding: $moduleSpacing 0;
+
+    .toggle-content-header {
+        margin-bottom: 30px;
+    }
+
+
+    .toggle-content-tabs {
+        min-height: 25px;
+        border-bottom: 2px solid get-color('regal-blue');
+        position: relative;
+        margin-bottom: 45px;
+
+        @include breakpoint(medium) {
+            border: 0;
+            height: auto;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 4px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5.5px 0 5.5px 6px;
+            border-color: transparent transparent transparent get-color('regal-blue');
+            transition: transform .3s ease-in;
+            transform: rotate(90deg);
+
+            @include breakpoint(medium) {
+                display: none;
+            }
+        }
+
+        .tab-item, .tabs {
+            margin-left: 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .tab-item {
+            margin-bottom: 10px;
+
+            @include breakpoint(medium) {
+                padding: 16px 24px;
+                background: white;
+                border-bottom: 2px solid transparent;
+                transition: background .3s ease-in, border .3s ease-in, color .3s ease-in;
+                margin-bottom: 0;
+            }
+
+            &.tab-item-mobile {
+                @include breakpoint(medium) {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &.activeTab, &:hover {
+                @include breakpoint(medium) {
+                    padding: 16px 24px;
+                    background: get-color('athens-gray');
+                    border-color: get-color('regal-blue');
+                    color: get-color('regal-blue');
+                }
+            }
+        }
+
+        .tabs {
+            background: white;
+            max-height: 0;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            transition: max-height .3s ease-in, padding .3s ease-in;
+            padding: 0;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+
+            @include breakpoint(medium) {
+                cursor: pointer;
+                position: relative;
+                max-height: none;
+                overflow: inherit;
+                display: flex;
+                border-bottom: 1px solid get-color('geyser');
+                top: auto;
+            }
+        }
+
+        &.openDropdown {
+            &:after {
+                transform: rotate(-90deg);
+            }
+
+            .tabs {
+                max-height: 1000px;
+                padding: 10px 0;
+
+                @include breakpoint(medium) {
+                    max-height: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        display: none;
+
+        .cmpt__rich-text {
+            padding: 0;
+        }
+
+        &.activeTab {
+            display: block;
+        }
+    }
+
+}

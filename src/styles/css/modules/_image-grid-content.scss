@@ -1,0 +1,51 @@
+.cmpt__image-grid-content {
+    padding: 52px 0;
+
+    .igc-image-header {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include breakpoint(medium) {
+            margin-right: 20px;
+            flex-direction: column;
+        }
+    }
+
+    .igc-heading {
+        order: 2;
+
+        @include breakpoint(medium) {
+            order: initial;
+        }
+
+        @include breakpoint(large) {
+            max-width: 90%;
+        }
+    }
+
+    .igc-grid {
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:nth-last-child(2) {
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .igc-image-container {
+        margin: 0 -1rem 3rem;
+
+        @include breakpoint(medium) {
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

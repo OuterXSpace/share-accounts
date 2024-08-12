@@ -1,0 +1,234 @@
+.cmpt__client-testimonial {
+	padding: $moduleSpacing 0;
+    position: relative;
+
+    @include print-detail {
+        page-break-inside: avoid;
+    }
+
+    // controls
+	.slick-arrow {
+	    font-size: 0;
+	    line-height: 0;
+	    position: absolute;
+	    top: 50%;
+	    display: block;
+	    width: 30px;
+	    height: 30px;
+	    padding: 0;
+	    z-index: 1;
+	    cursor: pointer;
+	    color: transparent;
+	    border: none;
+	    outline: none;
+		background-image: url('/assets/static/icon-caret.svg');
+		background-repeat: no-repeat;
+	    background-size: 15px;
+    	background-position: 12px 4px;
+
+		&.slick-prev {
+			transform: scaleX(-1);
+			left: 0;
+		}
+
+		&.slick-next {
+			right: 0;
+		}
+
+		@include breakpoint(medium) {
+			background-size: 20px;
+    		background-position: 4px;
+
+			&.slick-prev {
+				left: 28px;
+			}
+
+			&.slick-next {
+				right: 28px;
+			}
+		}
+
+		@include breakpoint(large) {
+			background-size: 22px;
+
+			&.slick-prev {
+				left: 12px;
+			}
+
+			&.slick-next {
+				right: 12px;
+			}
+		}
+
+        @include breakpoint(xlarge) {
+
+            &.slick-prev {
+                left: 70px;
+            }
+
+            &.slick-next {
+                right: 70px;
+            }
+        }
+
+        @include print-detail {
+            display: none;
+        }
+	}
+
+    .client-testimonial-title {
+        margin-bottom: 30px;
+    }
+
+    .carousel-description {
+        padding-top: 0;
+    }
+}
+
+.testimonial-slides {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+	padding: 0 16px;
+
+	// inner
+	.slick-list {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1300px;
+		border-top: 1px solid get-color(geyser);
+		border-bottom: 1px solid get-color(geyser);
+		padding: 40px 0;
+
+        @include print-detail {
+            max-width: none !important;
+        }
+	}
+
+	.slick-track {
+		display: flex;
+		align-items: center;
+
+        @include print-detail {
+            position: static;
+            transform: none !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+	}
+
+    .slick-slide {
+        @include print-detail {
+            width: 100% !important;
+            float: none !important;
+
+            &.slick-cloned {
+                display: none !important;
+            }
+        }
+    }
+
+	@include breakpoint(medium) {
+		padding: 0 40px;
+	}
+}
+
+.client-testimonial-item {
+	position: relative;
+
+	@include breakpoint(medium) {
+		padding: 0 56px;
+	}
+
+	@include breakpoint(xlarge) {
+		padding: 0 200px;
+	}
+}
+
+.client-testimonial-icon {
+	position: absolute;
+	top: 8px;
+
+	@include breakpoint(xlarge) {
+		left: 154px;
+	}
+}
+
+
+.client-testimonial-text {
+	margin-bottom: 16px;
+
+    @include breakpoint(large) {
+        margin-bottom: 38px;
+    }
+
+    @include print-detail {
+        font-size: 80% !important;
+    }
+
+    &:after {
+        content: '\201d';
+        margin-left: 0;
+    }
+}
+
+.client-testimonial-footer {
+	font-weight: $font-medium;
+	font-size: rem-calc(14px);
+	line-height: 1.7;
+    padding-left: 24px;
+
+    @include breakpoint(large) {
+        padding-left: 0;
+        text-align: left;
+    }
+
+	.client-testimonial-name {
+        margin-right: 10px;
+        font-weight: $font-medium;
+        transition: color .3s ease-in;
+        color: get-color(downriver);
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(16px);
+			line-height: 1.5;
+		}
+
+		@include breakpoint(large) {
+			font-size: rem-calc(20px);
+			line-height: 1.2;
+		}
+
+        a {
+    		position: relative;
+
+    		&:after {
+    			@include absolute-pseudo;
+
+    			bottom: 0;
+    			top: unset;
+    			left: 0;
+    			background: get-color(sun);
+    			height: 1px;
+    		}
+        }
+
+        &:hover {
+            color: get-color(venice-blue);
+        }
+	}
+
+	.client-testimonial-info {
+        font-weight: $font-light;
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(15px);
+			line-height: 1.6;
+		}
+
+		@include breakpoint(large) {
+			font-size: rem-calc(18px);
+			line-height: 1.8;
+		}
+	}
+}

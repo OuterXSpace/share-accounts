@@ -1,0 +1,47 @@
+.cmpt__parallax {
+    min-height: 100%;
+    position: relative;
+    // overflow: hidden;
+
+
+    .cmpt__hero {
+        background: transparent;
+    }
+}
+
+
+[data-page-type="products"] {
+    //parallax background for products page
+
+    .main {
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            content: '';
+            position: fixed;
+            right: calc(110vw / -2);
+            width: 110vw;
+            height: 110vw;
+            top: 0;
+            background: #f2f5f7;
+            z-index: -1;
+            outline: 1px solid rgba(253, 180, 21, .2);
+            outline-offset: 60px;
+            transform: rotate(45deg);
+
+        }
+
+        /*&:after {
+            content: '';
+            position: absolute;
+            left: calc(110vw / -2);
+            width: 110vw;
+            height: 110vw;
+            top: 250vw;
+            background: #f2f5f7;
+            z-index: -1;
+            transform: rotate(-45deg);
+        }*/
+    }
+}

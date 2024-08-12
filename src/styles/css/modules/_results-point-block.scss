@@ -1,0 +1,44 @@
+.cmpt__result-point-block {
+
+    margin-top: 52px;
+
+    .result-point-block-item {
+        margin-bottom: 32px;
+    }
+
+    .result-point-block-image {
+        padding-right: 24px;
+
+        img {
+            width: 112px;
+
+            @include breakpoint(large) {
+                width: 120px;
+            }
+        }
+    }
+
+    .result-point-block-text {
+        position: relative;
+        margin-top: 60px;
+        padding-top: 18px;
+        border-top: 1px solid get-color(geyser);
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 40px;
+            height: 5px;
+            background-color: get-color(sun);
+        }
+
+        &, p {
+            color: get-color(black-pearl);
+            font-size: rem-calc(18);
+            line-height: 1.78;
+        }
+    }
+}

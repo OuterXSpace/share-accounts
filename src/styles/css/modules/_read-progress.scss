@@ -1,0 +1,50 @@
+.read-progress {
+    background-color: get-color(athens-gray);
+    border-top: 1px solid get-color(geyser);
+    box-shadow: 0 4px get-color(geyser);
+    display: none;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+    max-height: 40px;
+
+    @include breakpoint(medium-large) {
+        max-height: 50px;
+    }
+
+    // Remove the background from the persistent nav
+    ~ .persistent-nav.persistent-nav-fixed {
+        background-color: transparent;
+        z-index: 11;
+        box-shadow: none;
+    }
+
+    &--fixed {
+        display: block;
+    }
+
+    &-title {
+        visibility: hidden;
+        height: 39px;
+        line-height: 39px;
+        max-width: 75%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include breakpoint(medium-large) {
+            visibility: visible;
+            height: 49px;
+            line-height: 49px;
+        }
+    }
+
+    &-bar {
+        background-color: get-color(sun);
+        height: 4px;
+        // This gets changed with JS
+        width: 0%;
+    }
+}

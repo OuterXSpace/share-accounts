@@ -1,0 +1,179 @@
+@mixin bg-contain {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+@mixin bg-cover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin bg-right {
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 100% auto;
+}
+
+@mixin bg-motif(
+    $angle: 135,
+    $baseColor: get-color(black-pearl),
+    $accentColor: get-color(tiber),
+    $secondaryColor: get-color(regal-blue),
+    $baseStop: 67%,
+    $accentStop: 83%
+) {
+    background: $baseColor;
+    background: linear-gradient(
+        #{$angle}deg,
+        $baseColor $baseStop,
+        $accentColor $baseStop,
+        $accentColor $accentStop,
+        $secondaryColor $accentStop);
+}
+
+@mixin absolute-pseudo {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+@mixin img-cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+@mixin box-shadow-hover {
+    transition: box-shadow .3s ease-in;
+
+    &:hover {
+        box-shadow: 0px 2px 20px 0px rgba(get-color(black), 0.25);
+    }
+}
+
+//generate color classes, ie "text-jacko-bean", "background-jacko-bean".
+@mixin color-modifiers($property) {
+  @each $name, $hex in $foundation-palette {
+    &-#{$name} {
+     #{$property}: $hex;
+    }
+  }
+}
+
+// generate font-weight classes, ie "text-weight-light", "text-weight-bold"
+@mixin font-weight-modifiers {
+    @each $name, $weight in $font-weight {
+        &-weight-#{$name} {
+            font-weight: $weight;
+        }
+    }
+}
+
+// generate heading classes, ie 'headline1' from 'font-sizes' map in '_variables.scss'
+@mixin get-font-size($key) {
+    $font: map-get($font-sizes, $key);
+
+    $fontSizes: map-get($font, 'size');
+    $letterSpacings: map-get($font, 'letter-spacing');
+    $lineHeights: map-get($font, 'line-height');
+
+    $fontSize: map-get($fontSizes, 'small');
+    $letterSpacing: map-get($letterSpacings, 'small');
+    $lineHeight: map-get($lineHeights, 'small');
+
+    $fontWeight: map-get($font, 'weight');
+    $display: map-get($font, 'display');
+
+    font-size: rem-calc($fontSize);
+    letter-spacing: $letterSpacing;
+    line-height: $lineHeight;
+
+    @if $fontWeight {
+        font-weight: $fontWeight;
+    }
+    
+    @if $display {
+        display: $display;
+    }
+
+    @include breakpoint(medium) {
+        $fontSize: map-get($fontSizes, 'medium');
+        $letterSpacing: map-get($letterSpacings, 'medium');
+        $lineHeight: map-get($lineHeights, 'medium');
+
+        @if $fontSize {
+            font-size: rem-calc($fontSize);
+        }
+
+        letter-spacing: $letterSpacing;
+        line-height: $lineHeight;
+    }
+
+    @include breakpoint(large) {
+        $fontSize: map-get($fontSizes, 'large');
+        $letterSpacing: map-get($letterSpacings, 'large');
+        $lineHeight: map-get($lineHeights, 'large');
+
+        @if $fontSize {
+            font-size: rem-calc($fontSize);
+        }
+
+        letter-spacing: $letterSpacing;
+        line-height: $lineHeight;
+    }
+}
+
+@each $style, $sizes in $font_sizes {
+    .#{$style} {
+        @include get-font-size($style);
+    }
+}
+
+
+// for generating margin utility classes from 'spaces' & 'sides' maps in '_variables.scss, more options than what Foundation offers out of the box
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@each $space in $spaces {
+    @each $side in $sides {
+
+        $spaceCalc: rem-calc($space);
+        $spaceValue: str-slice( #{$spaceCalc}, 1, -4 );
+        $spaceValueEscaped: str-replace( #{$spaceValue}, '.', '\\.' );
+
+        .margin-#{$side}-#{$spaceValueEscaped} {
+            margin-#{$side}: #{$spaceCalc} !important;
+        }
+    }
+}
+
+@mixin selection($color: white, $bgColog: none) {
+    &::selection {
+        color: $color;
+        background: $color; /* WebKit/Blink Browsers */
+    }
+    &::-moz-selection {
+        color: $color;
+        background: $color; /* Gecko Browsers */
+    }
+}
+
+@mixin print-detail {
+    @media print {
+        body[data-view-type=detail] & {
+            @content;
+        }
+    }
+}

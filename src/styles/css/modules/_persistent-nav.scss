@@ -1,0 +1,439 @@
+.persistent-nav {
+    max-height: 50px;
+    border-bottom: 1px solid get-color(geyser);
+    border-top: 1px solid get-color(geyser);
+    transition: max-height .3s ease-in;
+    overflow: hidden;
+    background: white;
+
+    @include breakpoint(medium-large) {
+        height: 50px;
+        overflow: inherit;
+        max-height: none;
+    }
+
+    @include print-detail {
+        display: none;
+    }
+
+    + *:not(.cmpt__byline):not(.cmpt__rich-text):not(.cmpt__embed-container):not(.cmpt__rotating-featured-video):not(.cmpt__image-text-staggered):not(.cmpt__single-video.background-white):not(#overview) {
+        margin-top: 50px;
+    }
+
+    + .cmpt__embed-container {
+        .image-wrapper {
+            padding-top: 0;
+        }
+    }
+
+    // For when a video modules is the first one inmediately after the persistent nav
+    + .cmpt__rotating-featured-video {
+        padding-top: 52px !important;
+    }
+
+    // For when a staggered image text is the first one inmediately after the persisten nav
+    + .cmpt__image-text-staggered {
+        .image-text-staggered-row {
+            margin-top: 0;
+        }
+    }
+
+    //For when a single video with white bgnd is immediately after persistent nav
+    + .cmpt__single-video.background-white {
+        margin-top: 0;
+    }
+
+    .container {
+        flex-wrap: wrap;
+
+        @include breakpoint(medium-large) {
+            align-items: center;
+            height: 100%;
+        }
+    }
+
+    // Social nav
+    .nav-social {
+        position: relative;
+        width: 100%;
+
+        @include breakpoint(medium-large) {
+            margin-left: auto;
+            width: auto;
+        }
+
+        .share-trigger {
+            cursor: pointer;
+            display: none;
+
+            @include breakpoint(medium-large) {
+                display: block;
+            }
+
+            @include breakpoint(large) {
+                display: none;
+            }
+        }
+
+        .nav-social-items {
+            list-style: none;
+            margin: 0;
+            display: flex;
+
+            @include breakpoint(medium-large) {
+                position: absolute;
+                top: 24px;
+                right: 0;
+                display: none;
+                background-color: get-color(white);
+                padding: 10px;
+                border: 1px solid get-color(geyser);
+                box-shadow: 0px 2px 20px 0px rgba(get-color(black), 0.25);
+            }
+
+            @include breakpoint(large) {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: flex;
+                background-color: transparent;
+                border: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            li:first-child a {
+                padding-left: 0;
+
+                @include breakpoint(medium-large) {
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        svg {
+            fill: get-color(regal-blue);
+            width: 17px;
+            height: 17px;
+            opacity: 1;
+            transition: opacity .3s ease-in;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        &.openShare {
+            .nav-social-items {
+                display: flex;
+            }
+        }
+    }
+
+    // fixed position:;
+    &.persistent-nav-fixed {
+        background-color: get-color(athens-gray);
+        box-shadow: 0 4px get-color(geyser);
+        border-bottom: none !important;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 10;
+
+        @include breakpoint(large) {
+            .persistent-nav-title {
+                display: block;
+            }
+        }
+    }
+
+    // no chapter links:
+    &.persistent-nav-social-only {
+        overflow: visible;
+
+         .nav-social {
+            margin-left: 0px;
+        }
+
+    }
+
+    // no hero:
+    &.persistent-nav-social-only-alt {
+        border: 0;
+        height: 2px;
+        overflow: visible;
+
+        + * {
+            margin-top: 0;
+        }
+
+        // If rich text offset image is next
+        + .cmpt__rich-text-offset-image {
+            padding-top: 52px;
+        }
+
+        .container {
+            border-top: 2px solid get-color(geyser);
+        }
+
+        .nav-social {
+            margin-left: 0px;
+            opacity: 0;
+        }
+
+        &.persistent-nav-fixed {
+            border-top: 1px solid get-color(geyser);
+            height: auto;
+
+            @include breakpoint(medium-large) {
+                height: 50px;
+            }
+
+            .container {
+                border: 0;
+            }
+
+            .nav-social {
+                opacity: 1;
+            }
+        }
+    }
+
+    .persistent-nav-menu {
+        // height: 100%;
+        display: block;
+        position: relative;
+        width: 100%;
+
+        @include breakpoint(medium-large) {
+            display: flex;
+            width: auto;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 19px;
+            transform: translateY(-50%);
+            right: 21px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5.5px 0 5.5px 6px;
+            border-color: transparent transparent transparent get-color(regal-blue);
+            transition: border-color .3s ease-in;
+            transform: rotate(90deg);
+
+            @include breakpoint(medium-large) {
+                display: none;
+            }
+        }
+
+        a, span {
+            display: block;
+            border-bottom: 4px solid transparent;
+            color: get-color(nevada);
+            font-family: $gotham;
+            font-size: rem-calc(14px);
+            font-weight: $font-medium;
+            // height: 100%;
+            line-height: 16px;
+            padding: 16px 0 0;
+            margin: 0 16px;
+            min-height: 50px;
+
+            &:hover,
+            &.is-active {
+                @include breakpoint(medium-large) {
+                    border-color: get-color(regal-blue);
+                }
+            }
+        }
+
+        .current-item {
+            cursor: pointer;
+
+            @include breakpoint(medium-large) {
+                display: none;
+            }
+        }
+
+       
+    }
+
+    &.persistent-nav-open {
+        max-height: 1000px;
+        padding-bottom: 16px;
+
+        @include breakpoint(medium-large) {
+            max-height: none;
+            padding-bottom: 0;
+        }
+
+        .persistent-nav-menu:after {
+            transform: rotate(-90deg);
+        }
+    }
+
+    //podcast
+    &.podcast-persistent-nav {
+        
+        @include breakpoint(medium-large) {
+            border: 0;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-social {
+            display: none;
+        }
+
+        .persistent-nav-menu.podcast-menu {
+            width: 100%;
+            align-items: center;
+
+            a {
+                display:flex;
+                align-items:center;
+                padding: 9px 0;
+                opacity: 1;
+                transition: opacity .5s ease-in;
+
+                @include breakpoint(medium-large) {
+                    padding: 16px 0 16px;
+                }
+
+                &:hover {
+                    border-color: transparent;
+                    opacity: .5;
+                }
+            }
+            
+            span {
+                color: get-color(black-pearl);
+                font-family: $gotham;
+                font-size: rem-calc(16px);
+                font-weight: $font-bold;
+                padding: 0;
+                margin: 0 0 0 10px;
+                min-height: 0;
+                border-bottom: 0;
+
+                &.subscribe {
+                    padding: 17px 0;
+                    margin: 0 16px;
+
+                    @include breakpoint(medium-large) {
+                        display: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+            }
+            
+            img {
+                width: 30px;
+                height: auto;
+                display: block;
+            }
+        }
+
+        .persistent-nav-inner {
+            @include breakpoint(medium-large) {
+                position: absolute;
+                width: 100%;
+                background-color: rgba(242, 245, 247, .7);
+                top: -60px;
+            }
+        }
+
+        &.podcast-detail-persistent-nav .persistent-nav-inner {
+            @include breakpoint(medium-large) {
+                top: auto;
+                position: relative;
+                background-color: get-color(athens-gray);
+            }
+        }
+    }
+
+
+    //podcast stuck nav
+    &.persistent-nav-fixed {
+        position: fixed;
+
+        &.podcast-persistent-nav {
+            box-shadow: none;
+
+            .container {
+                flex-wrap: nowrap;
+            }
+        
+            .nav-social {
+                display: flex;
+                margin-left: 12px;
+                width: auto;
+                
+                @include breakpoint(medium-large) {
+                    margin-left: 0;
+                }
+
+                a {
+                    padding: .7rem 8px;
+
+                    @include breakpoint(medium-large) {
+                        padding: .7rem 1rem;
+                    }
+                }
+            }
+
+            .podcast-menu {
+                margin: 12px 4px 12px 0;
+                justify-content: flex-start;
+                width: auto;
+                display: flex;
+
+                &:after {
+                    display: none;
+                }
+
+                a {
+                    padding: 0;
+                    margin: 0 6px;
+                    min-height: 0;
+                    border: 0;
+
+                    @include breakpoint(medium-large) {
+                        margin: 0 12px;
+                    }
+
+                    &:hover {
+                        border: 0;
+                        opacity: .5;
+                    }
+                }
+
+                span {
+                    display: none;
+
+                    &.subscribe {
+                        @include breakpoint(medium-large) {
+                            display:block;
+                            color: get-color(regal-blue);
+                            margin-right: 8px;
+                        }
+                    }
+                }
+
+                img {
+                    width: 20px;
+                }
+            }
+        }
+
+        .persistent-nav-inner {
+            top: 0;
+            background-color: get-color(athens-gray);
+        }
+    }
+}

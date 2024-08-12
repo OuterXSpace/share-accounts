@@ -1,0 +1,25 @@
+.cmpt__pardot-form {
+    //for the form wrapper, form styles handled in global/_forms.scss
+    padding: 0 0 65px;
+
+    @include breakpoint(large) {
+        padding: 2rem 0;
+
+        &.is-contact-us {
+            padding: 0 0 129px;
+        }
+    }
+
+    iframe {
+        width: 1px;
+        min-width: 100%;
+    }
+}
+
+.pardot-headline {
+    padding: 56px 0 32px;
+
+    @include breakpoint(large) {
+        padding: 104px 0 32px;
+    }
+}

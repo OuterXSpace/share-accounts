@@ -1,0 +1,376 @@
+.cmpt__related-stories {
+    position: relative;
+    z-index: 5;
+    padding: 52px 0;
+
+    .related-stories-heading {
+        margin-bottom: 24px;
+    }
+
+	.cta-wrapper {
+		text-align: center;
+		padding-top: 48px;
+	}
+
+    .related-stories {
+        @include breakpoint(medium) {
+            margin: 0 -10px;
+        }
+    }
+
+    @include print-detail {
+        display: none;
+    }
+}
+
+.image-card-link {
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+}
+
+.related-story {
+	margin-bottom: 24px;
+	position: relative;
+	min-height: 300px;
+
+	@include breakpoint(medium) {
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(large) {
+		min-height: 504px;
+	}
+
+	.story-image {
+		padding-top: 56.25%;
+		overflow: hidden;
+		position: relative;
+        width: 100%;
+        height: 0;
+
+		img {
+			@include img-cover;
+		}
+	}
+
+	.story-info {
+		padding: 38px 30px;
+		color: get-color(downriver);
+		transition: color .3s ease-in;
+
+		.eyebrow {
+			margin-bottom: 32px;
+		}
+
+        .headline3 {
+            font-weight: 400;
+        }
+	}
+    
+    .story-eyebrow-wrapper {
+        height: 66px;
+        margin-bottom: 15px;
+        
+        .eyebrow {
+            margin-bottom: 0;
+        }
+    }
+
+    .story-logo {
+        max-width: 65%;
+        max-height: 40px;
+        margin-bottom: 5px;
+        height: auto;
+        align-self: flex-start;
+
+        + {
+            .eyebrow {
+                display: none;
+            }
+        }
+    }
+
+
+	&:hover {
+		box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, .2);
+
+		.story-info {
+			color: get-color(regal-blue);
+		}
+	}
+
+    &.no-link {
+        &:hover {
+            box-shadow: none;
+
+            .story-info {
+                color: get-color(downriver);
+            }
+        }
+    }
+
+    > .image-card-inner {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+	&.related-story--one-col {
+		width: 100%;
+
+        @include breakpoint(large) {
+			display: flex;
+			min-height: 424px;
+			margin: 0;
+		}
+
+        > a {
+            flex-direction: inherit;
+        }
+
+        .story-eyebrow-wrapper {
+            min-height: 0;
+            margin-bottom: 0;
+        }
+
+        .eyebrow {
+
+            position:absolute;
+            top: 28px;
+
+            @include breakpoint(large) {
+                top: 44px;
+            }
+        }
+
+        .body3 {
+            margin-top: 84px;
+
+            @include breakpoint(medium) {
+                margin-top: 125px;
+            }
+
+            @include breakpoint(large) {
+                margin-top: 0;
+            }
+        }
+
+
+        .story-info {
+            padding: 27px 22px;
+            position: relative;
+            min-height: 270px;
+
+            @include breakpoint(medium) {
+                padding: 24px 32px;
+            }
+
+            @include breakpoint(large) {
+                width: 51%;
+                padding: 46px 64px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        .story-logo {
+            margin-bottom: 30px;
+        }
+
+        .image-card-link {
+            flex-wrap: wrap;
+        }
+
+		.story-image {
+    		@include breakpoint(large) {
+                padding-top: 42.25%;
+                width: 49%;
+            }
+
+            @include breakpoint(xlarge) {
+				padding-top: 36.25%;
+                width: 49%;
+			}
+		}
+	}
+
+	@include box-shadow-hover;
+}
+
+.related-stories-cell {
+	//fixes a height issue in safari - the cell div stretches because of the outer div flexbox, but the story card doesn't stretch and putting height: 100% breaks in safari
+	display: flex;
+
+	.related-story {
+	    display: flex;
+	    flex-wrap: wrap;
+	    width: 100%;
+
+        > a {
+            width: 100%;
+        }
+	}
+}
+
+//carousel version when more than 3 exist
+.cmpt__related-stories-carousel {
+    .image-card-slides-wrapper {
+        position: relative;
+    }
+
+    // height matching
+    .slick-track, .related-stories-cell {
+        display: flex !important;
+    }
+
+    .slick-initialized .slick-slide {
+        display: flex;
+
+        > div {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    .related-story {
+        @include breakpoint(medium) {
+            margin: 0 .75rem;
+        }
+    }
+
+    .slide-nav {
+        bottom: 0;
+        height: 18px;
+        width: 18px;
+        border: 0;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(medium) {
+            bottom: -24px;
+        }
+
+        @include breakpoint(xxlarge) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            bottom: auto;
+            top: 44%;
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(xxlarge) {
+                left: auto;
+                right: -80px;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(medium) {
+                left: 12px;
+            }
+
+            @include breakpoint(xxlarge) {
+                left: -80px;
+            }
+        }
+    }
+
+    .slider-countdown {
+        bottom: 8px;
+        right: 12px;
+
+        @include breakpoint(medium) {
+           bottom: -25px;
+        }
+
+
+        @include breakpoint(xxlarge) {
+            bottom: -24px;
+        }
+
+        &.slick-hidden {
+            display: none;
+        }
+    }
+}
+
+
+//image bgnd version
+
+.cmpt__related-stories-image-card {
+    padding: 0 0 52px 0 !important;
+
+    &.background-athens-gray {
+        padding-top: 52px !important;
+    }
+
+    .related-story {
+        position: relative;
+        margin-bottom: 1.5rem;
+
+        &:hover {
+            box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, .4);
+        }
+
+        .story-image {
+            background:  rgba(0,0,0,.45);
+            padding-top: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height : 100%;
+            z-index: 0;
+
+            img {
+                mix-blend-mode: multiply;
+            }
+        }
+
+        .story-info {
+            height: 100%;
+            position: relative;
+            z-index:10;
+            color: white;
+            padding: 60px 30px;
+
+            .story-eyebrow-wrapper {
+                min-height: 0;
+                margin-bottom: 75%;
+            }
+        }
+    }
+}   

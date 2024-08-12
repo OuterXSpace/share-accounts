@@ -1,0 +1,109 @@
+.cmpt__image-text-staggered {
+    @include breakpoint(medium-large) {
+    	padding: $moduleSpacing 0;
+        overflow: hidden;
+    }
+
+    .staggered-cell {
+        display: flex;
+    }
+}
+
+.image-text-staggered-row {
+	margin-bottom: 52px;
+
+    @include breakpoint(medium-large) {
+        margin-left: -40px;
+    }
+
+    @include breakpoint(xlarge) {
+        margin-left: calc((8.33% + 1.3rem) * -1);
+    }
+
+	&:first-child {
+		margin-top: 46px;
+	}
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+	// for reversed rows:
+	&.image-text-staggered-row--reversed {
+
+		@include breakpoint(medium-large) {
+            margin-left: 0;
+            margin-right: -40px;
+
+    		.cell:first-child {
+				order: 2;
+			}
+		}
+
+        @include breakpoint(xlarge) {
+            margin-right: calc((8.33% + 1.3rem) * -1);
+        }
+	}
+
+}
+
+.image-text-staggered-image {
+	position: relative;
+	overflow: hidden;
+	padding-top: 74.8%;
+
+	img {
+		@include img-cover;
+	}
+}
+
+.image-text-staggered-info {
+	padding: 24px 0;
+	display: flex;
+    align-items: center;
+
+    .cta-wrapper {
+        display: block;
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.image-text-staggered-inner {
+
+	@include breakpoint(medium-large) {
+		padding: 0 0 0 40px;
+
+	}
+
+    @include breakpoint(xlarge) {
+        padding: 0;
+
+    }
+
+    .image-text-staggered-row--reversed & {
+        @include breakpoint(medium-large) {
+            padding: 0 40px 0 0;
+        }
+
+        @include breakpoint(xlarge) {
+            padding: 0;
+
+        }
+    }
+
+
+}
+
+.image-text-staggered-content.cmpt__rich-text {
+	// margin: 26px 0 24px;
+    padding: 0;
+
+    // This is user entered content
+    table {
+        width: 100% !important;
+    }
+}

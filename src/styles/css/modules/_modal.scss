@@ -1,0 +1,22 @@
+.modal {
+    border: 0;
+    max-width: 1300px;
+    padding: 60px 30px;
+
+    @include breakpoint(medium) {
+        padding: 60px;
+    }
+
+    @include breakpoint(large) {
+        padding: 104px 205px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: rem-calc(20px);
+        height: 32px;
+        width: 32px;
+    }
+}

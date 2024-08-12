@@ -1,0 +1,127 @@
+// foundation settings and overrides here
+
+//Breakpoint overrides
+$breakpoints: (
+  small: 0px,
+  medium: 768px, // 48em
+  medium-large: 860px, // 53.75em
+  large: 1024px, // 64em
+  xlarge: 1300px, // 81.25em
+  xxlarge: 1440px, // 90em
+);
+
+$breakpoint-classes: (small medium medium-large large xlarge xxlarge);
+
+$header-styles: (
+  small: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 30),
+    'h3': ('font-size': 20),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 14),
+  ),
+  medium: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 30),
+    'h3': ('font-size': 20),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 14),
+  ),
+);
+
+// using http://chir.ag/projects/name-that-color for the color names
+// usage: get-color(color);
+$foundation-palette: (
+  athens-gray:      #F2F5F7, //brand pale blue
+  black-pearl:      #041C2C,
+  black:            #000000,
+  charcoal:         #021521, //brand black
+  downriver:        #092b49, //text navy
+  ebony-clay:       #252b36,
+  geyser:           #D3DADE, //border
+  jacko-bean:       #301C05,
+  nevada:           #5f676b, //body text grey
+  oslo-gray:        #989C9E,
+  regal-blue:       #003D6A, //brand navy
+  sun:              #fdb415, //brand yellow
+  tiber:            #06253C,
+  white:            #FFFFFF,
+  rolling-stone:    #7B868C,
+  tarawera:         #062541,
+  tangaroa:         #031c2d,
+  venice-blue:      #044c80,
+  regent-gray:      #909AA3,
+  punch:            #d44227,
+);
+
+// Font weight variables
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-black: 900;
+
+$font-weight: (
+    light: $font-light,
+    medium: $font-medium,
+    bold: $font-bold,
+    black: $font-black
+);
+
+//Fonts
+$gotham: 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: $gotham;
+
+// Header fonts
+$header-font-family: $gotham;
+$header-font-weight: map-get($font-weight, medium);
+
+//Foundation settings
+$body-font-color: get-color(nevada);
+$anchor-color: $body-font-color;
+$anchor-color-hover: $body-font-color;
+$global-width: rem-calc(1920);
+$grid-row-width: $global-width;
+$grid-container: $global-width;
+$grid-container-max: $global-width;
+$grid-margin-gutters: (
+  small: 16px,
+  medium: 24px,
+);
+$grid-container-padding: 0;
+// disable anchor tag hover color
+$anchor-color-hover: '';
+
+// 16. Drilldown
+$drilldown-transition: transform 0.25s linear;
+$drilldown-padding: 16px 0;
+$drilldown-background: get-color(black-pearl);
+$drilldown-submenu-padding: 16px 0;
+$drilldown-submenu-background: get-color(black-pearl);
+$drilldown-arrow-color: get-color(white);
+
+// 25. Off-canvas
+$offcanvas-sizes: (small: 375px);
+$offcanvas-vertical-sizes: (small: 375px);
+$offcanvas-exit-background: rgba(get-color(black-pearl), 0.5);
+$offcanvas-background: none;
+$offcanvas-shadow: none;
+
+// 33. Prototype Display
+// ---------------------
+
+$prototype-display: (
+  inline,
+  inline-block,
+  block,
+  flex
+);
+
+// 53. Title Bar
+$titlebar-background: transparent;
+$titlebar-color: $white;
+$titlebar-padding: 0;
+$titlebar-text-font-weight: $font-bold;
+$titlebar-icon-spacing: 0;

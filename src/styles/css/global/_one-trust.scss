@@ -1,0 +1,199 @@
+#onetrust-consent-sdk {
+
+    .ot-sdk-row {
+        display: flex !important;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include breakpoint(xlarge) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .vertical-align-content #onetrust-button-group-parent {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-left: 9px !important;
+        width: 100%;
+        text-align: left !important;
+
+        @include breakpoint(xlarge) {
+            width: auto !important;
+            margin-left: 20px !important;
+        }
+
+    }
+
+    #onetrust-group-container {
+        width: 100%;
+
+        @include breakpoint(xlarge) {
+            width: 53% !important;
+        }
+
+    }
+
+    #onetrust-accept-btn-handler,
+    #onetrust-reject-all-handler,
+    .save-preference-btn-handler.onetrust-close-btn-handler,
+    #accept-recommended-btn-handler {
+        @extend .cta;
+        @extend .cta-type;
+        width: auto !important;
+        justify-content: center;
+        border-color: transparent !important;
+        background: transparent !important;
+    }
+
+    #accept-recommended-btn-handler {
+        display: inline-block !important;
+    }
+
+    #onetrust-pc-btn-handler {
+        @extend .cta-text-only;
+        padding: 0 48px 0 0 !important;
+        width: auto !important;
+        text-decoration: none !important;
+
+        &:after {
+            top: 3px;
+        }
+    }
+
+    .onetrust-close-btn-ui.onetrust-lg,
+    #close-pc-btn-handler.close-icon,
+    .onetrust-close-btn-ui {
+        background-color: get-color(athens-gray) !important;
+        border-radius: 50%;
+        color: get-color(downriver) !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: block;
+        background-size: 10px 10px !important;
+    }
+
+    .onetrust-close-btn-ui {
+        margin: 0 !important;
+    }
+
+    .onetrust-close-btn-ui.onetrust-lg {
+        top: 12px !important;
+        transform: none !important;
+        right: 20px !important;
+    }
+
+    #onetrust-policy {
+        position: relative !important;
+        margin: 12px 65px 20px 12px !important;
+        width: 100% !important;
+
+        @include breakpoint(xlarge) {
+            margin: 12px 20px 20px 12px !important;
+        }
+    }
+
+    #onetrust-policy-title,
+    #onetrust-policy-text,
+    #pc-policy-text,
+    .ot-dpd-desc,
+    .ot-dpd-title,
+    #onetrust-policy-text *:not(.onetrust-vendors-list-handler),
+    .ot-dpd-desc *:not(.onetrust-vendors-list-handler),
+    #onetrust-banner-sdk #banner-options * {
+        color: get-color(nevada) !important;
+        line-height: 1.5;
+        float: none !important;
+    }
+
+    #onetrust-banner-sdk a[href]{
+        text-decoration: none;
+        font-weight: $font-medium;
+        color: get-color(regal-blue) !important;
+        border-bottom: 1px solid get-color(sun);
+        padding-bottom: 2px;
+
+        &:hover {
+            color: get-color(downriver);
+        }
+    }
+
+    #onetrust-pc-sdk {
+        .privacy-notice-link,
+        .category-vendors-list-handler,
+        .category-host-list-handler,
+        .vendor-privacy-notice,
+        #hosts-list-container .host-title a,
+        #hosts-list-container .accordion-header .host-view-cookies,
+        #hosts-list-container .cookie-name-container a {
+            text-decoration: none;
+            font-weight: $font-medium;
+            color: get-color(regal-blue) !important;
+            border-bottom: 1px solid get-color(sun);
+            padding-bottom: 2px;
+
+            &:hover {
+                color: get-color(downriver) !important;
+            }
+        }
+
+        h2, h3, h4, h5, h6, #pc-title, .leg-int-title {
+            color: get-color(downriver) !important;
+            font-weight: $font-medium;
+        }
+
+        .group {
+            background: get-color(athens-gray) !important;
+            width: 100% !important;
+
+            @include breakpoint(medium) {
+                width: 30.6666666667% !important;
+            }
+
+        }
+
+        .always-active {
+            color: get-color(venice-blue) !important;
+        }
+
+        .pc-close-btn-container {
+            margin-top: 0 !important;
+        }
+
+        ul, li {
+            width: 100%;
+        }
+
+        .ot-sdk-row {
+            display: block !important;
+        }
+
+        #ot-pc-lst {
+            position: absolute;
+            top: 0;
+            background: $white;
+            z-index: 1;
+            box-shadow: inset 0px -7px 0px #d8d8d8;
+            height: calc(100% - 118px);
+        }
+
+        #vendor-search-handler {
+            color: $black;
+        }
+
+        .ot-pc-footer button {
+            @extend .cta;
+            @extend .cta-type;
+            justify-content: center;
+            border-color: transparent !important;
+            background: transparent !important;
+
+            &:hover {
+                color: black !important;
+            }
+        }
+    }
+
+
+}

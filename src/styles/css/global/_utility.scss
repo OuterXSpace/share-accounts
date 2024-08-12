@@ -1,0 +1,84 @@
+.container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1224px;
+	padding: 0 16px;
+	position: relative;
+	z-index: 1;
+
+	@include breakpoint(medium) {
+		padding: 0 40px;
+	}
+
+    @include breakpoint(large) {
+        padding: 0 12px;
+    }
+
+	&.container--narrow {
+		max-width: 790px;
+	}
+}
+
+.text {
+    @include color-modifiers(color);
+    @include font-weight-modifiers;
+}
+
+.background {
+   @include color-modifiers(background-color);
+}
+
+
+.slick-slide {
+    height: auto;
+    // fixes a bug in safari in small browsers and mobile. without an explicit height of auto (or fixed value) it becomes 3x the height it needs
+}
+
+/**
+ * There's a bug on jQuery where $(window).height() returns the height of the document
+ * not the window. Since foundation uses this to calculate the position of the modal
+ * it positions wrong, this makes sure that it's always positioned centered to the
+ * page. UPDATE 4/17/20 - centered is no longer the desired behavior, want it to be near the top and have the whole modal scroll.
+ */
+.reveal {
+    .is-reveal-open & {
+        top: 0px !important;
+
+        @include breakpoint(medium) {
+            top: 50px !important;
+        }
+
+        @include breakpoint(large) {
+            top: 100px !important;
+        }
+    }
+}
+
+/** External Links */
+.external-wrapper {
+    display: block;
+}
+
+.external {
+    font-weight: $font-normal;
+
+    svg {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 3px 0 2px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hide-at-mobile {
+        display: none;
+    }
+}
+
+.inactive-link {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    border-bottom: none !important;
+}

@@ -1,0 +1,90 @@
+.cmpt__podcast-author {
+	padding: 40px 0;
+
+	@include breakpoint(large) {
+		padding: 60px 0;
+	}
+
+	.episode-info {
+		padding-bottom: 40px;
+
+		@include breakpoint(large) {
+			padding: 0 60px 0 0;
+		}
+	}
+
+	.author-info {
+		display: flex;
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+		
+		.cmpt__rich-text {
+			padding: 0 0 15px 0;
+			font-size: 1rem;
+			line-height: 1.5;
+
+			p {
+				font-size: 16px;
+				line-height: 1.5;
+			}
+		}
+	}
+
+	.headline3 {
+		a {
+			font-weight: $font-medium;
+            color: get-color(regal-blue);
+            border-bottom: 1px solid get-color(sun);
+            padding-bottom: 2px;
+
+            &:hover {
+                color: get-color(downriver);
+            }
+		}
+	}
+
+	.author-image {
+		overflow:hidden;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		margin-right: 20px;
+		flex-shrink: 0;
+
+		@include breakpoint(medium) {
+			width: 90px;
+			height: 90px;
+		}
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			object-position: center;
+		}
+
+		
+	}
+
+	.nav-social-items {
+        list-style: none;
+        margin: 0;
+        display: flex;
+
+        svg {
+            fill: get-color(regal-blue);
+            width: 17px;
+            height: 17px;
+            opacity: 1;
+            transition: opacity .3s ease-in;
+            margin-right: 12px;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
+}

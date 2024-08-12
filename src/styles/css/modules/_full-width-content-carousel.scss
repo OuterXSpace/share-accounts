@@ -1,0 +1,155 @@
+.cmpt__full-width-content-carousel {
+    position: relative;
+    z-index: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 52px 0;
+
+    .slick-track{
+        display: flex !important;
+    }
+
+    .slick-slide {
+        display: flex;
+
+        > div {
+            height: 100%;
+
+            .content-slide {
+                height: 100%;
+            }
+        }
+    }
+
+    .controls-wrapper {
+        position: relative;
+        height: 24px;
+
+        @include breakpoint(medium) {
+            height: 34px;
+        }
+
+        @include breakpoint(xxlarge) {
+            margin-top: 40px;
+            height: 88px;
+        }
+    }
+
+    .content-slide-inner {
+        position: relative;
+        min-height: 350px;
+        display: flex;
+        align-items: stretch;
+        height: 100%;
+
+        @include breakpoint(large) {
+            min-height: 500px;
+        }
+
+        .content-slide-image {
+            display: none;
+
+            @include breakpoint(large) {
+                position: relative;
+                overflow: hidden;
+                display: block;
+                width: 50%;
+            }
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: auto;
+                object-position: center;
+            }
+        }
+
+        .content-slide-text {
+            background-color: #Fdb415;
+            padding: 48px 24px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            @include breakpoint(medium) {
+                padding: 48px;
+            }
+
+            @include breakpoint(large) {
+                width: 50%;
+                padding: 60px
+            }
+        }
+    }
+
+    .slick-slide {
+        height: auto;
+    }
+
+
+    .slider-countdown {
+        top: 0;
+        width: calc(100% - 24px);
+
+        @include breakpoint(medium) {
+            width: 191px;
+            top: calc(50% - 2px);
+            right: 68px;
+        }
+    }
+
+    .slide-nav {
+        bottom: 0;
+        height: 18px;
+        width: 18px;
+        border: 0;
+        bottom: 0;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(xxlarge) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            bottom: auto;
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(xxlarge) {
+                left: 90PX;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+        }
+    }
+}

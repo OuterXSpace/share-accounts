@@ -1,0 +1,246 @@
+.play-button {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border: 1px solid white;
+	z-index: 100;
+	background: transparent;
+    cursor: pointer;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 10px 0 10px 10px;
+		border-color: transparent transparent transparent white;
+	}
+}
+
+.scroll-arrow {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 50px;
+    right: 12px;
+    border-radius: 50%;
+    background-color: get-color(tiber);
+    z-index: 10;
+    cursor: pointer;
+
+    @include breakpoint(medium) {
+        width: 56px;
+        height: 56px;
+    }
+
+    @include breakpoint(large) {
+        width: 73px;
+        height: 73px;
+        bottom: 20px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 53%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+
+        @include breakpoint(medium) {
+            border-width: 12px 0 12px 12px;
+        }
+
+        @include breakpoint(medium) {
+            border-width: 16px 0 16px 16px;
+        }
+
+    }
+}
+//next/prev arrows for carousels, position in css file where it is being used
+.slide-nav {
+    // background-image: url('/assets/static/icon-caret-alt.svg');
+    position: absolute;
+    color: black;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    z-index: 10;
+    border: 1px solid rgba(0,0,0,0.5);
+
+    &:hover {
+        border-width: 2px;
+        border-color: black;
+    }
+
+    &.slide-next:after {
+        transform: rotate(-45deg);
+    }
+
+    &.slide-prev:after {
+        transform: rotate(135deg);
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-bottom: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        top: calc(50% - 6px);
+        left: calc(50% - 7px);
+    }
+}
+
+.slide-circular-nav {
+    width: 26px;
+    height: 26px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 13px);
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+
+    @include breakpoint(large) {
+        width: 56px;
+        height: 56px;
+        top: calc(50% - 28px);
+    }
+
+    &:after, &:before {
+        content: '';
+        background-color: white;
+        height: 2px;
+        display: block;
+        position: absolute;
+        width: 8px;
+        left: 7px;
+
+        @include breakpoint(large) {
+            width: 12px;
+            left: 20px;
+        }
+    }
+
+    &:after {
+        transform: rotate(45deg);
+        bottom: 9px;
+
+        @include breakpoint(large) {
+            bottom: 21px;
+        }
+    }
+
+    &:before {
+        transform: rotate(-45deg);
+        top: 8px;
+
+        @include breakpoint(large) {
+            top: 23px;
+        }
+    }
+
+    &.slide-circular-next {
+        right: 10px;
+        transform: rotate(180deg);
+    }
+
+    &.slide-circular-prev {
+        left: 10px;
+    }
+
+    &.slide-circular-dark {
+        width: 48px;
+        height: 48px;
+        background-color: get-color(tiber);
+        border-color: get-color(tiber);
+
+        @include breakpoint(medium) {
+            transform: scale(1.3);
+            left: 40px
+        }
+
+        @include breakpoint(xxlarge) {
+            transform: scale(1.83);
+            left: 85px;
+        }
+
+        &:before, &:after {
+            width: 12px;
+            left: 15px;
+        }
+
+        &:before {
+            top: 18px;
+        }
+
+        &:after {
+            top: 25px;
+        }
+
+        &.slide-circular-next {
+            right: auto;
+            left: 78px;
+
+            @include breakpoint(medium) {
+                transform: scale(1.3) rotate(180deg);
+                left: 122px;
+            }
+
+            @include breakpoint(xxlarge) {
+                transform: scale(1.83) rotate(180deg);
+                right: auto;
+                left: 192px;
+            }
+        }
+    }
+}
+
+//yellow countdown bar for next slide, position in css file where it is being used
+@keyframes countdown {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+.slider-countdown {
+    display: block;
+    width: 191px;
+    height: 3px;
+    background-color: get-color('geyser');
+    position: absolute;
+    right: 12px;
+    bottom: -24px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: get-color('sun');
+        width: 0%;
+    }
+
+    &.countingDown {
+        &:before {
+            animation: countdown 5s forwards;
+        }
+    }
+}

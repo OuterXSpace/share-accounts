@@ -3,7 +3,19 @@
 @tailwind utilities;
 
 .container {
-  @apply mx-auto max-w-screen-lg px-4;
+  @apply mx-auto w-full max-w-[1224px] px-4 relative z-[1];
+
+  @include breakpoint(medium) {
+    padding: 0 40px;
+  }
+
+  @include breakpoint(large) {
+    padding: 0 12px;
+  }
+
+  &.container--narrow {
+    max-width: 790px;
+  }
 }
 
 .row {

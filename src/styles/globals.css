@@ -1,10 +1,12 @@
+@import './font.css';
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-@import './font.css';
+/* @tailwind utilities; */
 @import './layout.css';
-@import './common.css';
 @import './style-global.css';
+@import './main.css';
+@import './common.css';
 @import './welcome-popup.css';
 @import 'react-lazy-load-image-component/src/effects/blur.css';
 @import 'react-toastify/dist/ReactToastify.css';

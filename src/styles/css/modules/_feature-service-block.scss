@@ -1,0 +1,223 @@
+.feature-service-block {
+    $spacing: 48px;
+    $spacingMedium: 80px;
+    $spacingLarge: 168px;
+    background: get-color(white);
+    padding: #{$spacingMedium} 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+
+    @include breakpoint(medium) {
+        padding: #{$spacingMedium} 0;
+    }
+
+    @include breakpoint(large) {
+        padding: $spacingLarge 0;
+        background: get-color(white);
+    }
+
+    .feature-service-block-heading {
+        font-family: $gotham;
+        font-weight: $font-medium;
+        font-size: rem-calc(34px);
+        line-height: 1.65;
+        margin-bottom: 30px;
+
+        @include breakpoint(large) {
+            margin-bottom: 40px;
+        }
+
+        @include breakpoint(xlarge) {
+            font-size: rem-calc(40px);
+            line-height: 1.4;
+            margin-bottom: 64px;
+        }
+    }
+
+    .feature-service-block-items {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include breakpoint(large) {
+            padding-left: 78px;
+        }
+
+        li {
+            border-bottom: 1px solid get-color(geyser);
+            padding: 14px 0 10px;
+
+            &:first-child {
+                border-top: 1px solid get-color(geyser);
+            }
+
+            &:last-child {
+                border-bottom: 0;
+                margin-bottom: 20px;
+
+                @include breakpoint(large) {
+                    border-bottom: 1px solid get-color(geyser);
+                    margin-bottom: 0;
+                }
+            }
+
+            @include breakpoint(large) {
+                padding: 21px 0 16px;
+            }
+
+            &.selected {
+                a {
+                    color: get-color(downriver);
+                    border-color: get-color(sun);
+                    font-weight: $font-black;
+                }
+            }
+        }
+
+        a {
+            border-bottom: 1px solid transparent;
+            color: get-color(rolling-stone);
+            display: inline-block;
+            font-size: rem-calc(18px);
+            letter-spacing: 0.525px;
+            line-height: rem-calc(32px);
+            padding-bottom: 4px;
+            font-weight: $font-normal;
+
+            @include breakpoint(large) {
+                font-size: rem-calc(24px);
+            }
+        }
+    }
+
+    .feature-service-block-card-wrapper {
+        position: relative;
+        padding: 30px 37px 36px;
+
+        @include breakpoint(medium) {
+            padding: 30px 37px;
+        }
+
+        @include breakpoint(large) {
+            padding: 112px 92px;
+        }
+    }
+
+    .feature-service-block-card {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+        min-height: 320px;
+
+        li {
+            width: 100%;
+            display: none;
+            padding: 30px 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+
+            @include breakpoint(medium) {
+                padding: 30px 37px;
+            }
+
+            @include breakpoint(large) {
+                padding: 30px 92px;
+                height: calc(100% + 104px);
+            }
+
+            &.is-active {
+                display: flex;
+                align-items: center;
+            }
+
+            .feature-service-title {
+                font-weight: $font-normal;
+                font-size: rem-calc(20px);
+                line-height: 1.6;
+
+                @include breakpoint(medium) {
+                    font-size: rem-calc(30px);
+                }
+            }
+
+            .inner-content {
+                position: relative;
+                z-index: 1;
+
+                @include breakpoint(large) {
+                    max-width: 435px;
+                }
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .be-digital {
+            .element-motif-top-right {
+                @include breakpoint(xlarge) {
+                    border-left: 150px solid transparent;
+                    border-top: 150px solid #fdb415;
+                }
+                @include breakpoint(xxlarge) {
+                    border-left: 80px solid transparent;
+                    border-top: 80px solid #fdb415;                
+                }
+            }
+            h4 {
+                padding-top: 40px;
+                @include breakpoint(medium) {
+                    padding-top: unset;
+                }
+            }
+        }
+    }
+
+    .feature-service-block-cta {
+        margin-top: 104px;
+    }
+
+    .feature-service-block-img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        left: -16px;
+        width: calc(100% + 32px);
+        background-size: cover;
+        z-index: -1;
+
+        @include breakpoint(medium) {
+            left: 0;
+            width: calc(100% + 40px);
+        }
+
+        @include breakpoint(large) {
+            width: calc(100% + 12px);
+        }
+
+        @include breakpoint(xlarge) {
+            width: calc(100% + 8.3vw);
+        }
+
+        &:before {
+            content: '';
+            background-color: rgba(0, 0, 0, .45);
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
+        }
+    }
+
+    [data-page-type="products"] & {
+        background: transparent;
+        padding-top: 52px;
+
+    }
+}

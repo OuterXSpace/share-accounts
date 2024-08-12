@@ -1,0 +1,214 @@
+.cmpt__tables {
+    padding-bottom: 56px;
+
+    @include breakpoint(large) {
+        padding: 52px 0;
+    }
+
+    .dataTables_filter {
+        display: none;
+    }
+
+    .dataTables_wrapper {
+        position: relative;
+        overflow-x: scroll;
+
+        @include breakpoint(large) {
+            overflow: inherit;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: calc(100% - 135px);
+            width: 70px;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+
+            @include breakpoint(medium) {
+               display: none;
+            }
+        }
+    }
+
+    .table-heading {
+        padding-bottom: 24px;
+
+        @include breakpoint(medium) {
+            display: flex;
+            align-items: center;
+        }
+
+        .event-table-title {
+            padding: 0 0 24px 0;
+            margin-bottom: 0;
+
+            @include breakpoint(medium) {
+                border-right: 1px solid get-color(oslo-gray);
+                padding: 0 20px 5px 0;
+                margin: 0 20px 0 0;
+                width: 390px;
+            }
+
+            @include breakpoint(large) {
+                width: 480px;
+            }
+        }
+
+        select {
+            border: 0;
+            border-bottom: 2px solid get-color(downriver);
+            width: calc(100vw - 40px);
+
+            @include breakpoint(medium) {
+                border: 0;
+                width: auto;
+                color:  get-color(nevada);
+            }
+
+        }
+    }
+
+    .dataTables_paginate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 48px;
+
+        .paginate_button {
+
+            &.next, &.previous {
+                font-size: rem-calc(25px);
+                line-height: .7;
+
+                &:hover {
+                    font-weight: $font-light;
+                }
+
+                &.disabled {
+                    pointer-events: none;
+                }
+            }
+
+            &.next {
+                margin-left: 20px;
+            }
+
+            &.previous {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        text-align: left;
+        width: calc(100% - 2px) !important;
+        position: relative;
+        display: block;
+
+        @include breakpoint(medium) {
+            padding-top: 0;
+        }
+
+        @include breakpoint(large) {
+            display: table;
+        }
+
+        tbody {
+            max-width: 100%;
+            overflow: scroll;
+            display: block;
+
+            @include breakpoint(large) {
+                overflow: inherit;
+                display: inherit;
+                max-width: none;
+            }
+
+            td {
+                padding: 16px;
+                font-size: rem-calc(16px);
+                vertical-align: top;
+                border: 1px solid get-color(geyser);
+
+                &:first-child, &:nth-child(4) {
+                    width: 25%;
+                }
+
+                &:last-child, &:nth-child(2), &:nth-child(3) {
+                    width: 16.67%;
+                }
+            }
+
+            .event-row {
+                td {
+                    border: 1px solid get-color(geyser);
+                }
+            }
+
+
+            tr {
+
+                width: 300vw;
+
+                @include breakpoint(medium) {
+                    width: auto;
+                }
+
+                &:nth-child(even) {
+                    background-color: get-color(athens-gray);
+                }
+
+                &.location-title {
+                    background-color: transparent;
+
+                    td {
+                        padding: 24px 0 15px;
+                        border: 0;
+                    }
+                }
+
+                &.header-row {
+                    background-color: get-color(downriver);
+
+                    th {
+                        border: 1px solid white;
+                        padding: 16px;
+                        font-size: rem-calc(16px);
+                        color: white;
+                        font-weight: $font-medium;
+                    }
+                }
+
+            }
+        }
+
+        thead {
+            position: absolute;
+            top: -150px;
+            width: calc(100vw - 32px);
+
+            @include breakpoint(large) {
+                position: relative;
+                top: auto;
+                width: auto;
+            }
+        }
+
+        .hidden-row {
+            display: none;
+        }
+
+        .spacer {
+            border: 0;
+            @include breakpoint(medium) {
+                display: none;
+            }
+        }
+    }
+
+
+}

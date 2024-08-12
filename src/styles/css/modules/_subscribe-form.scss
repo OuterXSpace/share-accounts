@@ -1,0 +1,17 @@
+.cmpt__subscribe-form {
+    .subscribe-headline {
+        margin-bottom: 56px;
+
+        &.hideHeadline {
+            display: none;
+        }
+    }
+
+    .form-step {
+        display: none;
+
+        &.activeStep {
+            display: block;
+        }
+    }
+}

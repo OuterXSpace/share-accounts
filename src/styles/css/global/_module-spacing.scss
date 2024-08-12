@@ -1,0 +1,156 @@
+/**
+ * @devNote: The client has a lot of spacing conditions based on which modules
+ * are next to each other. This file is a attempt to consolidate all of those
+ * conditions in a single place although there are some already in place
+ * that can be found in individual module files.
+ *
+ * @format: Module1 + Module2
+ */
+// WYSIWYG
+.cmpt__rich-text {
+    // Rich Text
+    + .cmpt__rich-text {
+        padding-top: 0;
+
+        @include breakpoint(medium) {
+            margin-top: -13px;
+        }
+    }
+
+    + .cmpt__toggle-content,
+    + .cmpt__embed-container,
+    + .cmpt__image-container,
+    + .cmpt__large-media-carousel,
+    + .cmpt__related-stories,
+    + .cmpt__award-carousel.background-white,
+    + .cmpt__image-text-staggered.background-white,
+    + .cmpt__featured-content,
+    + .cmpt__contact-download-card,
+    + .cmpt__single-video.background-white,
+    + .cmpt__rotating-featured-video.background-white,
+    + .cmpt__client-testimonial.background-white,
+    + .cmpt__pardot-form {
+        padding-top: 0;
+    }
+}
+
+// Office Details
+.cmpt__office-details {
+    + .cmpt__image-text-staggered {
+        padding-top: 0;
+        margin-top: -50px;
+    }
+}
+
+// HTML
+.cmpt__embed-container {
+    + .cmpt__embed-container.cmpt__image-container,
+    + .cmpt__rich-text,
+    + .cmpt__pardot-form {
+        padding-top: 0;
+    }
+
+    // Add spacing if interrupter is next
+    + .cmpt__imgtxt-feature {
+        margin-top: 52px;
+    }
+}
+
+// Large media Carousel
+.cmpt__large-media-carousel {
+    + .cmpt__rich-text,
+    + .cmpt__pardot-form{
+        padding-top: 0;
+    }
+}
+
+// Toggle content
+.cmpt__toggle-content {
+    + .cmpt__rich-text,
+    + .cmpt__pardot-form {
+        padding-top: 0;
+    }
+}
+
+// Quote image carousel
+.cmpt__quote-image-carousel {
+    + .cmpt__large_services {
+        padding-top: 0;
+    }
+
+    + .cmpt__imgtxt-feature {
+        margin-top: 52px;
+    }
+}
+
+// Image interrupter
+.cmpt__imgtxt-feature {
+    + .cmpt__quote-image-carousel.background-white {
+        padding-top: 104px;
+    }
+}
+
+// Video
+.cmpt__rotating-featured-video {
+    + .cmpt__rotating-featured-video {
+        padding-top: 0;
+    }
+
+}
+
+// Image Card View
+.cmpt__related-stories {
+    + .cmpt__award-carousel.background-white {
+        padding-top: 0;
+    }
+}
+
+// Rich Text Offset Image
+.cmpt__rich-text-offset-image {
+    + .cmpt__stat-feature-block {
+        margin-top: -52px;
+    }
+}
+
+// Bio
+.cmpt__bio {
+    + .cmpt__perspective-grid {
+        padding-top: 0;
+    }
+}
+
+// Tables
+.cmpt__tables {
+    + .cmpt__quote-image-carousel {
+        padding-top: 0;
+    }
+}
+
+// Used on side-by-side cards
+.cmpt__contact-download-card {
+    + .cmpt__contact-download-card {
+        padding-top: 0;
+        margin-top: -28px;
+
+        @include breakpoint(medium) {
+            margin-top: 0;
+        }
+    }
+}
+
+// Project timeline
+.cmpt__project-timeline {
+    + .cmpt__embed-container.cmpt__image-container,
+    + .cmpt__embed-container.cmpt__image-container .image-wrapper.full-bleed-wrapper {
+        @include breakpoint(small only) {
+            padding-top: 0;
+        }
+    }
+}
+
+//Search bar and Featured content
+.cmpt__search-bar {
+    + .cmpt__featured-content {
+        padding-top: 17px;
+    }
+}

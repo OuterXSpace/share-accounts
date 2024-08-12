@@ -1,0 +1,106 @@
+body {
+    // Prevents zoom on iOS when interacting with inputs
+    @media (hover:none) {
+        select, textarea, input {
+            font-size: rem-calc(16px) !important;
+        }
+    }
+    line-height: 1.5;
+}
+
+footer {
+	text-align: center;
+	width: 100%;
+}
+
+// Prevents animations from showing on load
+.loading * {
+  transition: none !important;
+}
+
+// Update modules spacing globaly, some of these classes are applied via JS
+.main {
+
+    @media print {
+        padding-top: 0 !important;
+    }
+
+    // Tackle everything inside the main container
+    .module-first-gray:not(.cmpt__search-results) {
+        padding-top: 52px;
+
+        @include breakpoint(large) {
+            padding-top: 104px;
+
+            // If it's only one gray module keep the lower spacing
+            &.module-last-gray:not(.cmpt__search-results) {
+                padding: 52px 0;
+            }
+        }
+    }
+
+    .module-last-gray:not(.cmpt__search-results) {
+        padding-bottom: 52px;
+
+        @include breakpoint(large) {
+            padding-bottom: 104px;
+        }
+
+        // Extra spacing for the next module
+        + *:not(.cmpt__prefooter-cta.cmpt__dropdown),
+        + *:not(.cmpt__imgtxt-feature),
+        + *:not(.cmpt__split-image-text),
+        + *:not(.cmpt__stat-feature-block),
+        + *:not(.cmpt__embed-container),
+        + *:not(.cmpt__rich-text),
+        + *:not(.cmpt__prefooter-cta) {
+            margin-top: 52px;
+        }
+
+        + .cmpt__prefooter-cta,
+        + .cmpt__imgtxt-feature,
+        + .cmpt__split-image-text,
+        + .cmpt__stat-feature-block,
+        + .cmpt__rich-text,
+        + .cmpt__related-stories,
+        + .cmpt__embed-container {
+            margin-top: 0px !important;
+        }
+    }
+
+
+    // Add final spacing to last module
+    > *:last-of-type {
+        &:not(header):not(.cmpt__prefooter-cta):not(.cmpt__search-results) {
+            padding-bottom: 52px;
+
+            @include breakpoint(large) {
+                padding-bottom: 104px;
+            }
+        }
+    }
+
+    .pre-search-placeholder {
+        + * {
+            padding-top: 12px;
+        }
+    }
+
+    // overview sibling override
+    #overview {
+        + .cmpt__rich-text-offset-image {
+            padding-top: 52px;
+        }
+    }
+
+    .background-athens-gray {
+        + .cmpt__rich-text-offset-image {
+            padding-top: 104px;
+        }
+    }
+
+}
+
+blockquote, blockquote p {
+    color: #767676 //changed for accessibility    
+}

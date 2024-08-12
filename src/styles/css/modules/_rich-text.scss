@@ -1,0 +1,26 @@
+// .cmpt__rich-text text styles in _typography.scss
+
+.cmpt__rich-text {
+    padding: 35px 0;
+
+    @include breakpoint(medium) {
+        padding: 48px 0;
+    }
+
+    // Remove margin on last p tag
+    p:last-child,
+    p:last-of-type {
+        margin: 0;
+    }
+
+    // sibling overrides
+    + .cmpt__large_services,
+    + .cmpt__perspective-grid.cmpt__perspective-grid-multi.background-white,
+    + .cmpt__quote-image-carousel {
+        padding-top: 0;
+    }
+
+    .page-minimal & {
+        padding-top: 0;
+    }
+}

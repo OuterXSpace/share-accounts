@@ -1,0 +1,32 @@
+.cmpt__single-video {
+	padding: $moduleSpacing 0;
+
+    &.is-interrupter {
+        @include bg-motif(135, #092B48, get-color(tiber), get-color(black-pearl), 38%, 64%);
+        padding: 145px 30px !important;
+        position: relative;
+        z-index: 3;
+    }
+
+    &.is-interrupter-respect-bg {
+        padding: 145px 30px !important;
+        position: relative;
+        z-index: 3;
+    }
+
+    .pre-search-placeholder & {
+        padding: 47px 30px !important;
+
+        @include breakpoint(medium) {
+            padding: 72px 30px !important;
+        }
+    }
+
+    .video-wrapper {
+        margin-bottom: 0;
+    }
+
+    .video-description {
+        padding-top: 0;
+    }
+}

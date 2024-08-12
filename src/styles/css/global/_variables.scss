@@ -1,0 +1,170 @@
+// for generating heading classes in '_mixins.scss'
+$font-sizes: (
+    'headline-huge': (
+        'size': ( 'small': 55px, 'medium': 90px, 'large': 110px ),
+        'letter-spacing': ( 'small': 1px ),
+        'line-height': ( 'small': 1 ),
+		'weight': $font-black
+    ),
+	'headline-xl': (
+		'size' : ( 'small': 34px, 'medium': 65px, 'large': 75px ),
+		'letter-spacing': ( 'small': 0.57px, 'medium': -0.9, 'large': -1.04 ),
+		'line-height': ( 'small': .88, 'medium': .91, 'large': .93 ),
+		'weight': $font-black
+	),
+    'headline1': (
+        'size' : ( 'small': 30px, 'medium': 40px, 'large': 70px ),
+        'letter-spacing': ( 'small': 0.5px, 'medium': 0 ),
+        'line-height': ( 'small': 1.33, 'medium': 1.14 ),
+        'weight': $font-light
+    ),
+    'headline1-hero': (
+        'size' : ( 'small': 30px, 'medium': 40px, 'xlarge': 70px ),
+        'letter-spacing': ( 'small': 0.5px, 'medium': 0 ),
+        'line-height': ( 'small': 1.33, 'medium': 1.14 ),
+        'weight': $font-light
+    ),
+	'headline1-alt': (
+		'size' : ( 'small': 30px, 'medium': 48px ),
+		'letter-spacing': ( 'small': 0.5px, 'medium': 0 ),
+		'line-height': ( 'small': 1.33 ),
+		'weight': $font-light
+	),
+	'headline2': (
+		'size' : ( 'small': 24px, 'large': 30px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.5, 'large': 1.33 ),
+		'weight': $font-normal
+	),
+    'headline2-alt': (
+        'size' : ( 'small': 30px, 'large': 35px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.13, 'large': 1.37 ),
+        'weight': $font-light
+    ),
+	'headline3': (
+		'size' : ( 'small': 18px, 'large': 21px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.3, 'large': 1.9 ),
+		'weight': $font-medium
+	),
+	'headline4': (
+		'size' : ( 'small': 16px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.5 ),
+		'weight': $font-medium
+	),
+	'headline5': (
+		'size' : ( 'small': 16px, 'large': 20px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.5, 'large': 1.2 ),
+		'weight': $font-medium
+	),
+	'accent': (
+		'size' : ( 'small': 16px, 'large': 20px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.5, 'large': 1.2 ),
+		'weight': $font-medium
+	),
+	'body1': (
+		'size' : ( 'small': 15px, 'medium': 15px, 'large': 18px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.6, 'large': 1.78 ),
+		'weight': $font-normal
+	),
+	'body2': (
+		'size' : ( 'small': 18px, 'medium': 16px, 'large': 20px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.45, 'medium': 1.5, 'large': 1.4 ),
+		'weight': $font-normal
+	),
+	'body3': (
+		'size' : ( 'small': 18px, 'large': 23px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.45, 'large': 1.4 ),
+		'weight': $font-normal
+	),
+	'body4': (
+		'size' : ( 'small': 20px, 'medium': 23px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.6, 'medium': 1.4 ),
+		'weight': $font-normal
+	),
+	'body5': (
+		'size' : ( 'small': 13px, 'medium': 15px, 'large': 18px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.4, 'medium': 1.6, 'large': 1.8 ),
+		'weight': $font-normal
+	),
+	'description': (
+		'size' : ( 'small': 12px, 'large': 16px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.5 ),
+		'weight': $font-normal
+	),
+	'eyebrow': (
+		'size' : ( 'small': 14px, 'large': 15px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.15, 'large': 1.6 ),
+		'weight': $font-medium,
+		'display': block
+	),
+	'eyebrow-alt': (
+		'size' : ( 'small': 14px, 'large': 20px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.15, 'large': 1.6 ),
+		'weight': $font-medium,
+		'display': block
+	),
+    'eyebrow-large': (
+        'size' : ( 'small': 14px, 'large': 24px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.14, 'large': 1.6 ),
+        'weight': $font-medium,
+        'display': block
+    ),
+	'caption': (
+		'size' : ( 'small': 18px ),
+		'letter-spacing': ( 'small': 0 ),
+		'line-height': ( 'small': 1.6 ),
+		'weight': $font-bold,
+		'display': block
+	),
+    'dropdown-header': (
+        'size' : ( 'small': 24px, 'medium': 30px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.37, 'medium': 1.3 ),
+        'weight': $font-normal,
+        'display': block
+    ),
+    'dropdown-item' : (
+        'size' : ( 'small': 24px, 'medium': 30px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.67, 'medium': 1.3 ),
+        'weight': $font-bold,
+        'display': block
+    ),
+    'tab-item' : (
+        'size' : ( 'small': 16px, 'medium': 14px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.5, 'medium': 1.14 ),
+        'weight': $font-medium,
+        'display': block
+    ),
+    'underline-link' : (
+        'size' : ( 'small': 16px, 'large': 20px ),
+        'letter-spacing': ( 'small': 0 ),
+        'line-height': ( 'small': 1.5, 'large': 1.2 ),
+        'weight': $font-medium
+    )
+);
+
+// for generating margin utility classes in '_mixins.scss', more options than what Foundation offers out of the box
+// spaces are px values
+
+$spaces: ( 8, 12, 15, 18, 24, 34 );
+$sides: (top, bottom, left, right);
+
+// Global module vars
+$moduleSpacing: 52px;
+$moduleSpacingShort: 35px;

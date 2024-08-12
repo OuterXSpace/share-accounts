@@ -1,0 +1,121 @@
+.cmpt__feature-blocks {
+    position: relative;
+    z-index: 0;
+    
+    @include breakpoint(large) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @include breakpoint(xlarge) {
+        flex-wrap: nowrap;
+    }
+
+    .feature-block {
+        border-bottom: 4px solid white;
+        padding: 40px;
+        background-color: get-color(athens-gray);
+
+        @include breakpoint(large) {
+            flex: 1;
+            width: 50%;
+            border-right:4px solid white;
+
+            &:nth-child(2n) {
+                border-right: 0;
+            }
+        }
+
+        @include breakpoint(xlarge) {
+            width: auto;
+            border-bottom: 0;
+            padding: 52px;
+
+            &:nth-child(2n) {
+                border-right:4px solid white;
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+
+        .body3 {
+            margin-bottom: 20px;
+            position:  relative;
+            padding-right:  40px;
+            color: get-color(regal-blue);
+            font-weight: bold;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top:  6px;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 9px 0 9px 15.1px;
+                border-color: transparent transparent transparent get-color(sun);
+            }
+        }
+        
+        a:not(.cta):hover {
+            color: get-color(venice-blue);
+        }
+    }
+
+    &.feature-blocks-fixed {
+
+        @include breakpoint(xlarge) {
+            display: flex;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            background-color: get-color(black-pearl);
+            padding: 15px 0;
+            justify-content: center;
+
+            .feature-block {
+                background-color: transparent;
+                padding: 10px 20px;
+                text-align: center;
+                border-right: 1px solid white;
+                flex: inherit;
+
+                &:last-child {
+                    border-right: 0;
+                }
+
+                p {
+                    display: none;
+                }
+
+                .body3 {
+                    color: white;
+                    font-weight: 300;
+                    text-align: center;
+                    font-size: 1rem;
+                    padding-right: 0;
+                    margin-bottom: 0;
+                    line-height: 1;
+
+
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                a:not(.cta):hover {
+                    color: get-color(sun);
+                }
+
+                .cta {
+                    display: none;
+                }
+            }
+        }
+
+    }
+}

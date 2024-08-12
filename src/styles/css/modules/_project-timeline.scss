@@ -1,0 +1,87 @@
+.cmpt__project-timeline {
+    padding: $moduleSpacing 0;
+
+    .cell {
+        margin-bottom: 8px;
+        display: flex;
+
+        @include breakpoint(medium) {
+            margin-bottom: 32px;
+        }
+
+        @include breakpoint(large) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.project-timeline-heading {
+    color: get-color(black-pearl);
+
+    @include breakpoint(medium) {
+        margin-bottom: 32px;
+    }
+}
+
+.project-timeline-item {
+    padding: 18px 36px 22px;
+    width: 100%;
+
+    // mobile, no border bottom on last item
+    .cell:not(:last-child) & {
+        border-bottom: 1px solid get-color(geyser);
+    }
+
+    @include breakpoint(medium) {
+        border: 1px solid get-color(geyser);
+        padding: 32px 50px 74px;
+    }
+
+    @include breakpoint(large) {
+        padding: 56px 42px 48px;
+    }
+}
+
+.project-timeline-item-number {
+    font-size: rem-calc(45);
+    line-height: 1.25;
+
+    @include breakpoint(medium) {
+        font-size: rem-calc(70);
+        line-height: 1.5;
+    }
+
+    @include breakpoint(large) {
+        font-size: rem-calc(80);
+        line-height: .63;
+        margin-bottom: 28px;
+    }
+}
+
+.project-timeline-item-text {
+    font-size: rem-calc(15);
+    line-height: 1.6;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 42px;
+    }
+
+    @include breakpoint(large) {
+        font-size: rem-calc(18);
+        line-height: 1.35;
+        margin-bottom: 10px;
+    }
+}
+
+.project-timeline-item-description {
+    color: get-color(nevada);
+    font-size: rem-calc(15);
+    line-height: 1.6;
+
+    @include breakpoint(large) {
+        font-size: rem-calc(18);
+        line-height: 1.35;
+    }
+}

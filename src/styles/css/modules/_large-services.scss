@@ -1,0 +1,246 @@
+.cmpt__large_services {
+    padding: $moduleSpacing 0;
+
+    .large-services-header {
+        padding-bottom: 24px;
+    }
+
+    .large-services-container {
+        display: flex;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .services-list {
+        background: black;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        @include breakpoint(large) {
+            width: 50%
+        }
+        .service-image {
+            opacity: .74;
+            position: absolute;
+            z-index: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: opacity .3s ease-in;
+            display: block;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            &.activeService {
+                opacity: .74;
+            }
+
+        }
+
+        .services-items {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-item {
+            min-height: 74px;
+            cursor: pointer;
+            background-color: get-color(black-pearl);
+            border-bottom: 1px solid get-color(nevada);
+            padding: 24px 0 0 0;
+            transition: background .3s ease-in;
+
+            @include breakpoint(large) {
+                background: transparent;
+                min-height: 120px;
+                padding: 40px 120px 40px 40px;
+                border-bottom: 1px solid white;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &.activeService {
+                background: rgba(9, 43, 73, .5);
+            }
+
+            > .service-title {
+                margin-bottom: 0;
+                padding: 0 43px 24px 15px;
+                position: relative;
+                font-size: rem-calc(18px);
+
+                @include breakpoint(medium) {
+                    padding: 0 40px 24px;
+                }
+
+                @include breakpoint(large) {
+                    font-size: rem-calc(21px);
+                    padding:0;
+                }
+
+                &:after {
+                    content: '\002b';
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    display: block;
+                    position: absolute;
+                    right: 15px;
+                    text-align: center;
+                    top: calc(50% - 24px);
+                    background-color: get-color(regal-blue);
+
+                    @include breakpoint(large) {
+                        display: none;
+                    }
+                }
+            }
+
+            .service-info {
+                background-color: get-color(athens-gray);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .3s linear, padding .3s linear;
+                padding: 0 15px;
+
+                @include breakpoint(medium) {
+                    padding: 0 40px;
+                }
+
+                @include breakpoint(large) {
+                    display: none;
+                }
+            }
+
+            &.activeService {
+                .service-info {
+                    max-height: 2000px;
+                    padding: 40px 15px;
+
+                    @include breakpoint(medium) {
+                        padding: 40px;
+                    }
+
+                    @include breakpoint(large) {
+                        max-height: 0;
+                    }
+                }
+
+                > .service-title {
+                    &:after {
+                        content: '\2013';
+                        top: calc(50% - 24px);
+                    }
+                }
+            }
+        }
+    }
+
+    .services-info {
+        width: 50%;
+        padding: 104px 63px;
+        position: relative;
+        color: get-color(downriver);
+        background-color: get-color(athens-gray);
+        display: none;
+
+        @include breakpoint(large) {
+            display: block;
+        }
+
+        @include breakpoint(xlarge) {
+            padding: 104px 126px;
+        }
+
+
+        .service-info {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 63px;
+            opacity: 0;
+            color: get-color(nevada);
+            width: calc(100% - 126px);
+            z-index: -1;
+
+            @include breakpoint(xlarge) {
+                left: 126px;
+                width: calc(100% - 252px);
+            }
+
+            &.activeService {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            .service-card-title {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    .service-info {
+
+
+        p {
+            color: get-color(nevada);
+        }
+    }
+
+    .ctas {
+        list-style: none;
+        margin: 30px 0 0 0;
+
+        li {
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.ctas-border {
+            border-top: 1px solid get-color(downriver);
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+    }
+
+    .services-description {
+        padding: 0;
+    }
+
+    .large-services-industry {
+        .services-info, .service-item .service-info {
+            color: get-color(white);
+            background-color: get-color(downriver);
+
+            .service-card-title, .services-description, p {
+                color: get-color(white);
+
+                &:after {
+                    border-color: transparent transparent transparent get-color(white);
+                }
+            }
+        }
+
+        .ctas-border {
+            border-top: 1px solid get-color(sun);
+        }
+    }
+
+    // sibling overrides
+    + .cmpt__imgtxt-feature {
+        margin-top: -52px;
+
+        @include breakpoint(xxlarge) {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.cmpt__imgtxt-feature {
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+	padding: 50px 0;
+	background-color: get-color(black-pearl);
+    z-index: 1;
+
+	&::before {
+  		@include absolute-pseudo;
+        background-color: rgba(0, 0, 0, .45);
+        height: 100%;
+        z-index: 0;
+
+        @include print-detail {
+            display: none;
+        }
+	}
+
+    &.yellow-gradient::before {
+        background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(255,204,3,1) 100%);
+    }
+
+	@include breakpoint(medium) {
+		padding: 160px 0 145px;
+	}
+
+    @include print-detail {
+        page-break-inside: avoid;
+    }
+
+    .cell.medium-6 {
+        @include print-detail {
+            width: 100%;
+        }
+    }
+
+	.imgtext-feature-content {
+		margin-bottom: 25px;
+
+        @include print-detail {
+            * {
+                color: get-color(white) !important;
+            }
+        }
+	}
+
+    .image-title-headline {
+        margin-bottom: 47px;
+
+        @include breakpoint(large) {
+            margin-bottom: 75px;
+        }
+    }
+
+    .image-title-eyebrow {
+        margin-bottom: 65px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 47px;
+        }
+    }
+
+    .body1 a {
+        color: get-color(white);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(get-color(sun), 0.5);
+        font-weight: $font-medium;
+
+        &:hover {
+            border-bottom: 1px solid get-color(sun);
+        }
+    }
+}

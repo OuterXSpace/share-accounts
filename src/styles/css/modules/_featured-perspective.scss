@@ -1,0 +1,88 @@
+.cmpt__featured-perspective {
+
+    @include breakpoint(medium) {
+        padding: 0 12px;
+    }
+
+    @include breakpoint(large) {
+        padding: 0 12px;
+    }
+
+    .featured-perspective-inner {
+        border-top: 1px solid get-color(geyser);
+        border-bottom: 1px solid get-color(geyser);
+        padding: 15px 12px;
+
+        @include breakpoint(large) {
+            padding: 24px 12px;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .eyebrow {
+        margin-bottom: .5rem;
+
+        @include breakpoint(large) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .featured-perspective-headline {
+        margin-bottom: 14px; 
+
+        @include breakpoint(large) {
+            margin-bottom: 28px;
+        }
+    
+        &.callout {
+            font-size: rem-calc(16px);
+            line-height: 1.4;
+
+            @include breakpoint(medium) {
+                font-size: rem-calc(20px);
+            }
+
+            @include breakpoint(large) {
+                font-size: rem-calc(24px);
+                line-height: 1.33;
+            }
+        }
+    }
+
+    .featured-perspective-image {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        padding-bottom: 100%;
+
+        img {
+            width: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            max-width: none;
+        }
+    }
+
+    .featured-perspective-content {
+        padding-left: 16px;
+
+        @include breakpoint(medium) {
+            padding-left: 30px;
+        }
+
+        @include breakpoint(large) {
+            padding-left: 54px;
+        }
+    }
+
+    .cmpt__cta > div {
+        padding: 0;
+        justify-content: flex-start;
+    }
+}

@@ -1,0 +1,54 @@
+.cmpt__contact-sidebar {
+    padding: 56px 0 65px;
+
+    @include breakpoint(large) {
+        padding: 104px 0 129px;
+    }
+
+    .contact-sidebar-headline {
+        border-bottom: 1px solid get-color(geyser);
+        padding-bottom: 6px;
+        margin-bottom: 40px;
+    }
+
+    .contact-sidebar-subhead {
+        margin-top: 48px;
+        margin-bottom: 8px;
+    }
+
+    .contact-sidebar-social {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0 0 48px;
+        list-style: none;
+
+        li {
+            padding: 0;
+            margin-right: 20px;
+
+            a {
+                display: flex;
+                background: get-color(geyser);
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+
+    }
+
+    address {
+        font-style: normal;
+        margin-bottom: 6px;
+    }
+
+    svg {
+        width: 15px;
+        height: 15px;
+        fill: get-color(regal-blue);
+    }
+}

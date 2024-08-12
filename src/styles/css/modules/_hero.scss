@@ -1,0 +1,352 @@
+// TODO: use motif on heros that need it
+
+.cmpt__hero {
+	@include bg-cover;
+	@include flex;
+	@include flex-direction(column);
+
+	min-height: 300px;
+    padding: 206px 0 122px;
+	position: relative;
+	overflow: hidden;
+    background-color: get-color(black-pearl);
+    justify-content: flex-end;
+
+	@include breakpoint(medium) {
+		min-height: 696px;
+		padding: 350px 0 132px;
+	}
+
+    @include print-detail {
+        min-height: 0;
+        padding: 52px 0 0;
+        color-adjust: exact;
+    }
+
+    &.cmpt__hero-bold-title-only {
+        @include breakpoint(xlarge) {
+            background-attachment:fixed;
+        }
+    }
+
+    &.global-search {
+        @include breakpoint(medium) {
+            min-height: 320px;
+            padding: 180px 0 0;
+
+        }
+
+        @include breakpoint(large) {
+            min-height: 556px;
+            padding: 0 0 72px;
+
+        }
+        @media all and (-ms-high-contrast:none) and (min-width: 768px) {
+            height: 320px;
+        }
+
+        @media all and (-ms-high-contrast:none) and (min-width: 1024px) {
+            height: 556px;
+        }
+
+        .hero-content {
+            max-width: none;
+        }
+
+        // Search
+        .cmpt__search-bar {
+            padding: 0;
+
+            * {
+                color: get-color(white);
+            }
+
+            .search-bar {
+                margin-bottom: 22px;
+            }
+
+            .search-headline {
+                @include breakpoint(large) {
+                    font-size: rem-calc(28px);
+                }
+            }
+
+            .search-field-input {
+                color: get-color(white);
+                margin-left: 22px;
+                font-weight: $font-light;
+
+                // Placeholder
+                &::placeholder {
+                    color: get-color(white);
+                    opacity: 0.5;
+                }
+
+                @include breakpoint(large) {
+                    font-size: 28px;
+                }
+            }
+
+        }
+    }
+
+    .cmpt__parallax & {
+        padding: 0;
+        height: 100vh;
+
+        .fixed-background {
+            //mobile devices do not support background fixed, this is a workaround for it
+            height: 100vh;
+            background-position: -240px 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+
+            @include breakpoint(medium) {
+                background-position: top center;
+            }
+
+            &:before {
+                @include absolute-pseudo;
+                background: rgba(0, 0, 0, .45);
+                height: 100%;
+                z-index: 0;
+
+            }
+        }
+    }
+
+    &.cmpt__hero-top {
+        justify-content: flex-start;
+    }
+
+    .hero-gradient {
+        background: rgb(0,0,0);
+        background: linear-gradient(183deg, rgba(0,0,0,0) 0%, rgba(255,204,3,.7) 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &::before {
+        @include absolute-pseudo;
+        background: linear-gradient(0deg, rgba(get-color(ebony-clay), 0.4) 0%, rgba(get-color(ebony-clay), 0) 100%);
+        height: 100%;
+
+        @include print-detail {
+            display: none;
+        }
+    }
+
+    &::after {
+
+        // TODO: client provides new color
+        // background-color: rgba( get-color(oslo-gray), 0.81);
+        bottom: 0;
+        height: 100%;
+
+        @include absolute-pseudo;
+    }
+}
+
+.hero-content {
+	width: 100%;
+	max-width: 800px;
+	position: relative;
+
+    @include print-detail {
+        max-width: none;
+    }
+
+    .hero-headline {
+        margin-bottom: 24px;
+
+        span {
+            display: block;
+        }
+    }
+
+    .hero-body {
+        max-width: 700px;
+
+        p {
+            .cmpt__hero-bold-title-only & {
+                color: get-color('black-pearl');
+            }
+        }
+    }
+
+    .hero-subscribe-btn {
+        @include breakpoint(large) {
+            padding-top: 25px;
+        }
+    }
+
+    .cmpt__hero-background-motif & {
+        max-width: 640px;
+
+        .hero-body {
+            max-width: 540px;
+        }
+
+    }
+}
+
+.hero-container, .hero-grid {
+    height: 100%;
+}
+
+.cmpt__hero {
+	&::before {
+  		@include absolute-pseudo;
+        background: rgba(0, 0, 0, .45);
+        height: 100%;
+
+        @include print-detail {
+            display: none;
+        }
+	}
+
+	&::after {
+
+		// TODO: client provides new color
+		// background-color: rgba( get-color(oslo-gray), 0.81);
+		bottom: 0;
+		height: 100%;
+
+		@include absolute-pseudo;
+	}
+
+    .cmpt__parallax & {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.cmpt__hero-background-motif {
+    background-color: get-color(black-pearl);
+    min-height: 0;
+    padding: 0;
+    height: 385px;
+    position: relative;
+    overflow: inherit;
+    z-index: 2;
+
+    @include breakpoint(medium) {
+        padding-bottom: 48.33%;
+    }
+
+    @include breakpoint(xxlarge) {
+        height: 696px;
+        padding-bottom: 0;
+    }
+
+    &:before {
+        display: none;
+    }
+
+    .hero-content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        .hero-content {
+            padding-bottom: 24px;
+
+            @include breakpoint(large) {
+                padding-bottom: 120px;
+            }
+        }
+    }
+
+    .element-motif-left, .element-motif-right {
+        display: none;
+    }
+
+    .background-motif-image {
+        background-color: transparent;
+
+    }
+}
+
+/**
+ * This styles are present in multiple heros
+ */
+[class*="-hero"].event-hero {
+    overflow: hidden;
+
+    .event-form-heading {
+        margin-bottom: 20px;
+    }
+
+    .event-image-form {
+        position: relative;
+        padding: 55px 0;
+
+        @include breakpoint(medium) {
+            padding-top: 55px;
+            padding-bottom: 55px;
+        }
+
+        @include breakpoint(large) {
+            padding-bottom: 110px;
+            padding-left: 115px;
+            padding-top: 110px;
+        }
+
+        .cmpt__pardot-form {
+            background-color: get-color(white);
+            opacity: 0.9;
+            padding: 55px 24px 0;
+            position: relative;
+            z-index: 1;
+
+            @include breakpoint(large) {
+                padding: 50px 50px 0;
+            }
+        }
+    }
+
+    .event-image-wrapper {
+        display: none;
+
+        @include breakpoint(large) {
+            display: block;
+        }
+    }
+
+    .event-image-mobile {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        min-width: 100%;
+        width: auto;
+        max-width: none;
+        top: 0;
+        left: -16px;
+        object-fit: cover;
+
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+}
+/*
+ * Heading inside modal
+ */
+.moda-content {
+    .event-form-heading {
+        margin-bottom: 38px;
+    }
+}

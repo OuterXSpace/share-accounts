@@ -1,0 +1,121 @@
+.cmpt__bio-listing {
+    .listing-tabs {
+        border-bottom: 1px solid #afb9bf;
+        display: flex;
+        margin-bottom: 54px;
+
+        .listing-tab {
+            min-width: 100px;
+            padding: 0 20px 15px;
+            position: relative;
+            display: block;
+            color: get-color(nevada);
+            cursor: pointer;
+            text-align: center;
+
+            &:after {
+                content: '';
+                height: 4px;
+                background-color: transparent;
+                width: 100%;
+                bottom: -1px;
+                left: 0;
+                transition: background .3s ease-in;
+                position: absolute;
+            }
+
+            &:hover,
+            &.activeTab {
+                &:after {
+                    background-color: get-color(regal-blue);
+                }
+            }
+
+            &.activeTab {
+                font-weight: $font-bold;
+            }
+        }
+    }
+
+    // Hide board title from "all" tab
+    &.all {
+        .listing-title p {
+            display: none;
+        }
+    }
+}
+
+.listing-items {
+    margin-bottom: 24px;
+}
+
+.listing-item {
+    position: relative;
+    padding-bottom: 58px;
+    margin-bottom: 24px;
+
+    img {
+        width: 100%;
+    }
+
+    .listing-info {
+        padding: 18px 24px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 108px;
+        transition: max-height .3s ease-in;
+        overflow: hidden;
+    }
+
+    .listing-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .listing-social a {
+            margin-left: 7px;
+            font-size: rem-calc(18px);
+            fill: get-color(downriver);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-top: 0px;
+        
+            @include breakpoint(medium) {
+                margin-top: 0px;
+                line-height: 1.5;
+            }
+
+            @include breakpoint(large) {
+                margin-top: 0px;
+                font-size: 16px;
+            }
+
+            @include breakpoint(xxlarge) {
+                margin-top: 4px;
+                font-size: 17px;
+            }
+        }
+    }
+
+    .listing-bio {
+        max-height: 0;
+        transition: max-height .3s ease-in;
+        overflow: hidden;
+
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            .listing-info, .listing-bio {
+                max-height: 1000px;
+            }
+        }
+    }
+}

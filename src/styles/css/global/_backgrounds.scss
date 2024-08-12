@@ -1,0 +1,12 @@
+// sometimes you want a mixin, sometimes you want a class:
+.background-contain {
+	@include bg-contain;
+}
+
+.background-cover {
+	@include bg-cover;
+}
+
+.background-right {
+	@include bg-right;
+}

@@ -1,0 +1,24 @@
+// .cmpt__rich-text-offset-image text styles in _typography.scss
+
+.cmpt__rich-text-offset-image {
+    padding-bottom: 104px;
+
+    .image-container {
+    	margin-bottom: 35px;
+
+        @include breakpoint(medium) {
+        	padding-right: 35px;
+        }
+
+        img, svg {
+            height: auto;
+            width: 100%;
+            max-width: 258px;
+            display: block;
+
+            @include breakpoint(medium) {
+                margin: auto;
+            }
+        }
+    }
+}

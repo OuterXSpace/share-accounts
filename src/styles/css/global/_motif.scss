@@ -1,0 +1,248 @@
+.background-motif {
+    overflow: hidden;
+    background-color: get-color(downriver);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    @include print-detail {
+        background-color: get-color(downriver) !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .element-motif-left {
+        position: absolute;
+        background-color: get-color(black-pearl);
+        height: 100vw;
+        width: 100vw;
+        bottom: 50%;
+        right: 25%;
+        transform: rotate(45deg);
+
+        &::before {
+            content: '';
+            background-color: inherit;
+            position: absolute;
+            height: 1000vw;
+            width: 1000vw;
+            bottom: 0;
+            right: 0;
+        }
+
+        &::after {
+            content: '';
+            background-color: inherit;
+            position: absolute;
+            height: 1000vw;
+            width: 1000vw;
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        @include breakpoint(medium) {
+            bottom: 50%;
+            right: 10%;
+        }
+
+        @include breakpoint(large) {
+            bottom: 40%;
+            right: 0;
+        }
+
+        @include breakpoint(xlarge) {
+            bottom: 60%;
+            right: -5%;
+        }
+
+        @include breakpoint(xxlarge) {
+            bottom: 80%;
+            right: -15%;
+        }
+
+        @include print-detail {
+            background-color: get-color(black-pearl) !important;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+
+    .element-motif-left-accent {
+        content: '';
+        position: absolute;
+        background-color: get-color(tiber);
+        height: 1000vw;
+        width: 76px;
+        bottom: 0;
+        right: 0;
+
+        @include breakpoint(medium) {
+            width: 136px;
+        }
+
+        @include breakpoint(large) {
+            width: 276px;
+        }
+
+        @include print-detail {
+            background-color: get-color(black-pearl) !important;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+
+    .element-motif-right {
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 0;
+        bottom: 0;
+        border-style: solid;
+        border-width: 0 0 48px 48px;
+        border-color: transparent transparent get-color(sun);
+
+        @include breakpoint(medium) {
+            border-width: 0 0 128px 128px;
+        }
+
+        @include breakpoint(large) {
+            border-width: 0 0 158px 158px;
+        }
+    }
+
+    .background-motif-image {
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+
+        .inner-image {
+            background-size: auto 100%;
+            background-position: right;
+            background-repeat: no-repeat;
+            position: static;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
+    // has an image bg
+    &.background-motif-has-image {
+        @include breakpoint(medium) {
+            background-color: transparent;
+
+            .element-motif-right {
+                border-color: transparent transparent rgba(get-color(sun),.75) transparent;
+            }
+
+            .element-motif-left {
+                right: -5%;
+            }
+        }
+
+    }
+}
+
+.element-motif-top-right {
+    border-left: 100px solid transparent;
+    border-top: 100px solid get-color(sun);
+    position: absolute;
+    height: 0;
+    right: 0;
+    top: 0;
+    width: 0;
+    z-index: 10;
+
+    @include breakpoint(medium) {
+        border-left: 80px solid transparent;
+        border-top: 80px solid get-color(sun);
+    }   
+}
+
+.parallax-motif {
+    height: 250vh;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    &:after {
+        content: '';
+        // @include bg-motif(-45, get-color(black-pearl), get-color(tiber), transparent, 267px, 100px);
+        position: absolute;
+        top: -207px;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+            -45deg,
+            get-color(black-pearl) 0,
+            get-color(black-pearl) 63%,
+            get-color(tiber)    55%,
+            get-color(tiber)    69%,
+            transparent  0%,
+        );
+        background: linear-gradient(
+            -45deg,
+            get-color(sun),
+            rgba(get-color(sun), 0.31) 63%,
+            rgba(get-color(sun), 0.14) 0,
+            rgba(get-color(sun), 0.2) 69%,
+            transparent 0
+        );
+
+        @include breakpoint(medium) {
+            top: -250px;
+        }
+
+        @include breakpoint(large) {
+            top: 0;
+        }
+    }
+
+    .parallax-motif-right-accent {
+        position: absolute;
+        top: 0;
+        // transform: rotate(45deg);
+        transform-origin: top;
+        height: 300vh;
+        width: 157px;
+        right: 500px;
+        background-color: get-color(tiber);
+        z-index: 1;
+
+        @include breakpoint(medium) {
+            top: 0;
+        }
+
+        @include breakpoint(large) {
+            width: 267px;
+        }
+    }
+
+    .parallax-motif-right {
+        position: absolute;
+        top: 0;
+        // transform: rotate(45deg);
+        transform-origin: top;
+        height: 300vh;
+        width: 500px;
+        right: 0;
+        background-color: get-color(black-pearl);
+        z-index: 1;
+
+        @include breakpoint(medium) {
+        }
+
+        @include breakpoint(large) {
+            width: 500px;
+        }
+    }
+}

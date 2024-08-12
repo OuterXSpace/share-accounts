@@ -1,0 +1,624 @@
+// primary heading classes defined in `_mixins.scss`
+
+.headline-arrow {
+	//add to any headline class to add the yellow cta arrow
+	padding-right: 50px; //okatodo: may need to adjust padding
+	position: relative;
+
+	&:before {
+		content: '';
+		background-image:url('/assets/static/icon-right-arrow.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+	}
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-image: linear-gradient(152deg,#FFD303 44%,#FF9914 100%);
+        opacity: 0;
+        transition-property: opacity;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        transition-duration: .5s;
+    }
+
+    &:hover:after {
+        opacity: 1;
+    }
+
+    &-digital {}
+}
+
+.headline-bar {
+    position: relative;
+    //add to any headline class to add the yellow bar above the text
+    &:before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 0;
+        width: 35px;
+        height: 5px;
+        background-color: get-color(sun);
+    }
+    &-digital {
+        &::before {
+            background-color: get-color(downriver);
+        }
+    }
+
+    &-blog {
+        &::before {
+            background-color: get-color(regal-blue);
+        }
+    }
+}
+
+.headline1-hero {
+    margin-bottom: 18px;
+
+    @include breakpoint(large) {
+        margin-bottom: 34px;
+    }
+
+    @include breakpoint(xlarge) {
+        font-size: rem-calc(70px);
+    }
+}
+
+.headline1-alt {
+    margin-bottom: 18px;
+
+    @include breakpoint(large) {
+        margin-bottom: 34px;
+    }
+}
+
+.pipe {
+    padding-right: 6px;
+    margin-right: 2px;
+    display: inline-block;
+    line-height: 1;
+    border-right: 2px solid;
+
+    &.pipe-large {
+        @include breakpoint(medium) {
+            padding-right: 10px;
+        }
+    }
+
+    &.pipe-white {
+        border-color: get-color(white);
+    }
+
+    &.pipe-black-pearl {
+        border-color: get-color(black-pearl);
+    }
+
+    &.pipe-large-left {
+        margin-right: 0;
+        margin-left: 2px;
+        padding-right: 0;
+        padding-left: 10px;
+        border-right: 0;
+        border-left: 2px solid;
+    }
+}
+
+.eyebrow .pipe:last-child {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.underline-link {
+    color: get-color(regal-blue);
+    position: relative;
+
+    &:after {
+        content: '';
+        height: 1px;
+        background-color: get-color(sun);
+        position: absolute;
+        bottom: -4px;
+        left: 1px;
+        width: 100%;
+    }
+
+    &:hover {
+        color: get-color(venice-blue);
+    }
+}
+
+.underline-link-border {
+    color: get-color(regal-blue);
+    position: relative;
+    font-size:inherit;
+    line-height: 1.5;
+    border-bottom: 1px solid get-color(sun);
+    padding-bottom: 1px;
+    &:hover {
+        color: get-color(venice-blue);
+    }
+}
+
+.cta-text-only {
+  text-transform: uppercase;
+  font-weight: $font-medium;
+  font-size: rem-calc(14px);
+  text-align: left;
+  line-height: 1.44;
+  display: inline-block;
+  text-align: left;
+  cursor: pointer;
+  color: get-color(regal-blue);
+  padding: 0 48px 0 0;
+  position: relative;
+  transition: color .3s ease-in;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 24px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5.5px 0 5.5px 6px;
+    border-color: transparent transparent transparent get-color(regal-blue);
+    transition: border-color .3s ease-in;
+  }
+
+    &:hover {
+        @include breakpoint(large) {
+            color: get-color(venice-blue);
+
+            &:after {
+                border-color: transparent transparent transparent get-color(venice-blue);
+            }
+        }
+    }
+
+    &.cta-text-only-white {
+        color: get-color(white);
+
+        &:after {
+            border-color: transparent transparent transparent get-color(white);
+        }
+
+        &:hover {
+            @include breakpoint(large) {
+                color: get-color(sun);
+
+                &:after {
+                    border-color: transparent transparent transparent get-color(sun);
+                }
+            }
+        }
+    }
+}
+
+p {
+	@extend .body1;
+}
+
+.body1, .body2, .body3 {
+	margin-bottom: 35px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+strong, .bold {
+	font-weight: $font-bold;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+}
+
+em, .italic {
+	font-style: italic;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+}
+
+span {
+	font-style: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+}
+
+a {
+	font-style: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+	text-decoration: none;
+}
+
+.bullet {
+	//use for li outside of rich text
+	font-weight: $font-medium;
+	font-size: rem-calc(16px);
+	letter-spacing: 0;
+	line-height: 1.5;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+    li {
+        margin-bottom: 10px;
+        display: inline-block;
+        border-bottom: 1px solid get-color('sun');
+        position: relative;
+        margin-right: 10px;
+
+        @include breakpoint(medium) {
+            margin-right: 0;
+        }
+    }
+
+}
+
+blockquote {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.callout {
+    &, p {
+    	font-weight: $font-light;
+    	font-size: rem-calc(18px);
+    	color: get-color(nevada);
+    	letter-spacing: 0;
+    	line-height: 1.78;
+
+        @include breakpoint(medium) {
+        	font-size: rem-calc(24px);
+     		line-height: 1.67;
+        }
+
+        @include breakpoint(large) {
+        	font-size: rem-calc(30px);
+        	line-height: 1.5;
+        }
+    }
+
+    p {
+        display: inline;
+    }
+}
+
+.pullquote-1,  {
+    padding: 0 0 0 30px;
+    border-left: 4px solid get-color(sun);
+
+    @include breakpoint(medium) {
+        padding: 0 0 0 32px;
+    }
+
+    @include breakpoint(large) {
+        padding: 24px 60px 24px 40px;
+    }
+}
+
+.pullquote-2 {
+    position: relative;
+    border: 0;
+    padding: 0 24px;
+    margin: 0;
+
+    @include breakpoint(large) {
+        padding: 0;
+    }
+
+    &:before {
+        content: '\201c';
+        font-family: Georgia, Times, serif;
+        font-size: rem-calc(150px);
+        color: get-color(sun);
+        opacity: .32;
+        position: absolute;
+        top: -25px;
+        line-height: 1;
+        left: 0;
+
+        @include breakpoint(medium) {
+            font-size: rem-calc(200px);
+            top: -30px;
+            left: 13px;
+        }
+
+        @include breakpoint(large) {
+            top: -49px;
+            left: -58px;
+            font-size: rem-calc(300px);
+        }
+    }
+
+    span {
+        margin-left: -9px;
+    }
+}
+
+.pullquote-3 {
+    position: relative;
+    border: 0;
+    margin: 0;
+    z-index: 1;
+    font-size: rem-calc(20px);
+    line-height: 1.6;
+
+    @include breakpoint(large) {
+        font-size: rem-calc(21px);
+        line-height: 1.52;
+    }
+
+    &:before {
+        content: '\201c';
+        font-family: Georgia, Times, serif;
+        font-size: rem-calc(150px);
+        color: get-color(sun);
+        opacity: .32;
+        position: absolute;
+        top: -30px;
+        left: -15px;
+        line-height: 1;
+        z-index: -1;
+
+        @include breakpoint(medium) {
+            left: -23px;
+        }
+
+        @include breakpoint(large) {
+            top: -69px;
+            left: -38px;
+            font-size: rem-calc(300px);
+        }
+    }
+}
+
+
+.pagination, .dataTables_paginate {
+  text-align: center;
+
+  .page, .paginate_button {
+    font-size: rem-calc(16px);
+    color: get-color(nevada);
+    display: inline-block;
+    min-width: 24px;
+    height: 24px;
+    background-color: transparent;
+    transition: color .3s ease-in, background-color .3s ease-in;
+    padding-top: 1px;
+    margin: 0 5px;
+
+    &.currentPage, &:hover, &.current {
+      color: get-color(white);
+      font-weight: $font-medium;
+      background-color: get-color(regal-blue);
+    }
+  }
+}
+
+.uppercase {
+    //add to anything to make the text uppercase
+    text-transform: uppercase;
+}
+
+.read-time {
+    display: none;
+}
+
+//Rich text styles
+
+.cmpt__rich-text,
+.cmpt__rich-text-offset-image,
+.cmpt__inner-rich-text, #pardot-form {
+	h1 {
+		@extend .headline1 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+
+        @include breakpoint(large) {
+            font-weight: $font-light;
+            font-size: rem-calc(68px);
+            line-height: 1.05;
+        }
+	}
+
+	h2 {
+		@extend .headline2 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+
+        @include breakpoint(large) {
+            font-size: rem-calc(30px);
+            line-height: 1.33;
+        }
+	}
+
+	h3 {
+		@extend .headline3 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+        line-height: rem-calc(32px);
+
+        @include breakpoint(large) {
+            font-weight: $font-medium;
+            font-size: rem-calc(21px);
+            line-height: 1.90;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+	}
+
+	h4 {
+		@extend .headline4 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+
+        @include breakpoint(large) {
+            font-weight: $font-medium;
+            font-size: rem-calc(18px);
+            line-height: 1.33;
+        }
+	}
+
+	h5 {
+		@extend .headline5 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+
+        @include breakpoint(large) {
+            font-weight: $font-medium;
+            font-size: rem-calc(16px);
+            line-height: 1.5;
+        }
+	}
+
+	h6 {
+		@extend .headline6 !optional;
+		margin-bottom: 20px;
+		color: get-color(downriver);
+	}
+
+	ul, ol {
+		font-size: rem-calc(15px);
+		text-align: left;
+		line-height: 1.6;
+        letter-spacing: 0;
+		margin: 0 0 35px 25px;
+
+        @include breakpoint(large) {
+            font-size: rem-calc(18px);
+            line-height: 1.78;
+        }
+	}
+
+	li {
+		margin-bottom: 18px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ul {
+		list-style: disc;
+        padding-left: 26px;
+        margin-left: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 26px;
+            margin-bottom: 0;
+
+            li {
+                position: relative;
+                padding-left: 20px;
+
+                &:before {
+                    content: '\2013';
+                    font-weight: $font-bold;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+	}
+
+	ol {
+		list-style: decimal;
+        margin-left: 35px;
+	}
+
+    ul.two-column-list, ol.two-column-list {
+
+        @include breakpoint(large) {
+            columns: 2;
+            column-gap: 30px;
+            margin-left: 0;
+            break-inside: avoid;
+        }
+    }
+
+    p, li, h1, h2, h3, h4, h5 {
+        a {
+            font-weight: $font-medium;
+            color: get-color(nevada);
+            border-bottom: 1px solid get-color(sun);
+            transition: opacity 0.25s ease;
+            padding-bottom: 2px;
+
+            &:hover {
+                border-bottom: 2px solid get-color(sun);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.cmpt__inner-rich-text {
+    h1, h2, h3, h4, h5, ul, ol, li, p, a {
+        color: inherit;
+    }
+
+    li {
+        margin-bottom: 0px;
+    }
+}
+
+.cmpt__plain-text {
+    margin-top: 0 !important;
+
+    h1, h2, h3, h4, h5, ul, ol, li, p, a {
+        font-size: rem-calc(20px);
+        font-weight: $font-normal;
+        line-height: 1.6;
+        color: get-color(nevada);
+
+        @include breakpoint(large) {
+            font-size: rem-calc(24px);
+            line-height: 1.5;
+        }
+    }
+}
+
+@media print {
+    * {
+        color: get-color(downriver) !important;
+    }
+    a[href]::after {
+        content: none !important;
+    }
+    #onetrust-banner-sdk {
+        display: none !important;
+    }
+}

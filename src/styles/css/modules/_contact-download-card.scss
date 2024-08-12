@@ -1,0 +1,50 @@
+.cmpt__contact-download-card {
+    padding: $moduleSpacing 0;
+
+    .contact-download-card-inner {
+        @include breakpoint(medium) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-download-card {
+            margin-bottom: 24px;
+            padding: 24px;
+            position: relative;
+            z-index: -2;
+
+            @include breakpoint(medium) {
+                width: calc(50% - 12px);
+                margin: 0 24px 0 0;
+            }
+
+            @include breakpoint(large) {
+                padding: 48px 40px;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+
+            .contact-download-title {
+                margin-bottom: 8px;
+            }
+
+            .contact-download-text {
+                margin-bottom: 16px;
+            }
+
+            svg {
+                width: 10px;
+                height: 10px;
+                fill: get-color('regal-blue');
+
+                @include breakpoint(large) {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+        }
+    }
+}

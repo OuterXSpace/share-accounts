@@ -1,0 +1,209 @@
+.cmpt__quote-image-carousel {
+    padding: $moduleSpacing 0;
+    position: relative;
+
+    // Close cmpt__toggle-content if after quote image carousel
+    + .cmpt__toggle-content {
+        padding-top: 0;
+    }
+
+    .quote-image-slides-wrapper {
+        position: relative;
+    }
+
+    // height matching
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-initialized .slick-slide {
+        display: flex;
+
+        @include breakpoint(xlarge) {
+            min-height: 624px;
+        }
+
+        > div {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    .quote-image-slides {
+
+        @include breakpoint(large) {
+            min-height: 480px;
+            height: auto;
+        }
+    }
+
+    .quote-image-slide {
+        height: auto;
+        display: flex !important;
+
+        .quote-image-slide-inner {
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 100%;
+
+            @include breakpoint(medium) {
+                flex-wrap: nowrap;
+                flex-direction: inherit;
+            }
+        }
+
+        .image-container {
+            height: 400px;
+            overflow: hidden;
+
+            @include breakpoint(medium) {
+                width: 50%;
+                height: auto;
+                overflow: inherit;
+                display: flex;
+            }
+
+            @include breakpoint(large) {
+                width: 43%;
+            }
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                // height: 100%;
+
+                @media all and (-ms-high-contrast:none){
+                    height: auto;
+                }
+            }
+        }
+
+        .quote-container {
+            display: flex;
+            padding: 56px 24px;
+            align-items: flex-start;
+
+            @include breakpoint(medium) {
+                align-items: center;
+                width: 50%;
+                padding: 48px 30px 20px;
+            }
+
+            @include breakpoint(large) {
+                width: 57%;
+                padding: 48px 60px 20px;
+            }
+
+            @include breakpoint(xlarge) {
+                padding: 48px 96px 20px;
+            }
+
+            .quote-citation {
+                font-style: normal;
+                margin-bottom: 0;
+                color: #707070; //changed for accesibility purposes
+            }
+
+            .cta {
+                margin-top: 20px;
+                z-index: 10;
+            }
+        }
+
+        .quote-image-cta {
+            margin-top: 32px;
+        }
+
+    }
+
+    .slide-nav {
+        bottom: 0;
+        height: 18px;
+        width: 18px;
+        border: 0;
+        bottom: -36px;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(medium) {
+            bottom: -38px;
+        }
+
+        @include breakpoint(large) {
+            bottom: -48px;
+        }
+
+        @include breakpoint(xxlarge) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            bottom: auto;
+            top: 44%;
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(xxlarge) {
+                left: auto;
+                right: -80px;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(medium) {
+                left: 12px;
+            }
+
+            @include breakpoint(xxlarge) {
+                left: -80px;
+            }
+        }
+    }
+
+    .slider-countdown {
+        bottom: -30px;
+        right: 0;
+
+        @include breakpoint(large) {
+            bottom: -40px;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+
+    // sibling overrides
+    + .cmpt__rich-text {
+        padding-top: 0;
+    }
+}

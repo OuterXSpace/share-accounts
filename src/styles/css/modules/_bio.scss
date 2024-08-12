@@ -1,0 +1,116 @@
+.cmpt__bio {
+	.bio-header {
+		text-align: left;
+		padding-top: 100px;
+		position: relative;
+
+		@include breakpoint(medium) {
+			padding-top: 237px;
+		}
+
+		.bio-info {
+            padding-bottom: 32px;
+
+			@include breakpoint(medium) {
+				padding-left: 0;
+			}
+
+            @include breakpoint(large) {
+                padding-left: 0;
+                padding-top: 32px;
+                padding-bottom: 0;
+            }
+
+			.bio-contact {
+				button {
+					display: inline-block;
+                    margin-left: 16px;
+                    color: get-color(white);
+					font-size: rem-calc(17px);
+                    cursor: pointer;
+
+					@include breakpoint(medium) {
+						font-size: rem-calc(17px);
+					}
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 8px;
+                        display: inline-block;
+                        vertical-align: bottom;
+                    }
+				}
+
+                svg {
+                    width: 17px;
+                    height: 17px;
+                    fill: white;
+                }
+			}
+		}
+
+        .bio-title,
+        .bio-name {
+            margin-bottom: 28px;
+        }
+
+        .bio-title {
+            @include breakpoint(small only) {
+                span {
+                    margin: 0 0 4px;
+                    padding: 0;
+                    border: 0;
+                    display: block;
+                }
+            }
+        }
+
+
+		.bio-image {
+            margin-bottom: 32px;
+
+			@include breakpoint(medium) {
+				margin-bottom: -32px;
+				padding-right: 64px;
+			}
+		}
+	}
+
+	.bio-content {
+		padding-top: 50px;
+
+		@include breakpoint(medium) {
+			padding-top: 100px;
+		}
+
+		.bio-details {
+			@include breakpoint(medium) {
+				padding-right: 64px;
+			}
+		}
+
+		.bio-detail {
+			padding-bottom: 24px;
+			margin-bottom: 24px;
+			border-bottom: 1px solid get-color(geyser);
+
+			&:last-child {
+				border-bottom: 0;
+                margin-bottom: 0;
+                padding-bottom: 0;
+			}
+
+            li {
+                display: block;
+                border-bottom: none;
+            }
+		}
+
+		.cmpt__rich-text {
+			@include breakpoint(medium) {
+				padding-top: 0;
+			}
+		}
+	}
+}

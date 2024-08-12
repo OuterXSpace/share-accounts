@@ -1,0 +1,153 @@
+.cmpt__award-carousel {
+    position: relative;
+    padding: 52px 0;
+    z-index: 1;
+
+    // @hack: Specific to tighten up space with related modules
+    &.background-white {
+        + .cmpt__related-stories {
+            padding-top: 0;
+        }
+    }
+
+    .award-slides-wrapper {
+        position: relative;
+    }
+
+    .award-carousel-title {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .slick-slide {
+        height: auto;
+
+        @include breakpoint(medium) {
+            margin: 0 4px;
+        }
+    }
+
+    .cta-wrapper {
+        text-align: center;
+        padding-top: 56px;
+
+        @include breakpoint(xxlarge) {
+            padding-top: 21px;
+        }
+    }
+
+    .award-slide {
+        height: 0;
+        position: relative;
+        padding-bottom: 72%;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            max-width: 215px;
+            max-height: 159px;
+            transform: translate(-50%, -50%);
+
+            @include breakpoint(medium) {
+                max-width: 186px;
+                max-height: 137px;
+            }
+        }
+
+    }
+
+    .slide-nav {
+        bottom: -20px;
+        height: 18px;
+        width: 18px;
+        border: 0;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(medium) {
+            bottom: auto;
+            top: 44%;
+        }
+
+        @include breakpoint(large) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+            
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(medium) {
+                left: auto;
+                right: -36px;
+            }
+
+            @include breakpoint(large) {
+                right: -70px;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(medium) {
+                left: -36px;
+            }
+
+            @include breakpoint(large) {
+                left: -70px;
+            }
+        }
+    }
+
+    .slider-countdown {
+        bottom: -14px;
+        right: 0;
+
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+
+    &.cmpt__award-carousel-centered {
+        @include breakpoint(large) {
+            .slick-track {
+                width: 100% !important;
+                transform: translate3d(0, 0, 0) !important;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

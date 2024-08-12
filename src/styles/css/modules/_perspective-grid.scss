@@ -1,0 +1,195 @@
+.cmpt__perspective-grid {
+    padding: $moduleSpacing 0;
+    // Used to negate `.margin-bottom-1.5` in the children
+    margin-bottom: -1.5rem;
+
+    .cta-wrapper {
+        padding-top: 24px;
+        text-align: center;
+    }
+
+    @include print-detail {
+        display: none;
+    }
+
+    &--carousel {
+        .offset-card-carousel {
+            position: relative;
+        }
+
+        .slide-nav {
+            z-index: 10;
+            bottom: 0;
+            height: 18px;
+            width: 18px;
+            border: 0;
+
+            &:after {
+                width: 8px;
+                height: 8px;
+                top: calc(50% - 4px);
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(large) {
+                bottom: -10px;
+            }
+
+            @include breakpoint(xxlarge) {
+                width: 60px;
+                height: 60px;
+                border: 1px solid rgba(0,0,0,0.5);
+                bottom: auto;
+                top: 44%;
+
+                &:hover {
+                    border-width: 2px;
+                    border-color: black;
+                }
+
+                &:after {
+                    width: 12px;
+                    height: 12px;
+                    top: calc(50% - 6px);
+                    left: calc(50% - 6px);
+                }
+            }
+
+            &.slide-next {
+                left: 26px;
+                right: auto;
+
+                &:after {
+                    left: calc(50% - 8px);
+                }
+
+                @include breakpoint(xxlarge) {
+                    left: auto;
+                    right: -80px;
+                }
+            }
+
+            &.slide-prev {
+                left: 0;
+
+                &:after {
+                    left: calc(50% - 4px);
+                }
+
+                @include breakpoint(xxlarge) {
+                    left: -80px;
+                }
+            }
+        }
+    }
+
+    [data-page-type="products"] {
+        padding: 104px 0;
+    }
+}
+
+.perspectives-title{
+    margin-bottom: 24px;
+}
+
+.perspective-grid {
+    margin-top: 24px;
+}
+
+.perspective-card {
+    display: block;
+
+    &:hover {
+        .perspective-card-text {
+            color: get-color(regal-blue);
+        }
+    }
+
+    @include box-shadow-hover;
+}
+
+.perspective-image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 80%;
+
+    img {
+        width: 100%;
+
+        @include img-cover;
+    }
+
+    @include breakpoint(large) {
+        padding-top: 109%;
+    }
+}
+
+.perspective-card-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 27px 22px;
+    position: relative;
+    min-height: 270px;
+
+    @include breakpoint(medium) {
+        padding: 24px 32px;
+    }
+
+    @include breakpoint(large) {
+        min-height: initial;
+    }
+
+    &.perspective-card-info-single {
+        height: auto;
+
+        // @include breakpoint(medium) {
+        //     min-height: 536px;
+        // }
+
+        @include breakpoint(large) {
+            min-height: 0;
+        }
+    }
+}
+
+.perspective-card-eyebrow {
+    position: absolute;
+    top: 28px;
+
+    @include breakpoint(medium) {
+        top: 44px;
+    }
+}
+
+.perspective-card-text {
+    margin-top: 84px;
+    color: get-color(downriver);
+    transition: color .3s ease-in;
+
+    @include breakpoint(medium) {
+        margin-top: 125px;
+    }
+
+    @include breakpoint(large) {
+        margin-top: 184px;
+    }
+}
+
+ .perspective-cell {
+    //fixes a height issue in safari - the cell div stretches because of the outer div flexbox, but the perspective card doesn't stretch and putting height: 100% breaks in safari
+    display: flex;
+
+    .perspective-card {
+        display: flex;
+        width: 100%;
+    }
+ }
+
+
+// For when this is a carousel
+.offset-card-slides {
+    .grid-x.grid-margin-x {
+        width: auto !important;
+        display: flex !important;
+    }
+}

@@ -1,0 +1,135 @@
+// basic styling for a video with a play button, custom thumbnail and caption
+// used in _single-video and _rotating-featured-video
+@keyframes loading-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.video-wrapper {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    @include breakpoint(xxlarge) {
+        margin-bottom: 48px;
+
+        .cmpt__rotating-featured-video & {
+            margin-bottom: 0;
+        }
+    }
+
+    iframe, video, .video-player {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .3s ease-in;
+    }
+
+    .video-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transition: opacity .3s ease-in, z-index .3s ease-in;
+        z-index: 1;
+        cursor: pointer;
+
+        &::before {
+            @include absolute-pseudo;
+            background: rgba(0, 0, 0, .15);
+            height: 100%;
+            z-index: 2;
+
+            @include print-detail {
+                display: none;
+            }
+        }
+    }
+
+    .video-thumb {
+        position: absolute;
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.playVideo {
+        iframe, video {
+            opacity: 1;
+        }
+
+        .video-info {
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+
+    .slider-countdown {
+        @include breakpoint(xxlarge) {
+            bottom: 0;
+        }
+    }
+
+    &.loading {
+        // Spinner
+        &:before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            border-width: 5px;
+            border-style: solid;
+            border-color: get-color(white) transparent;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            z-index: 10;
+            animation: loading-spin 1.2s linear infinite;
+        }
+
+        // Play arrow
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+            z-index: 10;
+        }
+
+        .play-button {
+            display: none;
+        }
+    }
+}
+
+.video-caption {
+    bottom: 30px;
+    left: 30px;
+    z-index: 10;
+    padding-right: 30px;
+    max-width: 792px;
+}

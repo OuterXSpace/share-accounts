@@ -1,0 +1,246 @@
+.cmpt__fourup-carousel {
+    padding: $moduleSpacing 0;
+
+    .fourup-slides-wrapper {
+        position: relative;
+    }
+
+    .fourup-subhead {
+        margin-bottom: 28px;
+    }
+
+    .cta-wrapper {
+        text-align: center;
+        padding-top: 56px;
+
+        @include breakpoint(large) {
+            padding-top: 0;
+        }
+    }
+
+    .fourup-inner {
+        position: relative;
+    }
+
+    .slick-slide {
+        @include breakpoint(large) {
+            margin-bottom: 15px;
+        }
+
+        & > div {
+            display: flex;
+        }
+    }
+
+    .fourup-slide {
+        @include breakpoint(medium) {
+            width: calc(100% - 10px) !important;
+            margin-right: 20px;
+            margin-bottom: 24px;
+            min-height: 454px;
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint(large) {
+            min-height: 200px;
+            margin-bottom: 0;
+        }
+
+        .fourup-image {
+            margin-bottom: 24px;
+            width: 100%;
+            height: 0;
+            padding-bottom: 72%;
+            overflow: hidden;
+            position: relative;
+
+            @include breakpoint(large) {
+                width: 38%;
+                margin-right: 32px;
+                padding-bottom: 28.5%;
+            }
+
+            @include breakpoint(xxlarge) {
+                width: 55.3%;
+                margin-right: 32px;
+                padding-bottom: 33.4%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+            }
+        }
+
+        .fourup-image--is-smaller {
+            @include breakpoint(xxlarge) {
+                width: 38%;
+                margin-right: 32px;
+                padding-bottom: 28.5%;
+            }
+        }
+
+        .fourup-text {
+            margin-bottom: 16px;
+
+            @include breakpoint(large) {
+                width: calc(62% - 32px);
+            }
+
+            @include breakpoint(xxlarge) {
+                width: calc(44.7% - 24px);
+            }
+
+            .eyebrow {
+                margin-bottom: 16px;
+            }
+
+            .fourup-title {
+                color: get-color(downriver);
+                transition: color .3s ease-in;
+                font-weight: 300;
+                margin:0 0 .5rem 0;
+
+                &:hover {
+                    color: get-color(regal-blue);
+                }
+            }
+        }
+
+        .fourup-image--image-is-smaller {
+            @include breakpoint(xxlarge) {
+                width: calc(62% - 32px);
+            }
+        }
+
+        .fourup-content {
+            // margin: 0 28px 32px 0;
+            // width: calc(50% - 14px);
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            @include breakpoint(large) {
+                display: flex;
+            }
+        }
+
+        &.fourup-slide-logos {
+            .fourup-image {
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    max-width: 62%;
+                    max-height: 62%;
+                }
+            }
+        }
+    }
+
+    .slide-nav {
+        bottom: 0;
+        height: 18px;
+        width: 18px;
+        border: 0;
+        bottom: -27px;
+
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+        }
+
+        @include breakpoint(medium) {
+            bottom: -24px;
+        }
+
+        @include breakpoint(xxlarge) {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0,0,0,0.5);
+            bottom: auto;
+            top: 44%;
+
+            &:hover {
+                border-width: 2px;
+                border-color: black;
+            }
+
+            &:after {
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &.slide-next {
+            left: 38px;
+            right: auto;
+
+            &:after {
+                left: calc(50% - 8px);
+            }
+
+            @include breakpoint(xxlarge) {
+                left: auto;
+                right: -80px;
+            }
+        }
+
+        &.slide-prev {
+            left: 0;
+
+            &:after {
+                left: calc(50% - 4px);
+            }
+
+            @include breakpoint(medium) {
+                left: 12px;
+            }
+
+            @include breakpoint(xxlarge) {
+                left: -80px;
+            }
+        }
+    }
+
+    .slider-countdown {
+        bottom: -20px;
+        right: 0;
+
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+}
+
+.cmpt__fourup-no-carousel {
+    .fourup-slides {
+        @include breakpoint(large) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .fourup-slide {
+            @include breakpoint(large) {
+                width: 50% !important;
+                padding-right: 20px;
+                margin-right: 0;
+            }
+        }
+    }
+}
