@@ -21,6 +21,7 @@ import { RichTextSection } from './rich-text';
 import { PerspectivesArticleHero } from './perspectives-article-hero';
 import { StaticPageSection } from './static-page';
 import { DetailSection } from './detail';
+import { RelatedSection } from './related';
 
 export interface IExportSectionLandingPageV1ThemeV1Props {
   systemConfig?: IUiConfigServerSide;
@@ -57,6 +58,7 @@ export const ExportSectionLandingPageV1ThemeV1: React.FC<IExportSectionLandingPa
       RICH_TEXT_SECTION: <RichTextSection data={data} className={className} style={style} />,
       PERSPECTIVES_ARTICLE_HERO: <PerspectivesArticleHero data={data} className={className} style={style} />,
       STATIC_PAGE_SECTION: <StaticPageSection data={data} className={className} style={style} />,
+      RELATED_SECTION: <RelatedSection data={data} systemConfig={systemConfig} className={className} style={style} />,
       DETAIL_SECTION: (
         <DetailSection
           data={data}

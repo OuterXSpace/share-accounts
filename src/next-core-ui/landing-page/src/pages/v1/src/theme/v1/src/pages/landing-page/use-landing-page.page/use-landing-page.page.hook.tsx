@@ -1,13 +1,17 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { NotFound } from '../../../../../../../../../../../../components';
 import { useDeviceSizes } from '../../../../../../../../../../../../hooks';
 import { IUseLandingPageV1ThemeV1Props } from './use-landing-page.page.type';
 import { ExportSectionLandingPageV1ThemeV1, LandingPageMenuDesktopV1, LandingPageFooterV1 } from '../../../sections';
+import { useRouter } from 'next/router';
+import { doesPathExist } from './use-landing-page.until';
 
 export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
   const { systemConfig, slugConfigJSON, slugKey, version } = props;
 
   const isDevice = useDeviceSizes();
+
+  const router = useRouter();
 
   const dataByTheme = useMemo(
     () => systemConfig?.ldpSystemConfigPage?.dataConfig?.[slugConfigJSON?.theme],
@@ -81,6 +85,25 @@ export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
           return <div>Not found footer</div>;
       }
   }, [dataByTheme?.FOOTER_SECTION, slugKey, version]);
+
+  const renderClassReverseNav = useMemo(() => {
+    if (
+      doesPathExist(
+        systemConfig?.ldpSystemConfigPage?.untilConfig?.[slugConfigJSON?.theme]?.REVERSE_NAV_CLASS?.object?.array,
+        router?.asPath,
+      )
+    ) {
+      return 'reverse-main-nav';
+    }
+    return 'body';
+  }, [router?.asPath, slugConfigJSON?.theme, systemConfig?.ldpSystemConfigPage?.untilConfig]);
+
+  useEffect(() => {
+    document.body?.classList?.add(...[renderClassReverseNav]);
+    return () => {
+      document.body.classList.remove(...[renderClassReverseNav]);
+    };
+  }, [renderClassReverseNav]);
 
   return {
     renderSections,

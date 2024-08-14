@@ -14,9 +14,6 @@ export const LandingPageV1ThemeV1: React.FC<LandingPageV1ThemeV1Props> = (props)
 
   return (
     <>
-      <Head>
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/dm-sans" />
-      </Head>
       {renderMenu}
       {renderSections}
       {renderFooter}

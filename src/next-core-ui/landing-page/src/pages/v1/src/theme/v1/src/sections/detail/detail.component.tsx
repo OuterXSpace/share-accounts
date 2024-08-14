@@ -12,7 +12,15 @@ export const DetailSection: React.FC<IDetailSectionProps> = (props) => {
   const renderSections = useMemo(() => {
     if (!childItem) return <NotFound />;
 
-    const detailData = data?.object?.array?.filter(
+    let arrayData = [];
+
+    if (data?.object?.loadDataResourceKey) {
+      arrayData = systemConfig?.ldpSystemConfigPage?.[data?.object?.loadDataResourceKey]?.list ?? [];
+    } else {
+      arrayData = data?.object?.array;
+    }
+
+    const detailData = arrayData?.filter(
       (item) => `${item?.id}` === `${router?.query?.id ?? slugKey?.replace('/', '')}`,
     )[0];
 
