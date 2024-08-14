@@ -33,7 +33,7 @@ export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) 
         </div>
         <div className="flex flex-wrap lg:flex-nowrap lg:items-center lg:justify-between">
           <div className="w-full order-2 lg:order-1 mt-12 lg:mt-0 lg:w-auto lg:shrink-0 lg:mr-8">
-            <p className="type-paragraph-sm font-medium text-wm-black">© 2024 West Monroe. All Rights Reserved</p>
+            <p className="type-paragraph-sm font-medium text-wm-black">{data?.object?.text}</p>
           </div>
           <nav className="w-full grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-10 lg:grid-flow-col lg:auto-cols-max lg:order-2 lg:w-auto">
             {data?.object?.static?.map((item) => {
