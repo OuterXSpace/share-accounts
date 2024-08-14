@@ -3,4 +3,6 @@ export interface ISection {
   section?: string;
   className?: string;
   theme?: string;
+  style?: string;
+  array?: ISection[];
 }

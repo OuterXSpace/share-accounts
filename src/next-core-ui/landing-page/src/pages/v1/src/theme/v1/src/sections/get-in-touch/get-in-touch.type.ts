@@ -1,6 +1,7 @@
 export interface IGetInTouchSectionProps {
   data?: Record<string, any>;
   className?: string;
+  style?: string;
 }
 
 export interface ILandingPageContactFormModel {

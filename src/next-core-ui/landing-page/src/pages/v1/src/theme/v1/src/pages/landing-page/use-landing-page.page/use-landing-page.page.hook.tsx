@@ -18,7 +18,7 @@ export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
     if (!slugConfigJSON) return <NotFound />;
 
     return slugConfigJSON?.array?.map((childItem) => {
-      const { id, section, className, theme } = childItem;
+      const { id, section, className, theme, style } = childItem;
 
       const childData = dataByTheme?.[section]?.[theme];
 
@@ -31,13 +31,16 @@ export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
               systemConfig={systemConfig}
               section={section}
               className={className}
+              slugKey={slugKey}
+              childItem={childItem}
+              style={style}
             />
           );
         default:
           return <NotFound />;
       }
     });
-  }, [dataByTheme, slugConfigJSON, systemConfig, version]);
+  }, [dataByTheme, slugConfigJSON, slugKey, systemConfig, version]);
 
   const renderMenu = useMemo(() => {
     if (!dataByTheme?.MENU_SECTION?.[version]?.object?.desktop?.hiddenBySlug?.includes(slugKey))

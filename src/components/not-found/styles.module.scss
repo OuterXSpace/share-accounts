@@ -1,0 +1,50 @@
+// NotFound.module.scss
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__number {
+    font-weight: bold;
+    color: black;
+    font-size: 5rem;
+
+    @media (min-width: 768px) {
+      font-size: 6rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 7rem;
+    }
+
+    .not-found__emoji {
+      font-size: 4rem;
+
+      @media (min-width: 768px) {
+        font-size: 5rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 6rem;
+      }
+    }
+  }
+
+  &__message {
+    font-size: 1rem;
+    color: black;
+    margin-top: 1rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+    }
+  }
+}

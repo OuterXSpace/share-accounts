@@ -27,8 +27,6 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
 export const MenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
   const { data, className } = props;
 
-  console.log('hack', data?.object?.logo?.logoDark);
-
   return (
     <header className="header" data-js-hook="header">
       <div className="header-main">
@@ -311,7 +309,6 @@ export const MenuDesktopV3: React.FC<Linkny> = (props) => {
 
   const [isOpenChildMenu, setIsOpenChildMenu] = useState(false);
 
-  console.log('hack___ok', isOpenChildMenu);
   const renderMenuChild = useMemo(() => {
     return (
       <li className="is-drilldown-submenu-parent" aria-label="What We Do">
