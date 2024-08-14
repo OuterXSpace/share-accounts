@@ -29,6 +29,7 @@ export const useDynamicRenderPage = (props: IDynamicRenderPageProps) => {
     return findTheme(configJSON, router?.asPath);
   }, [configJSON, router?.asPath]);
 
+  // Render seo
   const renderSeoPage = useMemo(() => {
     const seoData = systemConfig?.ldpSystemConfigPage?.seoData?.[router?.asPath];
 

@@ -15,6 +15,11 @@ import { GetInTouchSection } from './get-in-touch';
 import { PreFooterSection } from './pre-footer';
 import { HeroLandingSection } from './hero-landing';
 import { AwardCarouselSection } from './award-carousel';
+import { FormContactSection } from './form-contact';
+import { OfficesSection } from './offices';
+import { RichTextSection } from './rich-text';
+import { PerspectivesArticleHero } from './perspectives-article-hero';
+import { StaticPageSection } from './static-page';
 
 export interface IExportSectionLandingPageV1ThemeV1Props {
   systemConfig?: IUiConfigServerSide;
@@ -42,8 +47,13 @@ export const ExportSectionLandingPageV1ThemeV1: React.FC<IExportSectionLandingPa
       SUBSCRIBER_INTERRUPTER_SECTION: <SubscriberInterrupterSection data={data} className={className} />,
       GET_IN_TOUCH_SECTION: <GetInTouchSection data={data} className={className} />,
       PRE_FOOTER_SECTION: <PreFooterSection data={data} className={className} />,
+      FORM_CONTACT_SECTION: <FormContactSection data={data} className={className} />,
       HERO_LANDING_SECTION: <HeroLandingSection data={data} className={className} />,
       AWARD_CAROUSEL_SECTION: <AwardCarouselSection data={data} className={className} />,
+      OFFICES_SECTION: <OfficesSection data={data} className={className} />,
+      RICH_TEXT_SECTION: <RichTextSection data={data} className={className} />,
+      PERSPECTIVES_ARTICLE_HERO: <PerspectivesArticleHero data={data} className={className} />,
+      STATIC_PAGE_SECTION: <StaticPageSection data={data} className={className} />,
       NOT_FOUND: <div>Not found section</div>,
     };
   }, [className, data]);

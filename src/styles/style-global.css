@@ -1804,7 +1804,7 @@ h6 a:hover {
 
 @media (min-width: 1024px) {
   .subscribeInterrupter .submit {
-    width: auto;
+    /* width: auto; */
   }
 }
 
@@ -1856,6 +1856,11 @@ h6 a:hover {
   width: 100%;
   padding-left: 1.65rem;
   text-indent: -1.25rem;
+  font-family: Gotham SSm A, Gotham SSm B, Gotham A, Gotham B, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-size: 0.8125em;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -2%;
 }
 
 .contactForm p {

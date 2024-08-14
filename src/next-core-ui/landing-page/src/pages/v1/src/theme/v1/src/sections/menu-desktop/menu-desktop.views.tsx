@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { mainDomainReplace } from '../../../../../../../../../../../utils';
 
 export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
-  const { data, className } = props;
+  const { data, className, slugKey } = props;
 
   const [offset, setOffset] = useState(0);
 
@@ -18,14 +18,16 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (offset < 120) {
-    return <MenuDesktopV1 data={data} className={className} />;
+  if (offset === 0) {
+    return <MenuDesktopV1 data={data} className={className} slugKey={slugKey} />;
   }
   return <MenuDesktopV2 data={data} className={className} />;
 };
 
 export const MenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
   const { data, className } = props;
+
+  console.log('hack', data?.object?.logo?.logoDark);
 
   return (
     <header className="header" data-js-hook="header">
@@ -52,14 +54,14 @@ export const MenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) =
             <div className="title-bar-left flex-container align-middle">
               <div className="header-logo">
                 <Link href="/">
-                  <span className="header-logo-img-default" aria-label="West Monroe Logo">
-                    <LazyLoadImage
-                      src={data?.object?.logo?.logoLight}
-                      className="custom-logo astra-logo-svg h-[33px]"
-                      alt="Logo"
-                      effect="blur"
-                    />
-                  </span>
+                  {/* <span className="header-logo-img-default" aria-label="West Monroe Logo"> */}
+                  <LazyLoadImage
+                    src={data?.object?.logo?.logoDark}
+                    className="custom-logo astra-logo-img h-[33px]"
+                    alt="Logo"
+                    effect="blur"
+                  />
+                  {/* </span> */}
                 </Link>
               </div>
             </div>

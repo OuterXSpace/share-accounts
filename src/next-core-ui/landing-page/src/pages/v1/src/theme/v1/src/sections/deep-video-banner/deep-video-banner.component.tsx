@@ -21,7 +21,6 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
           loop
           muted
           poster={data?.object?.altVideo}
-          x-effect="() => video && $el.load()"
         >
           <source src={data?.object?.video} type="video/mp4" />
         </video>

@@ -8574,7 +8574,7 @@ blockquote {
   border-bottom: none !important;
 }
 .close-button {
-  background-color: #062541;
+  /* background-color: #062541; */
   display: block;
   width: 48px;
   height: 48px;
@@ -9099,31 +9099,31 @@ input[type='text']::placeholder {
   top: 0;
   width: 100%;
 }
-.header .header-logo svg {
+.header .header-logo img {
   display: block;
   width: 144px;
   height: 25px;
 }
 @media only screen and (min-width: 425px) {
-  .header .header-logo svg {
+  .header .header-logo img {
     width: 184px;
     height: 32px;
   }
 }
 @media print, screen and (min-width: 48em) {
-  .header .header-logo svg {
+  .header .header-logo img {
     height: 40px;
     width: 230px;
   }
 }
 @media only screen and (min-width: 1110px) {
-  .header .header-logo svg {
+  .header .header-logo img {
     height: 40px;
     width: 230px;
   }
 }
 @media screen and (min-width: 81.25em) {
-  .header .header-logo svg {
+  .header .header-logo img {
     height: 33px;
     width: 191px;
   }
@@ -9199,6 +9199,7 @@ input[type='text']::placeholder {
 .reverse-main-nav .header .header-nav-main a {
   color: #092b49;
 }
+
 .header .header-nav-main-dropdown {
   position: absolute;
   top: 100%;

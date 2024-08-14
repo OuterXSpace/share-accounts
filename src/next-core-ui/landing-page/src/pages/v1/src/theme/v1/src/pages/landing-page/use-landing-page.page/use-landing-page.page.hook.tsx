@@ -2,12 +2,7 @@ import React, { useMemo } from 'react';
 import { NotFound } from '../../../../../../../../../../../../components';
 import { useDeviceSizes } from '../../../../../../../../../../../../hooks';
 import { IUseLandingPageV1ThemeV1Props } from './use-landing-page.page.type';
-import {
-  ExportSectionLandingPageV1ThemeV1,
-  LandingPageMenuDesktopV1,
-  LandingPageMenuMobileV1,
-  LandingPageFooterV1,
-} from '../../../sections';
+import { ExportSectionLandingPageV1ThemeV1, LandingPageMenuDesktopV1, LandingPageFooterV1 } from '../../../sections';
 
 export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
   const { systemConfig, slugConfigJSON, slugKey, version } = props;
@@ -45,25 +40,33 @@ export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
   }, [dataByTheme, slugConfigJSON, systemConfig, version]);
 
   const renderMenu = useMemo(() => {
-    if (isDevice?.isSmallDesktop || isDevice?.isLargeDesktop)
-      if (!dataByTheme?.MENU_SECTION?.[version]?.object?.desktop?.hiddenBySlug?.includes(slugKey))
-        switch (version) {
-          case 'V1':
-            return <LandingPageMenuDesktopV1 data={dataByTheme?.MENU_SECTION?.[version]} />;
-
-          default:
-            return <div>Not found menu</div>;
-        }
-
-    if (!dataByTheme?.MENU_SECTION?.[version]?.object?.mobile?.hiddenBySlug?.includes(slugKey))
+    if (!dataByTheme?.MENU_SECTION?.[version]?.object?.desktop?.hiddenBySlug?.includes(slugKey))
       switch (version) {
         case 'V1':
-          return <LandingPageMenuMobileV1 data={dataByTheme?.MENU_SECTION?.[version]} />;
+          return <LandingPageMenuDesktopV1 data={dataByTheme?.MENU_SECTION?.[version]} slugKey={slugKey} />;
 
         default:
           return <div>Not found menu</div>;
       }
-  }, [dataByTheme?.MENU_SECTION, isDevice?.isLargeDesktop, isDevice?.isSmallDesktop, slugKey, version]);
+    // if (isDevice?.isSmallDesktop || isDevice?.isLargeDesktop)
+    //   if (!dataByTheme?.MENU_SECTION?.[version]?.object?.desktop?.hiddenBySlug?.includes(slugKey))
+    //     switch (version) {
+    //       case 'V1':
+    //         return <LandingPageMenuDesktopV1 data={dataByTheme?.MENU_SECTION?.[version]} />;
+
+    //       default:
+    //         return <div>Not found menu</div>;
+    //     }
+
+    // if (!dataByTheme?.MENU_SECTION?.[version]?.object?.mobile?.hiddenBySlug?.includes(slugKey))
+    //   switch (version) {
+    //     case 'V1':
+    //       return <LandingPageMenuMobileV1 data={dataByTheme?.MENU_SECTION?.[version]} />;
+
+    //     default:
+    //       return <div>Not found menu</div>;
+    //   }
+  }, [dataByTheme?.MENU_SECTION, slugKey, version]);
 
   const renderFooter = useMemo(() => {
     if (!dataByTheme?.FOOTER_SECTION?.[version]?.object?.hiddenBySlug?.includes(slugKey))
