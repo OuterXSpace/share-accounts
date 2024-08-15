@@ -1,259 +1,219 @@
-/* eslint-disable react/no-danger */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ILandingPageMenuDesktopV1Props } from './menu-desktop.type';
-import Link from 'next/link';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useRouter } from 'next/router';
-import { mainDomainReplace } from '../../../../../../../../../../../utils';
+import { useMenu } from './hooks';
+import Link from 'next/link';
 
 export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
-  const { data, className, slugKey } = props;
+  const { data, propsParent } = props;
 
-  const [offset, setOffset] = useState(0);
+  const [isToggleMenu, setIsToggleMenu] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setOffset(window.scrollY);
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  if (offset === 0) {
-    return <MenuDesktopV1 data={data} className={className} slugKey={slugKey} />;
-  }
-  return <MenuDesktopV2 data={data} className={className} />;
-};
-
-export const MenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
-  const { data, className } = props;
+  const { headerRef, isHeaderFixed } = useMenu(propsParent);
 
   return (
-    <header className="header" data-js-hook="header">
+    <header ref={headerRef} className="header">
       <div className="header-main">
         <div className="container">
-          <div className="grid-x show-for-xlarge top-bar">
-            <div className="cell small-12 xlarge-6 xlarge-offset-6">
-              <nav className="header-nav-top">
-                <ul className="flex-container flex-dir-row align-right align-middle">
-                  {data?.object?.desktop?.menuHeader?.map((item) => {
-                    const { id, label, link } = item;
+          {!isHeaderFixed && (
+            <div className="grid-x show-for-xlarge top-bar">
+              <div className="cell small-12 xlarge-6 xlarge-offset-6">
+                <nav className="header-nav-top">
+                  <ul className="flex-container flex-dir-row align-right align-middle">
+                    {data?.object?.desktop?.menuHeader?.map((item) => {
+                      const { id, label, link } = item;
 
-                    return (
-                      <Link key={id} href={link} className="font-normal">
-                        {label}
-                      </Link>
-                    );
-                  })}
-                </ul>
-              </nav>
+                      return (
+                        <Link key={id} href={link} className="font-normal">
+                          {label}
+                        </Link>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </div>
+          )}
           <div className="title-bar" data-js-hook="title-bar">
             <div className="title-bar-left flex-container align-middle">
               <div className="header-logo">
                 <Link href="/">
-                  {/* <span className="header-logo-img-default" aria-label="West Monroe Logo"> */}
                   <LazyLoadImage
                     src={data?.object?.logo?.logoDark}
                     className="custom-logo astra-logo-img h-[33px]"
                     alt="Logo"
                     effect="blur"
                   />
-                  {/* </span> */}
                 </Link>
               </div>
             </div>
             <div className="title-bar-right flex-container align-middle">
-              <nav className="header-nav-main-wrapper show-for-xlarge">
-                <ul className="header-nav-main flex-container align-right align-bottom">
-                  {data?.object?.desktop?.array?.map((item) => {
-                    const { id, label, link } = item;
+              {isHeaderFixed ? (
+                <div className="title-bar-right flex-container align-middle">
+                  <div className="header-nav-cta">
+                    <Link className="cta cta-type" href={data?.object?.desktop?.button?.link}>
+                      {data?.object?.desktop?.button?.label}
+                    </Link>
+                  </div>
+                  <button onClick={() => setIsToggleMenu(true)} className="menu-icon" type="button">
+                    Menu
+                  </button>
+                </div>
+              ) : (
+                <nav className="header-nav-main-wrapper show-for-xlarge">
+                  <ul className="header-nav-main flex-container align-right align-bottom">
+                    {data?.object?.desktop?.array?.map((item) => {
+                      const { id, label, link } = item;
 
-                    return (
-                      <li key={id}>
-                        <Link className="what-we-do" href={link}>
-                          {label}
-                        </Link>
-                        <div className="header-nav-main-dropdown flex-container text-left background-black-pearl ">
-                          <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
-                            <ul className="menu vertical">
-                              <li>
-                                <Link className="strategic-visioning" href="/services">
-                                  Strategic Visioning
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="data-amp-technology" href="/services/data-and-technology">
-                                  Data &amp; Technology
-                                </Link>
-                                <ul className="menu vertical nested">
-                                  <li>
-                                    <Link className="cloud" href="/services/data-and-technology/cloud">
-                                      Cloud
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link className="cybersecurity" href="/services/data-and-technology/cybersecurity">
-                                      Cybersecurity
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="data-analytics-amp-ai"
-                                      href="/services/data-and-technology/data-analytics-artificial-intelligence"
-                                    >
-                                      Data Analytics &amp; AI
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="it-strategy-amp-architecture"
-                                      href="/services/data-and-technology/it-strategy-consulting"
-                                    >
-                                      IT Strategy &amp; Architecture
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </div>
+                      return (
+                        <li key={id}>
+                          <Link className="what-we-do" href={link}>
+                            {label}
+                          </Link>
+                          <div className="header-nav-main-dropdown flex-container text-left background-black-pearl ">
+                            <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
+                              <ul className="menu vertical">
+                                <li>
+                                  <Link className="strategic-visioning" href="/services">
+                                    Strategic Visioning
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link className="data-amp-technology" href="/services/data-and-technology">
+                                    Data &amp; Technology
+                                  </Link>
+                                  <ul className="menu vertical nested">
+                                    <li>
+                                      <Link className="cloud" href="/services/data-and-technology/cloud">
+                                        Cloud
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="cybersecurity"
+                                        href="/services/data-and-technology/cybersecurity"
+                                      >
+                                        Cybersecurity
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="data-analytics-amp-ai"
+                                        href="/services/data-and-technology/data-analytics-artificial-intelligence"
+                                      >
+                                        Data Analytics &amp; AI
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="it-strategy-amp-architecture"
+                                        href="/services/data-and-technology/it-strategy-consulting"
+                                      >
+                                        IT Strategy &amp; Architecture
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
 
-                          <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
-                            <ul className="menu vertical">
-                              <li>
-                                <Link className="data-amp-technology" href="/services/data-and-technology">
-                                  Data &amp; Technology
-                                </Link>
-                                <ul className="menu vertical nested">
-                                  <li>
-                                    <Link className="cloud" href="/services/data-and-technology/cloud">
-                                      Cloud
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link className="cybersecurity" href="/services/data-and-technology/cybersecurity">
-                                      Cybersecurity
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="data-analytics-amp-ai"
-                                      href="/services/data-and-technology/data-analytics-artificial-intelligence"
-                                    >
-                                      Data Analytics &amp; AI
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="it-strategy-amp-architecture"
-                                      href="/services/data-and-technology/it-strategy-consulting"
-                                    >
-                                      IT Strategy &amp; Architecture
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
+                            <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
+                              <ul className="menu vertical">
+                                <li>
+                                  <Link className="data-amp-technology" href="/services/data-and-technology">
+                                    Data &amp; Technology
+                                  </Link>
+                                  <ul className="menu vertical nested">
+                                    <li>
+                                      <Link className="cloud" href="/services/data-and-technology/cloud">
+                                        Cloud
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="cybersecurity"
+                                        href="/services/data-and-technology/cybersecurity"
+                                      >
+                                        Cybersecurity
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="data-analytics-amp-ai"
+                                        href="/services/data-and-technology/data-analytics-artificial-intelligence"
+                                      >
+                                        Data Analytics &amp; AI
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="it-strategy-amp-architecture"
+                                        href="/services/data-and-technology/it-strategy-consulting"
+                                      >
+                                        IT Strategy &amp; Architecture
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
+                              <ul className="menu vertical">
+                                <li>
+                                  <Link className="business-operations" href="/services/business-operations">
+                                    Business Operations
+                                  </Link>
+                                  <ul className="menu vertical nested">
+                                    <li>
+                                      <Link
+                                        className="automation-amp-productivity"
+                                        href="/services/business-operations/automation-productivity"
+                                      >
+                                        Automation &amp; Productivity
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="cost-reduction"
+                                        href="/services/business-operations/cost-reduction"
+                                      >
+                                        Cost Reduction
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link className="operations" href="/services/business-operations/operations">
+                                        Operations
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        className="outsourcing-advisory"
+                                        href="/services/business-operations/outsourcing-advisory"
+                                      >
+                                        Outsourcing Advisory
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link className="supply-chain" href="/services/business-operations/supply-chain">
+                                        Supply Chain
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                          <div className="header-nav-main-dropdown-column header-nav-main-dropdown-column-0">
-                            <ul className="menu vertical">
-                              <li>
-                                <Link className="business-operations" href="/services/business-operations">
-                                  Business Operations
-                                </Link>
-                                <ul className="menu vertical nested">
-                                  <li>
-                                    <Link
-                                      className="automation-amp-productivity"
-                                      href="/services/business-operations/automation-productivity"
-                                    >
-                                      Automation &amp; Productivity
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="cost-reduction"
-                                      href="/services/business-operations/cost-reduction"
-                                    >
-                                      Cost Reduction
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link className="operations" href="/services/business-operations/operations">
-                                      Operations
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link
-                                      className="outsourcing-advisory"
-                                      href="/services/business-operations/outsourcing-advisory"
-                                    >
-                                      Outsourcing Advisory
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link className="supply-chain" href="/services/business-operations/supply-chain">
-                                      Supply Chain
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </header>
-  );
-};
-
-export const MenuDesktopV2: React.FC<ILandingPageMenuDesktopV1Props> = (props) => {
-  const { data, className } = props;
-
-  const [isToggleMenu, setIsToggleMenu] = useState(false);
-
-  return (
-    <header className="header header-fixed" data-js-hook="header">
-      <div className="header-main">
-        <div className="container ">
-          <div className="title-bar" data-js-hook="title-bar">
-            <div className="title-bar-left flex-container align-middle">
-              <div className="header-logo">
-                <Link href="/">
-                  <span className="header-logo-img-navy" aria-label="West Monroe Logo">
-                    <LazyLoadImage
-                      src={data?.object?.logo?.logoDark}
-                      className="custom-logo astra-logo-svg h-[33px]"
-                      alt="Logo"
-                      effect="blur"
-                    />
-                  </span>
-                </Link>
-              </div>
-              <div className="header-current-page">Offices</div>
-            </div>
-            <div className="title-bar-right flex-container align-middle">
-              <div className="header-nav-cta">
-                <Link className="cta cta-type" target="" href="">
-                  Contact Us
-                </Link>
-              </div>
-              <button onClick={() => setIsToggleMenu(true)} className="menu-icon" type="button">
-                Menu
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <MenuDesktopV3 isToggleMenu={isToggleMenu} closeToggle={() => setIsToggleMenu(false)} />
-
+      <ToggleMenu isToggleMenu={isToggleMenu} closeToggle={() => setIsToggleMenu(false)} />
       <div
         className={`${
           isToggleMenu
@@ -265,47 +225,8 @@ export const MenuDesktopV2: React.FC<ILandingPageMenuDesktopV1Props> = (props) =
   );
 };
 
-const PopupLink: React.FC<Linkny> = (props) => {
-  const { link, children, className, disabled, routeLink, callBack, ...restAnchorProps } = props;
-
-  const router = useRouter();
-
-  const handleOpenLink = useCallback(
-    (ev) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-
-      if (disabled) return;
-
-      let url = routeLink ?? link;
-
-      if (!url) return;
-
-      url = mainDomainReplace(url);
-
-      if (routeLink) router.push(url);
-      else {
-        callBack?.();
-      }
-    },
-    [callBack, disabled, link, routeLink, router],
-  );
-
-  return (
-    <Link
-      onClick={handleOpenLink}
-      className={`toto-popup-link ${className} ${
-        disabled ? 'disabled cursor-not-allowed filter grayscale-100 opacity-70' : ''
-      }`}
-      {...restAnchorProps}
-    >
-      {children}
-    </Link>
-  );
-};
-
-export const MenuDesktopV3: React.FC<Linkny> = (props) => {
-  const { data, className, isToggleMenu, closeToggle } = props;
+export const ToggleMenu: React.FC<any> = (props) => {
+  const { data, isToggleMenu, closeToggle } = props;
 
   const [isOpenChildMenu, setIsOpenChildMenu] = useState(false);
 
