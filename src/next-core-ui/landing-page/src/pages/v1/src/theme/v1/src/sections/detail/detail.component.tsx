@@ -15,7 +15,7 @@ export const DetailSection: React.FC<IDetailSectionProps> = (props) => {
     let arrayData = [];
 
     if (data?.object?.loadDataResourceKey) {
-      arrayData = systemConfig?.ldpSystemConfigPage?.[data?.object?.loadDataResourceKey]?.list ?? [];
+      arrayData = systemConfig?.ldpSystemConfigPage?.dataList?.[data?.object?.loadDataResourceKey]?.array ?? [];
     } else {
       arrayData = data?.object?.array;
     }

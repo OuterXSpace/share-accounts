@@ -60,12 +60,12 @@ export const useLandingPageV1 = (props: IUseLandingPageV1ThemeV1Props) => {
     if (!dataByTheme?.FOOTER_SECTION?.[version]?.object?.hiddenBySlug?.includes(slugKey))
       switch (version) {
         case 'V1':
-          return <LandingPageFooterV1 data={dataByTheme?.FOOTER_SECTION?.[version]} />;
+          return <LandingPageFooterV1 data={dataByTheme?.FOOTER_SECTION?.[version]} propsParent={props} />;
 
         default:
           return <div>Not found footer</div>;
       }
-  }, [dataByTheme?.FOOTER_SECTION, slugKey, version]);
+  }, [dataByTheme?.FOOTER_SECTION, props, slugKey, version]);
 
   return {
     renderSections,

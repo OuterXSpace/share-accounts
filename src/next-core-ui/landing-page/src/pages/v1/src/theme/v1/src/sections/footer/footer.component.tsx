@@ -4,7 +4,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import InlineSVG from 'svg-inline-react';
 
 export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) => {
-  const { data, className } = props;
+  const { data, propsParent } = props;
+
+  const { systemConfig } = propsParent;
 
   return (
     <footer className="pt-8 pb-28">
@@ -21,11 +23,11 @@ export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) 
             </a>
           </div>
           <div className="footer-social-media flex items-center md:justify-end md:col-span-6">
-            {data?.object?.social?.map((item) => {
+            {systemConfig?.ldpSystemConfigPage?.dataList?.social?.array?.map((item) => {
               const { id, link, svgIcon } = item;
               return (
                 <Link key={id} className="mr-8 last:mr-0 w-5 block text-light-navy" href={link}>
-                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon} />}</span>
+                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon?.dark} />}</span>
                 </Link>
               );
             })}
