@@ -3,9 +3,6 @@ name: Deploy to Azure
 on:
   workflow_call:
     inputs:
-      DEPLOYMENT_NAME:
-        required: true
-        type: string
       IMAGE:
         required: true
         type: string
@@ -24,19 +21,30 @@ on:
       DOT_ENV_FILE_NAME:
         required: true
         type: string
+    secrets:
+      DOCKER_HUB_USERNAME:
+        required: true
+      PASSWORD_DOCKER_HUB:
+        required: true
+      SSH_PRIVATE_KEY:
+        required: true
+      SERVER_IP:
+        required: true
+      SERVER_USER:
+        required: true
 env:
-  DEPLOYMENT_NAME: ${{ inputs.DEPLOYMENT_NAME }}
   IMAGE: ${{ inputs.IMAGE }}
   PERSONAL_TOTO_CDN: ${{ inputs.PERSONAL_TOTO_CDN }}
   COMMON_TOTO_CDN: ${{ inputs.COMMON_TOTO_CDN }}
   PUBLIC_CDN: ${{ inputs.PUBLIC_CDN }}
   INGRESS_IP: ${{ inputs.INGRESS_IP }}
   DOT_ENV_FILE_NAME: ${{ inputs.DOT_ENV_FILE_NAME }}
-  EMAIL_DOCKER_HUB: lgold141@gmail.com 
-  PASSWORD_DOCKER_HUB: BWKk9q9B@Cm7!$M
-  DOCKER_HUB_USERNAME: warjamma
-  SERVER_USER: "g16521524"
-  SERVER_IP: "34.67.90.123"
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+  PASSWORD_DOCKER_HUB: ${{ secrets.PASSWORD_DOCKER_HUB }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  SERVER_IP: ${{ secrets.SERVER_IP }}
+  SERVER_USER: ${{ secrets.SERVER_USER }}
+  GITHUB_SHA: ${{ github.sha }}
 
 jobs:
   setup-build-publish-deploy:
@@ -73,24 +81,24 @@ jobs:
         run: docker build -t $IMAGE .
 
       - name: Log in to Docker Hub
-        run: docker login -u" $EMAIL_DOCKER_HUB" -p "$PASSWORD_DOCKER_HUB"   
+        run: docker login -u" $DOCKER_HUB_USERNAME" -p "$PASSWORD_DOCKER_HUB"   
 
       - name: Push Docker image
         run: |
-          docker tag $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
-          docker push $DOCKER_HUB_USERNAME/$IMAGE:latest
+          docker tag $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
+          docker push $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
 
-      # - name: Configure SSH
-      #   run: |
-      #     mkdir -p ~/.ssh
-      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-      #     chmod 600 ~/.ssh/id_rsa
-      #     echo "StrictHostKeyChecking no" >> ~/.ssh/config
-      # - name: Deploy
-      #   run: |
-      #     ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
-      #       sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:latest
-      #       sudo docker stop $IMAGE || true
-      #       sudo docker rm $IMAGE || true
-      #       sudo docker run -d -p 5000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:latest
-      #     "
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      - name: Deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
+            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
+            sudo docker stop $IMAGE || true
+            sudo docker rm $IMAGE || true
+            sudo docker run -d -p 5000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
+          "

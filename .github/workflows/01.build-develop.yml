@@ -6,13 +6,13 @@ on:
         description: 'Confirm Deployment'
         required: true
 env:
-  DEPLOYMENT_NAME: share-account
-  IMAGE: share-account
-  INGRESS_IP: 34.67.90.123:3000
-  PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/share-account/'
+  DEPLOYMENT_NAME: cybertech
+  IMAGE: cybertech
+  INGRESS_IP: 34.67.90.123
+  PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/cybertech/'
   COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
   PUBLIC_CDN: 'https://azureapis.blob.core.windows.net/public/'
-  DOT_ENV_FILE_NAME: .env.develop
+  DOT_ENV_FILE_NAME: .env.cybertech
 jobs:
   variables:
     name: setup variable
@@ -28,9 +28,9 @@ jobs:
     steps:
       - name: Echo
         run: echo prepare variable
-  share-account:
+  cybertech:
     needs: variables
-    name: deploy share-account
+    name: deploy cybertech
     uses: ./.github/workflows/00.gke-deployment.yml
     with:
       DEPLOYMENT_NAME: ${{ needs.variables.outputs.DEPLOYMENT_NAME }}
@@ -40,3 +40,9 @@ jobs:
       COMMON_TOTO_CDN: ${{ needs.variables.outputs.COMMON_TOTO_CDN }}
       PUBLIC_CDN: ${{ needs.variables.outputs.PUBLIC_CDN }}
       DOT_ENV_FILE_NAME: ${{ needs.variables.outputs.DOT_ENV_FILE_NAME }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      PASSWORD_DOCKER_HUB: ${{ secrets.PASSWORD_DOCKER_HUB }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SERVER_IP: ${{ secrets.SERVER_IP }}
+      SERVER_USER: ${{ secrets.SERVER_USER }}
