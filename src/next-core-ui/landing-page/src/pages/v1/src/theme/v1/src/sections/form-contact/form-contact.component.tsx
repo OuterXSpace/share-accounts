@@ -82,9 +82,7 @@ export const FormContactSection: React.FC<IFormContactSectionProps> = (props) =>
                 <div className="form-field-container  country  ">
                   <p className="form-field  country pd-select required  ">
                     <select name="166592_294517pi_166592_294517" id="166592_294517pi_166592_294517" className="select">
-                      <option value="" selected="selected">
-                        Country *
-                      </option>
+                      <option value="">Country *</option>
                       <option value={3214237}>United States</option>
                       <option value={3214240}>Canada</option>
                       <option value={3214243}>Afghanistan</option>

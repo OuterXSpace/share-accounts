@@ -44,5 +44,5 @@ export const DetailSection: React.FC<IDetailSectionProps> = (props) => {
     });
   }, [childItem, data, router?.query?.id, systemConfig, slugKey]);
 
-  return renderSections;
+  return <div className="detail">{renderSections}</div>;
 };
