@@ -31,7 +31,7 @@ export const DeepVideoBanner: React.FC<DeepVideoBannerProps> = (props) => {
           <h3 className="md:mt-[52px] mt-4 type-paragraph lg:text-2xl lg:leading-8 w-full">
             {data?.object?.description}
           </h3>
-          <a href={data?.object?.button?.link} className="relative mt-12 type-button-outline type-button-large">
+          <a href={data?.object?.button?.link ?? ''} className="relative mt-12 type-button-outline type-button-large">
             {data?.object?.button?.label}
           </a>
         </div>

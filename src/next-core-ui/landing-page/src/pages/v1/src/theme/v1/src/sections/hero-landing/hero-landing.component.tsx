@@ -23,7 +23,7 @@ export const HeroLandingSection: React.FC<IHeroLandingSectionProps> = (props) =>
               <div className="flex justify-center md:justify-end mt-4 md:absolute md:bottom-7 lg:bottom-10 md:right-4 lg:right-8">
                 <div className="cmpt__cta">
                   <div className="display-flex">
-                    <a className="cta" target="" href={data?.object?.button?.link}>
+                    <a className="cta" target="" href={data?.object?.button?.link ?? ''}>
                       {data?.object?.button?.label}
                     </a>
                   </div>

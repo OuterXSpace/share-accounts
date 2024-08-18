@@ -24,10 +24,10 @@ export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) 
           </div>
           <div className="footer-social-media flex items-center md:justify-end md:col-span-6">
             {systemConfig?.ldpSystemConfigPage?.dataList?.social?.array?.map((item) => {
-              const { id, link, svgIcon } = item;
+              const { id, link = '', svgIcon = '' } = item;
               return (
-                <Link key={id} className="mr-8 last:mr-0 w-5 block text-light-navy" href={link}>
-                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon?.dark} />}</span>
+                <Link key={id} className="mr-8 last:mr-0 w-5 block text-light-navy" href={link ?? ''}>
+                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon} />}</span>
                 </Link>
               );
             })}
@@ -39,11 +39,11 @@ export const LandingPageFooterV1: React.FC<ILandingPageFooterV1Props> = (props) 
           </div>
           <nav className="w-full grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-10 lg:grid-flow-col lg:auto-cols-max lg:order-2 lg:w-auto">
             {data?.object?.static?.map((item) => {
-              const { id, label, link } = item;
+              const { id, label = '', link = '' } = item;
               return (
                 <Link
                   key={id}
-                  href={link}
+                  href={link ?? ''}
                   className=" type-paragraph-sm font-medium text-wm-black col-span-1 hover-underline"
                 >
                   {label}

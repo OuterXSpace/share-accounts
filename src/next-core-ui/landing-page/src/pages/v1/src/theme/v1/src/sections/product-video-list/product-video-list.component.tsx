@@ -48,7 +48,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
           <div className="col-12">
             <div className="row justify-center ">
               {dataFilter?.data?.map((item) => {
-                const { id, video, title, link, image } = item;
+                const { id, video, title, link = '', image } = item;
                 return (
                   <Fragment key={id}>
                     {dataFilter?.type === 'SHORTS' && (
@@ -69,7 +69,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         </div>
                         <div className="content pb-[30px] min-w-full">
                           <a
-                            href={link}
+                            href={link ?? ''}
                             className="leading-1 text-15 font-medium fill-[#ffffffbf] text-[#ffffffbf] bg-[#02010100] border-[none] p-0"
                           >
                             <span className="elementor-button-text">{title}</span>
@@ -95,7 +95,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         </div>
                         <div className="content pb-[30px] min-w-full">
                           <a
-                            href={link}
+                            href={link ?? ''}
                             className="leading-1 text-15 font-medium fill-[#ffffffbf] text-[#ffffffbf] bg-[#02010100] border-[none] p-0"
                           >
                             <span className="elementor-button-text">{title}</span>
@@ -114,7 +114,7 @@ export const ProductVideoList: React.FC<ProductVideoListProps> = (props) => {
                         </div>
                         <div className="content pb-[30px] min-w-full">
                           <a
-                            href={link}
+                            href={link ?? ''}
                             className="leading-1 text-15 font-medium fill-[#ffffffbf] text-[#ffffffbf] bg-[#02010100] border-[none] p-0"
                           >
                             <span className="elementor-button-text">{title}</span>

@@ -257,7 +257,7 @@ export const NewCartTextAndImage4: React.FC<any> = (props) => {
         extensions={{ AutoScroll }}
       >
         {dataSlide?.map((item) => {
-          const { id, link, imgUrl } = item;
+          const { id, link = '', imgUrl } = item;
 
           if (isDevice?.isMobile) {
             return (
@@ -307,7 +307,7 @@ export const NewCartTextAndImage4: React.FC<any> = (props) => {
           return (
             <SplideSlide key={id}>
               <div className="splide__slide h-15" style={{ marginRight: '4rem', width: '9.5rem' }}>
-                <Link target="" href={link}>
+                <Link target="" href={link ?? ''}>
                   <span className="w-full opacity-40 hover:opacity-100 transition-opacity duration-300">
                     <img src={imgUrl} alt="id" className="w-38 h-15 object-contain" />
                   </span>

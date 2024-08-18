@@ -11,7 +11,7 @@ export const PreFooterSection: React.FC<IPreFooterSectionProps> = (props) => {
         <strong />
       </h3>
       <div className="cta-wrapper">
-        <Link className="cta" href={data?.object?.button?.link}>
+        <Link className="cta" href={data?.object?.button?.link ?? ''}>
           {data?.object?.button?.label}
         </Link>
       </div>

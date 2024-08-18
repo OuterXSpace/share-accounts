@@ -28,11 +28,11 @@ export const AnnouncementComponent: React.FC<AnnouncementProp> = (props) => {
         effect="fade"
       >
         {wuiWelcomePopup?.map((item) => {
-          const { imageUrl, id, link } = item;
+          const { imageUrl = '', id, link = '' } = item;
           return (
             <SwiperSlide key={id} className="cursor-pointer w-full h-full flex items-center bg-cover">
               <div className="toto-announcement-welcome__swiper-slide flex justify-center items-center h-auto">
-                <Link href={link} className="toto-popup-link  ">
+                <Link href={link ?? ''} className="toto-popup-link  ">
                   <LazyLoadImage
                     className="w-full h-full object-contain object-center"
                     alt=""

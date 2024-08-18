@@ -28,12 +28,12 @@ export const RelatedSection: React.FC<IRelatedSectionProps> = (props) => {
         <div className="related-stories">
           <div className="grid-x grid-margin-x align-center">
             {relatedData?.map((related) => {
-              const { id, link, title, imgUrl, information } = related;
+              const { id, link = '', title, imgUrl, information } = related;
 
               return (
                 <div key={id} className="cell medium-4 related-stories-cell">
                   <div className="related-story background-athens-gray ">
-                    <Link href={link} target="">
+                    <Link href={link ?? ''} target="">
                       <div className="story-image">
                         <img src={imgUrl} alt={title} />
                       </div>

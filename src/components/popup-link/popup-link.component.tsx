@@ -73,7 +73,7 @@ export const PopupLink: React.FC<IPopupLinkProps> = (props) => {
 
   return (
     <Link
-      href={link}
+      href={link ?? ''}
       // href={popupLink}
       // onClick={handleOpenLink}
       className={`toto-popup-link ${className} ${

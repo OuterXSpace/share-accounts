@@ -24,10 +24,10 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
                 <nav className="header-nav-top">
                   <ul className="flex-container flex-dir-row align-right align-middle">
                     {data?.object?.desktop?.menuHeader?.map((item) => {
-                      const { id, label, link } = item;
+                      const { id = '', label = '', link = '' } = item;
 
                       return (
-                        <Link key={id} href={link} className="font-normal">
+                        <Link key={id} href={link ?? ''} className="font-normal">
                           {label}
                         </Link>
                       );
@@ -54,7 +54,7 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
               {isHeaderFixed ? (
                 <div className="title-bar-right flex-container align-middle">
                   <div className="header-nav-cta">
-                    <Link className="cta cta-type" href={data?.object?.desktop?.button?.link}>
+                    <Link className="cta cta-type" href={data?.object?.desktop?.button?.link ?? ''}>
                       {data?.object?.desktop?.button?.label}
                     </Link>
                   </div>
@@ -66,11 +66,11 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
                 <nav className="header-nav-main-wrapper show-for-xlarge">
                   <ul className="header-nav-main flex-container align-right align-bottom">
                     {data?.object?.desktop?.array?.map((item) => {
-                      const { id, label, link } = item;
+                      const { id, label = '', link = '' } = item;
 
                       return (
                         <li key={id}>
-                          <Link className="what-we-do" href={link}>
+                          <Link className="what-we-do" href={link ?? ''}>
                             {label}
                           </Link>
                           <div className="header-nav-main-dropdown flex-container text-left background-black-pearl ">
@@ -223,6 +223,7 @@ export const LandingPageMenuDesktopV1: React.FC<ILandingPageMenuDesktopV1Props> 
         closeToggle={() => setIsToggleMenu(false)}
       />
       <div
+        onClick={() => setIsToggleMenu(false)}
         className={`${
           isToggleMenu
             ? 'js-off-canvas-overlay is-overlay-fixed is-visible is-closable'
@@ -347,12 +348,12 @@ export const ToggleMenu: React.FC<any> = (props) => {
         </div>
         <ul className="nav-secondary menu vertical flex-child-grow">
           {data?.object?.desktop?.menuHeader?.map((item) => {
-            const { id, label, link } = item;
+            const { id, label, link = '' } = item;
 
             return (
               <li key={id}>
-                <Link href={link} className="">
-                  {label}1
+                <Link href={link ?? ''} className="">
+                  {label}
                 </Link>
               </li>
             );
@@ -360,12 +361,12 @@ export const ToggleMenu: React.FC<any> = (props) => {
         </ul>
         <ul className="nav-social menu">
           {systemConfig?.ldpSystemConfigPage?.dataList?.social?.array?.map((item) => {
-            const { id, link, svgIcon, title } = item;
+            const { id, link = '', svgIcon = '', title } = item;
             return (
               <li key={id}>
-                <Link key={id} href={link}>
+                <Link key={id} href={link ?? ''}>
                   <span className="text">{title}</span>
-                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon?.light} />}</span>
+                  <span className="icon">{svgIcon && <InlineSVG src={svgIcon} />}</span>
                 </Link>
               </li>
             );
