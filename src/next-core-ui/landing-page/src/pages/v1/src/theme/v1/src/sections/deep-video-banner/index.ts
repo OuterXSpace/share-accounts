@@ -1,1 +1,1 @@
-export * from './deep-video-banner.component';
+export * from './deep-video-banner.section';

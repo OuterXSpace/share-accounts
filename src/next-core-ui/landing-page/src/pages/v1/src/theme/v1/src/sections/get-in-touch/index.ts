@@ -1,1 +1,1 @@
-export * from './get-in-touch.component';
+export * from './get-in-touch.section';

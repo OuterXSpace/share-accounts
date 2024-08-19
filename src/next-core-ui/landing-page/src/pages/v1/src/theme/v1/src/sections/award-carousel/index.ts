@@ -1,1 +1,1 @@
-export * from './award-carousel.component';
+export * from './award-carousel.section';

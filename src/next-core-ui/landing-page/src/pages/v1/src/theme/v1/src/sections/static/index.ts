@@ -1,2 +1,2 @@
-export * from './static.page';
+export * from './static.section';
 export * from './static.type';

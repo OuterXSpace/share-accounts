@@ -1,2 +1,2 @@
-export * from './login.page';
+export * from './login.section';
 export * from './login.type';

@@ -1,1 +1,1 @@
-export * from './hero-landing.component';
+export * from './hero-landing.section';

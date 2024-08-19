@@ -1,1 +1,1 @@
-export * from './alone-video.component';
+export * from './alone-video.section';

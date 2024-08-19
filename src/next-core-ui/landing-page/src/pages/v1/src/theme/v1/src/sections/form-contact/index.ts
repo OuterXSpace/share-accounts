@@ -1,1 +1,1 @@
-export * from './form-contact.component';
+export * from './form-contact.section';

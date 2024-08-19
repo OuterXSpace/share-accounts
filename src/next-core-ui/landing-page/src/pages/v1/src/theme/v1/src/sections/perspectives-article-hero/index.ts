@@ -1,1 +1,1 @@
-export * from './perspectives-article-hero.component';
+export * from './perspectives-article-hero.section';

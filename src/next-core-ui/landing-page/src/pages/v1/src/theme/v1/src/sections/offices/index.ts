@@ -1,1 +1,1 @@
-export * from './offices.component';
+export * from './offices.section';
