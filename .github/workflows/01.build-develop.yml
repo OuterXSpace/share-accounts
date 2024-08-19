@@ -7,7 +7,8 @@ on:
         required: true
 env:
   DEPLOYMENT_NAME: cybertech
-  IMAGE: cybertech
+  IMAGE_FE: cybertech_fe
+  IMAGE_NGINX: cybertech_nginx
   INGRESS_IP: 34.67.90.123
   PERSONAL_TOTO_CDN: 'https://azureapis.blob.core.windows.net/cybertech/'
   COMMON_TOTO_CDN: 'https://azureapis.blob.core.windows.net/common/'
@@ -19,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       DEPLOYMENT_NAME: ${{ env.DEPLOYMENT_NAME }}
-      IMAGE: ${{ env.IMAGE }}
+      IMAGE_FE: ${{ env.IMAGE_FE }}
+      IMAGE_NGINX: ${{ env.IMAGE_NGINX }}
       INGRESS_IP: ${{ env.INGRESS_IP }}
       PERSONAL_TOTO_CDN: ${{ env.PERSONAL_TOTO_CDN }}
       COMMON_TOTO_CDN: ${{ env.COMMON_TOTO_CDN }}
@@ -34,7 +36,8 @@ jobs:
     uses: ./.github/workflows/00.gke-deployment.yml
     with:
       DEPLOYMENT_NAME: ${{ needs.variables.outputs.DEPLOYMENT_NAME }}
-      IMAGE: ${{ needs.variables.outputs.IMAGE }}
+      IMAGE_FE: ${{ needs.variables.outputs.IMAGE_FE }}
+      IMAGE_NGINX: ${{ needs.variables.outputs.IMAGE_NGINX }}
       INGRESS_IP: ${{ needs.variables.outputs.INGRESS_IP }}
       PERSONAL_TOTO_CDN: ${{ needs.variables.outputs.PERSONAL_TOTO_CDN }}
       COMMON_TOTO_CDN: ${{ needs.variables.outputs.COMMON_TOTO_CDN }}

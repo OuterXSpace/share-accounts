@@ -1,5 +1,9 @@
 
 echo "
+upstream nextjs_upstream {
+  server fe-nextjs:3000;
+}
+
 server { 
   listen 80;
 
@@ -44,6 +48,14 @@ server {
 
   location /cdn/ {
     proxy_pass $2;
+  }
+
+  location ~ ^/(api|account|payment|report|common)/ {
+    proxy_set_header EL-Real-IP \$http_cf_connecting_ip;
+    proxy_set_header X-Real-IP \$remote_addr;
+    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass http://$1\$request_uri;
   }
 }
 "

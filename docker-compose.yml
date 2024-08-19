@@ -1,0 +1,16 @@
+version: "3.12"
+
+services:
+  fe-nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile-fe
+    image: ${DOCKER_HUB_USERNAME}/${IMAGE_FE}:${GITHUB_SHA}
+    
+  fe-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    image: ${DOCKER_HUB_USERNAME}/${IMAGE_NGINX}:${GITHUB_SHA}
+    ports:
+      - 4000:80

@@ -3,7 +3,10 @@ name: Deploy to Azure
 on:
   workflow_call:
     inputs:
-      IMAGE:
+      IMAGE_FE:
+        required: true
+        type: string
+      IMAGE_NGINX:
         required: true
         type: string
       INGRESS_IP:
@@ -33,7 +36,8 @@ on:
       SERVER_USER:
         required: true
 env:
-  IMAGE: ${{ inputs.IMAGE }}
+  IMAGE_FE: ${{ inputs.IMAGE_FE }}
+  IMAGE_NGINX: ${{ inputs.IMAGE_NGINX }}
   PERSONAL_TOTO_CDN: ${{ inputs.PERSONAL_TOTO_CDN }}
   COMMON_TOTO_CDN: ${{ inputs.COMMON_TOTO_CDN }}
   PUBLIC_CDN: ${{ inputs.PUBLIC_CDN }}
@@ -78,15 +82,13 @@ jobs:
         run: ./deploy/nginx.conf.sh > ./nginx/nginx.conf
 
       - name: Build Docker image
-        run: docker build -t $IMAGE .
+        run: docker-compose build
 
       - name: Log in to Docker Hub
         run: docker login -u" $DOCKER_HUB_USERNAME" -p "$PASSWORD_DOCKER_HUB"   
 
-      - name: Push Docker image
-        run: |
-          docker tag $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
-          docker push $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
+      - name: Deploy with Docker Compose
+        run: docker compose push
 
       - name: Configure SSH
         run: |
@@ -96,9 +98,14 @@ jobs:
           echo "StrictHostKeyChecking no" >> ~/.ssh/config
       - name: Deploy
         run: |
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
-            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
-            sudo docker stop $IMAGE || true
-            sudo docker rm $IMAGE || true
-            sudo docker run -d -p 5000:3000 --name $IMAGE $DOCKER_HUB_USERNAME/$IMAGE:$GITHUB_SHA
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP"
+            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE_FE:$GITHUB_SHA
+            sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE_NGINX:$GITHUB_SHA
+            sudo docker stop $IMAGE_FE || true
+            sudo docker stop $IMAGE_NGINX || true
+            sudo docker rm $IMAGE_FE || true
+            sudo docker rm $IMAGE_NGINX || true
+            sudo docker run -d --name $IMAGE_FE $DOCKER_HUB_USERNAME/$IMAGE_FE:$GITHUB_SHA
+            sudo docker run -d -p 4000:80 --name $IMAGE_NGINX $DOCKER_HUB_USERNAME/$IMAGE_NGINX:$GITHUB_SHA
+            sudo docker image prune -f
           "
