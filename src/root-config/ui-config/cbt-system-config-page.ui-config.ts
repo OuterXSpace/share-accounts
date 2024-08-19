@@ -170,13 +170,499 @@ export const cbtSystemConfigPageApi: IRootSystemConfig = {
                 { id: 'CONTACT', label: 'Contact', link: '/contact' },
               ],
               array: [
-                { id: 'SERVICES', label: 'What We Do', link: '/services' },
-                { id: 'INDUSTRIES', label: 'Industries', link: '/industries' },
-                { id: 'CLIENT_STORIES', label: 'Client Stories', link: '/client-stories' },
-                { id: 'PERSPECTIVES', label: 'Perspectives', link: '/perspectives' },
-                { id: 'ABOUT', label: 'About', link: '/about-us' },
-                { id: 'CONTACT', label: 'Contact', link: '/contact' },
-                { id: 'CAREERS', label: 'Careers', link: '/careers' },
+                {
+                  id: 'SERVICES',
+                  label: 'What We Do',
+                  description: 'Strategic Visioning',
+                  link: '/services',
+                  subMenu: {
+                    column: 3,
+                    itemPerColumn: [2, 2, 3],
+                    array: [
+                      {
+                        id: '1',
+                        label: 'Strategic Visioning',
+                        menuItem: {
+                          label: 'Customer Engagement',
+                          link: '/services/customer-engagement',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Customer Journey Analytics',
+                              link: '/offerings/customer-analytics-data',
+                            },
+                            {
+                              id: '2',
+                              label: 'Human-Centered Design',
+                              link: '/services/customer-engagement/human-centered-design',
+                            },
+                            {
+                              id: '3',
+                              label: 'Marketing &amp; Sales',
+                              link: '/services/customer-engagement/marketing-sales',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '2',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Mergers &amp; Acquisitions',
+                          link: '/services/mergers-acquisitions',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Carveouts &amp; Divestitures',
+                              link: '/offerings/carveouts-divestitures',
+                            },
+                            {
+                              id: '2',
+                              label: 'Portfolio Value Creation',
+                              link: '/offerings/portfolio-value-creation-private-equity',
+                            },
+                            {
+                              id: '3',
+                              label: 'Post-Merger Integration',
+                              link: '/offerings/post-merger-integration',
+                            },
+                            {
+                              id: '4',
+                              label: 'Transaction Advisory',
+                              link: '/offerings/transaction-advisory',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '3',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Data &amp; Technology',
+                          link: '/services/data-and-technology',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Cloud',
+                              link: '/services/data-and-technology/cloud',
+                            },
+                            {
+                              id: '2',
+                              label: 'Cybersecurity',
+                              link: '/services/data-and-technology/cybersecurity',
+                            },
+                            {
+                              id: '3',
+                              label: 'Data Analytics &amp; AI',
+                              link: '/services/data-and-technology/data-analytics-artificial-intelligence',
+                            },
+                            {
+                              id: '4',
+                              label: 'IT Strategy &amp; Architecture ',
+                              link: '/services/data-and-technology/it-strategy-consulting',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '4',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Organization &amp; People',
+                          link: '/services/people',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'HR Advisory',
+                              link: '/services/people/hr-advisory',
+                            },
+                            {
+                              id: '2',
+                              label: ' Organizational Change Management',
+                              link: '/services/people/organizational-change-management',
+                            },
+                            {
+                              id: '3',
+                              label: 'Organizational Design',
+                              link: '/services/people/organizational-design',
+                            },
+                            {
+                              id: '4',
+                              label: 'Talent Strategy &amp; Analytics',
+                              link: '/services/people/talent-strategy-analytics',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '5',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Business Operations',
+                          link: '/services/business-operations',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Automation &amp; Productivity',
+                              link: '/services/business-operations/automation-productivity',
+                            },
+                            {
+                              id: '2',
+                              label: ' Cost Reduction',
+                              link: '/services/business-operations/cost-reduction',
+                            },
+                            {
+                              id: '3',
+                              label: 'Operations',
+                              link: '/services/business-operations/operations',
+                            },
+                            {
+                              id: '4',
+                              label: 'Outsourcing Advisory',
+                              link: '/services/business-operations/outsourcing-advisory',
+                            },
+                            {
+                              id: '4',
+                              label: 'Supply Chain',
+                              link: '/services/business-operations/supply-chain',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '6',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Products &amp; Experiences',
+                          link: '/services/products-experiences',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Digital Products',
+                              link: '/services/products-experiences/digital-products',
+                            },
+                            {
+                              id: '2',
+                              label: ' Systems &amp; Platforms',
+                              link: '/services/products-experiences/systems-platforms',
+                            },
+                            {
+                              id: '3',
+                              label: 'High-Performing Product Organization',
+                              link: '/services/products-experiences/high-performing-product-organization',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+                {
+                  id: 'INDUSTRIES',
+                  label: 'Industries',
+                  link: '/industries',
+                  subMenu: {
+                    column: 3,
+                    itemPerColumn: [2, 2, 3],
+                    array: [
+                      {
+                        id: '1',
+                        label: 'Consumer &amp; Industrial Products',
+                        link: '/industries/consumer-industrial-products',
+                        menuItem: {
+                          label: 'Energy &amp; Utilities',
+                          link: '/industries/energy-utilities',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Utility of the Future',
+                              link: '/industries/energy-utilities/digital-utility-of-the-future',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '2',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Financial Services',
+                          link: '/industries/financial-services',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Banking &amp; Credit Unions',
+                              link: '/industries/financial-services/banking-credit-unions',
+                            },
+                            {
+                              id: '2',
+                              label: 'Agricultural Lending &amp; Farm Credit',
+                              link: '/industries/financial-services/agricultural-lending-farm-credit',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '3',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'Healthcare &amp; Life Sciences',
+                          link: '/industries/healthcare-life-sciences',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Dental &amp; Ancillary',
+                              link: '/industries/healthcare-life-sciences/dental-ancillary',
+                            },
+                            {
+                              id: '2',
+                              label: 'Health Plans',
+                              link: '/industries/healthcare-life-sciences/health-plans',
+                            },
+                            {
+                              id: '3',
+                              label: 'Healthcare Providers',
+                              link: '/industries/healthcare-life-sciences/healthcare-providers',
+                            },
+                            {
+                              id: '4',
+                              label: 'Life Sciences',
+                              link: '/industries/healthcare-life-sciences/life-sciences',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '4',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'High-Tech &amp; Software',
+                          link: '/industries/software-high-tech',
+                        },
+                      },
+                      {
+                        id: '5',
+                        label: 'Insurance',
+                        link: '/industries/insurance',
+                      },
+                      {
+                        id: '6',
+                        label: 'Private Equity',
+                        link: '/industries/private-equity',
+                      },
+                      {
+                        id: '7',
+                        label: 'Retail',
+                        link: '/industries/retail',
+                      },
+                      {
+                        id: '8',
+                        label: 'Industry Overview',
+                        link: '/industries',
+                      },
+                    ],
+                  },
+                },
+                {
+                  id: 'CLIENT_STORIES',
+                  label: 'Client Stories',
+                  link: '/client-stories',
+                },
+                {
+                  id: 'PERSPECTIVES',
+                  label: 'Perspectives',
+                  link: '/perspectives',
+                  subMenu: {
+                    column: 2,
+                    itemPerColumn: [1, 1],
+                    array: [
+                      {
+                        id: '1',
+                        label: 'Perspectives Home',
+                        link: '/perspectives',
+                        subMenu: [
+                          {
+                            id: '1',
+                            label: 'Subscribe',
+                            link: '/newsletter-signup',
+                          },
+                        ],
+                        menuItem: {
+                          label: 'Trending Topics',
+                          link: '',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: 'Generative AI',
+                              link: '/perspectives/generative-ai',
+                            },
+                            {
+                              id: '2',
+                              label: 'Digital',
+                              link: '/perspectives/dont-do-digital-be-digital',
+                            },
+                            {
+                              id: '3',
+                              label: 'Recession',
+                              link: '/perspectives/recession-preparedness',
+                            },
+                            {
+                              id: '4',
+                              label: 'Cybersecurity',
+                              link: '/perspectives/cybersecurity',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        id: '2',
+                        label: 'The Conduit: A Product &amp; Tech Blog',
+                        link: '/perspectives/the-conduit-blog',
+                        menuItem: {
+                          label: 'Featured',
+                          link: '',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: '2024 Tech Trends',
+                              link: '/perspectives/report/tech-trends',
+                            },
+                            {
+                              id: '2',
+                              label: '2024 Industry Outlooks',
+                              link: '/perspectives/report/industry-outlook',
+                            },
+                            {
+                              id: '3',
+                              label: 'This is AI Podcast Miniseries ',
+                              link: '/perspectives/podcast/this-is-ai',
+                            },
+                            {
+                              id: '4',
+                              label: 'This is Digital Podcast',
+                              link: '/perspectives/podcast/this-is-digital',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+                {
+                  id: 'ABOUT',
+                  label: 'About',
+                  link: '/about-us',
+                  subMenu: {
+                    column: 1,
+                    itemPerColumn: [10],
+                    array: [
+                      {
+                        id: '1',
+                        label: 'About Us',
+                        link: '/about',
+                      },
+                      {
+                        id: '2',
+                        label: 'How We Work',
+                        link: '/how-we-work',
+                      },
+                      {
+                        id: '3',
+                        label: 'Intellio®',
+                        link: '/intellio',
+                      },
+                      {
+                        id: '4',
+                        label: 'Our Team',
+                        link: '/our-team',
+                      },
+                      {
+                        id: '5',
+                        label: 'Partnerships',
+                        link: '/partners',
+                      },
+                      {
+                        id: '6',
+                        label: '',
+                        link: '',
+                        menuItem: {
+                          label: 'What We Value',
+                          link: '/values',
+                          subMenu: [
+                            {
+                              id: '1',
+                              label: '/values/inclusion-diversity',
+                              link: '/industries/healthcare-life-sciences/dental-ancillary',
+                            },
+                            {
+                              id: '2',
+                              label: 'Corporate Social Responsibility',
+                              link: '/values/corporate-social-responsibility',
+                            },
+                            {
+                              id: '3',
+                              label: 'Annual Impact Report',
+                              link: '/values/impact-report',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+                {
+                  id: 'CAREERS',
+                  label: 'Careers',
+                  link: '/careers',
+                  subMenu: {
+                    column: 2,
+                    itemPerColumn: [5, 2],
+                    array: [
+                      {
+                        id: '1',
+                        label: 'Careers Home',
+                        link: '/careers',
+                      },
+                      {
+                        id: '2',
+                        label: 'Search Jobs',
+                        link: '/careers/job-search',
+                      },
+                      {
+                        id: '3',
+                        label: 'Rewards &amp; Benefits',
+                        link: '/careers/benefits',
+                      },
+                      {
+                        id: '4',
+                        label: 'Life at West Monroe',
+                        link: '/careers/life-at-west-monroe',
+                      },
+                      {
+                        id: '5',
+                        label: 'Career Resources',
+                        link: '/careers/resources',
+                      },
+                      {
+                        id: '6',
+                        label: 'Early Careers',
+                        link: '/careers/students',
+                      },
+                      {
+                        id: '7',
+                        label: 'Experienced Professionals',
+                        link: '/careers/experienced-professionals',
+                      },
+                    ],
+                  },
+                },
               ],
             },
             mobile: {
