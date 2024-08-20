@@ -35,6 +35,8 @@ on:
         required: true
       SERVER_USER:
         required: true
+      PORT:
+        required: true
 env:
   IMAGE_FE: ${{ inputs.IMAGE_FE }}
   IMAGE_NGINX: ${{ inputs.IMAGE_NGINX }}
@@ -48,6 +50,7 @@ env:
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   SERVER_IP: ${{ secrets.SERVER_IP }}
   SERVER_USER: ${{ secrets.SERVER_USER }}
+  PORT: ${{ secrets.PORT }}
   GITHUB_SHA: ${{ github.sha }}
 
 jobs:
@@ -98,7 +101,7 @@ jobs:
           echo "StrictHostKeyChecking no" >> ~/.ssh/config
       - name: Deploy
         run: |
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP"
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP << 'EOF'
             sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE_FE:$GITHUB_SHA
             sudo docker pull $DOCKER_HUB_USERNAME/$IMAGE_NGINX:$GITHUB_SHA
             sudo docker stop $IMAGE_FE || true
@@ -106,6 +109,6 @@ jobs:
             sudo docker rm $IMAGE_FE || true
             sudo docker rm $IMAGE_NGINX || true
             sudo docker run -d --name $IMAGE_FE $DOCKER_HUB_USERNAME/$IMAGE_FE:$GITHUB_SHA
-            sudo docker run -d -p 4000:80 --name $IMAGE_NGINX $DOCKER_HUB_USERNAME/$IMAGE_NGINX:$GITHUB_SHA
-            sudo docker image prune -f
-          "
+            sudo docker run -d -p $PORT:80 --name $IMAGE_NGINX $DOCKER_HUB_USERNAME/$IMAGE_NGINX:$GITHUB_SHA
+            # sudo docker image prune -f
+          EOF
